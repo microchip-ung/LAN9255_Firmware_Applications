@@ -180,6 +180,7 @@ static GMAC_RX_FILTERS _DRV_GMAC_MacToEthFilter(TCPIP_MAC_RX_FILTER_TYPE macFilt
     DRV_GMAC_EventMaskSet,
     DRV_GMAC_EventAcknowledge,
     DRV_GMAC_EventPendingGet,
+    DRV_GMAC_SetMacAddr,
 };
 
 // the embedded PIC32 MAC descriptor
@@ -1072,6 +1073,32 @@ TCPIP_MAC_RES DRV_GMAC_RxFilterHashTableEntrySet(DRV_HANDLE hMac, const TCPIP_MA
     return TCPIP_MAC_RES_OK;
 }
 
+/******************************************************************************
+ * Function:        TCPIP_MAC_RES DRV_GMAC_SetMacAddr(DRV_HANDLE hMac, TCPIP_MAC_ADDR* MACAddr)
+ *
+ * PreCondition:    DRV_GMAC_Initialize() should have been called.
+ *
+ * Input:           MACAddr: 6 byte group GMAC MAC address to allow
+ *                  through the Hash Table Filter.
+ *
+ * Output:          Sets the appropriate bit in the GMAC_SAB/GMAC_SAT registers
+ *                  to Receive packets with Destination Mac address.
+ *
+ *                  Returns TCPIP_MAC_RES_OK if success,
+ *                  an error code otherwise
+ *
+ * Side Effects:    None
+ *
+ *
+ * Note:            None
+ *****************************************************************************/
+TCPIP_MAC_RES DRV_GMAC_SetMacAddr(DRV_HANDLE hMac, const TCPIP_MAC_ADDR* MACAddr)
+{
+
+    DRV_PIC32CGMAC_LibSetMacAddr((const uint8_t *)(MACAddr->v));
+
+    return TCPIP_MAC_RES_OK;
+}
 bool DRV_GMAC_PowerMode(DRV_HANDLE hMac, TCPIP_MAC_POWER_MODE pwrMode) 
 {   // not supported
     return true;

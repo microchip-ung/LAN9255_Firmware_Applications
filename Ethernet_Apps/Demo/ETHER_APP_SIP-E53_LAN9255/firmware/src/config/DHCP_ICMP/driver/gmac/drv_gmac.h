@@ -521,6 +521,27 @@ bool DRV_GMAC_PowerMode( DRV_HANDLE hMac, TCPIP_MAC_POWER_MODE pwrMode );
   *********************************************************************************************************************/
 TCPIP_MAC_RES DRV_GMAC_RxFilterHashTableEntrySet(DRV_HANDLE hMac, const TCPIP_MAC_ADDR* DestMACAddr);
 
+/******************************************************************************
+ * Function:        TCPIP_MAC_RES DRV_GMAC_SetMacAddr(DRV_HANDLE hMac, TCPIP_MAC_ADDR* MACAddr)
+ *
+ * PreCondition:    DRV_GMAC_Initialize() should have been called.
+ *
+ * Input:           MACAddr: 6 byte group GMAC MAC address to allow
+ *                  through the Hash Table Filter.
+ *
+ * Output:          Sets the appropriate bit in the GMAC_SAB/GMAC_SAT registers
+ *                  to Receive packets with Destination Mac address.
+ *
+ *                  Returns TCPIP_MAC_RES_OK if success,
+ *                  an error code otherwise
+ *
+ * Side Effects:    None
+ *
+ *
+ * Note:            None
+ *****************************************************************************/
+TCPIP_MAC_RES DRV_GMAC_SetMacAddr(DRV_HANDLE hMac, const TCPIP_MAC_ADDR* MACAddr);
+
 /******************************************************************************************************
   Function:
         TCPIP_MAC_RES DRV_GMAC_PacketTx(DRV_HANDLE hMac, TCPIP_MAC_PACKET * ptrPacket);
