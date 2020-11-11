@@ -2730,7 +2730,8 @@ bool TCPIP_STACK_NetAddressMacSet(TCPIP_NET_HANDLE netH, const TCPIP_MAC_ADDR* p
     if(pNetIf)
     {
         memcpy(pNetIf->netMACAddr.v, pAddr->v, sizeof(pNetIf->netMACAddr));
-         TCPIP_MAC_RES res = (*pNetIf->pMacObj->TCPIP_MAC_SetMacAddr)(pNetIf->hIfMac, pAddr);
+        /*Set GMAC Mac address for Packet reception check*/ 
+        TCPIP_MAC_RES res = (*pNetIf->pMacObj->TCPIP_MAC_SetMacAddr)(pNetIf->hIfMac, pAddr);
         if(res == TCPIP_MAC_RES_OK)
         {
             return true;
