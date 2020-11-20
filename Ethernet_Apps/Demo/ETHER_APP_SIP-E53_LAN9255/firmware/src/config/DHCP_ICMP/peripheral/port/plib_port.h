@@ -66,6 +66,24 @@
 // *****************************************************************************
 
   
+/*** Macros for GPIO_PB04 pin ***/
+#define GPIO_PB04_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = 1 << 4)
+#define GPIO_PB04_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = 1 << 4)
+#define GPIO_PB04_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = 1 << 4)
+#define GPIO_PB04_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 4)) & 0x01)
+#define GPIO_PB04_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = 1 << 4)
+#define GPIO_PB04_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = 1 << 4)
+#define GPIO_PB04_PIN                  PORT_PIN_PB04
+
+/*** Macros for GPIO_PB05 pin ***/
+#define GPIO_PB05_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = 1 << 5)
+#define GPIO_PB05_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = 1 << 5)
+#define GPIO_PB05_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = 1 << 5)
+#define GPIO_PB05_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 5)) & 0x01)
+#define GPIO_PB05_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = 1 << 5)
+#define GPIO_PB05_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = 1 << 5)
+#define GPIO_PB05_PIN                  PORT_PIN_PB05
+
 
 
 // *****************************************************************************

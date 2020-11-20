@@ -67,6 +67,9 @@
 #define NVMCTRL_FLASH_PAGESIZE             (512U)
 #define NVMCTRL_FLASH_BLOCKSIZE            (8192U)
 
+#define NVMCTRL_START_ADDRESS              0x80000
+#define NVMCTRL_MEDIA_SIZE                 512
+#define NVMCTRL_ERASE_BUFFER_SIZE          8192
 
 
 /* NVM supports four write modes */

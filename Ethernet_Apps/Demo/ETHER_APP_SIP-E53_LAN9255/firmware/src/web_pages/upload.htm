@@ -1,0 +1,26 @@
+<!--#include file="header.htm" -->
+<div id="content">
+
+<h1>Uploading Files</h1>
+
+<p>In this example the HTTP server calculates the MD5 Hash
+ of the file uploaded by the client.</p>
+
+<form action="upload.htm" method="post" enctype="multipart/form-data">
+<div class="examplebox">
+~uploadedmd5~
+<p style="margin-bottom: 2px"><b>File: </b>&nbsp;
+<input type="file" name="md5file" size="30" /> &nbsp;
+<input type="submit" value="Get MD5" />
+</p>
+</div>
+</form>
+
+</div>
+
+<script type="text/javascript">
+<!--
+document.getElementById('hello').innerHTML = "~hellomsg~";
+-->
+</script>
+<!--#include file="footer.htm" -->

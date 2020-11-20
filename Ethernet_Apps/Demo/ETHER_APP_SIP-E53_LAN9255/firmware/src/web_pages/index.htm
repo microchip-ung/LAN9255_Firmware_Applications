@@ -1,0 +1,84 @@
+<!--#include file="header.htm" -->
+<div id="content">
+
+<div id="status">
+	<div id="loading" style="display:none">Error:<br />Connection to demo board was lost.</div>
+	<div id="display">
+	<!--<span style="float:right;font-size:9px;font-weight:normal;padding-top:8px;text-indent:0px">(click to toggle)</span>-->
+		<p>LED:<br /><span class="leds">
+		<!-- this is commented out temporarily -->
+	<!--<a id="led2" onclick="newAJAXCommand('leds.cgi?led=2');">&bull;</a>-->
+		<a id="led0" onclick="newAJAXCommand('leds.cgi?led=0');">&bull;</a>
+	<!--<a id="led0">&bull;</a>-->
+		</span></p>
+		<p>Buttons:<br />
+		<span id="btn0">?</span> &nbsp;
+	</div>
+</div>
+
+<h1>Welcome!</h1>
+
+<table style="padding-left: 10px;">
+<tr><td><b>Stack Version:</b></td><td>&nbsp;</td><td>~version~</td></tr>
+<tr><td><b>Build Date:</b></td><td>&nbsp;</td><td>~builddate~</td></tr>
+</table>
+
+<p>On the right you'll see the current status of the demo board.  For a quick
+example, click the GPIO out to toggle the GPIO pin on the board.  Change the 
+input of GPIO Pins, you'll see the status update immediately.
+This examples uses AJAX techniques to provide real-time feedback.</p>
+
+<p>This site is provided as a tutorial for the various features of the HTTP
+web server, including:</p>
+
+<ul>
+<li><b>Dynamic Variable Substitution</b> - display real-time data</li>
+<li><b>Network configuration</b> - require a user name and password. <b>User Name:</b> admin &nbsp; &nbsp; &nbsp; <b>Password:</b> microchip<br /></li>
+<li><b>Uploading Files</b> - parse files for configuration settings and more</li>
+</ul>
+
+<p>This example application has support for updating configuration
+parameters, controlling GPIO pin, calculate md5sum and configuring network interface.Thanks to
+built-in GZIP compression support, this examples fit in the
+32kB of on-board Memory.</p>
+
+</div>
+
+<script type="text/javascript">
+<!--
+// Parses the xmlResponse from status.xml and updates the status box
+function updateStatus(xmlData) {
+	var mainstat = document.getElementById('display').style.display;
+	var loadstat = document.getElementById('loading').style.display;
+
+	// Check if a timeout occurred
+	if(!xmlData)
+	{
+		mainstat = 'none';
+		loadstat = 'inline';
+		return;
+	}
+
+	// Make sure we're displaying the status display
+	mainstat = 'inline';
+	loadstat = 'none';
+
+	// Loop over all the LEDs
+	for(i = 0; i < 1; i++) // Temporarily change 3 to 1
+		document.getElementById('led' + i).style.color = (getXMLValue(xmlData, 'led' + i) == '1') ? '#090' : '#ddd';
+
+	// Loop over all the buttons
+	for(i = 0; i < 1; i++)
+		document.getElementById('btn' + i).innerHTML = (getXMLValue(xmlData, 'btn' + i) == 'up') ? '&Lambda;' : 'V';
+
+}
+setTimeout("newAJAXCommand('status.xml', updateStatus, true)",500);
+//-->
+</script>
+
+<script type="text/javascript">
+<!--
+document.getElementById('hello').innerHTML = "~hellomsg~";
+//-->
+</script>
+<!--#include file="footer.htm" -->
