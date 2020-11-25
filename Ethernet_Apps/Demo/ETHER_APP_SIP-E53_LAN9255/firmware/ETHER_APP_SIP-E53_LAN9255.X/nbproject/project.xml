@@ -17,7 +17,7 @@
             </sourceRootList>
             <confList>
                 <confElem>
-                    <name>SAME53_EtherApp</name>
+                    <name>LAN9255_SAME53_ETHERNET_APP</name>
                     <type>2</type>
                 </confElem>
             </confList>
