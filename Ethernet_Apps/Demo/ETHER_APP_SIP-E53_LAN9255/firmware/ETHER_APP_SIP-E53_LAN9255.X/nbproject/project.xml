@@ -17,7 +17,7 @@
             </sourceRootList>
             <confList>
                 <confElem>
-                    <name>DHCP_ICMP</name>
+                    <name>SAME53_EtherApp</name>
                     <type>2</type>
                 </confElem>
             </confList>
