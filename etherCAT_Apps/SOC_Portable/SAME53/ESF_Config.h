@@ -12,7 +12,7 @@
 *******************************************************************************/
 
 /*******************************************************************************
-* Copyright (C) 2010 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -50,7 +50,18 @@
  * Configuration parameter for frequency selection
  * Frequency value should be given in MHz.
  */
-#define ESF_PDI_FREQUENCY 20
+#define ESF_PDI_FREQUENCY 60
+#define IS_SUPPORT_DUMMY_CYCLE
+
+/*
+ * The Dummy cycles needed for read transaction introduced by two methods
+ * - Dummy clock method - dummy clocks feed to SQI structure
+ * - Dummy read method  - dummy read happen and data extraction happen through application READ API
+ * 
+ * DUMMY_READ_EN - enables the Dummy read method, (define DUMMY_READ_EN to enable)
+ * Dummy read method is selected by default, Undefine DUMMY_READ_EN to enable dummy clock method
+ */
+#define DUMMY_READ_EN
 
 #endif
 
@@ -69,6 +80,7 @@
 #endif
 
 #if _IS_SPI_DIRECT_MODE_ACCESS
+/* LAN9253 EVB Does not support WAIT ACK, So WAIT_ACK mode not supported */
 
 /* Dummy cycle integration is enabled by default
  * The dummy cycle calculated based on the selected frequency
@@ -87,6 +99,8 @@
 #endif
 
 #if _IS_SQI_DIRECT_MODE_ACCESS
+/* LAN9253 EVB Does not support WAIT ACK, So WAIT_ACK mode not supported */
+
 /* Dummy cycle integration is enabled by default
  * The dummy cycle calculated based on the selected frequency
  * The PDI frequency can be selected through ESF_PDI_FREQUENCY
@@ -96,7 +110,7 @@
 #endif	/* ESF_PDI */
 
 /* EEPROM Emulation Feature can be enabled by uncommenting below macro */
-//#define _IS_EEPROM_EMULATION_SUPPORT               1
+#define _IS_EEPROM_EMULATION_SUPPORT               1
 
 /* Cycle Time measurement for PDI */
 #define MEASURE_CYCLE_TIME

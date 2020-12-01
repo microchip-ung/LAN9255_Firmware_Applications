@@ -15,7 +15,7 @@
 *******************************************************************************/
 
 /*******************************************************************************
-* Copyright (C) 2010 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -617,8 +617,7 @@ void HW_EscRead(MEM_ADDR *pmData, UINT16 u16Address, UINT16 u16Len)
             u16Len -= u8ValidDataLen;
         }
     #elif _IS_SQI_DIRECT_MODE_ACCESS
-        
-        UINT32_VAL u32Val;
+         UINT32_VAL u32Val;
         UINT8 u8ValidDataLen = 0, u8Itr = 0;
         UINT8 *pu8Data = (UINT8 *)pmData;
 
