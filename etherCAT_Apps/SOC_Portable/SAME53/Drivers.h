@@ -49,7 +49,7 @@
 #define ESCIRQ                                      EIC_PIN_7
 
 /* Configured PA20 and PA21 pins 
- * These are available as pinouts for J13 header from LAN9253_SAMD51_SVB
+ * These are available as pinouts for J13 header from LAN9253_SAME53_SVB
  * PA20 --> Pin 1 from J13 header
  * PA21 --> Pin 3 from J13 header
  * 
@@ -138,7 +138,9 @@ extern "C" {
 	/* Function Prototypes */
 	void    LAN9252SQI_Write(UINT16 u16Adddr, UINT8 *pu8Data, UINT8 u8Len);
 	void    LAN9252SQI_Read(UINT16 u16Addr, UINT8 *pu8Data, UINT8 u8Len);
+	void    LAN9252SQI_FastRead(UINT16 u16Addr, UINT8 *pu8Data, UINT8 u8Len);
 	void    LAN9252SQI_ReadPDRAM(UINT8 *pu8Data, UINT16 u16Addr, UINT16 u16Len);
+	void    LAN9252SQI_FastReadPDRAM(UINT8 *pu8Data, UINT16 u16Addr, UINT16 u16Len);
 	void    LAN9252SQI_WritePDRAM(UINT8 *pu8Data, UINT16 u16Addr, UINT16 u16Len);
 #endif
 

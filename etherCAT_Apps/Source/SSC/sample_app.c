@@ -71,8 +71,8 @@ UINT32  gFOETestFrameSize=1;
 #define    MAX_FILE_NAME_SIZE    ETHERCAT_FOE_FILE_NAME_LENGTH
 
 /** \brief  MAX_FILE_SIZE: Maximum file size */
-#define MAX_FILE_SIZE	APP_MAX_NVM_BANK_SIZE   //SAMD51 Bank A/B Size
-#define MAX_BLOCK_SIZE  APP_ERASE_BLOCK_SIZE    //SAMD51 Block Size
+#define MAX_FILE_SIZE	APP_MAX_NVM_BANK_SIZE   //SAME53 Bank A/B Size
+#define MAX_BLOCK_SIZE  APP_ERASE_BLOCK_SIZE    //SAME53 Block Size
 /*------------------------------------------------------------------------------
 ------
 ------    local variables and constants

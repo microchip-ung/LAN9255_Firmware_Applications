@@ -65,6 +65,8 @@
 
 #endif
 
+#define _OLED_APP_EN
+
 #if (ESF_PDI == SPI)
 
 #ifdef INDIRECT_MODE

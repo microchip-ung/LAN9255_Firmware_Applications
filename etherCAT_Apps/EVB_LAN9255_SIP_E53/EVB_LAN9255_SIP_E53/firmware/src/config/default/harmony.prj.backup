@@ -1,0 +1,16 @@
+<Configuration>
+  <Configurator>
+    <Name dnOrder="0" value="default"/>
+    <Harmony dnOrder="1" path="../../../../../../Jutland-2/MHC" version="null"/>
+    <Processor dnOrder="2" value="ATSAMD51J19A"/>
+    <Settings dnOrder="4">
+      <Setting dnOrder="0" key="FORCE_OPTIMIZATION" value="false"/>
+      <Setting dnOrder="1" key="GENERATE_BACKUP" value="true"/>
+      <Setting dnOrder="2" key="MERGE_STRATEGY" value="USER_ALL"/>
+      <Setting dnOrder="3" key="DFPPath" value=".\dev_packs\Microchip\SAMD51_DFP\3.3.68\samd51a\atdf\ATSAMD51J19A.atdf"/>
+      <Setting dnOrder="4" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.7.0"/>
+      <Setting dnOrder="5" key="PackageFilter" value=""/>
+      <Setting dnOrder="6" key="TRUSTZONE" value="false"/>
+    </Settings>
+  </Configurator>
+</Configuration>
