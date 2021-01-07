@@ -215,7 +215,7 @@ UINT16 FoE_WriteData(UINT16 MBXMEM * pData, UINT16 Size, BOOL bDataFollowing)
 	if ((Size > 0) && (nFileStartWriteAddress < MAX_FILE_SIZE))
     {
         //UNG_J2_SIP-18 - If file size is more than 512 KB, error will be thrown as disk full
-        if(nFileTotalLengthOffset >= MAX_FILE_SIZE)
+        if((nFileTotalLengthOffset+Size) > MAX_FILE_SIZE)
         {
             nFileTotalLengthOffset = 0;
             return ECAT_FOE_ERRCODE_DISKFULL;
