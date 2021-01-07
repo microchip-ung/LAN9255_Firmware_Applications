@@ -79,6 +79,7 @@ UINT32  gFOETestFrameSize=1;
 ------
 ------------------------------------------------------------------------------*/
 UINT32			nFileWriteOffset=0;
+UINT32          nFileTotalLengthOffset = 0;    //UNG_J2_SIP-18
 UINT32			nFileStartWriteAddress=0;
 CHAR			aFileName[MAX_FILE_NAME_SIZE];
 UINT8			aFileData[MAX_BLOCK_SIZE];
@@ -111,6 +112,7 @@ void APP_FW_startDownload(void)
 	 */
 	gFirmwareDownload_Started = 1;
 	nFileWriteOffset = 0;
+    nFileTotalLengthOffset = 0;  //UNG_J2_SIP-18
 	nFileStartWriteAddress = 0;
 	
 }
@@ -212,20 +214,24 @@ UINT16 FoE_WriteData(UINT16 MBXMEM * pData, UINT16 Size, BOOL bDataFollowing)
 {
 	if ((Size > 0) && (nFileStartWriteAddress < MAX_FILE_SIZE))
     {
+        //UNG_J2_SIP-18 - If file size is more than 512 KB, error will be thrown as disk full
+        if(nFileTotalLengthOffset >= MAX_FILE_SIZE)
+        {
+            nFileTotalLengthOffset = 0;
+            return ECAT_FOE_ERRCODE_DISKFULL;
+        }
+        
 		if ((nFileWriteOffset + Size) > MAX_BLOCK_SIZE)
 		{
 			u32FileSize = MAX_BLOCK_SIZE - nFileWriteOffset;
 			MBXMEMCPY(&aFileData[nFileWriteOffset], (UINT8*)pData, u32FileSize);
 			nFileWriteOffset += u32FileSize;
-			
-            //UNG_J2_SIP-18
-            int error = APP_FlashWrite(nFileStartWriteAddress, aFileData);
-            if(error < 0)
-            {
-                return ECAT_FOE_ERRCODE_INVALID_FIRMWARE;
-            }
+            
+			APP_FlashWrite(nFileStartWriteAddress, aFileData);
+            
 			nFileStartWriteAddress += nFileWriteOffset;
-			
+			nFileTotalLengthOffset += nFileWriteOffset;   //UNG_J2_SIP-18
+            
 			pData = (UINT16 MBXMEM *)((UINT8*)pData + u32FileSize);
 			Size -= u32FileSize;
 			nFileWriteOffset = 0;
@@ -248,10 +254,15 @@ UINT16 FoE_WriteData(UINT16 MBXMEM * pData, UINT16 Size, BOOL bDataFollowing)
 			}
 			APP_FlashWrite(nFileStartWriteAddress, aFileData);
 			nFileStartWriteAddress += nFileWriteOffset; 
+            nFileTotalLengthOffset += nFileWriteOffset;  //UNG_J2_SIP-18
 			nFileWriteOffset = 0;
-		}
+        }
     }
-
+    else    
+    {
+		//UNG_J2_SIP-18 - If file size is less than 0 KB, error will be thrown as invalid firmware
+        return ECAT_FOE_ERRCODE_INVALID_FIRMWARE;
+    }
     return 0;
 }
 
@@ -267,6 +278,7 @@ UINT16 FoE_Write(UINT16 MBXMEM * pName, UINT16 nameSize, UINT32 password)
         MBXSTRCPY(aFileName + nameSize, "\0", 1); //string termination
 
         nFileWriteOffset = 0;
+        nFileTotalLengthOffset = 0;  //UNG_J2_SIP-18
         u32FileSize = 0;
 		writeCheck1 = TRUE;
 

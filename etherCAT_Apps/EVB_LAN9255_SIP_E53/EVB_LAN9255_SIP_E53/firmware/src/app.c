@@ -71,22 +71,14 @@ const uint32_t gAppBankBOffsetAddr = APP_NVM_BANKB_START_ADDRESS;
 // Bank B application need to started from this below location.
 const uint32_t gApplicationStartAddr   = (uint32_t)(APP_NVM_BANKB_START_ADDRESS + APP_BOOTLOADER_SIZE);
 
-int APP_FlashWrite( uint32_t startAddress,uint8_t *flash_data )
+void APP_FlashWrite( uint32_t startAddress,uint8_t *flash_data )
 {
     uint32_t   flashStartAddress=0;
     int         pageCnt=0;
     
     flashStartAddress = gAppBankBOffsetAddr+startAddress;
     
-    //UNG_J2_SIP-18
-    //Firmware bin file size is 0x8d800(54kb)
-    //To restrict customer use some other firmware, will throw error if firmware bin file size is more than 54kb
-    if(flashStartAddress >= ETHERCAT_FOE_FIRMWARE_FILE_LENGTH)
-    {
-        return -1;
-    }
-    
-	while(NVMCTRL_IsBusy()){}
+    while(NVMCTRL_IsBusy()){}
 
     /* Erase the block */
     NVMCTRL_BlockErase((uint32_t)flashStartAddress);
@@ -103,7 +95,7 @@ int APP_FlashWrite( uint32_t startAddress,uint8_t *flash_data )
         flash_data = flash_data + APP_PAGE_SIZE;
         flashStartAddress = flashStartAddress + APP_PAGE_SIZE;        
 	}
-    return 0;
+  
 }
 
 static void APP_BankSwitch(void)
