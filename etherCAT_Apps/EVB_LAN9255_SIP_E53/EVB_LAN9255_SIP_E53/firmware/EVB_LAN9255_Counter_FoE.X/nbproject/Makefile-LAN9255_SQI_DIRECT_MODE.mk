@@ -93,7 +93,7 @@ ifneq ($(INFORMATION_MESSAGE), )
 endif
 	${MAKE}  -f nbproject/Makefile-LAN9255_SQI_DIRECT_MODE.mk dist/${CND_CONF}/${IMAGE_TYPE}/EVB_LAN9255_Counter_FoE.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
-MP_PROCESSOR_OPTION=ATSAME53J19A
+MP_PROCESSOR_OPTION=ATSAME53J20A
 MP_LINKER_FILE_OPTION=,--script="..\src\ethercat_foe.ld"
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble

@@ -218,7 +218,12 @@ UINT16 FoE_WriteData(UINT16 MBXMEM * pData, UINT16 Size, BOOL bDataFollowing)
 			MBXMEMCPY(&aFileData[nFileWriteOffset], (UINT8*)pData, u32FileSize);
 			nFileWriteOffset += u32FileSize;
 			
-			APP_FlashWrite(nFileStartWriteAddress, aFileData);
+            //UNG_J2_SIP-18
+            int error = APP_FlashWrite(nFileStartWriteAddress, aFileData);
+            if(error < 0)
+            {
+                return ECAT_FOE_ERRCODE_INVALID_FIRMWARE;
+            }
 			nFileStartWriteAddress += nFileWriteOffset;
 			
 			pData = (UINT16 MBXMEM *)((UINT8*)pData + u32FileSize);

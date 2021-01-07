@@ -211,7 +211,7 @@ void APP_Tasks( void );
 
 /*******************************************************************************
   Function:
-void APP_FlashWrite( UINT32 startAddress, UINT8 *flash_data )
+int APP_FlashWrite( UINT32 startAddress, UINT8 *flash_data )
 
   Summary:
     MPLAB Harmony NVM write  application function
@@ -234,7 +234,8 @@ void APP_FlashWrite( UINT32 startAddress, UINT8 *flash_data )
     This routine is called from the slave stack sample application FoE write
     function.
  */
-void APP_FlashWrite( uint32_t startAddress, uint8_t *flash_data );
+//UNG_J2_SIP-28
+int APP_FlashWrite( uint32_t startAddress, uint8_t *flash_data );
 
 void EtherCAT_QSPI_CallbackRegistration(void);
 
