@@ -1988,14 +1988,15 @@ void LAN9252SQI_Write(UINT16 u16Addr, UINT8 *pu8Data, UINT8 u8Len)
 {
     qspi_memory_xfer_t qspi_xfer;
 	UINT32 u32InstrAddr = 0;
-    UINT8 u8Dummy = 0;    /* Disabled as write does not require dummy */
+    UINT8 u8Dummy = 0;    /* Disabled as write does not require dummy - UNG_J2_SIP-14*/
 
     memset((void *)&qspi_xfer, 0, sizeof(qspi_memory_xfer_t));
 	qspi_xfer.instruction = CMD_SERIAL_WRITE;
     qspi_xfer.width = QUAD_CMD;
     
     /* Get the dummy byte count */
-    /* SPECIAL CASE - Reduce 1 byte clock cycle count from byDummy
+	/* UNG_J2_SIP-14
+     * SPECIAL CASE - Reduce 1 byte clock cycle count from byDummy
      * SAME53 supports 24 bit and 32 bit addressing format
      * LAN925x expects 16bit addressing format
      * So In order to support SAME53, converting the 16bit address to 24bit
@@ -2043,7 +2044,8 @@ void LAN9252SQI_Read(UINT16 u16Addr, UINT8 *pu8Data, UINT8 u8Len)
     qspi_memory_xfer_t qspi_xfer;
 	UINT32 u32InstrAddr = 0;
 	
-	/* Core CSR and Process RAM accesses can have any alignment and length */
+	/* UNG_J2_SIP-14 */ 
+	/*Core CSR and Process RAM accesses can have any alignment and length */
 	if (u16Addr < 0x3000)
 	{
 		if (u8Len>1)
