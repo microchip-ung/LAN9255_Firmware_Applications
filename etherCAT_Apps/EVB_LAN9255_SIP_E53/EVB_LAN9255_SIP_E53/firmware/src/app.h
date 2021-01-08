@@ -234,6 +234,7 @@ void APP_FlashWrite( UINT32 startAddress, UINT8 *flash_data )
     This routine is called from the slave stack sample application FoE write
     function.
  */
+//UNG_J2_SIP-28
 void APP_FlashWrite( uint32_t startAddress, uint8_t *flash_data );
 
 void EtherCAT_QSPI_CallbackRegistration(void);

@@ -77,7 +77,8 @@ void APP_FlashWrite( uint32_t startAddress,uint8_t *flash_data )
     int         pageCnt=0;
     
     flashStartAddress = gAppBankBOffsetAddr+startAddress;
-	while(NVMCTRL_IsBusy()){}
+    
+    while(NVMCTRL_IsBusy()){}
 
     /* Erase the block */
     NVMCTRL_BlockErase((uint32_t)flashStartAddress);
@@ -94,6 +95,7 @@ void APP_FlashWrite( uint32_t startAddress,uint8_t *flash_data )
         flash_data = flash_data + APP_PAGE_SIZE;
         flashStartAddress = flashStartAddress + APP_PAGE_SIZE;        
 	}
+  
 }
 
 static void APP_BankSwitch(void)

@@ -116,6 +116,28 @@
 #define MIKRO_BUS_MISO_SDO_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 15)) & 0x01)
 #define MIKRO_BUS_MISO_SDO_PIN                  PORT_PIN_PB15
 
+//Fix for - UNG_J2_SIP-28 - Different pins for Mikrobus in SVB and EVB.
+#ifndef RUN_FROM_SVB
+
+/*** Macros for MIKRO_BUS_PWM_DC pin ***/
+#define MIKRO_BUS_PWM_DC_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = 1 << 31)
+#define MIKRO_BUS_PWM_DC_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = 1 << 31)
+#define MIKRO_BUS_PWM_DC_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = 1 << 31)
+#define MIKRO_BUS_PWM_DC_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = 1 << 31)
+#define MIKRO_BUS_PWM_DC_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = 1 << 31)
+#define MIKRO_BUS_PWM_DC_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 31)) & 0x01)
+#define MIKRO_BUS_PWM_DC_PIN                  PORT_PIN_PB31
+
+/*** Macros for MIKRO_BUS_INT_EN pin ***/
+#define MIKRO_BUS_INT_EN_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = 1 << 01)
+#define MIKRO_BUS_INT_EN_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = 1 << 01)
+#define MIKRO_BUS_INT_EN_Toggle()            (PORT_REGS->GROUP[1].PORT_OUTTGL = 1 << 01)
+#define MIKRO_BUS_INT_EN_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = 1 << 01)
+#define MIKRO_BUS_INT_EN_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = 1 << 01)
+#define MIKRO_BUS_INT_EN_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 01)) & 0x01)
+#define MIKRO_BUS_INT_EN_PIN                  PORT_PIN_PB01
+
+#else
 /*** Macros for MIKRO_BUS_PWM_DC pin ***/
 #define MIKRO_BUS_PWM_DC_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = 1 << 18)
 #define MIKRO_BUS_PWM_DC_Clear()             (PORT_REGS->GROUP[0].PORT_OUTCLR = 1 << 18)
@@ -133,6 +155,8 @@
 #define MIKRO_BUS_INT_EN_InputEnable()       (PORT_REGS->GROUP[0].PORT_DIRCLR = 1 << 19)
 #define MIKRO_BUS_INT_EN_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 19)) & 0x01)
 #define MIKRO_BUS_INT_EN_PIN                  PORT_PIN_PA19
+        
+#endif	
 // *****************************************************************************
 /* PORT Group
 
