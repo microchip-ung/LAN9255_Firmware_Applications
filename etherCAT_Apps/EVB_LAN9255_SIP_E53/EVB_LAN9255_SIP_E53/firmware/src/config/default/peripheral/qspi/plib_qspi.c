@@ -18,7 +18,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -40,9 +40,9 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 // DOM-IGNORE-END
-#if (ESF_PDI == SQI)
+
 #include "plib_qspi.h"
-#include "ESF_Config.h"
+
 
 void QSPI_Initialize(void)
 {
@@ -55,13 +55,13 @@ void QSPI_Initialize(void)
     /* WDRBT = 0 */
     /* SMEMREG = 0 */
     /* CSMODE = NORELOAD */
-    /* DATALEN = 0x0 */
+    /* DATALEN = 0x6 */
     /* DLYCBT = 0 */
     /* DLYCS = 0 */
-    QSPI_REGS->QSPI_CTRLB = QSPI_CTRLB_MODE_MEMORY | QSPI_CTRLB_CSMODE_LASTXFER | QSPI_CTRLB_DATALEN(0x0);
+    QSPI_REGS->QSPI_CTRLB = QSPI_CTRLB_MODE_MEMORY | QSPI_CTRLB_CSMODE_NORELOAD | QSPI_CTRLB_DATALEN(0x6);
 
     // Set serial clock register
-    QSPI_REGS->QSPI_BAUD = (QSPI_BAUD_BAUD(GET_BAUD(ESF_PDI_FREQUENCY)))  ;
+    QSPI_REGS->QSPI_BAUD = (QSPI_BAUD_BAUD(1))  ;
 
     // Enable the qspi Module
     QSPI_REGS->QSPI_CTRLA = QSPI_CTRLA_ENABLE_Msk;
@@ -151,7 +151,7 @@ bool QSPI_CommandWrite( qspi_command_xfer_t *qspi_command_xfer, uint32_t address
     /* Configure instruction frame */
     mask |= qspi_command_xfer->width;
     mask |= QSPI_INSTRFRAME_INSTREN_Msk;
-    mask |= QSPI_INSTRFRAME_TFRTYPE(QSPI_INSTRFRAME_TFRTYPE_WRITE_Val);
+    mask |= QSPI_INSTRFRAME_TFRTYPE(QSPI_INSTRFRAME_TFRTYPE_READ_Val);
 
     QSPI_REGS->QSPI_INSTRFRAME = mask;
 
@@ -327,7 +327,7 @@ bool QSPI_MemoryWrite( qspi_memory_xfer_t *qspi_memory_xfer, uint32_t *tx_data, 
 
     return true;
 }
-#endif
+
 /*******************************************************************************
  End of File
 */

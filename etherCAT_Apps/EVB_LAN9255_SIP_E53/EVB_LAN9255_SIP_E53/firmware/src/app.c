@@ -251,6 +251,7 @@ void APP_Tasks ( void )
         {
             ESF_PDI_Init();
 #ifdef DEVELOPER_TEST_EN
+            test_uart();
 #ifdef DIRECT_MODE
             test_direct_mode();
 #else

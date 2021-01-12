@@ -42,6 +42,10 @@
                 <itemPath>../src/config/default/peripheral/sercom/spi_master/plib_sercom4_spi_master.h</itemPath>
                 <itemPath>../src/config/default/peripheral/sercom/spi_master/plib_sercom_spi_master_common.h</itemPath>
               </logicalFolder>
+              <logicalFolder name="f1" displayName="usart" projectFiles="true">
+                <itemPath>../src/config/default/peripheral/sercom/usart/plib_sercom0_usart.h</itemPath>
+                <itemPath>../src/config/default/peripheral/sercom/usart/plib_sercom_usart_common.h</itemPath>
+              </logicalFolder>
             </logicalFolder>
             <logicalFolder name="systick" displayName="systick" projectFiles="true">
               <itemPath>../src/config/default/peripheral/systick/plib_systick.h</itemPath>
@@ -66,6 +70,7 @@
           <itemPath>../src/config/default/device_cache.h</itemPath>
           <itemPath>../src/config/default/toolchain_specifics.h</itemPath>
           <itemPath>../src/config/default/user.h</itemPath>
+          <itemPath>../src/config/default/device.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="f2" displayName="packs" projectFiles="true">
@@ -132,6 +137,7 @@
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_armclang_ltm.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/core_cm4.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/mpu_armv7.h</itemPath>
+                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cachel1_armv7.h</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -175,6 +181,11 @@
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="config" projectFiles="true">
+        <logicalFolder name="f1" displayName="default" projectFiles="true">
+          <itemPath>../src/config/default/ATSAME53J20A.ld</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <itemPath>../src/ethercat_foe.ld</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
@@ -214,6 +225,9 @@
             <logicalFolder name="sercom" displayName="sercom" projectFiles="true">
               <logicalFolder name="spi_master" displayName="spi_master" projectFiles="true">
                 <itemPath>../src/config/default/peripheral/sercom/spi_master/plib_sercom4_spi_master.c</itemPath>
+              </logicalFolder>
+              <logicalFolder name="f1" displayName="usart" projectFiles="true">
+                <itemPath>../src/config/default/peripheral/sercom/usart/plib_sercom0_usart.c</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="systick" displayName="systick" projectFiles="true">
@@ -270,7 +284,22 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
+      <logicalFolder name="f1" displayName="default.mhc" projectFiles="true">
+        <itemPath>..\src\config\default\default.mhc\cmsis.yml</itemPath>
+        <itemPath>..\src\config\default\default.mhc\core.yml</itemPath>
+        <itemPath>..\src\config\default\default.mhc\dfp.yml</itemPath>
+        <itemPath>..\src\config\default\default.mhc\eic.yml</itemPath>
+        <itemPath>..\src\config\default\default.mhc\evsys.yml</itemPath>
+        <itemPath>..\src\config\default\default.mhc\GraphSettings.yml</itemPath>
+        <itemPath>..\src\config\default\default.mhc\nvmctrl.yml</itemPath>
+        <itemPath>..\src\config\default\default.mhc\project.yml</itemPath>
+        <itemPath>..\src\config\default\default.mhc\qspi.yml</itemPath>
+        <itemPath>..\src\config\default\default.mhc\sercom0.yml</itemPath>
+        <itemPath>..\src\config\default\default.mhc\sercom4.yml</itemPath>
+        <itemPath>..\src\config\default\default.mhc\settings.yml</itemPath>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
+      <itemPath>..\src\config\default\harmony-manifest-success.yml</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -287,7 +316,7 @@
         <targetDevice>ATSAME53J20A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.30</languageToolchainVersion>
         <platform>3</platform>
@@ -364,7 +393,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/default;../src/packs/ATSAME53J20A_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/;../src/arm;..\..\..\..\SOC_Portable\SAME53;..\..\..\..\Source\ESC;..\..\..\..\Source\SSC;..\src\config\default\peripheral\oled;..\src\config\default\peripheral\sercom\spi_master;..\src\config\default\peripheral\port"/>
+                  value="../src;../src/config/default;../src/packs/ATSAME53J20A_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/;../src/arm;..\..\..\..\SOC_Portable\SAME53;..\..\..\..\Source\ESC;..\..\..\..\Source\SSC;..\src\config\default\peripheral\oled;..\src\config\default\peripheral\sercom\spi_master;..\src\config\default\peripheral\port;..\src\config\default\peripheral\sercom\usart"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -1064,7 +1093,7 @@
         <targetDevice>ATSAME53J20A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.30</languageToolchainVersion>
         <platform>3</platform>
@@ -1141,7 +1170,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/default;../src/packs/ATSAME53J20A_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/;../src/arm;..\..\..\..\SOC_Portable\SAME53;..\..\..\..\Source\ESC;..\..\..\..\Source\SSC;..\src\config\default\peripheral\oled;..\src\config\default\peripheral\sercom\spi_master;..\src\config\default\peripheral\port"/>
+                  value="../src;../src/config/default;../src/packs/ATSAME53J20A_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/;../src/arm;..\..\..\..\SOC_Portable\SAME53;..\..\..\..\Source\ESC;..\..\..\..\Source\SSC;..\src\config\default\peripheral\oled;..\src\config\default\peripheral\sercom\spi_master;..\src\config\default\peripheral\port;..\src\config\default\peripheral\sercom\usart"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -1206,7 +1235,7 @@
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
-        <property key="heap-size" value="1024"/>
+        <property key="heap-size" value="512"/>
         <property key="input-libraries" value=""/>
         <property key="kseg-length" value=""/>
         <property key="kseg-origin" value=""/>
@@ -1754,7 +1783,7 @@
         <property key="warningmessagebreakoptions.warningmessages" value="holdstate"/>
       </Simulator>
       <pk4hybrid>
-        <property key="AutoSelectMemRanges" value="manual"/>
+        <property key="AutoSelectMemRanges" value="auto"/>
         <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
@@ -1769,7 +1798,7 @@
         <property key="debugoptions.useswbreakpoints" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
-        <property key="memories.configurationmemory" value="false"/>
+        <property key="memories.configurationmemory" value="true"/>
         <property key="memories.configurationmemory2" value="true"/>
         <property key="memories.dataflash" value="true"/>
         <property key="memories.eeprom" value="true"/>
@@ -1779,7 +1808,7 @@
         <property key="memories.instruction.ram.ranges"
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
-        <property key="memories.programmemory.ranges" value="0-fffff"/>
+        <property key="memories.programmemory.ranges" value="0-7ffff"/>
         <property key="poweroptions.powerenable" value="false"/>
         <property key="programmerToGoImageName" value="EVB_LAN9255_Counter_FoE_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
@@ -1841,14 +1870,14 @@
         <targetDevice>ATSAME53J20A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.30</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAME53_DFP" vendor="Microchip" version="3.2.49"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
+        <pack name="SAME53_DFP" vendor="Microchip" version="3.2.49"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -1918,7 +1947,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/default;../src/packs/ATSAME53J20A_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/;../src/arm;..\..\..\..\SOC_Portable\SAME53;..\..\..\..\Source\ESC;..\..\..\..\Source\SSC;..\src\config\default\peripheral\oled;..\src\config\default\peripheral\sercom\spi_master;..\src\config\default\peripheral\port"/>
+                  value="../src;../src/config/default;../src/packs/ATSAME53J20A_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/;../src/arm;../../../../SOC_Portable/SAME53;../../../../Source/ESC;../../../../Source/SSC;../src/config/default/peripheral/oled;../src/config/default/peripheral/sercom/spi_master;../src/config/default/peripheral/port;..\src\config\default\peripheral\sercom\usart"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -1983,7 +2012,7 @@
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
-        <property key="heap-size" value="1024"/>
+        <property key="heap-size" value="512"/>
         <property key="input-libraries" value=""/>
         <property key="kseg-length" value=""/>
         <property key="kseg-origin" value=""/>
@@ -2014,7 +2043,8 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
-        <property key="extra-include-directories" value=""/>
+        <property key="extra-include-directories"
+                  value="../src;../src/config/default;../src/packs/ATSAME53J20A_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -2618,14 +2648,14 @@
         <targetDevice>ATSAME53J20A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>AtmelIceTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.30</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAME53_DFP" vendor="Microchip" version="3.2.49"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
+        <pack name="SAME53_DFP" vendor="Microchip" version="3.2.49"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -2695,7 +2725,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/default;../src/packs/ATSAME53J20A_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/;../src/arm;..\..\..\..\SOC_Portable\SAME53;..\..\..\..\Source\ESC;..\..\..\..\Source\SSC;..\src\config\default\peripheral\oled;..\src\config\default\peripheral\sercom\spi_master;..\src\config\default\peripheral\port"/>
+                  value="../src;../src/config/default;../src/packs/ATSAME53J20A_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/;../src/arm;..\..\..\..\SOC_Portable\SAME53;..\..\..\..\Source\ESC;..\..\..\..\Source\SSC;..\src\config\default\peripheral\oled;..\src\config\default\peripheral\sercom\spi_master;..\src\config\default\peripheral\port;..\src\config\default\peripheral\sercom\usart"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -2705,7 +2735,7 @@
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
         <property key="preprocessor-macros"
-                  value="DIRECT_MODE;DC_SUPPORTED;ESF_PDI=SQI;SPI=0;SQI=1"/>
+                  value="DIRECT_MODE;DC_SUPPORTED;ESF_PDI=SQI;SPI=0;SQI=1;DEVELOPER_TEST_EN"/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
         <property key="toplevel-reordering" value=""/>

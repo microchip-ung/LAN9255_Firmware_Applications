@@ -15,7 +15,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -47,7 +47,7 @@
 #include "definitions.h"
 #include "device.h"
 #include "oledc_driver.h"
-
+#include "plib_sercom0_usart.h"
 
 
 // ****************************************************************************
@@ -55,6 +55,21 @@
 // Section: Configuration Bits
 // ****************************************************************************
 // ****************************************************************************
+#pragma config BOD33_DIS = SET
+#pragma config BOD33USERLEVEL = 0x1c
+#pragma config BOD33_ACTION = RESET
+#pragma config BOD33_HYST = 0x2
+#pragma config NVMCTRL_BOOTPROT = 0
+#pragma config NVMCTRL_SEESBLK = 0x0
+#pragma config NVMCTRL_SEEPSZ = 0x0
+#pragma config RAMECC_ECCDIS = SET
+#pragma config WDT_ENABLE = CLEAR
+#pragma config WDT_ALWAYSON = CLEAR
+#pragma config WDT_PER = CYC8192
+#pragma config WDT_WINDOW = CYC8192
+#pragma config WDT_EWOFFSET = CYC8192
+#pragma config WDT_WEN = CLEAR
+#pragma config NVMCTRL_REGION_LOCKS = 0xffffffff
 
 
 
@@ -89,6 +104,14 @@ SYSTEM_OBJECTS sysObj;
 
 
 
+// *****************************************************************************
+// *****************************************************************************
+// Section: Local initialization functions
+// *****************************************************************************
+// *****************************************************************************
+
+
+
 /*******************************************************************************
   Function:
     void SYS_Initialize ( void *data )
@@ -109,13 +132,17 @@ void SYS_Initialize ( void* data )
     CLOCK_Initialize();
 
 
-	SERCOM4_SPI_Initialize();
+
 
     QSPI_Initialize();
 
     EVSYS_Initialize();
 
+    SERCOM0_USART_Initialize();
+
 	SYSTICK_TimerInitialize();
+    SERCOM4_SPI_Initialize();
+
     EIC_Initialize();
 
 

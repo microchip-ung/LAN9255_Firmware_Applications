@@ -16,7 +16,7 @@
 *******************************************************************************/
 
 /*******************************************************************************
-* Copyright (C) 2010 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -59,15 +59,20 @@ void NVIC_Initialize( void )
 
     /* Enable the interrupt sources and configure the priorities as configured
      * from within the "Interrupt Manager" of MHC. */
-    NVIC_SetPriority(SysTick_IRQn, 7);
     NVIC_SetPriority(EIC_EXTINT_0_IRQn, 7);
     NVIC_EnableIRQ(EIC_EXTINT_0_IRQn);
     NVIC_SetPriority(EIC_EXTINT_1_IRQn, 7);
     NVIC_EnableIRQ(EIC_EXTINT_1_IRQn);
     NVIC_SetPriority(EIC_EXTINT_7_IRQn, 7);
     NVIC_EnableIRQ(EIC_EXTINT_7_IRQn);
-    NVIC_SetPriority(QSPI_IRQn, 2);
-    NVIC_EnableIRQ(QSPI_IRQn);
+    NVIC_SetPriority(SERCOM0_0_IRQn, 7);
+    NVIC_EnableIRQ(SERCOM0_0_IRQn);
+    NVIC_SetPriority(SERCOM0_1_IRQn, 7);
+    NVIC_EnableIRQ(SERCOM0_1_IRQn);
+    NVIC_SetPriority(SERCOM0_2_IRQn, 7);
+    NVIC_EnableIRQ(SERCOM0_2_IRQn);
+    NVIC_SetPriority(SERCOM0_OTHER_IRQn, 7);
+    NVIC_EnableIRQ(SERCOM0_OTHER_IRQn);
     NVIC_SetPriority(SERCOM4_0_IRQn, 7);
     NVIC_EnableIRQ(SERCOM4_0_IRQn);
     NVIC_SetPriority(SERCOM4_1_IRQn, 7);
@@ -79,5 +84,4 @@ void NVIC_Initialize( void )
 
 
 
-    return;
 }

@@ -17,7 +17,7 @@
 *******************************************************************************/
 
 /*******************************************************************************
-* Copyright (C) 2010 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -72,7 +72,7 @@
 void PORT_Initialize(void)
 {
 #if (ESF_PDI == SPI)
-    /************************** GROUP 0 Initialization *************************/
+   /************************** GROUP 0 Initialization *************************/
     PORT_REGS->GROUP[0].PORT_DIR = 0x4c000c;
     PORT_REGS->GROUP[0].PORT_OUT = 0x400000;
     PORT_REGS->GROUP[0].PORT_PINCFG[8] = 0x1;
@@ -86,7 +86,7 @@ void PORT_Initialize(void)
     PORT_REGS->GROUP[1].PORT_PINCFG[16] = 0x1;
     PORT_REGS->GROUP[1].PORT_PINCFG[17] = 0x1;
     PORT_REGS->GROUP[1].PORT_PINCFG[23] = 0x1;
-
+                
     PORT_REGS->GROUP[1].PORT_PMUX[5] = 0x7;
 #elif (ESF_PDI == SQI)
     /************************** GROUP 0 Initialization *************************/
@@ -98,7 +98,7 @@ void PORT_Initialize(void)
 
     PORT_REGS->GROUP[0].PORT_PMUX[4] = 0x77;
     PORT_REGS->GROUP[0].PORT_PMUX[5] = 0x77;
-    /************************** GROUP 1 Initialization *************************/
+   /************************** GROUP 1 Initialization *************************/
     PORT_REGS->GROUP[1].PORT_DIR = 0x4000;
     PORT_REGS->GROUP[1].PORT_PINCFG[10] = 0x43;
     PORT_REGS->GROUP[1].PORT_PINCFG[11] = 0x43;
@@ -110,12 +110,21 @@ void PORT_Initialize(void)
 
 #endif
 
-   	PORT_REGS->GROUP[1].PORT_PINCFG[12] = 0x1;
-   	PORT_REGS->GROUP[1].PORT_PINCFG[13] = 0x1;
-   	PORT_REGS->GROUP[1].PORT_PINCFG[15] = 0x1;
+   PORT_REGS->GROUP[1].PORT_PINCFG[12] = 0x1;
+   PORT_REGS->GROUP[1].PORT_PINCFG[13] = 0x1;
+   PORT_REGS->GROUP[1].PORT_PINCFG[15] = 0x1;
 
-   	PORT_REGS->GROUP[1].PORT_PMUX[6] = 0x22;
-   	PORT_REGS->GROUP[1].PORT_PMUX[7] = 0x20;
+   PORT_REGS->GROUP[1].PORT_PMUX[6] = 0x22;
+   PORT_REGS->GROUP[1].PORT_PMUX[7] = 0x20;
+   
+   /* UART configuration */
+   PORT_REGS->GROUP[0].PORT_PINCFG[4] = 0x1;
+   PORT_REGS->GROUP[0].PORT_PINCFG[5] = 0x1;
+   PORT_REGS->GROUP[0].PORT_PINCFG[6] = 0x1;
+   PORT_REGS->GROUP[0].PORT_PINCFG[7] = 0x1;
+
+   PORT_REGS->GROUP[0].PORT_PMUX[2] = 0x33;
+   PORT_REGS->GROUP[0].PORT_PMUX[3] = 0x33;
 }
 
 // *****************************************************************************
@@ -271,7 +280,7 @@ void PORT_GroupToggle(PORT_GROUP group, uint32_t mask)
     void PORT_GroupInputEnable(PORT_GROUP group, uint32_t mask)
 
   Summary:
-    Confgiures the selected IO pins of a group as input.
+    Configures the selected IO pins of a group as input.
 
   Description:
     This function configures the selected IO pins of a group as input. The pins
@@ -292,7 +301,7 @@ void PORT_GroupInputEnable(PORT_GROUP group, uint32_t mask)
     void PORT_GroupOutputEnable(PORT_GROUP group, uint32_t mask)
 
   Summary:
-    Confgiures the selected IO pins of a group as output.
+    Configures the selected IO pins of a group as output.
 
   Description:
     This function configures the selected IO pins of a group as output. The pins

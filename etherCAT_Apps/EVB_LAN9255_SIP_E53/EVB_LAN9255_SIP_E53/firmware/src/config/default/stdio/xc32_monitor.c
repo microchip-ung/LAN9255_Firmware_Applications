@@ -1,14 +1,14 @@
 /*******************************************************************************
- Debug Console Source file 
+ Debug Console Source file
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    debug_console.c
+    xc32_monitor.c
 
   Summary:
-    RSTC Source File
+    debug console Source File
 
   Description:
     None
@@ -16,7 +16,7 @@
 *******************************************************************************/
 
 /*******************************************************************************
-* Copyright (C) 2010 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -38,6 +38,12 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
+
+#ifdef __arm__
+/* Declaration of these functions are missing in stdio.h for ARM parts*/
+int _mon_getc(int canblock);
+void _mon_putc(char c);
+#endif //__arm__
 
 int _mon_getc(int canblock)
 {

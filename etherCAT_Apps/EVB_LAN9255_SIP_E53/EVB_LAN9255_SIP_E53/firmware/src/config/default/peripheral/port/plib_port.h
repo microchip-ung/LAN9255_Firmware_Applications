@@ -156,7 +156,24 @@
 #define MIKRO_BUS_INT_EN_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 19)) & 0x01)
 #define MIKRO_BUS_INT_EN_PIN                  PORT_PIN_PA19
         
-#endif	
+#endif
+        
+/*** Macros for UART_TXD pin ***/
+#define UART_TXD_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 4)) & 0x01)
+#define UART_TXD_PIN                  PORT_PIN_PA04
+
+/*** Macros for UART_RXD pin ***/
+#define UART_RXD_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 5)) & 0x01)
+#define UART_RXD_PIN                  PORT_PIN_PA05
+
+/*** Macros for UART_RTS pin ***/
+#define UART_RTS_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 6)) & 0x01)
+#define UART_RTS_PIN                  PORT_PIN_PA06
+
+/*** Macros for UART_CTS pin ***/
+#define UART_CTS_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 7)) & 0x01)
+#define UART_CTS_PIN                  PORT_PIN_PA07
+
 // *****************************************************************************
 /* PORT Group
 
@@ -963,7 +980,7 @@ void PORT_GroupToggle(PORT_GROUP group, uint32_t mask);
     void PORT_GroupInputEnable(PORT_GROUP group, uint32_t mask)
 
   Summary:
-    Confgiures the selected IO pins of a group as input.
+    Configures the selected IO pins of a group as input.
 
   Description:
     This function configures the selected IO pins of a group as input. The pins
@@ -1002,7 +1019,7 @@ void PORT_GroupInputEnable(PORT_GROUP group, uint32_t mask);
     void PORT_GroupOutputEnable(PORT_GROUP group, uint32_t mask)
 
   Summary:
-    Confgiures the selected IO pins of a group as output.
+    Configures the selected IO pins of a group as output.
 
   Description:
     This function configures the selected IO pins of a group as output. The pins

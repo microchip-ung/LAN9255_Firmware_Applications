@@ -1,0 +1,14 @@
+configName: default
+folderName: ''
+format_version: v1.0
+frameworkPath: ../../../../../../Jutland-2/MHC
+processor: ATSAME53J20A
+projectName: ''
+settings:
+  PackageFilter: bsp;core;csp;quick_docs;
+  FORCE_OPTIMIZATION: 'false'
+  GENERATE_BACKUP: 'true'
+  TRUSTZONE: 'false'
+  CMSISPath: .\dev_packs\arm\CMSIS\5.7.0
+  DFPPath: .\dev_packs\Microchip\SAME53_DFP\3.3.59\atdf\ATSAME53J20A.atdf
+  MERGE_STRATEGY: USER_ALL

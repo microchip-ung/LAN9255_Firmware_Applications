@@ -39,6 +39,8 @@
 
 #include "LAN925x.h"
 #include "ESF_Config.h"
+#include "Developer_Test.h"
+#include "plib_sercom0_usart.h"
 
 #ifdef DEVELOPER_TEST_EN
 //Indirect mode
@@ -58,6 +60,10 @@ void	Get_ByteOrderReg();
 void	Get_BeckoffIP();
 void	Get_ChipID();
 
+static int rd_status = 1, wr_status = 1;
+
+void uart_tx_cb (uintptr_t ctx);
+void uart_rx_cb (uintptr_t ctx);
 /*******************************************************************************
 This test case verifies whether Chip ID
 *******************************************************************************/
@@ -727,5 +733,45 @@ void test_indirect_mode()
 	Get_BeckoffIP();
     
     Indirect_PDRAM_Diff_Addr_And_Len();
+}
+
+void uart_tx_cb (uintptr_t ctx)
+{
+    wr_status = 0;
+}
+
+void uart_rx_cb (uintptr_t ctx)
+{
+    rd_status = 0;
+}
+
+void test_uart()
+{
+    uint8_t rx_buff = 'a', tx_buff = 'v';
+
+    /* register UART callback functions */
+    SERCOM0_USART_WriteCallbackRegister(uart_tx_cb, 0);
+    SERCOM0_USART_ReadCallbackRegister(uart_rx_cb, 0);
+
+    SERCOM0_USART_Write(&tx_buff, 1);
+    while (wr_status);
+    wr_status = 1;
+    while ( true )
+    {
+        SERCOM0_USART_Read(&rx_buff, 1);
+        do
+        {
+        } while (rd_status);
+        rd_status = 1;
+        tx_buff = rx_buff - 32;
+        SERCOM0_USART_Write(&tx_buff, 1);
+        while (wr_status);
+        wr_status = 1;
+        tx_buff = 0x20;
+        SERCOM0_USART_Write(&tx_buff, 1);
+        while (wr_status);
+        wr_status = 1;
+    }
+
 }
 #endif

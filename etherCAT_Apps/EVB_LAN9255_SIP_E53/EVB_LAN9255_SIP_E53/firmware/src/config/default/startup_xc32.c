@@ -50,9 +50,6 @@ extern uint32_t __svectors;
 int main(void);
 extern void __attribute__((long_call)) __libc_init_array(void);
 
-/* Declaration of Reset handler (may be custom) */
-void __attribute__((optimize("-O1"), long_call)) Reset_Handler(void);
-
 /* Device Vector information is available in interrupt.c file */
 
 __STATIC_INLINE void FPU_Enable(void);
@@ -160,7 +157,8 @@ void __attribute__((optimize("-O1"), section(".text.Reset_Handler"), long_call, 
     FPU_Enable();
 #endif
 
-	TCM_Configure(2);
+
+    TCM_Configure(2);
 
     /* Enable TCM   */
     TCM_Enable();
@@ -198,6 +196,7 @@ void __attribute__((optimize("-O1"), section(".text.Reset_Handler"), long_call, 
 
     /* Branch to application's main function */
     main();
+
 #if (defined(__DEBUG) || defined(__DEBUG_D)) && defined(__XC32)
     __builtin_software_breakpoint();
 #endif

@@ -38,9 +38,8 @@
 #ifndef DEVELOPER_TEST_H_
 #define DEVELOPER_TEST_H_
 
-#include "ESF_Config.h"
-
 #ifdef DEVELOPER_TEST_EN
+void test_uart();
 void test_direct_mode();
 void test_indirect_mode();
 #endif
