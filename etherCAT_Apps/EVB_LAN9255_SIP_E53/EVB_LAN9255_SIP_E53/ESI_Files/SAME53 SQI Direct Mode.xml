@@ -652,7 +652,7 @@
 								<Type>STRING(3)</Type>
 								<BitSize>24</BitSize>
 								<Info>
-									<DefaultData>312E30</DefaultData>
+									<DefaultData>302E38</DefaultData>
 								</Info>
 								<Flags>
 									<Access>ro</Access>
