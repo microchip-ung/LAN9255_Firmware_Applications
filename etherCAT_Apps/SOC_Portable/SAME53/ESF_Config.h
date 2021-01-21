@@ -113,7 +113,7 @@
 
 /* EEPROM Emulation Feature can be enabled by uncommenting below macro */
 #define ETHERCAT_USE_EMULATION
-#define _IS_EEPROM_EMULATION_SUPPORT               0
+#define _IS_EEPROM_EMULATION_SUPPORT               1
 
 /* Cycle Time measurement for PDI */
 #define MEASURE_CYCLE_TIME
