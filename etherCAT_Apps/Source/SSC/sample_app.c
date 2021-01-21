@@ -408,7 +408,11 @@ void Emulation_Init()
    pAPPL_EEPROM_Reload = HW_EepromReload;
    pAPPL_EEPROM_Write  = HW_EepromWrite;
 }
-
+#else
+UINT16 HW_EepromReload ()
+{
+    return 0;
+}
 #endif
 ////////////////////////////////////////////////////////////////////////////////
 /**

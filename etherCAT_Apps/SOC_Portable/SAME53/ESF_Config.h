@@ -112,7 +112,8 @@
 #endif	/* ESF_PDI */
 
 /* EEPROM Emulation Feature can be enabled by uncommenting below macro */
-#define _IS_EEPROM_EMULATION_SUPPORT               1
+#define ETHERCAT_USE_EMULATION
+#define _IS_EEPROM_EMULATION_SUPPORT               0
 
 /* Cycle Time measurement for PDI */
 #define MEASURE_CYCLE_TIME

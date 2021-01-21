@@ -86,11 +86,14 @@ EEPROM_READ_SIZE: Only required if EEPROM emulation is active. This value define
 /*Number of bytes - needs to be calculate checksum*/
 #define ESC_EEPROM_CONFIG_BYTES                   0x0E
 
+PROTO void Emulation_Init();
+#endif
+
 PROTO UINT16 HW_EepromReload ();
 PROTO UINT16 HW_EepromWrite(UINT32 wordaddr);
-PROTO void Emulation_Init();
 
-#endif
+
+
 
 PROTO void   APPL_AckErrorInd(UINT16 stateTrans);
 PROTO UINT16 APPL_StartMailboxHandler(void);

@@ -64,10 +64,12 @@
 #include "oledc_driver.h"
 #include "fonts.h"
 #include "plib_sercom4_spi_master.h"
+
+#if defined(ETHERCAT_USE_EMULATION)
 #include "eeprom.h"
+#endif
 
 #ifdef _IS_EEPROM_EMULATION_SUPPORT
-
 uint8_t CalculateCRC8(uint8_t* pData, int length)
 {
     uint16_t Crc8Poly = 0x07U;    // s/b international standard for CRC-8
