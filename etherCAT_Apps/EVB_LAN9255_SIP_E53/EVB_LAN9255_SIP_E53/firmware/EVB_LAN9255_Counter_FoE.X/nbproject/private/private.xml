@@ -3,16 +3,54 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications/etherCAT_Apps/SOC_Portable/SAME53/ESF_Config.h</file>
-            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/app.c</file>
-            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications/etherCAT_Apps/Source/SSC/sample_app.h</file>
-            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications/etherCAT_Apps/Source/SSC/sample_app.c</file>
-            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/configuration.h</file>
-            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications/etherCAT_Apps/Source/SSC/ecatappl.c</file>
-            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications/etherCAT_Apps/Source/SSC/coeappl.c</file>
-            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications/etherCAT_Apps/Source/SSC/LAN925x.h</file>
-            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications/etherCAT_Apps/Source/SSC/eeprom.h</file>
-            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications/etherCAT_Apps/Source/SSC/ecat_def.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/peripheral/sercom/spi_master/plib_sercom4_spi_master.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/packs/ATSAME53J20A_DFP/component/pac.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/startup_xc32.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/initialization.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/SSC/applInterface.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/SSC/ecatcoe.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/packs/ATSAME53J20A_DFP/component/nvmctrl.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/packs/ATSAME53J20A_DFP/atsame53j20a.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/system/int/sys_int.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/SSC/ecatfoe.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/configuration.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/peripheral/sercom/spi_master/plib_sercom4_spi_master.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/SOC_Portable/SAME53/Drivers.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/definitions.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/system/ports/sys_ports.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/SSC/ecatfoe.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/app.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/peripheral/nvmctrl/plib_nvmctrl.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/SSC/ecat_def.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/SSC/ecatslv.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/SOC_Portable/SAME53/ESF_APIHook.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/SSC/foeappl.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/SSC/coeappl.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/SSC/sample_app.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/Developer_Test.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/SOC_Portable/SAME53/Drivers.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/interrupts.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/SSC/ecatslv.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/SSC/ecatappl.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/peripheral/nvmctrl/plib_nvmctrl.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/peripheral/qspi/plib_qspi.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/peripheral/eic/plib_eic.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/app.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/ESC/ESC_Utils.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/main.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/tasks.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/SSC/LAN925x.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/peripheral/port/plib_port.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/SOC_Portable/SAME53/ESF_Config.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/peripheral/oled/oledc_driver.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default/peripheral/qspi/plib_qspi.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/SSC/mailbox.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/Developer_Test.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/packs/ATSAME53J20A_DFP/pio/same53j20a.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/ESC/LAN925x.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/SSC/sample_app.c</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/packs/ATSAME53J20A_DFP/component/mclk.h</file>
+            <file>file:/D:/Perforce/depot_hw_jutland2_MCM/sw/Release/lan9255_firmware_applications_oled/etherCAT_Apps/Source/ESC/LAN925x.c</file>
         </group>
     </open-files>
 </project-private>

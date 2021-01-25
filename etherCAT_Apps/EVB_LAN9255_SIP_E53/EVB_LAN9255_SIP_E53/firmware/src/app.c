@@ -65,7 +65,7 @@
 #include "fonts.h"
 #include "plib_sercom4_spi_master.h"
 
-#if defined(ETHERCAT_USE_EMULATION)
+#if _IS_EEPROM_EMULATION_SUPPORT
 #include "eeprom.h"
 #endif
 
