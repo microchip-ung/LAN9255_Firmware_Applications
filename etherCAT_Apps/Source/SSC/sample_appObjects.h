@@ -193,24 +193,18 @@ PROTO TOBJ1601 OutputsProcessDataMapping0x1601
 * SubIndex 0<br>
 * SubIndex 1 - Reference to 0x6000.1<br>
 * SubIndex 2 - Reference to 0x6000.2<br>
-* SubIndex 3 - Padding entry (8Bit)<br>
-* SubIndex 4 - Padding entry (16Bit)<br>
 */
 OBJCONST TSDOINFOENTRYDESC    OBJMEM asEntryDesc0x1A00[] = {
 { DEFTYPE_UNSIGNED8 , 0x8 , ACCESS_READ },
 { DEFTYPE_UNSIGNED32 , 0x20 , ACCESS_READ }, /* Subindex1 - Reference to 0x6000.1 */
-{ DEFTYPE_UNSIGNED32 , 0x20 , ACCESS_READ }, /* Subindex2 - Reference to 0x6000.2 */
-{ DEFTYPE_UNSIGNED32 , 0x20 , ACCESS_READ }, /* Subindex3 - Padding entry (8Bit) */
-{ DEFTYPE_UNSIGNED32 , 0x20 , ACCESS_READ }}; /* Subindex4 - Padding entry (16Bit) */
+{ DEFTYPE_UNSIGNED32 , 0x20 , ACCESS_READ }}; /* Subindex2 - Reference to 0x6000.2 */
 
 /**
 * \brief Object/Entry names
 */
 OBJCONST UCHAR OBJMEM aName0x1A00[] = "Inputs process data mapping\000"
 "SubIndex 001\000"
-"SubIndex 002\000"
-"SubIndex 003\000"
-"SubIndex 004\000\377";
+"SubIndex 002\000\377";
 #endif //#ifdef _OBJD_
 
 #ifndef _SAMPLE_APP_OBJECTS_H_
@@ -221,8 +215,6 @@ typedef struct OBJ_STRUCT_PACKED_START {
 UINT16 u16SubIndex0;
 UINT32 SI1; /* Subindex1 - Reference to 0x6000.1 */
 UINT32 SI2; /* Subindex2 - Reference to 0x6000.2 */
-UINT32 SI3; /* Subindex3 - Padding entry (8Bit) */
-UINT32 SI4; /* Subindex4 - Padding entry (16Bit) */
 } OBJ_STRUCT_PACKED_END
 TOBJ1A00;
 #endif //#ifndef _SAMPLE_APP_OBJECTS_H_
@@ -232,7 +224,7 @@ TOBJ1A00;
 */
 PROTO TOBJ1A00 InputsProcessDataMapping0x1A00
 #if defined(_SAMPLE_APP_) && (_SAMPLE_APP_ == 1)
-={4,0x60000120,0x60000208,0x00000008,0x00000010}
+={2,0x60000120,0x60000220}
 #endif
 ;
 /** @}*/
@@ -253,25 +245,16 @@ PROTO TOBJ1A00 InputsProcessDataMapping0x1A00
 * <br>
 * SubIndex 0<br>
 * SubIndex 1 - Reference to 0x6021.1<br>
-* SubIndex 2 - Padding entry (7Bit)<br>
-* SubIndex 3 - Padding entry (8Bit)<br>
-* SubIndex 4 - Padding entry (16Bit)<br>
 */
 OBJCONST TSDOINFOENTRYDESC    OBJMEM asEntryDesc0x1A02[] = {
 { DEFTYPE_UNSIGNED8 , 0x8 , ACCESS_READ },
-{ DEFTYPE_UNSIGNED32 , 0x20 , ACCESS_READ }, /* Subindex1 - Reference to 0x6021.1 */
-{ DEFTYPE_UNSIGNED32 , 0x20 , ACCESS_READ }, /* Subindex2 - Padding entry (7Bit) */
-{ DEFTYPE_UNSIGNED32 , 0x20 , ACCESS_READ }, /* Subindex3 - Padding entry (8Bit) */
-{ DEFTYPE_UNSIGNED32 , 0x20 , ACCESS_READ }}; /* Subindex4 - Padding entry (16Bit) */
+{ DEFTYPE_UNSIGNED32 , 0x20 , ACCESS_READ }}; /* Subindex1 - Reference to 0x6021.1 */
 
 /**
 * \brief Object/Entry names
 */
 OBJCONST UCHAR OBJMEM aName0x1A02[] = "uart_status process data mapping\000"
-"SubIndex 001\000"
-"SubIndex 002\000"
-"SubIndex 003\000"
-"SubIndex 004\000\377";
+"SubIndex 001\000\377";
 #endif //#ifdef _OBJD_
 
 #ifndef _SAMPLE_APP_OBJECTS_H_
@@ -281,9 +264,6 @@ OBJCONST UCHAR OBJMEM aName0x1A02[] = "uart_status process data mapping\000"
 typedef struct OBJ_STRUCT_PACKED_START {
 UINT16 u16SubIndex0;
 UINT32 SI1; /* Subindex1 - Reference to 0x6021.1 */
-UINT32 SI2; /* Subindex2 - Padding entry (7Bit) */
-UINT32 SI3; /* Subindex3 - Padding entry (8Bit) */
-UINT32 SI4; /* Subindex4 - Padding entry (16Bit) */
 } OBJ_STRUCT_PACKED_END
 TOBJ1A02;
 #endif //#ifndef _SAMPLE_APP_OBJECTS_H_
@@ -293,7 +273,7 @@ TOBJ1A02;
 */
 PROTO TOBJ1A02 Uart_statusProcessDataMapping0x1A02
 #if defined(_SAMPLE_APP_) && (_SAMPLE_APP_ == 1)
-={4,0x60210101,0x00000007,0x00000008,0x00000010}
+={1,0x60210120}
 #endif
 ;
 /** @}*/
@@ -413,24 +393,18 @@ PROTO TOBJ1C13 sTxPDOassign
 * SubIndex 0<br>
 * SubIndex 1 - Counter<br>
 * SubIndex 2 - uart_read_buffer<br>
-* SubIndex 3<br>
-* SubIndex 4<br>
 */
 OBJCONST TSDOINFOENTRYDESC    OBJMEM asEntryDesc0x6000[] = {
 { DEFTYPE_UNSIGNED8 , 0x8 , ACCESS_READ },
 { DEFTYPE_UNSIGNED32 , 0x20 , ACCESS_READ | OBJACCESS_TXPDOMAPPING }, /* Subindex1 - Counter */
-{ DEFTYPE_UNSIGNED8 , 0x08 , ACCESS_READ | OBJACCESS_TXPDOMAPPING }, /* Subindex2 - uart_read_buffer */
-{ DEFTYPE_NULL , 0x08 ,  OBJACCESS_TXPDOMAPPING }, /* Subindex3 */
-{ DEFTYPE_NULL , 0x10 ,  OBJACCESS_TXPDOMAPPING }}; /* Subindex4 */
+{ DEFTYPE_UNSIGNED32 , 0x20 , ACCESS_READ | OBJACCESS_TXPDOMAPPING }}; /* Subindex2 - uart_read_buffer */
 
 /**
 * \brief Object/Entry names
 */
 OBJCONST UCHAR OBJMEM aName0x6000[] = "Inputs\000"
 "Counter\000"
-"uart_read_buffer\000"
-"\000"
-"\000\377";
+"uart_read_buffer\000\377";
 #endif //#ifdef _OBJD_
 
 #ifndef _SAMPLE_APP_OBJECTS_H_
@@ -440,9 +414,7 @@ OBJCONST UCHAR OBJMEM aName0x6000[] = "Inputs\000"
 typedef struct OBJ_STRUCT_PACKED_START {
 UINT16 u16SubIndex0;
 UINT32 Counter; /* Subindex1 - Counter */
-UINT8 Uart_read_buffer; /* Subindex2 - uart_read_buffer */
-ALIGN8(SI3) /* Subindex3 */
-UINT16 SI4; /* Subindex4 */
+UINT32 Uart_read_buffer; /* Subindex2 - uart_read_buffer */
 } OBJ_STRUCT_PACKED_END
 TOBJ6000;
 #endif //#ifndef _SAMPLE_APP_OBJECTS_H_
@@ -452,7 +424,7 @@ TOBJ6000;
 */
 PROTO TOBJ6000 Inputs0x6000
 #if defined(_SAMPLE_APP_) && (_SAMPLE_APP_ == 1)
-={2,0x00000000,0x00,0,0}
+={2,0x00000000,0x00000000}
 #endif
 ;
 /** @}*/
@@ -473,25 +445,16 @@ PROTO TOBJ6000 Inputs0x6000
 * <br>
 * SubIndex 0<br>
 * SubIndex 1 - rx_ready<br>
-* SubIndex 2<br>
-* SubIndex 3<br>
-* SubIndex 4<br>
 */
 OBJCONST TSDOINFOENTRYDESC    OBJMEM asEntryDesc0x6021[] = {
 { DEFTYPE_UNSIGNED8 , 0x8 , ACCESS_READ },
-{ DEFTYPE_BOOLEAN , 0x01 , ACCESS_READ | OBJACCESS_TXPDOMAPPING }, /* Subindex1 - rx_ready */
-{ DEFTYPE_NULL , 0x07 ,  OBJACCESS_TXPDOMAPPING }, /* Subindex2 */
-{ DEFTYPE_NULL , 0x08 ,  OBJACCESS_TXPDOMAPPING }, /* Subindex3 */
-{ DEFTYPE_NULL , 0x10 ,  OBJACCESS_TXPDOMAPPING }}; /* Subindex4 */
+{ DEFTYPE_UNSIGNED32 , 0x20 , ACCESS_READ | OBJACCESS_TXPDOMAPPING }}; /* Subindex1 - rx_ready */
 
 /**
 * \brief Object/Entry names
 */
 OBJCONST UCHAR OBJMEM aName0x6021[] = "uart_status\000"
-"rx_ready\000"
-"\000"
-"\000"
-"\000\377";
+"rx_ready\000\377";
 #endif //#ifdef _OBJD_
 
 #ifndef _SAMPLE_APP_OBJECTS_H_
@@ -500,10 +463,7 @@ OBJCONST UCHAR OBJMEM aName0x6021[] = "uart_status\000"
 */
 typedef struct OBJ_STRUCT_PACKED_START {
 UINT16 u16SubIndex0;
-BOOLEAN(Rx_ready); /* Subindex1 - rx_ready */
-ALIGN7(SI2) /* Subindex2 */
-ALIGN8(SI3) /* Subindex3 */
-UINT16 SI4; /* Subindex4 */
+UINT32 Rx_ready; /* Subindex1 - rx_ready */
 } OBJ_STRUCT_PACKED_END
 TOBJ6021;
 #endif //#ifndef _SAMPLE_APP_OBJECTS_H_
@@ -513,7 +473,7 @@ TOBJ6021;
 */
 PROTO TOBJ6021 Uart_status0x6021
 #if defined(_SAMPLE_APP_) && (_SAMPLE_APP_ == 1)
-={1,0x00,0,0,0}
+={1,0x00000000}
 #endif
 ;
 /** @}*/
@@ -665,17 +625,17 @@ TOBJECT    OBJMEM ApplicationObjDic[] = {
 /* Object 0x1601 */
 {NULL , NULL ,  0x1601 , {DEFTYPE_PDOMAPPING , 4 | (OBJCODE_REC << 8)} , asEntryDesc0x1601 , aName0x1601 , &OutputsProcessDataMapping0x1601 , NULL , NULL , 0x0000 },
 /* Object 0x1A00 */
-{NULL , NULL ,  0x1A00 , {DEFTYPE_PDOMAPPING , 4 | (OBJCODE_REC << 8)} , asEntryDesc0x1A00 , aName0x1A00 , &InputsProcessDataMapping0x1A00 , NULL , NULL , 0x0000 },
+{NULL , NULL ,  0x1A00 , {DEFTYPE_PDOMAPPING , 2 | (OBJCODE_REC << 8)} , asEntryDesc0x1A00 , aName0x1A00 , &InputsProcessDataMapping0x1A00 , NULL , NULL , 0x0000 },
 /* Object 0x1A02 */
-{NULL , NULL ,  0x1A02 , {DEFTYPE_PDOMAPPING , 4 | (OBJCODE_REC << 8)} , asEntryDesc0x1A02 , aName0x1A02 , &Uart_statusProcessDataMapping0x1A02 , NULL , NULL , 0x0000 },
+{NULL , NULL ,  0x1A02 , {DEFTYPE_PDOMAPPING , 1 | (OBJCODE_REC << 8)} , asEntryDesc0x1A02 , aName0x1A02 , &Uart_statusProcessDataMapping0x1A02 , NULL , NULL , 0x0000 },
 /* Object 0x1C12 */
 {NULL , NULL ,  0x1C12 , {DEFTYPE_UNSIGNED16 , 2 | (OBJCODE_ARR << 8)} , asEntryDesc0x1C12 , aName0x1C12 , &sRxPDOassign , NULL , NULL , 0x0000 },
 /* Object 0x1C13 */
 {NULL , NULL ,  0x1C13 , {DEFTYPE_UNSIGNED16 , 2 | (OBJCODE_ARR << 8)} , asEntryDesc0x1C13 , aName0x1C13 , &sTxPDOassign , NULL , NULL , 0x0000 },
 /* Object 0x6000 */
-{NULL , NULL ,  0x6000 , {DEFTYPE_RECORD , 4 | (OBJCODE_REC << 8)} , asEntryDesc0x6000 , aName0x6000 , &Inputs0x6000 , NULL , NULL , 0x0000 },
+{NULL , NULL ,  0x6000 , {DEFTYPE_RECORD , 2 | (OBJCODE_REC << 8)} , asEntryDesc0x6000 , aName0x6000 , &Inputs0x6000 , NULL , NULL , 0x0000 },
 /* Object 0x6021 */
-{NULL , NULL ,  0x6021 , {DEFTYPE_RECORD , 4 | (OBJCODE_REC << 8)} , asEntryDesc0x6021 , aName0x6021 , &Uart_status0x6021 , NULL , NULL , 0x0000 },
+{NULL , NULL ,  0x6021 , {DEFTYPE_RECORD , 1 | (OBJCODE_REC << 8)} , asEntryDesc0x6021 , aName0x6021 , &Uart_status0x6021 , NULL , NULL , 0x0000 },
 /* Object 0x7010 */
 {NULL , NULL ,  0x7010 , {DEFTYPE_RECORD , 4 | (OBJCODE_REC << 8)} , asEntryDesc0x7010 , aName0x7010 , &Outputs0x7010 , NULL , NULL , 0x0000 },
 /* Object 0x8000 */

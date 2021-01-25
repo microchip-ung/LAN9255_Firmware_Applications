@@ -74,7 +74,6 @@ UINT32  gFOETestFrameSize=1;
 #define MAX_FILE_SIZE	APP_MAX_NVM_BANK_SIZE   //SAME53 Bank A/B Size
 #define MAX_BLOCK_SIZE  APP_ERASE_BLOCK_SIZE    //SAME53 Block Size
 
-#ifdef _UART_APP_EN
 typedef struct
 {
     BOOL enableUart; /* Subindex1 - enable uart */
@@ -87,7 +86,7 @@ typedef struct
 static UART_CONFIGDATA uart_config ={1, 0, 0, 9600}; //these values are given in Sample_app.xlsx
 
 void APPL_UpdateUARTConfig(void);
-#endif
+
 int uart_rd_status = 1, uart_wr_status = 1;
 
 /*------------------------------------------------------------------------------
@@ -658,6 +657,7 @@ void APPL_InputMapping(UINT16* pData)
         /* TxPDO 1*/
         case 0x1A00:
             *pTemp++ = ((UINT32 *) &Inputs0x6000)[1];
+            *pTemp++ = ((UINT32 *) &Inputs0x6000)[2];
             *pTemp++ = ((UINT32 *) &Uart_status0x6021)[1];
             break;
         }
@@ -699,7 +699,7 @@ void APPL_OutputMapping(UINT16* pData)
 *////////////////////////////////////////////////////////////////////////////////////////
 void APPL_Application(void)
 {
-    UINT8 tmp = 0, data  = 0;
+    UINT8 tmp = 0;
 	if(Outputs0x7010.Trigger)
 	{
         gTriggerCounterValMeasure += Outputs0x7010.Trigger;
@@ -715,31 +715,29 @@ void APPL_Application(void)
 	}
 
     //APPL_UpdateUARTConfig();
-  
-    SERCOM0_USART_Read(&data, 1);
-    /* Replace with timer with timeout, instead of tmp 255 count to 0 */
-    tmp = 64;
-    do {
-        tmp--;
-    }while (tmp);
-    /* It read something, so update twinCAT master */
-    if (uart_rd_status == 0)
-    {
-        data = 0x41;
-        Inputs0x6000.Uart_read_buffer = data;
-        uart_rd_status = 1;
-        Uart_status0x6021.Rx_ready = true; //update rx_ready to twincat master
+    if (SERCOM0_USART_ReadCountGet()) {
+       // data  = 0x41;
+        SERCOM0_USART_Read((uint8_t *)&Inputs0x6000.Uart_read_buffer, 1);
+        /* Replace with timer with timeout, instead of tmp 255 count to 0 */
+        tmp = 96;
+        do {
+            tmp--;
+        }while (uart_rd_status && tmp);
+        /* It read something, so update twinCAT master */
+        if (uart_rd_status == 0)
+        {
+            uart_rd_status = 1;
+            Uart_status0x6021.Rx_ready = true; //update rx_ready to twincat master
+        }
     }
-  
     if(true == Configure_uart0x8000.Tx_ready) //Write UART only if tx_ready is high from twincat master
     {
         SERCOM0_USART_Write((uint8_t *) &(Outputs0x7010.Uart_write_buffer), 1);
-       // while (uart_wr_status);
-       // uart_wr_status = 1;
+        while (uart_wr_status);
+        uart_wr_status = 1;
     }
  }
 
-#ifdef _UART_APP_EN
 void APPL_UpdateUARTConfig(void)
 {
     BOOL isModified = false;
@@ -812,7 +810,6 @@ void APPL_UpdateUARTConfig(void)
         SERCOM0_USART_SerialSetup(&uart_setup, 0);
     }     
 }
-#endif
 #if EXPLICIT_DEVICE_ID
 /////////////////////////////////////////////////////////////////////////////////////////
 /**

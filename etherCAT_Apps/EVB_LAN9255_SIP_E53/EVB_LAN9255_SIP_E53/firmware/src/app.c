@@ -301,7 +301,7 @@ void APP_Initialize ( void )
 
 void APP_Tasks ( void )
 {
-
+    uint8_t data = 0;
     /* Check the application's current state. */
     switch ( appData.state )
     {
@@ -351,6 +351,8 @@ void APP_Tasks ( void )
             /* register UART callback functions */
             SERCOM0_USART_WriteCallbackRegister(uart_tx_cb, 0);
             SERCOM0_USART_ReadCallbackRegister(uart_rx_cb, 0);
+            /* Adding this read call, to get the data count whenever data available */
+            SERCOM0_USART_Read(&data, 1);
             appData.state = APP_STATE_SERVICE_TASKS;
             break;
         }
