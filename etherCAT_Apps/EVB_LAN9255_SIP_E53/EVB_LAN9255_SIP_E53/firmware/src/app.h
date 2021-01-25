@@ -86,6 +86,15 @@ extern "C" {
 
 #define APP_DATA_SIZE                   APP_ERASE_BLOCK_SIZE
 #define WORDS(x)                        ((int)((x) / sizeof(uint32_t)))    
+
+#define APP_PAGES_IN_EEPROM_BLOCK       ESC_EEPROM_SIZE/APP_PAGE_SIZE
+
+// This define should be based on current firmware and mode
+#if DIRECT_MODE    
+#define FLASH_EEPROM_START_ADDRESS      0x09D0        
+#else
+#define FLASH_EEPROM_START_ADDRESS      0x09E8 
+#endif        
 // *****************************************************************************
 /* Application states
 
@@ -236,6 +245,59 @@ void APP_FlashWrite( UINT32 startAddress, UINT8 *flash_data )
  */
 //UNG_J2_SIP-28
 void APP_FlashWrite( uint32_t startAddress, uint8_t *flash_data );
+
+/*******************************************************************************
+  Function:
+void APP_FlashEEPROMUpdate(uint8_t *flash_data, uint8_t checksum)
+
+  Summary:
+    MPLAB Harmony NVM write  application function
+
+  Description:
+    This routine is used to write the flash data to the specific BANK address 
+    location. This routine writes 8192 bytes at a time.
+
+  Precondition:
+    The system and application initialization ("SYS_Initialize") should be
+    called before calling this.
+
+  Parameters:
+    None.
+
+  Returns:
+    None.
+
+  Remarks:
+    This routine is called from the slave stack sample application eeprom write
+    function.
+ */
+void APP_FlashEEPROMUpdate(uint8_t *flash_data, uint8_t checksum);
+
+/*******************************************************************************
+  Function:
+uint8_t CalculateCRC8(uint8_t* pData, int length)
+
+  Summary:
+    Application function
+
+  Description:
+    This routine is used to calculate checksum of eeprom configuration bytes.
+
+  Precondition:
+    The system and application initialization ("SYS_Initialize") should be
+    called before calling this.
+
+  Parameters:
+    None.
+
+  Returns:
+    None.
+
+  Remarks:
+    This routine is called from the slave stack sample application eeprom write
+    function.
+ */
+uint8_t CalculateCRC8(uint8_t* pData, int length);
 
 void EtherCAT_QSPI_CallbackRegistration(void);
 
