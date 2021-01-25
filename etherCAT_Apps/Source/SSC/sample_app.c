@@ -73,6 +73,23 @@ UINT32  gFOETestFrameSize=1;
 /** \brief  MAX_FILE_SIZE: Maximum file size */
 #define MAX_FILE_SIZE	APP_MAX_NVM_BANK_SIZE   //SAME53 Bank A/B Size
 #define MAX_BLOCK_SIZE  APP_ERASE_BLOCK_SIZE    //SAME53 Block Size
+
+#ifdef _UART_APP_EN
+typedef struct
+{
+    BOOL enableUart; /* Subindex1 - enable uart */
+    BOOL stopSelectionBit; /* Subindex2 - stop selection bit */
+    UINT8 parityAndDataSelectionBits; /* Subindex4 - parity and data selection bits */
+    uint32_t buadRate;
+} UART_CONFIGDATA ;
+
+//Based on default of values of U2MODE (=0xC008) and U2STA (=0x05D0)
+static UART_CONFIGDATA uart_config ={1, 0, 0, 9600}; //these values are given in Sample_app.xlsx
+
+void APPL_UpdateUARTConfig(void);
+#endif
+int uart_rd_status = 1, uart_wr_status = 1;
+
 /*------------------------------------------------------------------------------
 ------
 ------    local variables and constants
@@ -542,7 +559,20 @@ UINT16 APPL_GenerateMapping(UINT16 *pInputSize,UINT16 *pOutputSize)
 void APPL_InputMapping(UINT16* pData)
 {
 	UINT32 *pTemp = (UINT32*)pData;
-	*pTemp = Inputs0x6000.Counter;
+    UINT16 j = 0;
+
+    /* we go through all entries of the TxPDO Assign object to get the assigned TxPDOs */
+    for (j = 0; j < sTxPDOassign.u16SubIndex0; j++)
+    {
+        switch (sTxPDOassign.aEntries[j])
+        {
+        /* TxPDO 1*/
+        case 0x1A00:
+            *pTemp++ = ((UINT32 *) &Inputs0x6000)[1];
+            *pTemp++ = ((UINT32 *) &Uart_status0x6021)[1];
+            break;
+        }
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -554,8 +584,23 @@ void APPL_InputMapping(UINT16* pData)
 *////////////////////////////////////////////////////////////////////////////////////////
 void APPL_OutputMapping(UINT16* pData)
 {
-	UINT32 *pTemp = (UINT32*)pData;
-	Outputs0x7010.Trigger = *pTemp;
+    UINT16 j = 0;
+    UINT32 *pTemp = (UINT32*)pData;
+
+    /* we go through all entries of the RxPDO Assign object to get the assigned RxPDOs */
+    for (j = 0; j < sRxPDOassign.u16SubIndex0; j++)
+    {
+        switch (sRxPDOassign.aEntries[j])
+        {
+        /* RxPDO 1*/
+        case 0x1600:
+            ((UINT32 *) &Configure_uart0x8000)[1] = *pTemp++;
+            ((UINT32 *) &Configure_uart0x8000)[2] = *pTemp++;
+            ((UINT32 *) &Outputs0x7010)[1] = *pTemp++;
+            ((UINT32 *) &Outputs0x7010)[2] = *pTemp++;
+            break;
+        }
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -565,6 +610,7 @@ void APPL_OutputMapping(UINT16* pData)
 *////////////////////////////////////////////////////////////////////////////////////////
 void APPL_Application(void)
 {
+    UINT8 tmp = 0, data  = 0;
 	if(Outputs0x7010.Trigger)
 	{
         gTriggerCounterValMeasure += Outputs0x7010.Trigger;
@@ -578,8 +624,106 @@ void APPL_Application(void)
 		Inputs0x6000.Counter = 0;
         gTriggerCounterValMeasure = 0;
 	}
-}
 
+    //APPL_UpdateUARTConfig();
+  
+    SERCOM0_USART_Read(&data, 1);
+    /* Replace with timer with timeout, instead of tmp 255 count to 0 */
+    tmp = 64;
+    do {
+        tmp--;
+    }while (tmp);
+    /* It read something, so update twinCAT master */
+    if (uart_rd_status == 0)
+    {
+        data = 0x41;
+        Inputs0x6000.Uart_read_buffer = data;
+        uart_rd_status = 1;
+        Uart_status0x6021.Rx_ready = true; //update rx_ready to twincat master
+    }
+  
+    if(true == Configure_uart0x8000.Tx_ready) //Write UART only if tx_ready is high from twincat master
+    {
+        SERCOM0_USART_Write((uint8_t *) &(Outputs0x7010.Uart_write_buffer), 1);
+       // while (uart_wr_status);
+       // uart_wr_status = 1;
+    }
+ }
+
+#ifdef _UART_APP_EN
+void APPL_UpdateUARTConfig(void)
+{
+    BOOL isModified = false;
+    USART_SERIAL_SETUP uart_setup;
+
+    if(Configure_uart0x8000.Buadrate != uart_config.buadRate)
+    {
+        uart_config.buadRate = Configure_uart0x8000.Buadrate;
+        isModified = true;
+    }
+
+    if(Configure_uart0x8000.EnableUart != uart_config.enableUart)
+    {
+        uart_config.enableUart = Configure_uart0x8000.EnableUart;
+        isModified = true;
+    }
+
+    if(uart_config.parityAndDataSelectionBits != Configure_uart0x8000.ParityAndDataSelectionBits)
+    {
+        /*
+         0x3 = 9-bit data, no parity
+         0x2 = 8-bit data, odd parity
+         0x1 = 8-bit data, even parity
+         0x0 = 8-bit data, no parity
+         */
+        uart_config.parityAndDataSelectionBits = Configure_uart0x8000.ParityAndDataSelectionBits;
+        isModified = true;
+    }
+
+    if(uart_config.stopSelectionBit!= Configure_uart0x8000.StopSelectionBit)
+    {
+      /* 
+       * uart_config.stopSelectionBit == 1 --> 2 Stop bits
+         uart_config.stopSelectionBit ==0 --> 1 Stop bit
+       */        
+        uart_config.stopSelectionBit = Configure_uart0x8000.StopSelectionBit;
+        isModified = true;
+    }
+            
+    if(isModified)
+    {
+        uart_setup.baudRate = uart_config.buadRate;
+        switch (uart_config.parityAndDataSelectionBits)
+        {
+            case 0:
+                uart_setup.parity = USART_PARITY_NONE;
+                uart_setup.dataWidth = USART_DATA_8_BIT;
+                break;
+            case 1:
+                uart_setup.parity = USART_PARITY_EVEN;
+                uart_setup.dataWidth = USART_DATA_8_BIT;
+                break;
+            case 2:
+                uart_setup.parity = USART_PARITY_ODD;
+                uart_setup.dataWidth = USART_DATA_8_BIT;
+                break;
+            case 3:
+                uart_setup.parity = USART_PARITY_NONE;
+                uart_setup.dataWidth = USART_DATA_9_BIT;
+                break;
+        }
+        /* 
+        *   uart_config.stopSelectionBit == 1 --> 2 Stop bits
+            uart_config.stopSelectionBit == 0 --> 1 Stop bit
+            or 
+            equivalent to USART_STOP
+        */
+        uart_setup.stopBits = uart_config.stopSelectionBit;
+        /* Update the UART configuration */
+        SERCOM0_USART_SerialSetup(&uart_setup, 0);
+    }     
+}
+#endif
 #if EXPLICIT_DEVICE_ID
 /////////////////////////////////////////////////////////////////////////////////////////
 /**

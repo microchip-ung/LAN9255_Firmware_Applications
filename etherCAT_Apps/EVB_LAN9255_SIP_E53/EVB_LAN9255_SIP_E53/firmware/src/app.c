@@ -211,6 +211,16 @@ void applicationTask()
 }
 #endif /* _OLED_APP_EN */
 
+void uart_tx_cb (uintptr_t ctx)
+{
+    uart_wr_status = 0;
+}
+
+void uart_rx_cb (uintptr_t ctx)
+{
+    uart_rd_status = 0;
+}
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Initialization and State Machine Functions
@@ -279,7 +289,10 @@ void APP_Tasks ( void )
             BL_FOE_Application();
                 
             bRunApplication = TRUE;
-#endif                
+#endif
+            /* register UART callback functions */
+            SERCOM0_USART_WriteCallbackRegister(uart_tx_cb, 0);
+            SERCOM0_USART_ReadCallbackRegister(uart_rx_cb, 0);
             appData.state = APP_STATE_SERVICE_TASKS;
             break;
         }

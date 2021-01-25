@@ -61,13 +61,11 @@
 #include "peripheral/nvic/plib_nvic.h"
 #include "peripheral/systick/plib_systick.h"
 #include "peripheral/cmcc/plib_cmcc.h"
+#include "peripheral/sercom/spi_master/plib_sercom4_spi_master.h"
 #include "peripheral/eic/plib_eic.h"
 #include "system/int/sys_int.h"
 #include "system/ports/sys_ports.h"
-#include "peripheral/sercom/spi_master/plib_sercom4_spi_master.h"
 #include "app.h"
-
-
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility

@@ -10,7 +10,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: sercom0, value: '255'}
+        attributes: {id: sercom0, value: '232'}
   - type: Integer
     attributes: {id: I2CS_SDASETUP_TIME_NS}
     children:
@@ -34,13 +34,22 @@ children:
       children:
       - type: Dynamic
         attributes: {id: sercom0, value: 'true'}
+  - type: Comment
+    attributes: {id: I2C_BAUD_ERROR_COMMENT}
+    children:
+    - type: Attributes
+      children:
+      - type: String
+        attributes: {id: text}
+        children:
+        - {type: Value, value: '**** Achievable I2C Clock Frequency = 82644Hz'}
   - type: Integer
     attributes: {id: SPI_BAUD_REG_VALUE}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: sercom0, value: '29'}
+        attributes: {id: sercom0, value: '23'}
   - type: Integer
     attributes: {id: USART_BAUD_RATE}
     children:
@@ -54,7 +63,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: sercom0, value: '65368'}
+        attributes: {id: sercom0, value: '65326'}
   - type: KeyValueSet
     attributes: {id: USART_FORM}
     children:

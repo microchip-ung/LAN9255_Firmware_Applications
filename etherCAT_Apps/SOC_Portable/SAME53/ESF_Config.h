@@ -65,7 +65,7 @@
 
 #endif
 
-#define _OLED_APP_EN
+//#define _OLED_APP_EN
 
 #if (ESF_PDI == SPI)
 
@@ -112,7 +112,7 @@
 #endif	/* ESF_PDI */
 
 /* EEPROM Emulation Feature can be enabled by uncommenting below macro */
-#define _IS_EEPROM_EMULATION_SUPPORT               1
+//#define _IS_EEPROM_EMULATION_SUPPORT               1
 
 /* Cycle Time measurement for PDI */
 #define MEASURE_CYCLE_TIME

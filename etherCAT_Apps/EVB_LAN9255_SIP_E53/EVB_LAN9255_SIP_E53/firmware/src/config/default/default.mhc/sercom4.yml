@@ -34,6 +34,15 @@ children:
       children:
       - type: Dynamic
         attributes: {id: sercom4, value: 'true'}
+  - type: Comment
+    attributes: {id: I2C_BAUD_ERROR_COMMENT}
+    children:
+    - type: Attributes
+      children:
+      - type: String
+        attributes: {id: text}
+        children:
+        - {type: Value, value: '**** Achievable I2C Clock Frequency = 114068Hz'}
   - type: String
     attributes: {id: RECEIVE_DATA_REGISTER}
     children:
@@ -100,6 +109,15 @@ children:
       children:
       - type: Boolean
         attributes: {id: enabled}
+        children:
+        - {type: Value, value: 'false'}
+  - type: Comment
+    attributes: {id: SPI_BAUD_ERROR_COMMENT}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
         children:
         - {type: Value, value: 'false'}
   - type: Integer
@@ -172,6 +190,10 @@ children:
         attributes: {id: visible}
         children:
         - {type: Value, value: 'true'}
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '3'}
   - type: KeyValueSet
     attributes: {id: SPI_DOPO}
     children:
@@ -184,7 +206,7 @@ children:
     - type: Values
       children:
       - type: User
-        attributes: {value: '1'}
+        attributes: {value: '0'}
   - type: Boolean
     attributes: {id: SPI_INTERRUPT_MODE}
     children:

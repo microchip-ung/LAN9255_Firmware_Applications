@@ -5,21 +5,21 @@ files:
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: B9388144EA8C18C396F2DB6CC40DCB4D
+  userChecksum: D8059CB0170D180E835F10F453551E8D
 - generatedChecksum: DCB2665E92794DB828AA15D1EB58BC47
   logicalPath: config\default
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: DCB2665E92794DB828AA15D1EB58BC47
+  userChecksum: DC358B8F4B2FFFDF393C4B86C399A5EF
 - generatedChecksum: 156DC0D52DD79A21C46B70CA2058694A
   logicalPath: config\default
   name: interrupts.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 156DC0D52DD79A21C46B70CA2058694A
+  userChecksum: ED6C1C20FDFF8D74784723525DD22807
 - generatedChecksum: 328F1E09E0DD9BEE901C4562A3E5180A
   logicalPath: config\default
   name: libc_syscalls.c
@@ -34,13 +34,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: null
-- generatedChecksum: 49E0BEDA058CBE27FE282EAB756F6ED2
+- generatedChecksum: 70229001949B3AF2C77FE83052C3D3B2
   logicalPath: config\default\peripheral\clock
   name: plib_clock.c
   physicalPath: peripheral\clock
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 49E0BEDA058CBE27FE282EAB756F6ED2
+  userChecksum: 70229001949B3AF2C77FE83052C3D3B2
 - generatedChecksum: FD8CCFC86D63BF1AC9F15EBA909D181D
   logicalPath: config\default\peripheral\cmcc
   name: plib_cmcc.c
@@ -68,42 +68,42 @@ files:
   physicalPath: peripheral\nvic
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 985AC39C31170E12B22A4AE2A39E37CB
+  userChecksum: D3E9E5EA0C97DA570EA3F1C372973414
 - generatedChecksum: 8AA3681EED55E354B4F2764AAECA5347
   logicalPath: config\default\peripheral\nvmctrl
   name: plib_nvmctrl.c
   physicalPath: peripheral\nvmctrl
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 8AA3681EED55E354B4F2764AAECA5347
-- generatedChecksum: 4024B365DA9A320D5B2516C69FDFDD39
+  userChecksum: 894ADF7F4B25E778697545B9AD15E880
+- generatedChecksum: FBDFF775A92D1EEA27BB13E2B951BA43
   logicalPath: config\default\peripheral\port
   name: plib_port.c
   physicalPath: peripheral\port
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 4024B365DA9A320D5B2516C69FDFDD39
+  userChecksum: E1BB1965348342F040F3DF727EA7F71A
 - generatedChecksum: F5FBD186BE2498F662AD9D7657F9F96B
   logicalPath: config\default\peripheral\qspi
   name: plib_qspi.c
   physicalPath: peripheral\qspi
   security: NON_SECURE
   type: SOURCE
-  userChecksum: F5FBD186BE2498F662AD9D7657F9F96B
-- generatedChecksum: 102A02010936AAE6E5E2FB8EBCB62A28
+  userChecksum: 7E37CBED18CD4DF1173A750959298631
+- generatedChecksum: C5B15A00DA31207A66FFC03A1BF6EB05
   logicalPath: config\default\peripheral\sercom\usart
   name: plib_sercom0_usart.c
   physicalPath: peripheral\sercom\usart
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 102A02010936AAE6E5E2FB8EBCB62A28
-- generatedChecksum: 9DBA7A921BFF59DFA921A47516F5929E
+  userChecksum: C5B15A00DA31207A66FFC03A1BF6EB05
+- generatedChecksum: 7C95DE0B0A5010A6290B77CDFB228B75
   logicalPath: config\default\peripheral\sercom\spi_master
   name: plib_sercom4_spi_master.c
   physicalPath: peripheral\sercom\spi_master
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 9DBA7A921BFF59DFA921A47516F5929E
+  userChecksum: 7C95DE0B0A5010A6290B77CDFB228B75
 - generatedChecksum: 400C2F00C3ED911029A0DF5BF55D096F
   logicalPath: config\default\peripheral\systick
   name: plib_systick.c
@@ -243,7 +243,7 @@ files:
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: CDD78E5A181AD6E8530AFF2CB5E45A5F
+  userChecksum: 209902428EFA892BCA9B64659268F209
 - generatedChecksum: F9F29E6ACA5031D210169B9DDF697F5C
   logicalPath: config\default
   name: device.h
@@ -425,8 +425,8 @@ files:
   physicalPath: peripheral\nvmctrl
   security: NON_SECURE
   type: HEADER
-  userChecksum: 979C4115BB3514CB386D0B6C8F6E1525
-- generatedChecksum: 7C20AECCA9CF28B2E5C3843AC15EB497
+  userChecksum: 40F57C9F86846CED4A37532A5A40DE49
+- generatedChecksum: 6DC5FF589C7137ECEA9F15DE169AD93B
   logicalPath: config\default\peripheral\port
   name: plib_port.h
   physicalPath: peripheral\port
@@ -439,14 +439,14 @@ files:
   physicalPath: peripheral\qspi
   security: NON_SECURE
   type: HEADER
-  userChecksum: 46627FB58B9BC666547AADFCC5FCFBEE
+  userChecksum: E8EC6F240809E0526768B181D8EBFDD7
 - generatedChecksum: 3F5E0C829C39E76F7F21E40A3477C64A
   logicalPath: config\default\peripheral\qspi
   name: plib_qspi_common.h
   physicalPath: peripheral\qspi
   security: NON_SECURE
   type: HEADER
-  userChecksum: 3F5E0C829C39E76F7F21E40A3477C64A
+  userChecksum: C8B5E81CB2CEC7EDF46D9054AB610098
 - generatedChecksum: ADF8363F399198F2FE7D68A20AA62CB9
   logicalPath: config\default\peripheral\sercom\usart
   name: plib_sercom0_usart.h

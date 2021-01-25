@@ -246,6 +246,11 @@ extern volatile uint8_t spi_sync;
     spi_sync = 1;\
     }
 
+extern int uart_rd_status, uart_wr_status;
+
+void uart_tx_cb (uintptr_t ctx);
+void uart_rx_cb (uintptr_t ctx);
+
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 }
