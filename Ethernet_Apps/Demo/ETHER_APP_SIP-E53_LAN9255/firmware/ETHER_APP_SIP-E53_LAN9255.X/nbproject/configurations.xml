@@ -172,6 +172,7 @@
               <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/tcpip_commands.h</itemPath>
               <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/tcpip.h</itemPath>
               <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/tcpip_ethernet.h</itemPath>
+              <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/snmp_if_mib.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f4" displayName="net_pres" projectFiles="true">
@@ -575,6 +576,7 @@
                 <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/tcpip_notify.c</itemPath>
                 <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/tcpip_packet.c</itemPath>
                 <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/sntp.c</itemPath>
+                <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/snmp_if_mib.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -1099,6 +1101,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="D:/J2-SIP/Git-SNMP/lan9255_firmware_applications/Ethernet_Apps/Demo/ETHER_APP_SIP-E53_LAN9255/firmware/ETHER_APP_SIP-E53_LAN9255.X/debug/LAN9255_SAME53_ETHERNET_APP/ETHER_APP_SIP-E53_LAN9255_ptg"/>
         <property key="programmerToGoImageName" value="ETHER_APP_SIP-E53_LAN9255_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

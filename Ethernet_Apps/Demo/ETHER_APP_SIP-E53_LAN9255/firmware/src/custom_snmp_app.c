@@ -41,6 +41,8 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 #include "tcpip/tcpip.h"
 #include "mib.h"
 #include "tcpip/src/common/helpers.h"
+#include "tcpip/snmp_if_mib.h"
+#include "tcpip_manager_control.h"
 
 #ifndef APP_SWITCH_1StateGet
 #define APP_SWITCH_1StateGet() 0
@@ -208,8 +210,6 @@ static bool     gtrapSMStateUpdate=false;
 
 
 #define MAX_TRY_TO_SEND_TRAP    (30)
-#define SNMP_IFMIB_ETH_MAC_TYPE (6)
-#define SNMP_IFMIB_ETH_SPEED    (1000000)
 
 #if defined(SYS_OUT_ENABLE)
 static uint8_t lcdMessage[16*2+1]="";
@@ -641,7 +641,7 @@ This ID is only related to trap ID. and this implementaion is only for TRAPv2 sp
             potReadLock    = true;
         }
 
-        if(analogPotVal.word >12u)
+        if(true)
         {
             /*
              * prepare  and send multivarbind pdu using pot meter value.
@@ -663,19 +663,20 @@ This ID is only related to trap ID. and this implementaion is only for TRAPv2 sp
                     TCPIP_SNMP_TrapSendFlagSet(true);
                     if(snmpTrapIpAddresstype == IPV4_SNMP_TRAP)
                     {
-                        //retVal =SNMPSendNotification(trapIndex,ANALOG_POT0,analogPotVal,targetIndex);
+                        analogPotVal.byte = APP_LED_1StateGet();//BSP_LEDStateGet(APP_LED_1);
+                        retVal =SNMPSendNotification(trapIndex,LED_D5,analogPotVal,targetIndex);
                         if((gSendTrapSMstate == 0x0) && (retVal == false)) // gSendTrapSMstate == SM_PREPARE
                         {
-                           // retVal = SNMPSendNotification(trapIndex, ANALOG_POT0, analogPotVal,targetIndex);
+                            retVal = SNMPSendNotification(trapIndex, LED_D5, analogPotVal,targetIndex);
                         }
                     }
 #ifdef TCPIP_STACK_USE_IPV6
                     else
                     {
-                       // retVal =TCPIP_SNMP_IPv6_NotificationSend(trapIndex,ANALOG_POT0,analogPotVal,targetIndex);
+                        retVal =TCPIP_SNMP_IPv6_NotificationSend(trapIndex,LED_D5,analogPotVal,targetIndex);
                         if((gSendTrapSMstate == 0x0) && (retVal == false)) // gSendTrapSMstate == SM_PREPARE
                         {
-                         //   retVal = TCPIP_SNMP_IPv6_NotificationSend(trapIndex, ANALOG_POT0, analogPotVal,targetIndex);
+                            retVal = TCPIP_SNMP_IPv6_NotificationSend(trapIndex, LED_D5, analogPotVal,targetIndex);
                         }
                     }
 #endif      /* #ifdef TCPIP_STACK_USE_IPV6 */
@@ -697,23 +698,23 @@ This ID is only related to trap ID. and this implementaion is only for TRAPv2 sp
                     if((snmpv3MsgModelType == SNMPV3_MSG_PROCESSING_MODEL)
                         && (snmpv3SecModelType == SNMPV3_USM_SECURITY_MODEL))
                     {
-                        //TCPIP_SNMPv3_Notify(PUSH_BUTTON,analogPotVal,0,targetIndex,snmpTrapIpAddresstype);
+                        TCPIP_SNMPv3_Notify(PUSH_BUTTON,analogPotVal,0,targetIndex,snmpTrapIpAddresstype);
                     }
                     else if((snmpv3MsgModelType == SNMPV2C_MSG_PROCESSING_MODEL)
                         && (snmpv3SecModelType == SNMPV2C_SECURITY_MODEL))
                     {
-                        //TCPIP_SNMP_TRAPv2Notify(PUSH_BUTTON,analogPotVal,0,snmpTrapIpAddresstype);
+                        TCPIP_SNMP_TRAPv2Notify(PUSH_BUTTON,analogPotVal,0,snmpTrapIpAddresstype);
                     }
                     else if((snmpv3MsgModelType == SNMPV1_MSG_PROCESSING_MODEL)
                         && (snmpv3SecModelType == SNMPV1_SECURITY_MODEL))
                     {
-                        //TCPIP_SNMP_TRAPv1Notify(PUSH_BUTTON,analogPotVal,0,snmpTrapIpAddresstype);
+                        TCPIP_SNMP_TRAPv1Notify(PUSH_BUTTON,analogPotVal,0,snmpTrapIpAddresstype);
                     }
                     else
                     {
                         continue;
                     }
-                    analogPotVal.byte = APP_LED_1StateGet();//BSP_LEDStateGet(APP_LED_1);
+/*                    analogPotVal.byte = APP_LED_1StateGet();//BSP_LEDStateGet(APP_LED_1);
                     // Get SNMPv3 messsage model type and security model type
                     TCPIP_SNMPv3_TrapConfigDataGet(targetIndex,&snmpv3MsgModelType,&snmpv3SecModelType);
                     if((snmpv3MsgModelType == SNMPV3_MSG_PROCESSING_MODEL)
@@ -730,7 +731,7 @@ This ID is only related to trap ID. and this implementaion is only for TRAPv2 sp
                         && (snmpv3SecModelType == SNMPV1_SECURITY_MODEL))
                     {
                         TCPIP_SNMP_TRAPv1Notify(LED_D5,analogPotVal,0,snmpTrapIpAddresstype);
-                    }
+                    }*/
                     TCPIP_SNMP_TrapSendFlagSet(false);
 
                 //ASCII String is the fouth varbind of the TRAP ODU
@@ -768,21 +769,22 @@ This ID is only related to trap ID. and this implementaion is only for TRAPv2 sp
             if(TCPIP_SNMP_TRAPTypeGet())
             {
                 TCPIP_SNMP_TrapSendFlagSet(true);
+                analogPotVal.byte = APP_LED_1StateGet(); //BSP_LEDStateGet(APP_LED_1);
                 if(snmpTrapIpAddresstype == IPV4_SNMP_TRAP)
                 {
-                   // retVal =SNMPSendNotification(trapIndex,ANALOG_POT0,analogPotVal,targetIndex);
+                    retVal =SNMPSendNotification(trapIndex,LED_D5,analogPotVal,targetIndex);
                     if((gSendTrapSMstate == 0x0) && (retVal == false)) // gSendTrapSMstate == SM_PREPARE
                     {
-                     //   retVal = SNMPSendNotification(trapIndex, ANALOG_POT0, analogPotVal,targetIndex);
+                        retVal = SNMPSendNotification(trapIndex, LED_D5, analogPotVal,targetIndex);
                     }
                 }
 #ifdef TCPIP_STACK_USE_IPV6
                 else
                 {
-//                    retVal =TCPIP_SNMP_IPv6_NotificationSend(trapIndex,ANALOG_POT0,analogPotVal,targetIndex);
+                    retVal =TCPIP_SNMP_IPv6_NotificationSend(trapIndex,LED_D5,analogPotVal,targetIndex);
                     if((gSendTrapSMstate == 0x0) && (retVal == false)) // gSendTrapSMstate == SM_PREPARE
                     {
-                      //  retVal = TCPIP_SNMP_IPv6_NotificationSend(trapIndex, ANALOG_POT0, analogPotVal,targetIndex);
+                        retVal = TCPIP_SNMP_IPv6_NotificationSend(trapIndex, LED_D5, analogPotVal,targetIndex);
                     }
                 }
 #endif      /* #ifdef TCPIP_STACK_USE_IPV6 */
@@ -797,9 +799,9 @@ This ID is only related to trap ID. and this implementaion is only for TRAPv2 sp
                     return;
                 }
                 analogPotVal.byte = APP_SWITCH_1StateGet();
-//                TCPIP_SNMP_TRAPv2Notify(PUSH_BUTTON,analogPotVal,0,snmpTrapIpAddresstype);
-                analogPotVal.byte = APP_LED_1StateGet(); //BSP_LEDStateGet(APP_LED_1);
-                TCPIP_SNMP_TRAPv2Notify(LED_D5,analogPotVal,0,snmpTrapIpAddresstype);
+                TCPIP_SNMP_TRAPv2Notify(PUSH_BUTTON,analogPotVal,0,snmpTrapIpAddresstype);
+               /* analogPotVal.byte = APP_LED_1StateGet(); //BSP_LEDStateGet(APP_LED_1);
+                TCPIP_SNMP_TRAPv2Notify(LED_D5,analogPotVal,0,snmpTrapIpAddresstype);*/
                 TCPIP_SNMP_TrapSendFlagSet(false);
                 {
                     uint8_t asciiStr[] = {"ascii_str_trap"};
@@ -937,19 +939,20 @@ This ID is only related to trap ID. and this implementaion is only for TRAPv2 sp
                 netStartForTrap = false;
             }
 
-            if(analogPotVal.word >12u)
+            if(true)
             {
 #ifdef TCPIP_STACK_USE_SNMPV3_SERVER
                 if(TCPIP_SNMPV3_TrapTypeGet())
                 {
+                    analogPotVal.byte = APP_LED_1StateGet(); //BSP_LEDStateGet(APP_LED_1);
                     for(targetIndex=userIndex;targetIndex<TCPIP_SNMPV3_USM_MAX_USER;targetIndex++)
                     {
                         TCPIP_SNMP_TrapSpecificNotificationSet(POT_READING_MORE_512,ENTERPRISE_SPECIFIC,SNMP_DEMO_TRAP);
                         TCPIP_SNMP_TrapSendFlagSet(false);
-                        //retVal = SNMPSendNotification(anaPotNotfyCntr, ANALOG_POT0, analogPotVal,targetIndex);
+                        retVal = SNMPSendNotification(anaPotNotfyCntr, LED_D5, analogPotVal,targetIndex);
                         if((gSendTrapSMstate == 0x0) && (retVal == false)) // gSendTrapSMstate == SM_PREPARE
                         {
-                            //retVal = SNMPSendNotification(anaPotNotfyCntr, ANALOG_POT0, analogPotVal,targetIndex);
+                            retVal = SNMPSendNotification(anaPotNotfyCntr, LED_D5, analogPotVal,targetIndex);
                         }
                         if((retVal == true) && (targetIndex == (TCPIP_SNMPV3_USM_MAX_USER-1)))
                         {
@@ -975,12 +978,13 @@ This ID is only related to trap ID. and this implementaion is only for TRAPv2 sp
                 else
 #endif
                 {
+                    analogPotVal.byte = APP_LED_1StateGet(); //BSP_LEDStateGet(APP_LED_1);
                     TCPIP_SNMP_TrapSpecificNotificationSet(POT_READING_MORE_512,ENTERPRISE_SPECIFIC,SNMP_DEMO_TRAP);
                     TCPIP_SNMP_TrapSendFlagSet(false);
-                    //retVal = SNMPSendNotification(anaPotNotfyCntr, ANALOG_POT0, analogPotVal,targetIndex);
+                    retVal = SNMPSendNotification(anaPotNotfyCntr, LED_D5, analogPotVal,targetIndex);
                     if((gSendTrapSMstate == 0x0) && (retVal == false)) // gSendTrapSMstate == SM_PREPARE
                     {
-                      //  retVal = SNMPSendNotification(anaPotNotfyCntr, ANALOG_POT0, analogPotVal,targetIndex);
+                        retVal = SNMPSendNotification(anaPotNotfyCntr, LED_D5, analogPotVal,targetIndex);
                     }
                     if(retVal == true)
                         anaPotNotfyCntr++;
@@ -1049,10 +1053,10 @@ This ID is only related to trap ID. and this implementaion is only for TRAPv2 sp
                 {
                     TCPIP_SNMP_TrapSpecificNotificationSet(BUTTON_PUSH_EVENT,ENTERPRISE_SPECIFIC,SNMP_DEMO_TRAP);
                     TCPIP_SNMP_TrapSendFlagSet(false);
-                    //retVal = SNMPSendNotification(buttonPushNotfyCntr, PUSH_BUTTON, buttonPushval,targetIndex);
+                    retVal = SNMPSendNotification(buttonPushNotfyCntr, PUSH_BUTTON, buttonPushval,targetIndex);
                     if((gSendTrapSMstate == 0x0) && (retVal == false)) // gSendTrapSMstate == SM_PREPARE
                     {
-                      //  retVal = SNMPSendNotification(buttonPushNotfyCntr, PUSH_BUTTON, buttonPushval,targetIndex);
+                        retVal = SNMPSendNotification(buttonPushNotfyCntr, PUSH_BUTTON, buttonPushval,targetIndex);
                     }
                     if((retVal == true) && (targetIndex == (TCPIP_SNMPV3_USM_MAX_USER-1)))
                     {
@@ -1073,10 +1077,10 @@ This ID is only related to trap ID. and this implementaion is only for TRAPv2 sp
             {
                 TCPIP_SNMP_TrapSpecificNotificationSet(BUTTON_PUSH_EVENT,ENTERPRISE_SPECIFIC,SNMP_DEMO_TRAP);
                     TCPIP_SNMP_TrapSendFlagSet(false);
-                    //retVal = SNMPSendNotification(buttonPushNotfyCntr, PUSH_BUTTON, buttonPushval,targetIndex);
+                    retVal = SNMPSendNotification(buttonPushNotfyCntr, PUSH_BUTTON, buttonPushval,targetIndex);
                 if((gSendTrapSMstate == 0x0) && (retVal == false)) // gSendTrapSMstate == SM_PREPARE
                 {
-                    //retVal = SNMPSendNotification(buttonPushNotfyCntr, PUSH_BUTTON, buttonPushval,targetIndex);
+                    retVal = SNMPSendNotification(buttonPushNotfyCntr, PUSH_BUTTON, buttonPushval,targetIndex);
                 }
                 if(retVal == true)
                     buttonPushNotfyCntr++;
@@ -2185,6 +2189,7 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
     TCPIP_NET_HANDLE    netH;
     uint8_t mactype;
     int                 nNets;
+    TCPIP_NET_IF*  pNetIf = NULL;
     // Convert potentiometer result into ASCII string
 //	uitoa((uint16_t) ADC1BUF0, AN0String);
 
@@ -2213,6 +2218,22 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
             return true;             
         }
         case IF_DESCR:
+        {
+            nNets = TCPIP_STACK_NumberOfNetworksGet();
+            if(index < nNets){
+                netH = TCPIP_STACK_IndexToNet(index);
+                if ( myRef == 5 )
+                {
+                    *ref = SNMP_END_OF_VAR;
+                    return true;
+                }
+                val->byte = (char)SNMP_IFMIB_NetGetIfname(netH, myRef);
+                myRef++;
+                *ref = myRef;
+                return true;
+            }
+        }
+        break;
         case IF_PHYSADDRESS:
         {
           /*  nNets = TCPIP_STACK_NumberOfNetworksGet();
@@ -2232,19 +2253,31 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
              return true;
         }
         case IF_TYPE:
+        {
+            nNets = TCPIP_STACK_NumberOfNetworksGet();
+            if(index < nNets){
+                netH = TCPIP_STACK_IndexToNet(index);
+                val->word = SNMP_IFMIB_NetGetIfType(netH);
+                return true; 
+            }
+            break;
+        }
         case IF_ADMIN_STATUS:
+        {
+            nNets = TCPIP_STACK_NumberOfNetworksGet();
+            if(index < nNets){
+                    val->dword = 0;
+                    return true; 
+            }
+            break;
+        }
         case IF_OPER_STATUS:
         {
             nNets = TCPIP_STACK_NumberOfNetworksGet();
             if(index < nNets){
                 netH = TCPIP_STACK_IndexToNet(index);
-           //     mactype = TCPIP_STACK_NetMacTypeGet(netH);
-                if(mactype == TCPIP_MAC_TYPE_ETH){
-                    val->word = SNMP_IFMIB_ETH_MAC_TYPE;
-                }
-                else{
-                    val->word = 0;
-                }
+                /*Need to check Logic with Harmony Team*/
+                val->word = 0;
                 return true; 
             }
             break;
@@ -2254,8 +2287,7 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
             nNets = TCPIP_STACK_NumberOfNetworksGet();
             if(index < nNets){
                 netH = TCPIP_STACK_IndexToNet(index);
-            //    val->dword = TCPIP_STACK_NetMTUGet(netH);
-                val->dword = 0;
+                val->dword = SNMP_IFMIB_NetGetMTU(netH);
                 return true;             
             }
             break;
@@ -2265,35 +2297,29 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
             nNets = TCPIP_STACK_NumberOfNetworksGet();
             if(index < nNets){
                 netH = TCPIP_STACK_IndexToNet(index);
-            //    mactype = TCPIP_STACK_NetMacTypeGet(netH);
-                if(mactype == TCPIP_MAC_TYPE_ETH){
-                    val->dword = SNMP_IFMIB_ETH_SPEED;
-                }
+                val->dword = SNMP_IFMIB_NetGetIfSpeed(netH);
                 return true;
             }
         }
         break;
         case IF_LAST_CHANGE:
-        case IF_IN_OCTETS:
         {
-            //TCPIP_MAC_RX_STATISTICS rxStatistics;
-            //TCPIP_MAC_TX_STATISTICS txStatistics;
-            int                    hwEntries;
-            TCPIP_MAC_STATISTICS_REG_ENTRY  regEntries[50];
             nNets = TCPIP_STACK_NumberOfNetworksGet();
             if(index < nNets){
-                netH = TCPIP_STACK_IndexToNet(index);
-                //if(TCPIP_STACK_NetMACStatisticsGet(netH, &rxStatistics, &txStatistics)){
-                //if(TCPIP_STACK_NetMACRegisterStatisticsGet(netH, regEntries, sizeof(regEntries)/sizeof(*regEntries), &hwEntries)){
-                    /*for(int i=0; i<hwEntries;i++){
-                        SYS_CONSOLE_PRINT("%s ... %d\r\n", regEntries[i].registerName, regEntries[i].registerValue);
-                    }*/
-                    SYS_CONSOLE_PRINT("%s ... %d\r\n", regEntries[2].registerName, regEntries[2].registerValue);
-                    val->dword = regEntries[2].registerValue;
+                    val->dword = 0;
                     return true; 
-                //}
             }
         }
+        break;
+        case IF_IN_OCTETS:
+        {
+            nNets = TCPIP_STACK_NumberOfNetworksGet();
+            if(index < nNets){
+                    val->dword = 0;
+                    return true; 
+            }
+        }
+        break;
         case IF_IN_UCAST_PKTS:
                 {
             //TCPIP_MAC_RX_STATISTICS rxStatistics;
@@ -2312,46 +2338,105 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
             }
         }
         case IF_IN_NUCAST_PKTS:
-                {
-            //TCPIP_MAC_RX_STATISTICS rxStatistics;
-            //TCPIP_MAC_TX_STATISTICS txStatistics;
-            int                    hwEntries;
-            TCPIP_MAC_STATISTICS_REG_ENTRY  regEntries[50];
+        {
             nNets = TCPIP_STACK_NumberOfNetworksGet();
             if(index < nNets){
-                netH = TCPIP_STACK_IndexToNet(index);
-                //if(TCPIP_STACK_NetMACStatisticsGet(netH, &rxStatistics, &txStatistics)){
-              //  if(TCPIP_STACK_NetMACRegisterStatisticsGet(netH, regEntries, sizeof(regEntries)/sizeof(*regEntries), &hwEntries)){
-                    SYS_CONSOLE_PRINT("%s ... %d\r\n", regEntries[4].registerName, regEntries[4].registerValue);
-                    val->dword = regEntries[4].registerValue;
-                    return true; 
-               // }
+                val->dword = 0;
+                return true; 
             }
         }
+        break;
         case IF_IN_DISCARDS:
-        case IF_IN_ERRORS:
-        case IF_IN_UNKNOWN_PROTOS:
-        case IF_OUT_OCTETS:
-        case IF_OUT_UCAST_PKTS:
-        case IF_OUT_NUCAST_PKTS:
-        case IF_OUT_DISCARDS:
-        case IF_OUT_ERRORS:
-        case IF_OUT_QLEN:
-        case IF_SPECIFIC:  
         {
-            //TCPIP_MAC_RX_STATISTICS rxStatistics;
-            //TCPIP_MAC_TX_STATISTICS txStatistics;
-            int                    hwEntries;
-            TCPIP_MAC_STATISTICS_REG_ENTRY  regEntries[50];
             nNets = TCPIP_STACK_NumberOfNetworksGet();
             if(index < nNets){
                 netH = TCPIP_STACK_IndexToNet(index);
-                //if(TCPIP_STACK_NetMACStatisticsGet(netH, &rxStatistics, &txStatistics)){
-                if(TCPIP_STACK_NetMACRegisterStatisticsGet(netH, regEntries, sizeof(regEntries)/sizeof(*regEntries), &hwEntries)){
-                    SYS_CONSOLE_PRINT("%s ... %d\r\n", regEntries[0].registerName, regEntries[0].registerValue);
-                    val->dword = regEntries[0].registerValue;
+                val->dword = SNMP_IFMIB_NetGetIfInDiscards(netH);
+                return true;
+            }
+            break;
+        }            
+        case IF_IN_ERRORS:
+        {
+            nNets = TCPIP_STACK_NumberOfNetworksGet();
+            if(index < nNets){
+                netH = TCPIP_STACK_IndexToNet(index);
+                val->dword = SNMP_IFMIB_NetGetIfInError(netH);
+                return true;
+            }
+            break;
+        }
+        case IF_IN_UNKNOWN_PROTOS:
+        {
+            nNets = TCPIP_STACK_NumberOfNetworksGet();
+            if(index < nNets){
+                    val->dword = 0;
                     return true; 
-                }
+            }
+        }
+        break;
+        case IF_OUT_OCTETS:
+        {
+            nNets = TCPIP_STACK_NumberOfNetworksGet();
+            if(index < nNets){
+                    val->dword = 0;
+                    return true; 
+            }
+        }
+        break;
+        case IF_OUT_UCAST_PKTS:
+        {
+            nNets = TCPIP_STACK_NumberOfNetworksGet();
+            if(index < nNets){
+                    val->dword = 0;
+                    return true; 
+            }
+        }
+        break;
+        case IF_OUT_NUCAST_PKTS:
+        {
+            nNets = TCPIP_STACK_NumberOfNetworksGet();
+            if(index < nNets){
+                    val->dword = 0;
+                    return true; 
+            }
+        }
+        break;
+        case IF_OUT_DISCARDS:
+        {
+            nNets = TCPIP_STACK_NumberOfNetworksGet();
+            if(index < nNets){
+                netH = TCPIP_STACK_IndexToNet(index);
+                val->dword = SNMP_IFMIB_NetGetIfOutDiscards(netH);
+                return true;
+            }
+            break;
+        }
+        case IF_OUT_ERRORS:
+        {
+            nNets = TCPIP_STACK_NumberOfNetworksGet();
+            if(index < nNets){
+                netH = TCPIP_STACK_IndexToNet(index);
+                val->dword = SNMP_IFMIB_NetGetIfOutError(netH);
+                return true;
+            }
+            break;
+        }
+        case IF_OUT_QLEN:
+        {
+            nNets = TCPIP_STACK_NumberOfNetworksGet();
+            if(index < nNets){
+                    val->dword = 0;
+                    return true; 
+            }
+        }
+        break;
+        case IF_SPECIFIC:  
+        {
+            nNets = TCPIP_STACK_NumberOfNetworksGet();
+            if(index < nNets){
+                    val->dword = 0;
+                    return true; 
             }
         }
         break;
@@ -2359,12 +2444,12 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
             val->byte = APP_LED_1StateGet();//BSP_LEDStateGet(APP_LED_3);
             return true;
 
-       /* case PUSH_BUTTON:
+        case PUSH_BUTTON:
             // There is only one button - meaning only index of 0 is allowed.
             val->byte = APP_SWITCH_1StateGet();
             return true;
 
-        case ANALOG_POT0:
+        /*case ANALOG_POT0:
             val->word = atoi((char*)AN0String);
             return true; */
 
@@ -2769,8 +2854,8 @@ bool TCPIP_SNMP_RecordIDValidation(uint8_t snmpVersion,bool idPresent,uint16_t v
         case IF_OUT_QLEN:
         case IF_SPECIFIC:
         case LED_D5:
-        /*case PUSH_BUTTON:
-        case ANALOG_POT0: */
+        case PUSH_BUTTON:
+        //case ANALOG_POT0: 
 #if defined(SYS_OUT_ENABLE)
         case LCD_DISPLAY:
 #endif /* SYS_OUT_ENABLE */
