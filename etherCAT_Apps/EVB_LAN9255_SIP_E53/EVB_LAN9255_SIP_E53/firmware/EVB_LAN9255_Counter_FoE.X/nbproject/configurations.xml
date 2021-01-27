@@ -171,7 +171,6 @@
             <itemPath>../../../../Source/SSC/sample_app.h</itemPath>
             <itemPath>../../../../Source/SSC/sample_appObjects.h</itemPath>
             <itemPath>../../../../Source/SSC/sdoserv.h</itemPath>
-            <itemPath>../../../../Source/SSC/eeprom.h</itemPath>
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>
