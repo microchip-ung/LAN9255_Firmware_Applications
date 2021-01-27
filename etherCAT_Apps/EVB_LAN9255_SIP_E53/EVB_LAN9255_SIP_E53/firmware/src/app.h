@@ -91,10 +91,11 @@ extern "C" {
 
 // This define should be based on current firmware and mode
 #if DIRECT_MODE    
-#define FLASH_EEPROM_START_ADDRESS      0x09D0        
+#define FLASH_EEPROM_START_ADDRESS      0x0B38       
 #else
-#define FLASH_EEPROM_START_ADDRESS      0x09E8 
-#endif        
+#define FLASH_EEPROM_START_ADDRESS      0x0B4C 
+#endif
+       
 // *****************************************************************************
 /* Application states
 

@@ -65,6 +65,11 @@
 #include "fonts.h"
 #include "plib_sercom4_spi_master.h"
 
+#ifdef _OLED_APP_EN
+//UNG_J2_SIP-34
+static uint8_t gsu8oledflag = 0;
+#endif
+
 #if _IS_EEPROM_EMULATION_SUPPORT
 #include "eeprom.h"
 #endif
@@ -252,11 +257,27 @@ void applicationTask()
     Delay_ms( 100 );
 #endif
     char str[32] = {0};
+	//UNG_J2_SIP-34 - Value is getting updated based on global flag
+    //This implementation will reduce time of OLED character display waiting time
+	if(Outputs0x7010.Trigger)
+    {
+        sprintf ((char *)&str[0], "%lu", Inputs0x6000.Counter);
+        oledc_text((uint8_t *)"Counter Value: ", 5, 25 );
+        box_area( 25, 55, 90, 80, 0xFFFF );
+        oledc_text((uint8_t *)str, 25, 55 );
+        gsu8oledflag = 1;
+    }
+    else
+    {
+        if(gsu8oledflag)
+        {
+            sprintf ((char *)&str[0], "%lu", Inputs0x6000.Counter);
+            box_area( 25, 55, 90, 80, 0xFFFF );
+            oledc_text((uint8_t *)str, 25, 55 );
+            gsu8oledflag = 0;
+        }
+    }
 
-    sprintf ((char *)&str[0], "%lu", Inputs0x6000.Counter);
-    oledc_text((uint8_t *)"Counter Value: ", 5, 25 );
-    box_area( 25, 55, 90, 80, 0xFFFF );
-    oledc_text((uint8_t *)str, 25, 55 );
 }
 #endif /* _OLED_APP_EN */
 
@@ -308,6 +329,9 @@ void APP_Tasks ( void )
         /* Application's initial state. */
         case APP_STATE_INIT:
         {
+#ifdef _OLED_APP_EN            
+            char str[32] = {0};
+#endif
             
 #ifdef _IS_EEPROM_EMULATION_SUPPORT            
             pEEPROM = aEepromData;
@@ -338,6 +362,11 @@ void APP_Tasks ( void )
             oledc_text( &text3[0], 5, 45 );
             Delay_ms( 100 );
             oledc_fill_screen( 0xFFFF );
+			//UNG_J2_SIP-34 - Added below code to display Counter value
+            sprintf ((char *)&str[0], "%lu", Inputs0x6000.Counter);
+            oledc_text((uint8_t *)"Counter Value: ", 5, 25 );
+            box_area( 25, 55, 90, 80, 0xFFFF );
+            oledc_text((uint8_t *)str, 25, 55 );
 #endif
             MainInit();
 #ifdef _IS_EEPROM_EMULATION_SUPPORT            

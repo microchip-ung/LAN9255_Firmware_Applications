@@ -116,5 +116,7 @@
 /* Cycle Time measurement for PDI */
 #define MEASURE_CYCLE_TIME
 
+/* To Do Developer test and enable Developer test source file */
+//#define DEVELOPER_TEST_EN
 
 #endif /* ESF_CONFIG_H */
