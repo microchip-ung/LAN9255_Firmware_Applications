@@ -65,7 +65,7 @@
 
 #endif
 
-//#define _OLED_APP_EN
+#define _OLED_APP_EN
 
 #if (ESF_PDI == SPI)
 
@@ -116,5 +116,7 @@
 /* Cycle Time measurement for PDI */
 #define MEASURE_CYCLE_TIME
 
+/* To Do Developer test and enable Developer test source file */
+//#define DEVELOPER_TEST_EN
 
 #endif /* ESF_CONFIG_H */
