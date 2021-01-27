@@ -294,7 +294,7 @@
 							</DataType>
 							<DataType>
 								<Name>DT1A00</Name>
-								<BitSize>144</BitSize>
+								<BitSize>80</BitSize>
 								<SubItem>
 									<SubIdx>0</SubIdx>
 									<Name>SubIndex 000</Name>
@@ -321,26 +321,6 @@
 									<Type>UDINT</Type>
 									<BitSize>32</BitSize>
 									<BitOffs>48</BitOffs>
-									<Flags>
-										<Access>ro</Access>
-									</Flags>
-								</SubItem>
-								<SubItem>
-									<SubIdx>3</SubIdx>
-									<Name>SubIndex 003</Name>
-									<Type>UDINT</Type>
-									<BitSize>32</BitSize>
-									<BitOffs>80</BitOffs>
-									<Flags>
-										<Access>ro</Access>
-									</Flags>
-								</SubItem>
-								<SubItem>
-									<SubIdx>4</SubIdx>
-									<Name>SubIndex 004</Name>
-									<Type>UDINT</Type>
-									<BitSize>32</BitSize>
-									<BitOffs>112</BitOffs>
 									<Flags>
 										<Access>ro</Access>
 									</Flags>
@@ -348,7 +328,7 @@
 							</DataType>
 							<DataType>
 								<Name>DT1A02</Name>
-								<BitSize>144</BitSize>
+								<BitSize>48</BitSize>
 								<SubItem>
 									<SubIdx>0</SubIdx>
 									<Name>SubIndex 000</Name>
@@ -365,36 +345,6 @@
 									<Type>UDINT</Type>
 									<BitSize>32</BitSize>
 									<BitOffs>16</BitOffs>
-									<Flags>
-										<Access>ro</Access>
-									</Flags>
-								</SubItem>
-								<SubItem>
-									<SubIdx>2</SubIdx>
-									<Name>SubIndex 002</Name>
-									<Type>UDINT</Type>
-									<BitSize>32</BitSize>
-									<BitOffs>48</BitOffs>
-									<Flags>
-										<Access>ro</Access>
-									</Flags>
-								</SubItem>
-								<SubItem>
-									<SubIdx>3</SubIdx>
-									<Name>SubIndex 003</Name>
-									<Type>UDINT</Type>
-									<BitSize>32</BitSize>
-									<BitOffs>80</BitOffs>
-									<Flags>
-										<Access>ro</Access>
-									</Flags>
-								</SubItem>
-								<SubItem>
-									<SubIdx>4</SubIdx>
-									<Name>SubIndex 004</Name>
-									<Type>UDINT</Type>
-									<BitSize>32</BitSize>
-									<BitOffs>112</BitOffs>
 									<Flags>
 										<Access>ro</Access>
 									</Flags>
@@ -771,8 +721,8 @@
 								<SubItem>
 									<SubIdx>2</SubIdx>
 									<Name>uart_read_buffer</Name>
-									<Type>USINT</Type>
-									<BitSize>8</BitSize>
+									<Type>UDINT</Type>
+									<BitSize>32</BitSize>
 									<BitOffs>48</BitOffs>
 									<Flags>
 										<Access>ro</Access>
@@ -796,8 +746,8 @@
 								<SubItem>
 									<SubIdx>1</SubIdx>
 									<Name>rx_ready</Name>
-									<Type>BOOL</Type>
-									<BitSize>1</BitSize>
+									<Type>UDINT</Type>
+									<BitSize>32</BitSize>
 									<BitOffs>16</BitOffs>
 									<Flags>
 										<Access>ro</Access>
@@ -1144,12 +1094,12 @@
 								<Index>#x1A00</Index>
 								<Name>Inputs process data mapping</Name>
 								<Type>DT1A00</Type>
-								<BitSize>144</BitSize>
+								<BitSize>80</BitSize>
 								<Info>
 									<SubItem>
 										<Name>SubIndex 000</Name>
 										<Info>
-											<DefaultData>04</DefaultData>
+											<DefaultData>02</DefaultData>
 										</Info>
 									</SubItem>
 									<SubItem>
@@ -1161,19 +1111,7 @@
 									<SubItem>
 										<Name>SubIndex 002</Name>
 										<Info>
-											<DefaultData>08020060</DefaultData>
-										</Info>
-									</SubItem>
-									<SubItem>
-										<Name>SubIndex 003</Name>
-										<Info>
-											<DefaultData>08000000</DefaultData>
-										</Info>
-									</SubItem>
-									<SubItem>
-										<Name>SubIndex 004</Name>
-										<Info>
-											<DefaultData>10000000</DefaultData>
+											<DefaultData>20020060</DefaultData>
 										</Info>
 									</SubItem>
 								</Info>
@@ -1182,36 +1120,18 @@
 								<Index>#x1A02</Index>
 								<Name>uart_status process data mapping</Name>
 								<Type>DT1A02</Type>
-								<BitSize>144</BitSize>
+								<BitSize>48</BitSize>
 								<Info>
 									<SubItem>
 										<Name>SubIndex 000</Name>
 										<Info>
-											<DefaultData>04</DefaultData>
+											<DefaultData>01</DefaultData>
 										</Info>
 									</SubItem>
 									<SubItem>
 										<Name>SubIndex 001</Name>
 										<Info>
-											<DefaultData>01012160</DefaultData>
-										</Info>
-									</SubItem>
-									<SubItem>
-										<Name>SubIndex 002</Name>
-										<Info>
-											<DefaultData>07000000</DefaultData>
-										</Info>
-									</SubItem>
-									<SubItem>
-										<Name>SubIndex 003</Name>
-										<Info>
-											<DefaultData>08000000</DefaultData>
-										</Info>
-									</SubItem>
-									<SubItem>
-										<Name>SubIndex 004</Name>
-										<Info>
-											<DefaultData>10000000</DefaultData>
+											<DefaultData>20012160</DefaultData>
 										</Info>
 									</SubItem>
 								</Info>
@@ -1393,9 +1313,9 @@
 									<SubItem>
 										<Name>uart_read_buffer</Name>
 										<Info>
-											<MinData>00</MinData>
-											<MaxData>FF</MaxData>
-											<DefaultData>00</DefaultData>
+											<MinData>00000000</MinData>
+											<MaxData>FFFFFFFF</MaxData>
+											<DefaultData>00000000</DefaultData>
 										</Info>
 									</SubItem>
 								</Info>
@@ -1415,9 +1335,9 @@
 									<SubItem>
 										<Name>rx_ready</Name>
 										<Info>
-											<MinData>00</MinData>
-											<MaxData>01</MaxData>
-											<DefaultData>00</DefaultData>
+											<MinData>00000000</MinData>
+											<MaxData>10000000</MaxData>
+											<DefaultData>00000000</DefaultData>
 										</Info>
 									</SubItem>
 								</Info>
@@ -1606,19 +1526,9 @@
 					<Entry>
 						<Index>#x6000</Index>
 						<SubIndex>2</SubIndex>
-						<BitLen>8</BitLen>
+						<BitLen>32</BitLen>
 						<Name>uart_read_buffer</Name>
-						<DataType>USINT</DataType>
-					</Entry>
-					<Entry>
-						<Index>#x0</Index>
-						<SubIndex>0</SubIndex>
-						<BitLen>8</BitLen>
-					</Entry>
-					<Entry>
-						<Index>#x0</Index>
-						<SubIndex>0</SubIndex>
-						<BitLen>16</BitLen>
+						<DataType>UDINT</DataType>
 					</Entry>
 				</TxPdo>
 				<TxPdo Fixed="true" Mandatory="true" Sm="3">
@@ -1627,24 +1537,9 @@
 					<Entry>
 						<Index>#x6021</Index>
 						<SubIndex>1</SubIndex>
-						<BitLen>1</BitLen>
+						<BitLen>32</BitLen>
 						<Name>rx_ready</Name>
-						<DataType>BOOL</DataType>
-					</Entry>
-					<Entry>
-						<Index>#x0</Index>
-						<SubIndex>0</SubIndex>
-						<BitLen>7</BitLen>
-					</Entry>
-					<Entry>
-						<Index>#x0</Index>
-						<SubIndex>0</SubIndex>
-						<BitLen>8</BitLen>
-					</Entry>
-					<Entry>
-						<Index>#x0</Index>
-						<SubIndex>0</SubIndex>
-						<BitLen>16</BitLen>
+						<DataType>UDINT</DataType>
 					</Entry>
 				</TxPdo>
 				<Mailbox DataLinkLayer="true">
