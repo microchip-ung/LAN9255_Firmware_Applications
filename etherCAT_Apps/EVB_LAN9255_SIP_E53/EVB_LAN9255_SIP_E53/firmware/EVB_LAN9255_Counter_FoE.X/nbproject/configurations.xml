@@ -171,6 +171,7 @@
             <itemPath>../../../../Source/SSC/sample_app.h</itemPath>
             <itemPath>../../../../Source/SSC/sample_appObjects.h</itemPath>
             <itemPath>../../../../Source/SSC/sdoserv.h</itemPath>
+            <itemPath>../../../../Source/SSC/eeprom.h</itemPath>
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>
@@ -318,15 +319,13 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>AtmelIceTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <languageToolchainVersion>2.30</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
         <pack name="SAME53_DFP" vendor="Microchip" version="3.2.49"/>
       </packs>
-      <ScriptingSettings>
-      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -1103,15 +1102,13 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool></platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <languageToolchainVersion>2.30</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="SAME53_DFP" vendor="Microchip" version="3.2.49"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
       </packs>
-      <ScriptingSettings>
-      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
