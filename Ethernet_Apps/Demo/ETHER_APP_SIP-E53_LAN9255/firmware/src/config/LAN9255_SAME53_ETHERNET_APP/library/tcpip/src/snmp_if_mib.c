@@ -72,7 +72,8 @@ SNMP_IFMIB_OBJECT gIfMibObj={0};
 /*********************************************************************
  * Function:        uint32_t SNMP_IFMIB_NetGetMTU(TCPIP_NET_HANDLE netH)
  *
- * PreCondition:    TCPIP stack should have been initialized by TCPIP_STACK_Initialize()
+ * PreCondition:    TCPIP stack should have been initialized by
+ *                   TCPIP_STACK_Initialize()
  *
  * Input:           netH - Interface handle to get the name of.
  *
@@ -97,7 +98,24 @@ uint32_t SNMP_IFMIB_NetGetMTU(TCPIP_NET_HANDLE netH)
 
     return 0;
 }
-
+/*********************************************************************
+ * Function:        uint16_t SNMP_IFMIB_NetGetIfType(TCPIP_NET_HANDLE netH)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          it returns the IfType associated to that interface handle
+ *                     returns 0 if no such name
+ *
+ * Side Effects:    None
+ *
+ * Example:            TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                     uint16_t IfType = SNMP_IFMIB_NetGetIfType(netH);
+ *
+ * Note:            None
+ ********************************************************************/
 uint16_t SNMP_IFMIB_NetGetIfType(TCPIP_NET_HANDLE netH)
 {
     TCPIP_NET_IF*  pNetIf = _TCPIPStackHandleToNet(netH);
@@ -111,7 +129,24 @@ uint16_t SNMP_IFMIB_NetGetIfType(TCPIP_NET_HANDLE netH)
 
     return 0;
 }
-
+/*********************************************************************
+ * Function:        uint8_t SNMP_IFMIB_NetGetIfnameLen(TCPIP_NET_HANDLE netH)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          it returns the Length of ifname associated to that interface
+ *                  handle returns 0 if no such name
+ *
+ * Side Effects:    None
+ *
+ * Example:            TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                     uint8_t IfnameLen = SNMP_IFMIB_NetGetIfnameLen(netH);
+ *
+ * Note:            None
+ ********************************************************************/
 uint8_t SNMP_IFMIB_NetGetIfnameLen(TCPIP_NET_HANDLE netH)
 {
     TCPIP_NET_IF*  pNetIf = _TCPIPStackHandleToNet(netH);
@@ -125,7 +160,26 @@ uint8_t SNMP_IFMIB_NetGetIfnameLen(TCPIP_NET_HANDLE netH)
 
     return 0;
 }
-
+/*********************************************************************
+ * Function:        uint8_t SNMP_IFMIB_NetGetIfname(TCPIP_NET_HANDLE netH, 
+ *                             uint8_t index)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          it returns the indexed character of Interface name
+ *                  associated to that interface handle returns 0 if no
+ *                  such name
+ *
+ * Side Effects:    None
+ *
+ * Example:            TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                     uint8_t ifname = SNMP_IFMIB_NetGetIfname(netH,index);
+ *
+ * Note:            None
+ ****************************** **************************************/
 uint8_t SNMP_IFMIB_NetGetIfname(TCPIP_NET_HANDLE netH, uint8_t index)
 {
     TCPIP_NET_IF*  pNetIf = _TCPIPStackHandleToNet(netH);
@@ -139,7 +193,26 @@ uint8_t SNMP_IFMIB_NetGetIfname(TCPIP_NET_HANDLE netH, uint8_t index)
 
     return 0;
 }
-
+/*********************************************************************
+ * Function:        uint8_t SNMP_IFMIB_NetGetPhyAddr(TCPIP_NET_HANDLE netH, 
+ *                              uint8_t index)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          it returns the indexed character of Interface PhyAddress
+ *                  associated to that interface handle returns 0 if no
+ *                  such name
+ *
+ * Side Effects:    None
+ *
+ * Example:            TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                     uint8_t ifname = SNMP_IFMIB_NetGetPhyAddr(netH,index);
+ *
+ * Note:            None
+ ****************************** **************************************/
 uint8_t SNMP_IFMIB_NetGetPhyAddr(TCPIP_NET_HANDLE netH, uint8_t index)
 {
     static char MacAddrStr[19];
@@ -149,8 +222,9 @@ uint8_t SNMP_IFMIB_NetGetPhyAddr(TCPIP_NET_HANDLE netH, uint8_t index)
     {
         if(pNetIf->macType == TCPIP_MAC_TYPE_ETH){
           if(index == 0){
-            sprintf(MacAddrStr, "%02x-%02x-%02x-%02x-%02x-%02x-%02x",pNetIf->netMACAddr.v[0], 
-                      pNetIf->netMACAddr.v[1], pNetIf->netMACAddr.v[2], pNetIf->netMACAddr.v[3], 
+            sprintf(MacAddrStr, "%02x-%02x-%02x-%02x-%02x-%02x-%02x",
+                      pNetIf->netMACAddr.v[0], pNetIf->netMACAddr.v[1],
+                      pNetIf->netMACAddr.v[2], pNetIf->netMACAddr.v[3], 
                       pNetIf->netMACAddr.v[4],pNetIf->netMACAddr.v[5]); 
           }
     
@@ -160,7 +234,25 @@ uint8_t SNMP_IFMIB_NetGetPhyAddr(TCPIP_NET_HANDLE netH, uint8_t index)
 
     return 0;
 }
-
+/*********************************************************************
+ * Function:        uint16_t SNMP_IFMIB_NetGetIfOperStatus(TCPIP_NET_HANDLE 
+ *                              netH)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          it returns the interface operation status of associated to  
+ *                  that interface handle returns 0 if no such name
+ *
+ * Side Effects:    None
+ *
+ * Example:         TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                  uint16_t IfOperStatus = SNMP_IFMIB_NetGetIfOperStatus(netH);
+ *
+ * Note:            None
+ ********************************************************************/
 uint16_t SNMP_IFMIB_NetGetIfOperStatus(TCPIP_NET_HANDLE netH)
 {
     TCPIP_NET_IF*  pNetIf = _TCPIPStackHandleToNet(netH);
@@ -176,7 +268,24 @@ uint16_t SNMP_IFMIB_NetGetIfOperStatus(TCPIP_NET_HANDLE netH)
 
     return 0;
 }
-
+/*********************************************************************
+ * Function:        uint32_t SNMP_IFMIB_NetGetIfSpeed(TCPIP_NET_HANDLE netH)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          it returns the interface speed associated to that 
+ *                  interface handle returns 0 if no such name
+ *
+ * Side Effects:    None
+ *
+ * Example:         TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                  uint32_t IfSpeed = SNMP_IFMIB_NetGetIfSpeed(netH);
+ *
+ * Note:            None
+ ********************************************************************/
 uint32_t SNMP_IFMIB_NetGetIfSpeed(TCPIP_NET_HANDLE netH)
 {
     TCPIP_NET_IF*  pNetIf = _TCPIPStackHandleToNet(netH);
@@ -192,123 +301,274 @@ uint32_t SNMP_IFMIB_NetGetIfSpeed(TCPIP_NET_HANDLE netH)
     return 0;
 }
 
-
+/*********************************************************************
+ * Function:        uint32_t SNMP_IFMIB_NetGetIfInError(TCPIP_NET_HANDLE netH)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          it returns the input error packet counts associated to that 
+ *                  interface handle returns 0 if no such name
+ *
+ * Side Effects:    None
+ *
+ * Example:         TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                  uint32_t IfInError = SNMP_IFMIB_NetGetIfInError(netH);
+ *
+ * Note:            None
+ ********************************************************************/
 uint32_t SNMP_IFMIB_NetGetIfInError(TCPIP_NET_HANDLE netH)
 {
     TCPIP_MAC_RX_STATISTICS rxStatistics;
     TCPIP_MAC_TX_STATISTICS txStatistics;
 
     if(TCPIP_STACK_NetMACStatisticsGet(netH, &rxStatistics, &txStatistics)){
-        /* Need to check sign logic*/
+        
         if(rxStatistics.nRxErrorPackets != 0xFFFFFFFF){
             return (uint32_t)rxStatistics.nRxErrorPackets ;
         }
     }
     return 0;
 }
-
+/*********************************************************************
+ * Function:        uint32_t SNMP_IFMIB_NetGetIfInDiscards(TCPIP_NET_HANDLE 
+ *                              netH)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          it returns the input discard packet counts associated to 
+ *                  that interface handle returns 0 if no such name
+ *
+ * Side Effects:    None
+ *
+ * Example:         TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                  uint32_t IfInDiscards = SNMP_IFMIB_NetGetIfInDiscards(netH);
+ *
+ * Note:            None
+ ********************************************************************/
 uint32_t SNMP_IFMIB_NetGetIfInDiscards(TCPIP_NET_HANDLE netH)
 {
     TCPIP_MAC_RX_STATISTICS rxStatistics;
     TCPIP_MAC_TX_STATISTICS txStatistics;
 
     if(TCPIP_STACK_NetMACStatisticsGet(netH, &rxStatistics, &txStatistics)){
-        /* Need to check sign logic*/
         return (uint32_t)rxStatistics.nRxBuffNotAvailable;
     }
     return 0;
 }
-
+/*********************************************************************
+ * Function:        uint32_t SNMP_IFMIB_NetGetIfOutError(TCPIP_NET_HANDLE netH)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          it returns the output error packet counts associated to 
+ *                  that interface handle returns 0 if no such name
+ *
+ * Side Effects:    None
+ *
+ * Example:         TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                  uint32_t IfOutError = SNMP_IFMIB_NetGetIfOutError(netH);
+ *
+ * Note:            None
+ ********************************************************************/
 uint32_t SNMP_IFMIB_NetGetIfOutError(TCPIP_NET_HANDLE netH)
 {
     TCPIP_MAC_RX_STATISTICS rxStatistics;
     TCPIP_MAC_TX_STATISTICS txStatistics;
 
     if(TCPIP_STACK_NetMACStatisticsGet(netH, &rxStatistics, &txStatistics)){
-        /* Need to check sign logic*/
+        
         return (uint32_t)txStatistics.nTxErrorPackets;
     }
     return 0;
 }
-
+/*********************************************************************
+ * Function:        uint32_t SNMP_IFMIB_NetGetIfOutDiscards(TCPIP_NET_HANDLE 
+ *                              netH)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          it returns the output discard packet counts associated to 
+ *                  that interface handle returns 0 if no such name
+ *
+ * Side Effects:    None
+ *
+ * Example:         TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                  uint32_t IfOutDiscards = SNMP_IFMIB_NetGetIfOutDiscards(
+ *                                              netH);
+ *
+ * Note:            None
+ ********************************************************************/
 uint32_t SNMP_IFMIB_NetGetIfOutDiscards(TCPIP_NET_HANDLE netH)
 {
     TCPIP_MAC_RX_STATISTICS rxStatistics;
     TCPIP_MAC_TX_STATISTICS txStatistics;
 
     if(TCPIP_STACK_NetMACStatisticsGet(netH, &rxStatistics, &txStatistics)){
-        /* Need to check sign logic*/
+        
         return (uint32_t)txStatistics.nTxQueueFull;
     }
     return 0;
 }
-
+/*********************************************************************
+ * Function:        uint32_t SNMP_IFMIB_NetGetIfInOctets(TCPIP_NET_HANDLE netH)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          it returns the received octet counts associated to 
+ *                  that interface handle returns 0 if no such name
+ *
+ * Side Effects:    None
+ *
+ * Example:         TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                  uint32_t IfInOctets = SNMP_IFMIB_NetGetIfInOctets(netH);
+ *
+ * Note:            None
+ ********************************************************************/
 uint32_t SNMP_IFMIB_NetGetIfInOctets(TCPIP_NET_HANDLE netH)
 {
     int                    hwEntries,i=0;
     TCPIP_MAC_STATISTICS_REG_ENTRY  regEntries[50];
-    if(TCPIP_STACK_NetMACRegisterStatisticsGet(netH, regEntries, sizeof(regEntries)/sizeof(*regEntries), &hwEntries)){
+    if(TCPIP_STACK_NetMACRegisterStatisticsGet(netH, regEntries, 
+            sizeof(regEntries)/sizeof(*regEntries), &hwEntries)){
         SNMP_IFMIB_NetUpdateStats(netH, regEntries, hwEntries);
-        /* Need to check sign logic*/
-      /*  for(i=0;i<hwEntries;i++){
-            SYS_CONSOLE_PRINT("Index[%d] %s - %d \r\n",i ,regEntries[i].registerName,
-                    regEntries[i].registerValue);
-        }*/
         return (uint32_t)gIfMibObj.IfMibHdrRegStats.nRxOctets;
     }
     return 0;
 }
-bool SNMP_IFMIB_NetUpdateStats(TCPIP_NET_HANDLE netH,TCPIP_MAC_STATISTICS_REG_ENTRY *regEntries, uint8_t Maxindex){
-    TCPIP_NET_IF*  pNetIf = _TCPIPStackHandleToNet(netH);
-     SNMP_IFMIB_MODULE_HARDWARE_REGISTER_STATS   *IfMibHdrRegStats = &gIfMibObj.IfMibHdrRegStats;
-    if(pNetIf != 0)
-    {
-        if(pNetIf->macType == TCPIP_MAC_TYPE_ETH){
-            IfMibHdrRegStats->nRxOctets += regEntries[SNMP_IFMIB_ETH_RX_OCTECTS].registerValue; 
-            IfMibHdrRegStats->nRxFrame += regEntries[SNMP_IFMIB_ETH_RX_FRAME].registerValue; 
-            IfMibHdrRegStats->nRxBcast += regEntries[SNMP_IFMIB_ETH_RX_BCAST].registerValue; 
-            IfMibHdrRegStats->nRxMcast += regEntries[SNMP_IFMIB_ETH_RX_MCAST].registerValue; 
-            IfMibHdrRegStats->nTxOctets += regEntries[SNMP_IFMIB_ETH_TX_OCTECTS].registerValue; 
-            IfMibHdrRegStats->nTxFrame += regEntries[SNMP_IFMIB_ETH_TX_FRAME].registerValue; 
-            IfMibHdrRegStats->nTxBcast += regEntries[SNMP_IFMIB_ETH_TX_BCAST].registerValue; 
-            IfMibHdrRegStats->nTxMcast += regEntries[SNMP_IFMIB_ETH_TX_MCAST].registerValue; 
-        }
-    }
-}
+
+/*********************************************************************
+ * Function:        uint32_t SNMP_IFMIB_NetGetIfInUcastPkts(TCPIP_NET_HANDLE
+ *                               netH)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          it returns the input unicast packet counts associated to 
+ *                  that interface handle returns 0 if no such name
+ *
+ * Side Effects:    None
+ *
+ * Example:         TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                  uint32_t IfInUcastPkts = SNMP_IFMIB_NetGetIfInUcastPkts(
+ *                                              netH);
+ *
+ * Note:            None
+ ********************************************************************/
 uint32_t SNMP_IFMIB_NetGetIfInUcastPkts(TCPIP_NET_HANDLE netH)
 {
     int                    hwEntries;
     TCPIP_MAC_STATISTICS_REG_ENTRY  regEntries[50];
-    if(TCPIP_STACK_NetMACRegisterStatisticsGet(netH, regEntries, sizeof(regEntries)/sizeof(*regEntries), &hwEntries)){
-        /* Need to check sign logic*/
+    if(TCPIP_STACK_NetMACRegisterStatisticsGet(netH, regEntries, 
+            sizeof(regEntries)/sizeof(*regEntries), &hwEntries)){
+        
         SNMP_IFMIB_NetUpdateStats(netH, regEntries, hwEntries);
-        return (uint32_t)(gIfMibObj.IfMibHdrRegStats.nRxFrame - (gIfMibObj.IfMibHdrRegStats.nRxMcast + gIfMibObj.IfMibHdrRegStats.nRxBcast));
+        return (uint32_t)(gIfMibObj.IfMibHdrRegStats.nRxFrame - 
+                (gIfMibObj.IfMibHdrRegStats.nRxMcast + 
+                gIfMibObj.IfMibHdrRegStats.nRxBcast));
     }
     return 0;
 }
+/*********************************************************************
+ * Function:        uint32_t SNMP_IFMIB_NetGetIfOutOctets(TCPIP_NET_HANDLE netH)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          it returns the transmit octet counts associated to 
+ *                  that interface handle returns 0 if no such name
+ *
+ * Side Effects:    None
+ *
+ * Example:         TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                  uint32_t IfOutOctets = SNMP_IFMIB_NetGetIfOutOctets(netH);
+ *
+ * Note:            None
+ ********************************************************************/
 uint32_t SNMP_IFMIB_NetGetIfOutOctets(TCPIP_NET_HANDLE netH)
 {
     int                    hwEntries;
     TCPIP_MAC_STATISTICS_REG_ENTRY  regEntries[50];
-    if(TCPIP_STACK_NetMACRegisterStatisticsGet(netH, regEntries, sizeof(regEntries)/sizeof(*regEntries), &hwEntries)){
-        /* Need to check sign logic*/
+    if(TCPIP_STACK_NetMACRegisterStatisticsGet(netH, regEntries, 
+            sizeof(regEntries)/sizeof(*regEntries), &hwEntries)){
+        
         SNMP_IFMIB_NetUpdateStats(netH, regEntries, hwEntries);
         return (uint32_t)gIfMibObj.IfMibHdrRegStats.nTxOctets;
     }
     return 0;
 }
+/*********************************************************************
+ * Function:        uint32_t SNMP_IFMIB_NetGetIfOutUcastPkts(TCPIP_NET_HANDLE 
+ *                              netH)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          it returns the output unicast packet counts associated to 
+ *                  that interface handle returns 0 if no such name
+ *
+ * Side Effects:    None
+ *
+ * Example:         TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                  uint32_t IfOutUcastPkts = SNMP_IFMIB_NetGetIfOutUcastPkts(
+ *                                              netH);
+ *
+ * Note:            None
+ ********************************************************************/
 uint32_t SNMP_IFMIB_NetGetIfOutUcastPkts(TCPIP_NET_HANDLE netH)
 {
     int                    hwEntries;
     TCPIP_MAC_STATISTICS_REG_ENTRY  regEntries[50];
-    if(TCPIP_STACK_NetMACRegisterStatisticsGet(netH, regEntries, sizeof(regEntries)/sizeof(*regEntries), &hwEntries)){
-        /* Need to check sign logic*/
+    if(TCPIP_STACK_NetMACRegisterStatisticsGet(netH, regEntries, 
+            sizeof(regEntries)/sizeof(*regEntries), &hwEntries)){
+        
         SNMP_IFMIB_NetUpdateStats(netH, regEntries, hwEntries);
-        return (uint32_t)(gIfMibObj.IfMibHdrRegStats.nTxFrame - (gIfMibObj.IfMibHdrRegStats.nTxMcast + gIfMibObj.IfMibHdrRegStats.nTxBcast));
+        return (uint32_t)(gIfMibObj.IfMibHdrRegStats.nTxFrame - 
+                (gIfMibObj.IfMibHdrRegStats.nTxMcast + 
+                gIfMibObj.IfMibHdrRegStats.nTxBcast));
     }
     return 0;
 }
-
+/*********************************************************************
+ * Function:        uint32_t SNMP_IFMIB_NetGetIfLastChange(TCPIP_NET_HANDLE 
+ *                              netH)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          it returns the sysUpTime since last interface state change
+ *                  associated to that interface handle returns 0 if no such 
+ *                  name
+  *
+ * Side Effects:    None
+ *
+ * Example:         TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                  uint32_t IfLastChange = SNMP_IFMIB_NetGetIfLastChange(netH);
+ *
+ * Note:            None
+ ********************************************************************/
 uint32_t SNMP_IFMIB_NetGetIfLastChange(TCPIP_NET_HANDLE netH)
 {
     uint32_t IfLastChange=0;
@@ -324,21 +584,79 @@ uint32_t SNMP_IFMIB_NetGetIfLastChange(TCPIP_NET_HANDLE netH)
     }
     return 0;
 }
+/*********************************************************************
+ * Function:        void SNMP_IFMIB_NetSetAdminStatus(TCPIP_NET_HANDLE netH,
+ *                           uint16_t Status)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle, status - admin status.
+ *
+ * Output:          None
+ *
+ * Side Effects:    None
+ *
+ * Example:         TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                  SNMP_IFMIB_NetSetAdminStatus(netH, Status);
+ *
+ * Note:            This function saves the admin status to set in next routine.
+ *                  If admin status is set to down on reception of request, then
+ *                  SNMP response cannot be sent out. So, setting Admin status 
+ *                  shall be handled in next routine
+ ********************************************************************/
 void SNMP_IFMIB_NetSetAdminStatus(TCPIP_NET_HANDLE netH, uint16_t Status){
     uint16_t *AdminStatus = &gIfMibObj.AdminStatusReqFlag;
     *AdminStatus = Status;
 }
+/*********************************************************************
+ * Function:        void SNMP_IFMIB_NetDownCallback(TCPIP_NET_HANDLE netH)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          None
+ *
+ * Side Effects:    None
+ *
+ * Example:         TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                  SNMP_IFMIB_NetDownCallback(netH);
+ *
+ * Note:            This will be called from TCPIP_SNMP_Task function when 
+ *                  interface0 link is down.
+ ********************************************************************/
 void SNMP_IFMIB_NetDownCallback(TCPIP_NET_HANDLE netH){
     bool *LinkStatus = &gIfMibObj.LinkStatus;
     uint32_t *Ticks = &gIfMibObj.LastChanged;
     
     if(*LinkStatus == SNMP_IFMIB_LINKUP){
-        memset(&gIfMibObj.IfMibHdrRegStats,0,sizeof(SNMP_IFMIB_MODULE_HARDWARE_REGISTER_STATS));
+        memset(&gIfMibObj.IfMibHdrRegStats,0,
+                sizeof(SNMP_IFMIB_MODULE_HARDWARE_REGISTER_STATS));
         *Ticks = SNMP_IFMIB_SysUpTime();
         *LinkStatus = SNMP_IFMIB_LINKDOWN;
 
     }
 }
+/*********************************************************************
+ * Function:        void SNMP_IFMIB_NetUpCallback(TCPIP_NET_HANDLE netH)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle.
+ *
+ * Output:          None
+ *
+ * Side Effects:    None
+ *
+ * Example:         TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                  SNMP_IFMIB_NetUpCallback(netH);
+ *
+ * Note:            This will be called from TCPIP_SNMP_Task function when 
+ *                  interface0 Link is up.
+ ********************************************************************/
 void SNMP_IFMIB_NetUpCallback(TCPIP_NET_HANDLE netH){
     bool *LinkStatus = &gIfMibObj.LinkStatus;
     uint32_t *Ticks = &gIfMibObj.LastChanged;
@@ -355,11 +673,75 @@ void SNMP_IFMIB_NetUpCallback(TCPIP_NET_HANDLE netH){
             *AdminStatus = 0;
     }
 }
+/*********************************************************************
+ * Function:        uint32_t SNMP_IFMIB_SysUpTime()
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           None
+ *
+ * Output:          it returns the system uptime value
+ *
+ * Side Effects:    None
+ *
+ * Example:         uint32_t SysUpTime = SNMP_IFMIB_SysUpTime();
+ *
+ * Note:            None
+ ********************************************************************/
 uint32_t SNMP_IFMIB_SysUpTime(void){
     uint32_t dw10msTicks;
     
     dw10msTicks = (SYS_TMR_TickCountGet()*100ull)/SYS_TMR_TickCounterFrequencyGet(); 
     return dw10msTicks;
+}
+/*********************************************************************
+ * Function:        void SNMP_IFMIB_NetUpdateStats(TCPIP_NET_HANDLE netH,
+ *                          TCPIP_MAC_STATISTICS_REG_ENTRY *regEntries, 
+ *                          uint8_t Maxindex)
+ *
+ * PreCondition:    TCPIP stack should have been initialized by 
+ *                  TCPIP_STACK_Initialize()
+ *
+ * Input:           netH - Interface handle, regEntries- pointer to hardware 
+ *                  register stats
+ *
+ * Output:          None
+ *
+ * Side Effects:    None
+ *
+ * Example:         TCPIP_NET_HANDLE netH = TCPIP_STACK_IndexToNet(0);
+ *                  SNMP_IFMIB_NetUpdateStats(netH, &regEntries, Maxindex);
+ *
+ * Note:            This function accumulates necessary hardware register 
+ *                  statistics
+ ********************************************************************/
+void SNMP_IFMIB_NetUpdateStats(TCPIP_NET_HANDLE netH,
+        TCPIP_MAC_STATISTICS_REG_ENTRY *regEntries, uint8_t Maxindex){
+    TCPIP_NET_IF*  pNetIf = _TCPIPStackHandleToNet(netH);
+     SNMP_IFMIB_MODULE_HARDWARE_REGISTER_STATS   *IfMibHdrRegStats =
+             &gIfMibObj.IfMibHdrRegStats;
+    if(pNetIf != 0)
+    {
+        if(pNetIf->macType == TCPIP_MAC_TYPE_ETH){
+            IfMibHdrRegStats->nRxOctets += 
+                    regEntries[SNMP_IFMIB_ETH_RX_OCTECTS].registerValue; 
+            IfMibHdrRegStats->nRxFrame += 
+                    regEntries[SNMP_IFMIB_ETH_RX_FRAME].registerValue; 
+            IfMibHdrRegStats->nRxBcast += 
+                    regEntries[SNMP_IFMIB_ETH_RX_BCAST].registerValue; 
+            IfMibHdrRegStats->nRxMcast += 
+                    regEntries[SNMP_IFMIB_ETH_RX_MCAST].registerValue; 
+            IfMibHdrRegStats->nTxOctets += 
+                    regEntries[SNMP_IFMIB_ETH_TX_OCTECTS].registerValue; 
+            IfMibHdrRegStats->nTxFrame += 
+                    regEntries[SNMP_IFMIB_ETH_TX_FRAME].registerValue; 
+            IfMibHdrRegStats->nTxBcast += 
+                    regEntries[SNMP_IFMIB_ETH_TX_BCAST].registerValue; 
+            IfMibHdrRegStats->nTxMcast += 
+                    regEntries[SNMP_IFMIB_ETH_TX_MCAST].registerValue; 
+        }
+    }
 }
 #endif //#if defined(TCPIP_STACK_USE_SNMP_SERVER)
 
