@@ -427,7 +427,9 @@ static const SYS_CMD_DESCRIPTOR    tcpipCmdTbl[]=
 #if defined(TCPIP_STACK_USE_DNS)
     {"dnsc",        (SYS_CMD_FNC)_Command_DNS_Service,          ": DNS client commands"},
 #endif
+#ifndef TCPIP_STACK_USE_SNMP_IFMIB
     {"macinfo",     (SYS_CMD_FNC)_Command_MacInfo,              ": Check MAC statistics"},
+#endif
 #if defined(TCPIP_STACK_USE_TFTP_CLIENT)
     {"tftpc",       (SYS_CMD_FNC)_Command_TFTPC_Service,        ": TFTP client Service"},
 #endif

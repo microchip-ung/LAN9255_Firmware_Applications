@@ -39,6 +39,9 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 #define TCPIP_THIS_MODULE_ID    TCPIP_MODULE_SNMP_SERVER
 
 #include "tcpip/src/tcpip_private.h"
+#if defined(TCPIP_STACK_USE_SNMP_IFMIB)
+#include "tcpip/snmp_if_mib.h"
+#endif
 #if defined(TCPIP_STACK_USE_SNMP_SERVER)
 #include "tcpip/src/snmp_private.h"
 #if defined(TCPIP_STACK_USE_SNMPV3_SERVER)
@@ -994,7 +997,17 @@ static SNMP_STACK_ERROR TCPIP_SNMP_inputPacketProcessAndRespond(void)
 void TCPIP_SNMP_Task(void)
 {
     TCPIP_MODULE_SIGNAL sigPend;
-
+ #if defined(TCPIP_STACK_USE_SNMP_IFMIB)
+    TCPIP_NET_HANDLE    netH;
+    
+    netH = TCPIP_STACK_IndexToNet(0);
+    if(!TCPIP_STACK_NetIsLinked(netH)){
+        SNMP_IFMIB_NetDownCallback(netH);
+    }
+    else{
+        SNMP_IFMIB_NetUpCallback(netH);
+    }
+#endif 
     sigPend = _TCPIPStackModuleSignalGet(TCPIP_THIS_MODULE_ID, TCPIP_MODULE_SIGNAL_MASK_ALL);
 
 

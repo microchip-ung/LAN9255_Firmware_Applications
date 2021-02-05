@@ -454,9 +454,9 @@ extern "C" {
 /***SNMPv3 privacy key length size for memory validation***/
 #define TCPIP_SNMPV3_PRIV_LOCALIZED_PASSWORD_KEY_LEN_MEM_USE (TCPIP_SNMPV3_PRIV_LOCALIZED_PASSWORD_KEY_LEN+1)
 
-
-
-
+#if defined(TCPIP_STACK_USE_SNMP_SERVER) && defined(TCPIP_STACK_USE_SNMPV3_SERVER)
+//#define TCPIP_STACK_USE_SNMP_IFMIB
+#endif
 /*** DNS Client Configuration ***/
 #define TCPIP_STACK_USE_DNS
 #define TCPIP_DNS_CLIENT_SERVER_TMO					60

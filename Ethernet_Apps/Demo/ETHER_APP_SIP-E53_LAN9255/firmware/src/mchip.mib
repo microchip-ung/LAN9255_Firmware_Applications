@@ -104,49 +104,14 @@ ledD5 OBJECT-TYPE
         "D5 LED connected LATA2"
     ::= { control 1 }
     
-ledD6 OBJECT-TYPE
-    SYNTAX INTEGER { off(0), on(1) }
-    MAX-ACCESS read-write
-    STATUS current
-    DESCRIPTION
-        "D6 LED connected to LATA3"
-    ::= { control 2 }
-
 pushButton    OBJECT-TYPE
    SYNTAX INTEGER { closed(0),open(1) }
    MAX-ACCESS read-only
    STATUS current
    DESCRIPTION
       "8-bit A/D value"
-   ::= { control 3 }
-
-
-analogPot0    OBJECT-TYPE
-   SYNTAX Integer32
-   MAX-ACCESS read-only
-   STATUS current
-   DESCRIPTION
-      "10-bit A/D value"
-   ::= { control 4 }
-   
-analogPot1    OBJECT-TYPE
-   SYNTAX Integer32
-   MAX-ACCESS read-only
-   STATUS current
-   DESCRIPTION
-      "10-bit A/D value"
-   ::= { control 5 }
-   
-   
-lcdDisplay  OBJECT-TYPE
-    SYNTAX  DisplayString (SIZE (0..15))
-    MAX-ACCESS read-write
-    STATUS current
-    DESCRIPTION
-        "Second line of LCD on PICDEM.net board"
-    ::= { control 6 }        
-
-
+   ::= { control 2 }
+     
 ipv4TrapTable OBJECT-TYPE
     SYNTAX SEQUENCE OF IPv4TrapEntry
     MAX-ACCESS not-accessible
