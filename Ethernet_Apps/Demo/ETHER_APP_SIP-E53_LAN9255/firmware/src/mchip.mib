@@ -96,12 +96,12 @@ date    OBJECT-TYPE
       "Date of version"
    ::= { product 3 }
    
-ledD5 OBJECT-TYPE
+ledD6 OBJECT-TYPE
     SYNTAX INTEGER { off(0), on(1) }
     MAX-ACCESS read-write
     STATUS current
     DESCRIPTION 
-        "D5 LED connected LATA2"
+        "D6 LED connected LATA2"
     ::= { control 1 }
     
 pushButton    OBJECT-TYPE
@@ -109,7 +109,7 @@ pushButton    OBJECT-TYPE
    MAX-ACCESS read-only
    STATUS current
    DESCRIPTION
-      "8-bit A/D value"
+      "GPIO is connected Pull down"
    ::= { control 2 }
      
 ipv4TrapTable OBJECT-TYPE
@@ -425,12 +425,12 @@ snmpTargetSecurityLevel OBJECT-TYPE
 
    
 snmp-demo-trap NOTIFICATION-TYPE
-	OBJECTS { analogPot0,pushButton,ledD5,ipv4TrapCommunity}
+	OBJECTS { pushButton,ledD6,ipv4TrapCommunity}
 	STATUS current
 	DESCRIPTION 
 		"SMIV2 Trap notification information for the SNMP Manager. 
 		The objects used in the demo trap notification are 
-		analogPot0,pushButton,ledD5 and trapCommunity. User should modify this object 
+		pushButton/GPIO input,ledD6 and trapCommunity. User should modify this object 
 		information as per the requirements. These object should 
 		have been defined as part of the MIB.
 		"
@@ -456,9 +456,8 @@ mchipDemoCompliance2 MODULE-COMPLIANCE
     ::= { mchipMIBCompliances 2 }	
 			
 mchipDemoGroup1 OBJECT-GROUP
-    OBJECTS { name, version,date,ledD5,ledD6,pushButton,
-			  analogPot0,analogPot1,lcdDisplay,
-              ipv4TrapEnabled,ipv4TrapReceiverIPAddress,ipv4TrapCommunity}
+    OBJECTS { name, version,date,ledD6,pushButton,
+			  ipv4TrapEnabled,ipv4TrapReceiverIPAddress,ipv4TrapCommunity}
     STATUS  current
     DESCRIPTION
             "A collection of objects providing basic product

@@ -1,6 +1,6 @@
 /*******************************************************************
 * FileName: mib.h
-* This file was automatically generated on Thu Feb 04 2021 09:37:58 
+* This file was automatically generated on Fri Feb 05 2021 01:34:51 
 * by mib2bib utility.
 * This file contains 'C' defines for dynamic OIDs and AgentID only.
 * Do not modify this file manually.
@@ -64,7 +64,7 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 #define IPV6_TRAP_ENABLED      32			//43.6.1.4.1.17095.1.2.2.1.2 :  READWRITE BYTE.
 #define IPV6_TRAP_RECEIVER_IP      33			//43.6.1.4.1.17095.1.2.2.1.3 :  READWRITE OCTET_STRING.
 #define IPV6_TRAP_COMMUNITY      34			//43.6.1.4.1.17095.1.2.2.1.4 :  READWRITE ASCII_STRING.
-#define LED_D5      5			//43.6.1.4.1.17095.1.3.1 :  READWRITE BYTE.
+#define LED_D6      5			//43.6.1.4.1.17095.1.3.1 :  READWRITE BYTE.
 #define PUSH_BUTTON      6			//43.6.1.4.1.17095.1.3.2 :  READONLY BYTE.
 #define USM_INDEX_ID      11			//43.6.1.4.1.17095.1.4.1.1.1 :  READONLY BYTE.
 #define USER_SECURITY_NAME      12			//43.6.1.4.1.17095.1.4.1.1.2 :  READWRITE ASCII_STRING.
