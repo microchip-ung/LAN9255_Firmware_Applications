@@ -733,8 +733,8 @@ void APPL_Application(void)
     if(true == Configure_uart0x8000.Tx_ready) //Write UART only if tx_ready is high from twincat master
     {
         SERCOM0_USART_Write((uint8_t *) &(Outputs0x7010.Uart_write_buffer), 1);
-        while (uart_wr_status);
-        uart_wr_status = 1;
+        //while (uart_wr_status);
+        //uart_wr_status = 1;
     }
  }
 
