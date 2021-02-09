@@ -54,7 +54,6 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
   Section:
 	Global Variables
   ***************************************************************************/
-static uint16_t SNMPTxOffset;	//Snmp udp buffer tx offset
 SNMP_IFMIB_OBJECT gIfMibObj={0};
 
 /****************************************************************************
@@ -221,13 +220,12 @@ uint8_t SNMP_IFMIB_NetGetPhyAddr(TCPIP_NET_HANDLE netH, uint8_t index)
     if(pNetIf != 0)
     {
         if(pNetIf->macType == TCPIP_MAC_TYPE_ETH){
-          if(index == 0){
-            sprintf(MacAddrStr, "%02x-%02x-%02x-%02x-%02x-%02x-%02x",
+            if(index == 0){
+                sprintf(MacAddrStr, "%02x-%02x-%02x-%02x-%02x-%02x",
                       pNetIf->netMACAddr.v[0], pNetIf->netMACAddr.v[1],
                       pNetIf->netMACAddr.v[2], pNetIf->netMACAddr.v[3], 
-                      pNetIf->netMACAddr.v[4],pNetIf->netMACAddr.v[5]); 
-          }
-    
+                      pNetIf->netMACAddr.v[4], pNetIf->netMACAddr.v[5]); 
+            }
             return MacAddrStr[index];
         }
     }
@@ -326,7 +324,7 @@ uint32_t SNMP_IFMIB_NetGetIfInError(TCPIP_NET_HANDLE netH)
 
     if(TCPIP_STACK_NetMACStatisticsGet(netH, &rxStatistics, &txStatistics)){
         
-        if(rxStatistics.nRxErrorPackets != 0xFFFFFFFF){
+        if(rxStatistics.nRxErrorPackets != (-1)){
             return (uint32_t)rxStatistics.nRxErrorPackets ;
         }
     }
@@ -441,7 +439,7 @@ uint32_t SNMP_IFMIB_NetGetIfOutDiscards(TCPIP_NET_HANDLE netH)
  ********************************************************************/
 uint32_t SNMP_IFMIB_NetGetIfInOctets(TCPIP_NET_HANDLE netH)
 {
-    int                    hwEntries,i=0;
+    int                    hwEntries;
     TCPIP_MAC_STATISTICS_REG_ENTRY  regEntries[50];
     if(TCPIP_STACK_NetMACRegisterStatisticsGet(netH, regEntries, 
             sizeof(regEntries)/sizeof(*regEntries), &hwEntries)){
