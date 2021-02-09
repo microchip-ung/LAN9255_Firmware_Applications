@@ -191,7 +191,14 @@ extern "C" {
 #define TCPIP_SNMP_TRAP_TABLE_SIZE 					2
 #define TCPIP_SNMP_USE_TRAP_SUPPORT   				true
 
-#define TCPIP_SNMP_STACK_USE_V2_TRAP   				true
+#ifdef SNMPv2_TRAP_CONFIG
+    #define TCPIP_SNMP_STACK_USE_V2_TRAP   				true
+#elif SNMPv3_TRAP_CONFIG
+    #define TCPIP_SNMP_STACK_USE_V2_TRAP   				true
+#else
+    #define TCPIP_SNMP_STACK_USE_V2_TRAP   				false
+#endif
+
 /***The maximum size of TRAP community string length***/
 #define TCPIP_SNMP_TRAP_COMMUNITY_MAX_LEN       	(TCPIP_SNMP_TRAP_COMMUNITY_MAX_LEN_MEM_USE+1)
 
@@ -404,7 +411,11 @@ extern "C" {
 #define TCPIP_SNMPV3_AUTH_LOCALIZED_PASSWORD_KEY_LEN 	20
 #define TCPIP_SNMPV3_PRIV_LOCALIZED_PASSWORD_KEY_LEN 	20
 #define TCPIP_SNMPV3_USM_MAX_USER						3
-#define TCPIP_SNMPV3_STACK_USE_V1_V2_TRAP				true
+#ifdef SNMPv3_TRAP_CONFIG
+    #define TCPIP_SNMPV3_STACK_USE_V1_V2_TRAP				true
+#else
+    #define TCPIP_SNMPV3_STACK_USE_V1_V2_TRAP				false
+#endif
 
 /*** SNMPV3 Stack Configuration Index 0 ***/
 #define TCPIP_SNMPV3_STACK_USM_NAME_IDX0 	"microchip" 

@@ -20,6 +20,14 @@
                     <name>LAN9255_SAME53_ETHERNET_APP</name>
                     <type>2</type>
                 </confElem>
+                <confElem>
+                    <name>LAN9255_SAME53_ETHERNET_APP_SNMPV1_TRAP</name>
+                    <type>2</type>
+                </confElem>
+                <confElem>
+                    <name>LAN9255_SAME53_ETHERNET_APP_SNMPv3_TRAP</name>
+                    <type>2</type>
+                </confElem>
             </confList>
             <formatting>
                 <project-formatting-style>false</project-formatting-style>
