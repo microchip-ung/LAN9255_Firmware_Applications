@@ -387,8 +387,8 @@ TCPIP_NET_HANDLE TCPIP_SNMP_ClientGetNet(int *netIx,TCPIP_NET_HANDLE hNet);
 	<code>
 	switch(var)
     {
-		// LED_D5 - generated from the Microchip style MIB script using mib2bib.jar is a scalar variable
-        case LED_D5:
+		// LED_D6 - generated from the Microchip style MIB script using mib2bib.jar is a scalar variable
+        case LED_D6:
             LED2_IO = val.byte;
             return true;
 			
@@ -505,8 +505,8 @@ bool TCPIP_SNMP_VarbindSet(SNMP_ID var, SNMP_INDEX index,uint8_t ref, SNMP_VAL v
 				return true;
 			}
 			break;
-	// LED_D5 - generated from the Microchip style MIB script using mib2bib.jar is a scalar variable
-		case LED_D5:
+	// LED_D6 - generated from the Microchip style MIB script using mib2bib.jar is a scalar variable
+		case LED_D6:
             val->byte = LED2_IO;
             return true;
 	}
