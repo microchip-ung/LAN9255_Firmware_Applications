@@ -283,7 +283,7 @@ void applicationTask()
 
 void uart_tx_cb (uintptr_t ctx)
 {
-    uart_wr_status = 0;
+    /* Do anything as per user application */
 }
 
 void uart_rx_cb (uintptr_t ctx)

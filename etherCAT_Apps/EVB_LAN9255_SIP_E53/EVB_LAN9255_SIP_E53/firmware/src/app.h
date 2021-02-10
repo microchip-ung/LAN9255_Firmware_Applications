@@ -93,7 +93,7 @@ extern "C" {
 #if DIRECT_MODE    
 #define FLASH_EEPROM_START_ADDRESS      0x0B34       
 #else
-#define FLASH_EEPROM_START_ADDRESS      0x0B4C 
+#define FLASH_EEPROM_START_ADDRESS      0x0B54 
 #endif
        
 // *****************************************************************************
@@ -309,7 +309,7 @@ extern volatile uint8_t spi_sync;
     spi_sync = 1;\
     }
 
-extern int uart_rd_status, uart_wr_status;
+extern int uart_rd_status;
 
 void uart_tx_cb (uintptr_t ctx);
 void uart_rx_cb (uintptr_t ctx);
