@@ -87,7 +87,7 @@ static UART_CONFIGDATA uart_config ={1, 0, 0, 9600}; //these values are given in
 
 void APPL_UpdateUARTConfig(void);
 
-int uart_rd_status = 1, uart_wr_status = 1;
+int uart_rd_status = 1;
 
 /*------------------------------------------------------------------------------
 ------
@@ -714,27 +714,26 @@ void APPL_Application(void)
         gTriggerCounterValMeasure = 0;
 	}
 
-    //APPL_UpdateUARTConfig();
-    if (SERCOM0_USART_ReadCountGet()) {
-       // data  = 0x41;
-        SERCOM0_USART_Read((uint8_t *)&Inputs0x6000.Uart_read_buffer, 1);
-        /* Replace with timer with timeout, instead of tmp 255 count to 0 */
-        tmp = 96;
-        do {
-            tmp--;
-        }while (uart_rd_status && tmp);
-        /* It read something, so update twinCAT master */
-        if (uart_rd_status == 0)
-        {
-            uart_rd_status = 1;
-            Uart_status0x6021.Rx_ready = true; //update rx_ready to twincat master
+    if (true == Configure_uart0x8000.EnableUart) {
+        //APPL_UpdateUARTConfig();
+        if (SERCOM0_USART_ReadCountGet()) {
+            SERCOM0_USART_Read((uint8_t *)&Inputs0x6000.Uart_read_buffer, 1);
+            /* Replace with timer with timeout, instead of tmp 255 count to 0 */
+            tmp = 96;
+            do {
+                tmp--;
+            }while (uart_rd_status && tmp);
+            /* It read something, so update twinCAT master */
+            if (uart_rd_status == 0)
+            {
+                uart_rd_status = 1;
+                Uart_status0x6021.Rx_ready = true; //update rx_ready to twincat master
+            }
         }
-    }
-    if(true == Configure_uart0x8000.Tx_ready) //Write UART only if tx_ready is high from twincat master
-    {
-        SERCOM0_USART_Write((uint8_t *) &(Outputs0x7010.Uart_write_buffer), 1);
-        //while (uart_wr_status);
-        //uart_wr_status = 1;
+        if(true == Configure_uart0x8000.Tx_ready) //Write UART only if tx_ready is high from twincat master
+        {
+            SERCOM0_USART_Write((uint8_t *) &(Outputs0x7010.Uart_write_buffer), 1);
+        }
     }
  }
 
