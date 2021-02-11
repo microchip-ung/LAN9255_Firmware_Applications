@@ -380,7 +380,7 @@ void APP_Tasks ( void )
             SERCOM0_USART_WriteCallbackRegister(uart_tx_cb, 0);
             SERCOM0_USART_ReadCallbackRegister(uart_rx_cb, 0);
             /* Adding this read call, to get the data count whenever data available */
-            // UNG_J2_SIP-37 - Fix
+            // UNG_J2_SIP-37 - update the data object with read data
             SERCOM0_USART_Read(&Inputs0x6000.Uart_read_buffer, 1);
             appData.state = APP_STATE_SERVICE_TASKS;
             break;

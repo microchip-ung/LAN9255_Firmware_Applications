@@ -715,7 +715,8 @@ void APPL_Application(void)
 	}
 
     if (true == Configure_uart0x8000.EnableUart) {
-        //APPL_UpdateUARTConfig();
+        //UNG_J2_SIP-39 - Added the dynamic configuration update
+        APPL_UpdateUARTConfig();
         if (SERCOM0_USART_ReadCountGet()) {
             SERCOM0_USART_Read((uint8_t *)&Inputs0x6000.Uart_read_buffer, 1);
             /* Replace with timer with timeout, instead of tmp 255 count to 0 */
@@ -745,12 +746,6 @@ void APPL_UpdateUARTConfig(void)
     if(Configure_uart0x8000.Buadrate != uart_config.buadRate)
     {
         uart_config.buadRate = Configure_uart0x8000.Buadrate;
-        isModified = true;
-    }
-
-    if(Configure_uart0x8000.EnableUart != uart_config.enableUart)
-    {
-        uart_config.enableUart = Configure_uart0x8000.EnableUart;
         isModified = true;
     }
 
