@@ -801,7 +801,11 @@ void APPL_UpdateUARTConfig(void)
         */
         uart_setup.stopBits = uart_config.stopSelectionBit;
         /* Update the UART configuration */
+        //UNG_J2_SIP-39 - Added the dynamic configuration update,
+        // abort current read and resume after config update
+        SERCOM0_USART_ReadAbort();
         SERCOM0_USART_SerialSetup(&uart_setup, 0);
+        SERCOM0_USART_Read((uint8_t *)&Inputs0x6000.Uart_read_buffer, 1);
     }     
 }
 #if EXPLICIT_DEVICE_ID
