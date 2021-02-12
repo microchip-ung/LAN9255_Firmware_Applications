@@ -427,7 +427,9 @@ static const SYS_CMD_DESCRIPTOR    tcpipCmdTbl[]=
 #if defined(TCPIP_STACK_USE_DNS)
     {"dnsc",        (SYS_CMD_FNC)_Command_DNS_Service,          ": DNS client commands"},
 #endif
+#ifndef TCPIP_STACK_USE_SNMP_IFMIB
     {"macinfo",     (SYS_CMD_FNC)_Command_MacInfo,              ": Check MAC statistics"},
+#endif
 #if defined(TCPIP_STACK_USE_TFTP_CLIENT)
     {"tftpc",       (SYS_CMD_FNC)_Command_TFTPC_Service,        ": TFTP client Service"},
 #endif
@@ -1285,7 +1287,7 @@ static int _Command_GatewayAddressSet(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, cha
     const void* cmdIoParam = pCmdIO->cmdIoParam;
     bool     success = false;
 
-    if (argc != 3)
+    if (argc < 3)
     {
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Usage: setgw <interface> <ipv4/6 address> <validTime> \r\n");
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ex: setgw PIC32INT 192.168.0.1 \r\n");
@@ -1324,6 +1326,12 @@ static int _Command_GatewayAddressSet(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, cha
 #if defined(TCPIP_STACK_USE_IPV4)
     if(addType == IP_ADDRESS_TYPE_IPV4)
     {
+        if (argc != 3)
+        {
+            (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Usage: setgw <interface> <ipv4/6 address> <validTime> \r\n");
+            (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ex: setgw PIC32INT 192.168.0.1 \r\n");
+            return false;
+        }
         success = TCPIP_STACK_NetAddressGatewaySet(netH, &ipGateway);
     }
 #endif  // defined(TCPIP_STACK_USE_IPV4)

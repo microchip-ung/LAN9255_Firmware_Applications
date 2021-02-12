@@ -710,6 +710,8 @@ typedef struct TCPIP_STACK_INIT
 #include "tcpip/nbns.h"
 #include "tcpip/sntp.h"
 #include "tcpip/http_net.h"
+#include "tcpip/snmp.h"
+#include "tcpip/snmpv3.h"
 #include "tcpip/tcpip_announce.h"
 #include "tcpip/lldp.h"
 #include "tcpip/tcpip_commands.h"
