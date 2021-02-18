@@ -2159,6 +2159,12 @@ void LAN9252SQI_ReadPDRAM(UINT8 *pu8Data, UINT16 u16Addr, UINT16 u16Len)
     
     //UNG_J2_SIP-35 - creating memory from heap to read and corrected the receive buffer
     p8Data = (UINT8 *) malloc (sizeof(UINT8) * (u16Len+u8StartAlignSize+u8EndAlignSize));
+    if (p8Data == NULL) {
+        /* we simply return in case of failure,
+         * caller will handle as it does not read anything
+         */
+        return;
+    }
 	MCHP_ESF_PDI_READ(LAN925x_ECAT_PRAM_RD_DATA_FIFO_REG, p8Data, u16Len+u8StartAlignSize+u8EndAlignSize);
     
     //https://jira.microchip.com/browse/UNG_JUTLAND2-278
