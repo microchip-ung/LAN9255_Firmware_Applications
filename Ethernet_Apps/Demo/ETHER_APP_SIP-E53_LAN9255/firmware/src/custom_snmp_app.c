@@ -2158,6 +2158,7 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
                 return true;
             }
         }
+		break;
         case IF_TYPE:
         {
             nNets = TCPIP_STACK_NumberOfNetworksGet();
@@ -2166,8 +2167,8 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
                 val->word = SNMP_IFMIB_NetGetIfType(netH);
                 return true; 
             }
-            break;
         }
+		break;
         case IF_ADMIN_STATUS:
         {
             nNets = TCPIP_STACK_NumberOfNetworksGet();
@@ -2176,8 +2177,8 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
                     val->word = TCPIP_STACK_NetIsLinked(netH);
                     return true; 
             }
-            break;
         }
+		break;
         case IF_OPER_STATUS:
         {
             nNets = TCPIP_STACK_NumberOfNetworksGet();
@@ -2187,8 +2188,8 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
                 val->word = TCPIP_STACK_NetIsLinked(netH);
                 return true; 
             }
-            break;
         }
+		break;
         case IF_MTU:
         {
             nNets = TCPIP_STACK_NumberOfNetworksGet();
@@ -2197,8 +2198,8 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
                 val->dword = SNMP_IFMIB_NetGetMTU(netH);
                 return true;             
             }
-            break;
         }
+		break;
         case IF_SPEED:
         {
             nNets = TCPIP_STACK_NumberOfNetworksGet();
@@ -2230,22 +2231,17 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
         }
         break;
         case IF_IN_UCAST_PKTS:
-                {
-            //TCPIP_MAC_RX_STATISTICS rxStatistics;
-            //TCPIP_MAC_TX_STATISTICS txStatistics;
+        {
             int                    hwEntries;
             TCPIP_MAC_STATISTICS_REG_ENTRY  regEntries[50];
             nNets = TCPIP_STACK_NumberOfNetworksGet();
             if(index < nNets){
                 netH = TCPIP_STACK_IndexToNet(index);
-                //if(TCPIP_STACK_NetMACStatisticsGet(netH, &rxStatistics, &txStatistics)){
-               // if(TCPIP_STACK_NetMACRegisterStatisticsGet(netH, regEntries, sizeof(regEntries)/sizeof(*regEntries), &hwEntries)){
-                //SYS_CONSOLE_PRINT("%s ... %d\r\n", regEntries[3].registerName, regEntries[3].registerValue);
                 val->dword = SNMP_IFMIB_NetGetIfInUcastPkts(netH);
                 return true; 
-                //}
             }
         }
+		break;
         case IF_IN_NUCAST_PKTS:
         {
             nNets = TCPIP_STACK_NumberOfNetworksGet();
@@ -2263,8 +2259,8 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
                 val->dword = SNMP_IFMIB_NetGetIfInDiscards(netH);
                 return true;
             }
-            break;
-        }            
+        }
+		break;        
         case IF_IN_ERRORS:
         {
             nNets = TCPIP_STACK_NumberOfNetworksGet();
@@ -2273,8 +2269,8 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
                 val->dword = SNMP_IFMIB_NetGetIfInError(netH);
                 return true;
             }
-            break;
         }
+		break;
         case IF_IN_UNKNOWN_PROTOS:
         {
             nNets = TCPIP_STACK_NumberOfNetworksGet();
@@ -2321,8 +2317,8 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
                 val->dword = SNMP_IFMIB_NetGetIfOutDiscards(netH);
                 return true;
             }
-            break;
         }
+		break;
         case IF_OUT_ERRORS:
         {
             nNets = TCPIP_STACK_NumberOfNetworksGet();
@@ -2331,8 +2327,8 @@ bool TCPIP_SNMP_VarbindGet(SNMP_ID var, SNMP_INDEX index, uint8_t* ref, SNMP_VAL
                 val->dword = SNMP_IFMIB_NetGetIfOutError(netH);
                 return true;
             }
-            break;
         }
+		break;
         case IF_OUT_QLEN:
         {
             nNets = TCPIP_STACK_NumberOfNetworksGet();
