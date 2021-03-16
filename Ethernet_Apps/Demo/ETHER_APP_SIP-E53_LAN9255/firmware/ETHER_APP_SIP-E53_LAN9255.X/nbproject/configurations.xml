@@ -665,19 +665,13 @@
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="f2" displayName="web_pages" projectFiles="true">
-        <logicalFolder name="f1" displayName="dyndns" projectFiles="true">
-          <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
-        </logicalFolder>
-        <logicalFolder name="f2" displayName="email" projectFiles="true">
-          <itemPath>../src/web_pages/email/index.htm</itemPath>
-        </logicalFolder>
-        <logicalFolder name="f3" displayName="protect" projectFiles="true">
+        <logicalFolder name="f1" displayName="protect" projectFiles="true">
           <itemPath>../src/web_pages/protect/config.htm</itemPath>
           <itemPath>../src/web_pages/protect/index.htm</itemPath>
           <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
           <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
         </logicalFolder>
-        <logicalFolder name="f4" displayName="snmp" projectFiles="true">
+        <logicalFolder name="f2" displayName="snmp" projectFiles="true">
           <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
         </logicalFolder>
       </logicalFolder>
@@ -810,7 +804,7 @@
         <targetDevice>ATSAME53J20A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>pk4hybrid</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.41</languageToolchainVersion>
         <platform>3</platform>
@@ -1138,7 +1132,7 @@
         <targetDevice>ATSAME53J20A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.41</languageToolchainVersion>
         <platform>3</platform>
@@ -1466,7 +1460,7 @@
         <targetDevice>ATSAME53J20A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.41</languageToolchainVersion>
         <platform>3</platform>
