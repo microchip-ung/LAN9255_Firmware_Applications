@@ -77,6 +77,31 @@ extern void SNMPTrapDemo(void);
 APP_DATA appData;
 
 APP_LED_STATE LEDstate = APP_LED_STATE_OFF;
+//TCP/IP Stack initialization parameters
+TCPIP_STACK_INIT    tcpipAltInit;
+extern const TCPIP_STACK_MODULE_CONFIG TCPIP_STACK_MODULE_CONFIG_TBL[];
+extern const size_t TCPIP_STACK_MODULE_CONFIG_TBL_SIZE;
+
+char macAddr[EUI48_MAC_ADDR_LENGTH] = {0x00, 0x04, 0x25, 0xff, 0xff, 0xff};
+char macAddrString[18];
+    
+TCPIP_NETWORK_CONFIG TCPIP_HOSTS_ALT_CONFIGURATION[] =
+{
+    /*** Network Configuration Index 0 ***/
+    {
+        TCPIP_NETWORK_DEFAULT_INTERFACE_NAME_IDX0,       // interface
+        TCPIP_NETWORK_DEFAULT_HOST_NAME_IDX0,            // hostName
+        TCPIP_NETWORK_DEFAULT_MAC_ADDR_IDX0,             // macAddr
+        TCPIP_NETWORK_DEFAULT_IP_ADDRESS_IDX0,           // ipAddr
+        TCPIP_NETWORK_DEFAULT_IP_MASK_IDX0,              // ipMask
+        TCPIP_NETWORK_DEFAULT_GATEWAY_IDX0,              // gateway
+        TCPIP_NETWORK_DEFAULT_DNS_IDX0,                  // priDNS
+        TCPIP_NETWORK_DEFAULT_SECOND_DNS_IDX0,           // secondDNS
+        TCPIP_NETWORK_DEFAULT_POWER_MODE_IDX0,           // powerMode
+        TCPIP_NETWORK_DEFAULT_INTERFACE_FLAGS_IDX0,      // startFlags
+       &TCPIP_NETWORK_DEFAULT_MAC_DRIVER_IDX0,           // pMacObject
+    },
+};
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Callback Functions
@@ -85,7 +110,34 @@ APP_LED_STATE LEDstate = APP_LED_STATE_OFF;
 
 /* TODO:  Add any necessary callback functions.
 */
+int TCPIP_STACK_InitCallback(const struct TCPIP_STACK_INIT** ppStackInit)
+{
+    uint8_t *DynMacAddrPtr;
+    DynMacAddrPtr = MEMBP(SERIAL_NO_WORD0_ADDR);
+    
+    macAddr[3] = DynMacAddrPtr[0];
+    macAddr[4] = DynMacAddrPtr[1];
+    macAddr[5] = DynMacAddrPtr[2];
+    //ATMAC read success; convert MAC address to string format
+    TCPIP_Helper_MACAddressToString((const TCPIP_MAC_ADDR*)macAddr, macAddrString, 18);
+    SYS_CONSOLE_PRINT("  sno_w0 = %x w0[0] = %.2x %.2x %.2x", MEMDW(SERIAL_NO_WORD0_ADDR)
+            ,DynMacAddrPtr[0], DynMacAddrPtr[1], DynMacAddrPtr[2]);
+    SYS_CONSOLE_PRINT(" Macaddress %s\r\n", macAddrString);
+    if ( true )
+    {        
+        //update host configuration with alternate MAC address, read from AT24MAC402
+        (TCPIP_HOSTS_ALT_CONFIGURATION[0].macAddr) = (char*)macAddrString;
+        tcpipAltInit.pNetConf = TCPIP_HOSTS_ALT_CONFIGURATION;
+        tcpipAltInit.nNets = sizeof (TCPIP_HOSTS_ALT_CONFIGURATION) / sizeof (*TCPIP_HOSTS_ALT_CONFIGURATION);
+        tcpipAltInit.pModConfig = TCPIP_STACK_MODULE_CONFIG_TBL;
+        tcpipAltInit.nModules = TCPIP_STACK_MODULE_CONFIG_TBL_SIZE;
+        tcpipAltInit.initCback = 0;
 
+        *ppStackInit = &tcpipAltInit;        
+    }    
+    
+    return 0;
+}
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Local Functions

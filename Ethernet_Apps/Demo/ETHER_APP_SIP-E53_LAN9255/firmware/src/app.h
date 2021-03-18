@@ -98,6 +98,12 @@
 #define APP_SYS_FS_TYPE             MPFS2
 #define APP_SYS_FS_TYPE_STRING      "MPFS2"
 
+
+#define EUI48_MAC_ADDR_LENGTH   (6)
+#define MEMB(x)		(*((uint8_t  volatile *)(x))) /*8 bit memory access*/
+#define MEMDW(x)    (*((uint32_t  volatile *)(x))) /*8 bit memory access*/
+#define MEMBP(x)    ((uint8_t  volatile *)(x)) /*8 bit memory Ptr*/
+#define SERIAL_NO_WORD0_ADDR    (0x008061FC)
 // *****************************************************************************
 /* Application States
 
