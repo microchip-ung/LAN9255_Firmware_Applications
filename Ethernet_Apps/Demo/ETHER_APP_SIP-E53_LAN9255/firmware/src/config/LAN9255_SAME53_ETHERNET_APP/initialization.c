@@ -683,7 +683,7 @@ const size_t TCPIP_STACK_MODULE_CONFIG_TBL_SIZE = sizeof (TCPIP_STACK_MODULE_CON
  *                  stack or its component routines are used.
  *
  ********************************************************************/
-
+/*Bug#UNG_J2_SIP-65*/
 extern int TCPIP_STACK_InitCallback( const struct TCPIP_STACK_INIT** ppStackInit );
 
 SYS_MODULE_OBJ TCPIP_STACK_Init()
@@ -694,7 +694,7 @@ SYS_MODULE_OBJ TCPIP_STACK_Init()
     tcpipInit.nNets = TCPIP_HOSTS_CONFIGURATION_SIZE;
     tcpipInit.pModConfig = TCPIP_STACK_MODULE_CONFIG_TBL;
     tcpipInit.nModules = TCPIP_STACK_MODULE_CONFIG_TBL_SIZE;
-    tcpipInit.initCback = TCPIP_STACK_InitCallback;
+    tcpipInit.initCback = TCPIP_STACK_InitCallback; /*Bug#UNG_J2_SIP-65*/
 
     return TCPIP_STACK_Initialize(0, &tcpipInit.moduleInit);
 }

@@ -82,9 +82,11 @@ TCPIP_STACK_INIT    tcpipAltInit;
 extern const TCPIP_STACK_MODULE_CONFIG TCPIP_STACK_MODULE_CONFIG_TBL[];
 extern const size_t TCPIP_STACK_MODULE_CONFIG_TBL_SIZE;
 
+/*Bug#UNG_J2_SIP-65*/
 char macAddr[EUI48_MAC_ADDR_LENGTH] = {0x00, 0x04, 0x25, 0xff, 0xff, 0xff};
 char macAddrString[18];
-    
+
+/*Bug#UNG_J2_SIP-65*/    
 TCPIP_NETWORK_CONFIG TCPIP_HOSTS_ALT_CONFIGURATION[] =
 {
     /*** Network Configuration Index 0 ***/
@@ -110,9 +112,10 @@ TCPIP_NETWORK_CONFIG TCPIP_HOSTS_ALT_CONFIGURATION[] =
 
 /* TODO:  Add any necessary callback functions.
 */
+/*Bug#UNG_J2_SIP-65*/
 int TCPIP_STACK_InitCallback(const struct TCPIP_STACK_INIT** ppStackInit)
 {
-    uint8_t *DynMacAddrPtr;
+    uint8_t volatile *DynMacAddrPtr;
     DynMacAddrPtr = MEMBP(SERIAL_NO_WORD0_ADDR);
     
     macAddr[3] = DynMacAddrPtr[0];
@@ -120,9 +123,9 @@ int TCPIP_STACK_InitCallback(const struct TCPIP_STACK_INIT** ppStackInit)
     macAddr[5] = DynMacAddrPtr[2];
     //ATMAC read success; convert MAC address to string format
     TCPIP_Helper_MACAddressToString((const TCPIP_MAC_ADDR*)macAddr, macAddrString, 18);
-    SYS_CONSOLE_PRINT("  sno_w0 = %x w0[0] = %.2x %.2x %.2x", MEMDW(SERIAL_NO_WORD0_ADDR)
+   /* SYS_CONSOLE_PRINT("  sno_w0 = %x w0[0] = %.2x %.2x %.2x", MEMDW(SERIAL_NO_WORD0_ADDR)
             ,DynMacAddrPtr[0], DynMacAddrPtr[1], DynMacAddrPtr[2]);
-    SYS_CONSOLE_PRINT(" Macaddress %s\r\n", macAddrString);
+    SYS_CONSOLE_PRINT(" Macaddress %s\r\n", macAddrString);*/
     if ( true )
     {        
         //update host configuration with alternate MAC address, read from AT24MAC402
