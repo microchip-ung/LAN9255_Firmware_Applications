@@ -799,7 +799,19 @@ void APPL_UpdateUARTConfig(void)
             or 
             equivalent to USART_STOP
         */
-        uart_setup.stopBits = uart_config.stopSelectionBit;
+        //UNG_J2_SIP-41 - Handled the stop bits mapping through switch
+        //and used driver structure related macro's
+        switch (uart_config.stopSelectionBit)
+        {
+            case 0:
+                /* 1 stop bit */
+                uart_setup.stopBits = USART_STOP_1_BIT;
+                break;
+            case 1:
+                /* 2 stop bits */
+                uart_setup.stopBits = USART_STOP_2_BIT;
+                break;
+        }
         /* Update the UART configuration */
         //UNG_J2_SIP-39 - Added the dynamic configuration update,
         // abort current read and resume after config update
