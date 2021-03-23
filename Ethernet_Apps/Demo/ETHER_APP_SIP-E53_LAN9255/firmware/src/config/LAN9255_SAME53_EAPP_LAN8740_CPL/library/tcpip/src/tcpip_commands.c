@@ -2138,32 +2138,37 @@ static int _Command_BIOSNameSet(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** ar
     return true;
 }
 static int _Command_MACRegRead(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv){
-    uint32_t Offset=0, RegValue=0;
+    uint32_t RegValue=0;
+    uint16_t Offset=0;
     TCPIP_NET_HANDLE netH;
     const void* cmdIoParam = pCmdIO->cmdIoParam;
     
     //validating number of input params
-    if (argc != 3) {
+    if (argc != 3)
+    {
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Usage: GRR <interface> <offset> \r\n");
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ex: GRR eth0 0x4 \r\n");
         return false;
     }
     //Get net_handle from interface name
     netH = TCPIP_STACK_NetHandleGet(argv[1]);
-    if (netH == 0) {
+    if (netH == 0)
+    {
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Unknown interface specified \r\n");
         return false;
     }
     
     //Parse Offset value from input arguments
     sscanf(argv[2], "%hx", &Offset );
-	if ((Offset % 4) != 0){
-       (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Offset should be multiple of 4 \r\n");
-       return false;
- 	}
-	
+    if ((Offset % 4) != 0)
+    {
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Offset should be multiple of 4 \r\n");
+        return false;
+    }
+
     //Get GMAC Register data
-    if(!TCPIP_STACK_MACRegRead(netH, Offset, &RegValue)){
+    if(!TCPIP_STACK_MACRegRead(netH, Offset, &RegValue))
+    {
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Get MAC Register Read failed\r\n");
         return false;       
     }
@@ -2173,12 +2178,14 @@ static int _Command_MACRegRead(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** arg
 }
 
 static int _Command_MACRegWrite(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv){
-    uint32_t Offset=0, RegValue=0;
+    uint32_t RegValue=0;
+    uint16_t Offset=0;
     TCPIP_NET_HANDLE netH;
     const void* cmdIoParam = pCmdIO->cmdIoParam;
     
     //validating number of input params
-    if (argc != 4) {
+    if (argc != 4)
+    {
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Usage: GRW <interface> <offset> <Regvalue> \r\n");
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ex: GRW eth0 0x4 0xFF \r\n");
         return false;
@@ -2186,7 +2193,8 @@ static int _Command_MACRegWrite(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** ar
  
     //Get net_handle from interface name
     netH = TCPIP_STACK_NetHandleGet(argv[1]);
-    if (netH == 0) {
+    if (netH == 0)
+    {
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Unknown interface specified \r\n");
         return false;
     }
@@ -2194,13 +2202,15 @@ static int _Command_MACRegWrite(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** ar
     sscanf(argv[2], "%hx",&Offset); //Parse Offset value from input arguments
     //RegValue Offset value from input arguments
     sscanf(argv[3], "%x" ,&RegValue); 
-    if ((Offset % 4) != 0){
-       (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Offset should be multiple of 4 \r\n");
-       return false;
- 	}
+    if ((Offset % 4) != 0)
+    {
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Offset should be multiple of 4 \r\n");
+        return false;
+    }
 	
     //Set GMAC Register data
-    if(!TCPIP_STACK_MACRegWrite(netH, Offset, RegValue)){
+    if(!TCPIP_STACK_MACRegWrite(netH, Offset, RegValue))
+    {
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Get MAC Register Write failed\r\n");
         return false;       
     }
@@ -2214,26 +2224,30 @@ static int _Command_MACAddressSet(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** 
     TCPIP_MAC_ADDR macAddr;
     const void* cmdIoParam = pCmdIO->cmdIoParam;
 
-    if (argc != 3) {
+    if (argc != 3)
+    {
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Usage: setmac <interface> <x:x:x:x:x:x> \r\n");
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ex: setmac PIC32INT aa:bb:cc:dd:ee:ff \r\n");
         return false;
     }
 
     netH = TCPIP_STACK_NetHandleGet(argv[1]);
-    if (netH == 0) {
+    if (netH == 0)
+    {
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Unknown interface specified \r\n");
         return false;
     }
 
     (*pCmdIO->pCmdApi->print)(cmdIoParam, "argv[2]: %s\r\n", argv[2]);
 
-    if (!TCPIP_Helper_StringToMACAddress(argv[2], macAddr.v)) {
+    if (!TCPIP_Helper_StringToMACAddress(argv[2], macAddr.v))
+    {
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Invalid MAC address string \r\n");
         return false;
     }
 
-    if(!TCPIP_STACK_NetAddressMacSet(netH, &macAddr)) {
+    if(!TCPIP_STACK_NetAddressMacSet(netH, &macAddr))
+    {
         (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Set MAC address failed\r\n");
         return false;
     }
