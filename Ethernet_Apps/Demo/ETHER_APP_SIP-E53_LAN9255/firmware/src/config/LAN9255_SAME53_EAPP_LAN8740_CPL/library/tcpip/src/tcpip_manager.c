@@ -2740,6 +2740,31 @@ bool TCPIP_STACK_NetAddressMacSet(TCPIP_NET_HANDLE netH, const TCPIP_MAC_ADDR* p
     return false;
 }
 
+bool TCPIP_STACK_MACRegRead(TCPIP_NET_HANDLE netH, const uint16_t offset, uint32_t *RegValuePtr){
+      TCPIP_NET_IF* pNetIf = _TCPIPStackHandleToNetUp(netH);
+      if(pNetIf){
+          //Check TCPIP_MAC_RegRead is initialized with callback
+          if(pNetIf->pMacObj->TCPIP_MAC_RegRead){
+            *RegValuePtr = ((*pNetIf->pMacObj->TCPIP_MAC_RegRead)(offset));
+            return true;
+          }
+      }
+      return false;
+}
+
+bool TCPIP_STACK_MACRegWrite(TCPIP_NET_HANDLE netH, const uint16_t offset, uint32_t RegValue){
+      TCPIP_NET_IF* pNetIf = _TCPIPStackHandleToNetUp(netH);
+      if(pNetIf){
+          //Check TCPIP_MAC_RegWrite is initialized with callback
+          if(pNetIf->pMacObj->TCPIP_MAC_RegWrite){
+            ((*pNetIf->pMacObj->TCPIP_MAC_RegWrite)(offset, RegValue));
+            return true;
+          }
+      }
+      return false;
+}
+
+
 const char* TCPIP_STACK_NetBIOSName(TCPIP_NET_HANDLE netH)
 {
     TCPIP_NET_IF* pNetIf = _TCPIPStackHandleToNet(netH);

@@ -95,6 +95,8 @@ typedef struct TCPIP_MAC_OBJECT_TYPE
     bool                (*TCPIP_MAC_EventAcknowledge)(DRV_HANDLE hMac, TCPIP_MAC_EVENT macEvents);
     TCPIP_MAC_EVENT     (*TCPIP_MAC_EventPendingGet)(DRV_HANDLE hMac);
     TCPIP_MAC_RES       (*TCPIP_MAC_SetMacAddr)(DRV_HANDLE hMac, const TCPIP_MAC_ADDR* MACAddr);
+    uint32_t            (*TCPIP_MAC_RegRead)(uint16_t offset);
+    void                (*TCPIP_MAC_RegWrite)(uint16_t offset, uint32_t RegValue);
 }TCPIP_MAC_OBJECT;        // TCPIP MAC object descriptor
 
 typedef struct

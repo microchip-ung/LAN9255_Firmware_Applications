@@ -2104,7 +2104,79 @@ bool                TCPIP_STACK_NetBiosNameSet(TCPIP_NET_HANDLE netH, const char
  */
 bool                TCPIP_STACK_NetAddressMacSet(TCPIP_NET_HANDLE netH, const TCPIP_MAC_ADDR* pAddr);
 
+//*********************************************************************
+/*
+   Function:        
+     bool TCPIP_STACK_MACRegRead(TCPIP_NET_HANDLE netH, const uint16_t offset, 
+               uint32_t *RegValuePtr)
+  
+   Summary:
+    Gets the network device MAC Register address.
 
+   Description:
+    This function gets the network device MAC Register address.
+  
+   Precondition:    
+    The TCP/IP stack should have been initialized by TCPIP_STACK_Initialize 
+    and the TCPIP_STACK_Status returned SYS_STATUS_READY.
+    The network interface should be up and running.
+  
+   Parameters:
+    netH  - Interface handle to set the address of.
+    offset - GMAC register offset address. 
+    RegValuePtr - Register value variable Pointer
+ 
+   Returns:         
+   - true  - if the MAC Register is read
+   - false - if the MAC register is not able to read
+  
+  Example:
+  <code>
+   TCPIP_NET_HANDLE netH = TCPIP_STACK_NetHandleGet("eth0");
+   TCPIP_STACK_MACRegRead(netH, Offset, &RegValue);
+  </code>
+  
+   Remarks:None
+    
+ */
+bool TCPIP_STACK_MACRegRead(TCPIP_NET_HANDLE netH, const uint16_t offset, uint32_t *RegValuePtr);
+
+//*********************************************************************
+/*
+   Function:        
+        bool TCPIP_STACK_MACRegWrite(TCPIP_NET_HANDLE netH, 
+                           const uint16_t offset, uint32_t RegValue)
+  
+   Summary:
+    Sets the network device MAC Register address.
+
+   Description:
+    This function sets the network device MAC Register address.
+  
+   Precondition:    
+    The TCP/IP stack should have been initialized by TCPIP_STACK_Initialize 
+    and the TCPIP_STACK_Status returned SYS_STATUS_READY.
+    The network interface should be up and running.
+  
+   Parameters:
+    netH  - Interface handle to set the address of.
+    offset - GMAC register offset address. 
+    RegValue - data value to update the register content
+ 
+   Returns:         
+   - true  - if the MAC Register is able to write
+   - false - if the MAC register is not able to write
+  
+  Example:
+  <code>
+   TCPIP_NET_HANDLE netH = TCPIP_STACK_NetHandleGet("eth0");
+   TCPIP_STACK_MACRegRead(netH, Offset, &RegValue);
+  </code>
+  
+   Remarks:None
+    
+ */
+bool TCPIP_STACK_MACRegWrite(TCPIP_NET_HANDLE netH, const uint16_t offset, uint32_t RegValue);
 
 //*******************************************************************************
 /*

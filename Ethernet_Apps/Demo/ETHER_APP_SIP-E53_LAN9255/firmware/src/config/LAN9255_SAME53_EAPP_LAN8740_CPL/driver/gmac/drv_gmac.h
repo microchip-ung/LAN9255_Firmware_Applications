@@ -93,6 +93,7 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 
 #define DRV_GMAC_INDEX_COUNT  GMAC_NUMBER_OF_MODULES
 
+#define GMAC_REG_BASE_ADDR                        (0x42000800)   
 /**
  * Configuration Structure for Queues in GMAC.
  */
@@ -541,6 +542,44 @@ TCPIP_MAC_RES DRV_GMAC_RxFilterHashTableEntrySet(DRV_HANDLE hMac, const TCPIP_MA
  * Note:            None
  *****************************************************************************/
 TCPIP_MAC_RES DRV_GMAC_SetMacAddr(DRV_HANDLE hMac, const TCPIP_MAC_ADDR* MACAddr);
+
+/******************************************************************************
+ * Function:        uint32_t DRV_GMAC_RegRead(uint16_t offset)
+ *
+ * PreCondition:    DRV_GMAC_Initialize() should have been called.
+ *
+ * Input:           Offset: GMAC Register offset
+ *
+ * Output:          returns Register content
+ *                  
+ *
+ *
+ * Side Effects:    None
+ *
+ *
+ * Note:            None
+ *****************************************************************************/
+uint32_t DRV_GMAC_RegRead(uint16_t offset);
+
+/******************************************************************************
+ * Function:        uint32_t DRV_GMAC_RegWrite(uint16_t offset, uint32_t RegValue)
+ *
+ * PreCondition:    DRV_GMAC_Initialize() should have been called.
+ *
+ * Input:           Offset: GMAC Register offset, 
+ *                  RegValue: Register Content 
+ *
+ * Output:          void.
+ *                  
+ *
+ *                  
+ *
+ * Side Effects:    None
+ *
+ *
+ * Note:            None
+ *****************************************************************************/
+void DRV_GMAC_RegWrite(uint16_t offset, uint32_t RegValue);
 
 /******************************************************************************************************
   Function:

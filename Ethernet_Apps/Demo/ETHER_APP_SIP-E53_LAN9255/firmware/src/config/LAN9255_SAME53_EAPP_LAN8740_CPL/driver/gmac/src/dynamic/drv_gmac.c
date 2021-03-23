@@ -181,6 +181,8 @@ static GMAC_RX_FILTERS _DRV_GMAC_MacToEthFilter(TCPIP_MAC_RX_FILTER_TYPE macFilt
     DRV_GMAC_EventAcknowledge,
     DRV_GMAC_EventPendingGet,
     DRV_GMAC_SetMacAddr,
+    DRV_GMAC_RegRead,
+    DRV_GMAC_RegWrite,
 };
 
 // the embedded PIC32 MAC descriptor
@@ -1967,7 +1969,55 @@ void DRV_GMAC_Tasks_ISR( SYS_MODULE_OBJ macIndex )
 	}
 
 }
-
+/******************************************************************************
+ * Function:        uint32_t DRV_GMAC_RegRead(uint16_t offset)
+ *
+ * PreCondition:    DRV_GMAC_Initialize() should have been called.
+ *
+ * Input:           Offset: GMAC Register offset, 
+ *                  
+ *
+ * Output:          returns register content.
+ *                                    
+ *
+ * Side Effects:    None
+ *
+ *
+ * Note:            None
+ *****************************************************************************/
+uint32_t DRV_GMAC_RegRead(uint16_t offset){
+    uint32_t *GMAC_REGA = NULL;
+    
+    //array index for uint32_t will be 1/4 times of offset value
+    offset = offset / 4;
+    GMAC_REGA = ((uint32_t *)GMAC_REG_BASE_ADDR);
+    
+    return GMAC_REGA[offset];
+}
+/******************************************************************************
+ * Function:        uint32_t DRV_GMAC_RegWrite(uint16_t offset, uint32_t RegValue)
+ *
+ * PreCondition:    DRV_GMAC_Initialize() should have been called.
+ *
+ * Input:           Offset: GMAC Register offset, 
+ *                  RegValue: Register Content 
+ *
+ * Output:          void.
+ *                                    
+ *
+ * Side Effects:    None
+ *
+ *
+ * Note:            None
+ *****************************************************************************/
+void DRV_GMAC_RegWrite(uint16_t offset, uint32_t RegValue){
+    uint32_t *GMAC_REGA = NULL;
+    
+    //array index for uint32_t will be 1/4 times of offset value
+    offset = offset / 4;
+    GMAC_REGA = ((uint32_t *)GMAC_REG_BASE_ADDR);
+    GMAC_REGA[offset] = RegValue;
+}
 /*****************************************************************************
  ********************* GMAC Statistics Register Access routines **************
  *****************************************************************************/

@@ -139,6 +139,8 @@ static int _Command_IPAddressSet(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** a
 static int _Command_GatewayAddressSet(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
 static int _Command_BIOSNameSet(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
 static int _Command_MACAddressSet(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
+static int _Command_MACRegRead(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
+static int _Command_MACRegWrite(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
 #if (TCPIP_STACK_IF_UP_DOWN_OPERATION != 0)
 static int _Command_NetworkOnOff(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv);
 #endif  // (TCPIP_STACK_IF_UP_DOWN_OPERATION != 0)
@@ -402,6 +404,8 @@ static const SYS_CMD_DESCRIPTOR    tcpipCmdTbl[]=
     {"setgw",       (SYS_CMD_FNC)_Command_GatewayAddressSet,    ": Set Gateway address"},
     {"setbios",     (SYS_CMD_FNC)_Command_BIOSNameSet,          ": Set host's NetBIOS name"},
     {"setmac",      (SYS_CMD_FNC)_Command_MACAddressSet,        ": Set MAC address"},
+    {"GRR",         (SYS_CMD_FNC)_Command_MACRegRead,           ": Read GMAC Register"},
+    {"GRW",         (SYS_CMD_FNC)_Command_MACRegWrite,          ": Write GMAC Register"},
 #if (TCPIP_STACK_IF_UP_DOWN_OPERATION != 0)
     {"if",          (SYS_CMD_FNC)_Command_NetworkOnOff,         ": Bring an interface up/down"},
 #endif  // (TCPIP_STACK_IF_UP_DOWN_OPERATION != 0)
@@ -2131,6 +2135,76 @@ static int _Command_BIOSNameSet(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** ar
     }
 
     (*pCmdIO->pCmdApi->msg)(cmdIoParam, msg);
+    return true;
+}
+static int _Command_MACRegRead(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv){
+    uint32_t Offset=0, RegValue=0;
+    TCPIP_NET_HANDLE netH;
+    const void* cmdIoParam = pCmdIO->cmdIoParam;
+    
+    //validating number of input params
+    if (argc != 3) {
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Usage: GRR <interface> <offset> \r\n");
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ex: GRR eth0 0x4 \r\n");
+        return false;
+    }
+    //Get net_handle from interface name
+    netH = TCPIP_STACK_NetHandleGet(argv[1]);
+    if (netH == 0) {
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Unknown interface specified \r\n");
+        return false;
+    }
+    
+    //Parse Offset value from input arguments
+    sscanf(argv[2], "%hx", &Offset );
+	if ((Offset % 4) != 0){
+       (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Offset should be multiple of 4 \r\n");
+       return false;
+ 	}
+	
+    //Get GMAC Register data
+    if(!TCPIP_STACK_MACRegRead(netH, Offset, &RegValue)){
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Get MAC Register Read failed\r\n");
+        return false;       
+    }
+    (*pCmdIO->pCmdApi->print)(cmdIoParam, "Register Value: 0x%x\r\n", RegValue);
+
+    return true;
+}
+
+static int _Command_MACRegWrite(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv){
+    uint32_t Offset=0, RegValue=0;
+    TCPIP_NET_HANDLE netH;
+    const void* cmdIoParam = pCmdIO->cmdIoParam;
+    
+    //validating number of input params
+    if (argc != 4) {
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Usage: GRW <interface> <offset> <Regvalue> \r\n");
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Ex: GRW eth0 0x4 0xFF \r\n");
+        return false;
+    }
+ 
+    //Get net_handle from interface name
+    netH = TCPIP_STACK_NetHandleGet(argv[1]);
+    if (netH == 0) {
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Unknown interface specified \r\n");
+        return false;
+    }
+    
+    sscanf(argv[2], "%hx",&Offset); //Parse Offset value from input arguments
+    //RegValue Offset value from input arguments
+    sscanf(argv[3], "%x" ,&RegValue); 
+    if ((Offset % 4) != 0){
+       (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Offset should be multiple of 4 \r\n");
+       return false;
+ 	}
+	
+    //Set GMAC Register data
+    if(!TCPIP_STACK_MACRegWrite(netH, Offset, RegValue)){
+        (*pCmdIO->pCmdApi->msg)(cmdIoParam, "Get MAC Register Write failed\r\n");
+        return false;       
+    }
+       
     return true;
 }
 
