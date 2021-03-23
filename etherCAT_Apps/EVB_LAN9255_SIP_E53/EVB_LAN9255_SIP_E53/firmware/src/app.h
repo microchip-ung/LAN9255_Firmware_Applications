@@ -91,9 +91,9 @@ extern "C" {
 
 // This define should be based on current firmware and mode
 #if DIRECT_MODE    
-#define FLASH_EEPROM_START_ADDRESS      0x09E4
+#define FLASH_EEPROM_START_ADDRESS      0x0b40
 #else
-#define FLASH_EEPROM_START_ADDRESS      0x09FC
+#define FLASH_EEPROM_START_ADDRESS      0x0b58
 #endif
        
 // *****************************************************************************
