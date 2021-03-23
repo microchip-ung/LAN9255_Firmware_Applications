@@ -128,6 +128,7 @@
                 <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/lldp_private.h</itemPath>
                 <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/lldp_tlv.h</itemPath>
               </logicalFolder>
+              <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/snmp_if_mib.h</itemPath>
               <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/tcpip_common_ports.h</itemPath>
               <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/tcpip_mac.h</itemPath>
               <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/tcpip_mac_object.h</itemPath>
@@ -172,7 +173,6 @@
               <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/tcpip_commands.h</itemPath>
               <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/tcpip.h</itemPath>
               <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/tcpip_ethernet.h</itemPath>
-              <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/snmp_if_mib.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f4" displayName="net_pres" projectFiles="true">
@@ -550,6 +550,7 @@
                   <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/common/sys_fs_shell.c</itemPath>
                   <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/helpers.c</itemPath>
                 </logicalFolder>
+                <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/snmp_if_mib.c</itemPath>
                 <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/snmp.c</itemPath>
                 <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/icmp.c</itemPath>
                 <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/tcp.c</itemPath>
@@ -576,7 +577,6 @@
                 <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/tcpip_notify.c</itemPath>
                 <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/tcpip_packet.c</itemPath>
                 <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/sntp.c</itemPath>
-                <itemPath>../src/config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/snmp_if_mib.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -665,19 +665,13 @@
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="f2" displayName="web_pages" projectFiles="true">
-        <logicalFolder name="f1" displayName="dyndns" projectFiles="true">
-          <itemPath>../src/web_pages/dyndns/index.htm</itemPath>
-        </logicalFolder>
-        <logicalFolder name="f2" displayName="email" projectFiles="true">
-          <itemPath>../src/web_pages/email/index.htm</itemPath>
-        </logicalFolder>
-        <logicalFolder name="f3" displayName="protect" projectFiles="true">
+        <logicalFolder name="f1" displayName="protect" projectFiles="true">
           <itemPath>../src/web_pages/protect/config.htm</itemPath>
           <itemPath>../src/web_pages/protect/index.htm</itemPath>
           <itemPath>../src/web_pages/protect/reboot.cgi</itemPath>
           <itemPath>../src/web_pages/protect/reboot.htm</itemPath>
         </logicalFolder>
-        <logicalFolder name="f4" displayName="snmp" projectFiles="true">
+        <logicalFolder name="f2" displayName="snmp" projectFiles="true">
           <itemPath>../src/web_pages/snmp/snmpconfig.htm</itemPath>
         </logicalFolder>
       </logicalFolder>
@@ -816,8 +810,8 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAME53_DFP" vendor="Microchip" version="3.2.49"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
+        <pack name="SAME53_DFP" vendor="Microchip" version="3.2.49"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -864,7 +858,7 @@
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
         <property key="preprocessor-macros"
-                  value="HAVE_CONFIG_H;WOLFSSL_IGNORE_FILE_WARN;SNMPv2_TRAP_CONFIG"/>
+                  value="SNMPv2_TRAP_CONFIG;HAVE_CONFIG_H;WOLFSSL_IGNORE_FILE_WARN"/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
         <property key="toplevel-reordering" value=""/>
@@ -1144,8 +1138,8 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAME53_DFP" vendor="Microchip" version="3.2.49"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
+        <pack name="SAME53_DFP" vendor="Microchip" version="3.2.49"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>

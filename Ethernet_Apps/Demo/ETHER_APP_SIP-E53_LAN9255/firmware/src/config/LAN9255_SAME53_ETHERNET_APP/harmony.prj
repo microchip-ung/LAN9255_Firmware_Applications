@@ -365,7 +365,7 @@
           <LogicalPath dnOrder="3"/>
           <PhysicalPath dnOrder="4">/../../</PhysicalPath>
           <GeneratedChecksum dnOrder="5">CB0AE7E640C44405052ACEA9F840E00F</GeneratedChecksum>
-          <UserChecksum dnOrder="6">AC97923C242B68098EB755589DBCA05C</UserChecksum>
+          <UserChecksum dnOrder="6">D1EFE92EBEF7569B00130B5701668E23</UserChecksum>
         </File>
         <File dnOrder="40">
           <Type dnOrder="0">SOURCE</Type>
@@ -661,8 +661,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/LAN9255_SAME53_ETHERNET_APP/</LogicalPath>
           <PhysicalPath dnOrder="4">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">3C230B161CC2C156FF451C517CFEB299</GeneratedChecksum>
-          <UserChecksum dnOrder="6">3C230B161CC2C156FF451C517CFEB299</UserChecksum>
+          <GeneratedChecksum dnOrder="5">DD73B05510DB3C014CFBDF49708F9FCD</GeneratedChecksum>
+          <UserChecksum dnOrder="6">DD73B05510DB3C014CFBDF49708F9FCD</UserChecksum>
         </File>
         <File dnOrder="73">
           <Type dnOrder="0">SOURCE</Type>
@@ -797,7 +797,7 @@
           <LogicalPath dnOrder="3"/>
           <PhysicalPath dnOrder="4">/../../</PhysicalPath>
           <GeneratedChecksum dnOrder="5">2E89E47DCE9D78E9E0A559CA4E61DAE8</GeneratedChecksum>
-          <UserChecksum dnOrder="6">37CF8DB625A2E66DB564C52AA724C922</UserChecksum>
+          <UserChecksum dnOrder="6">06BE25A07113DC68047599415C63BFBC</UserChecksum>
         </File>
         <File dnOrder="88">
           <Type dnOrder="0">SOURCE</Type>
@@ -1085,7 +1085,7 @@
           <LogicalPath dnOrder="3">config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/</LogicalPath>
           <PhysicalPath dnOrder="4">/library/tcpip/src/</PhysicalPath>
           <GeneratedChecksum dnOrder="5">D63DA2667DC881E0D0661E9658589302</GeneratedChecksum>
-          <UserChecksum dnOrder="6">D63DA2667DC881E0D0661E9658589302</UserChecksum>
+          <UserChecksum dnOrder="6">05F5E7EC1F375704ACD971C5992B79F1</UserChecksum>
         </File>
         <File dnOrder="120">
           <Type dnOrder="0">SOURCE</Type>
@@ -1382,7 +1382,7 @@
           <LogicalPath dnOrder="3">config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/src/</LogicalPath>
           <PhysicalPath dnOrder="4">/library/tcpip/src/</PhysicalPath>
           <GeneratedChecksum dnOrder="5">86EAA184A02EEE4ACBD958AB3F97D694</GeneratedChecksum>
-          <UserChecksum dnOrder="6">86EAA184A02EEE4ACBD958AB3F97D694</UserChecksum>
+          <UserChecksum dnOrder="6">DD9E0CA158C52050444969849BD89F0C</UserChecksum>
         </File>
         <File dnOrder="153">
           <Type dnOrder="0">SOURCE</Type>
@@ -2209,8 +2209,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/LAN9255_SAME53_ETHERNET_APP/</LogicalPath>
           <PhysicalPath dnOrder="4">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">6A748BD0D7C1BF6788C4629EC3ABF95D</GeneratedChecksum>
-          <UserChecksum dnOrder="6">DA40141B533A65A916ED4A718A8B9764</UserChecksum>
+          <GeneratedChecksum dnOrder="5">DA40141B533A65A916ED4A718A8B9764</GeneratedChecksum>
+          <UserChecksum dnOrder="6">54558D971A0A3F74ADA089690F91ECD7</UserChecksum>
         </File>
         <File dnOrder="245">
           <Type dnOrder="0">HEADER</Type>
@@ -3425,7 +3425,7 @@
           <LogicalPath dnOrder="3"/>
           <PhysicalPath dnOrder="4">/../../</PhysicalPath>
           <GeneratedChecksum dnOrder="5">C6028F8077EA648DD8FCFE70512E42CF</GeneratedChecksum>
-          <UserChecksum dnOrder="6">FC52BA11B6E68659DDD7819AAE529CFD</UserChecksum>
+          <UserChecksum dnOrder="6">C33191CE5BC1980100F998B1E2FDB196</UserChecksum>
         </File>
         <File dnOrder="380">
           <Type dnOrder="0">HEADER</Type>
@@ -4118,7 +4118,7 @@
           <LogicalPath dnOrder="3">config/LAN9255_SAME53_ETHERNET_APP/library/tcpip/</LogicalPath>
           <PhysicalPath dnOrder="4">/library/tcpip/</PhysicalPath>
           <GeneratedChecksum dnOrder="5">1225171B7AFDAC2F2FBFDD3E19B54488</GeneratedChecksum>
-          <UserChecksum dnOrder="6">1225171B7AFDAC2F2FBFDD3E19B54488</UserChecksum>
+          <UserChecksum dnOrder="6">1EB6BC7D12A6E1B10C89FB6DFF59EF59</UserChecksum>
         </File>
         <File dnOrder="457">
           <Type dnOrder="0">HEADER</Type>
@@ -5015,7 +5015,7 @@
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
       <Setting dnOrder="4" key="MERGE_STRATEGY" value="ALL"/>
-      <Setting dnOrder="5" key="PackageFilter" value="bsp;bsp;core;crypto;csp;net;quick_docs;usb;"/>
+      <Setting dnOrder="5" key="PackageFilter" value="bsp;core;crypto;csp;net;quick_docs;usb;"/>
     </Settings>
   </Configurator>
 </Configuration>
