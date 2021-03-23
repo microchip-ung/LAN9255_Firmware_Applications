@@ -4,7 +4,7 @@
 
 
 project: ETHER_APP_SIP-E53_LAN9255
-creation_date: 2021-02-18T14:10:40.062+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2021-03-23T12:07:23.754+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mhc_mode: IDE            # [IDE|Standalone|Headless]
 mplabx_version: v5.40        # if MPLAB X plugin only
@@ -12,7 +12,6 @@ plugin_version: v3.5.1        # if MPLAB X plugin only
 
 modules:
     - {name: "bsp", version: "v3.7.0"}
-    - {name: "bsp_bk", version: "v3.6.1"}
     - {name: "CMSIS-FreeRTOS", version: "v10.2.0"}
     - {name: "contentmanager", version: "v1.4.0"}
     - {name: "core", version: "v3.7.2"}
