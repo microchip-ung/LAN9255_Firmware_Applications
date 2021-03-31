@@ -304,22 +304,6 @@ extern "C" {
 
 
 
-#define TCPIP_INTMAC_PHY_CONFIG_FLAGS              	( 0 \
-                                                    | DRV_ETHPHY_CFG_RMII \
-                                                    )
-													
-#define TCPIP_INTMAC_PHY_LINK_INIT_DELAY            500
-#define TCPIP_INTMAC_PHY_ADDRESS                    0
-#define DRV_ETHPHY_INSTANCES_NUMBER                 1
-#define DRV_ETHPHY_CLIENTS_NUMBER                   1
-#define DRV_ETHPHY_INDEX                            1
-#define DRV_ETHPHY_PERIPHERAL_ID                    1
-#define DRV_ETHPHY_NEG_INIT_TMO                     1
-#define DRV_ETHPHY_NEG_DONE_TMO                     2000
-#define DRV_ETHPHY_RESET_CLR_TMO                    500
-
-
-
 #define TCPIP_IPV6_NDP_MAX_RTR_SOLICITATION_DELAY 	1
 #define TCPIP_IPV6_NDP_RTR_SOLICITATION_INTERVAL 	4
 #define TCPIP_IPV6_NDP_MAX_RTR_SOLICITATIONS 		3
@@ -379,7 +363,25 @@ extern "C" {
 #define TCPIP_IPV6_EXTERN_PACKET_PROCESS   false
 
 
+/*** iperf Configuration ***/
+#define TCPIP_STACK_USE_IPERF
+#define TCPIP_IPERF_TX_BUFFER_SIZE		4096
+#define TCPIP_IPERF_RX_BUFFER_SIZE  	4096
+#define TCPIP_IPERF_TX_WAIT_TMO     	100
+#define TCPIP_IPERF_TX_QUEUE_LIMIT  	2
+#define TCPIP_IPERF_TIMING_ERROR_MARGIN 0
+#define TCPIP_IPERF_MAX_INSTANCES       1
+#define TCPIP_IPERF_TX_BW_LIMIT  		1
+
+
+
 /*** IPv4 Configuration ***/
+/*** IPv4 Fragmentation Configuration ***/
+#define TCPIP_IPV4_FRAGMENTATION		        	true
+#define TCPIP_IPV4_FRAGMENT_TIMEOUT		        	15
+#define TCPIP_IPV4_FRAGMENT_MAX_STREAMS		       	3
+#define TCPIP_IPV4_FRAGMENT_MAX_NUMBER		       	4
+#define TCPIP_IPV4_TASK_TICK_RATE		       	    37
 #define TCPIP_IPV4_EXTERN_PACKET_PROCESS   false
 
 
@@ -402,6 +404,22 @@ extern "C" {
 #define TCPIP_UDP_USE_RX_CHECKSUM             			true
 #define TCPIP_UDP_COMMANDS   false
 #define TCPIP_UDP_EXTERN_PACKET_PROCESS   false
+
+
+
+#define TCPIP_INTMAC_PHY_CONFIG_FLAGS              	( 0 \
+                                                    | DRV_ETHPHY_CFG_RMII \
+                                                    )
+
+#define TCPIP_INTMAC_PHY_LINK_INIT_DELAY  			500
+#define TCPIP_INTMAC_PHY_ADDRESS		    			0
+#define DRV_ETHPHY_INSTANCES_NUMBER					1
+#define DRV_ETHPHY_CLIENTS_NUMBER					1
+#define DRV_ETHPHY_INDEX		        			1
+#define DRV_ETHPHY_PERIPHERAL_ID					1
+#define DRV_ETHPHY_NEG_INIT_TMO		    			1
+#define DRV_ETHPHY_NEG_DONE_TMO		    			2000
+#define DRV_ETHPHY_RESET_CLR_TMO					500
 
 
 

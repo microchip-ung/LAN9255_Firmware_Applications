@@ -557,6 +557,7 @@
                 <itemPath>../src/config/LAN9255_SAME53_EAPP_LAN8740_CPL/library/tcpip/src/arp.c</itemPath>
                 <itemPath>../src/config/LAN9255_SAME53_EAPP_LAN8740_CPL/library/tcpip/src/ndp.c</itemPath>
                 <itemPath>../src/config/LAN9255_SAME53_EAPP_LAN8740_CPL/library/tcpip/src/ipv6.c</itemPath>
+                <itemPath>../src/config/LAN9255_SAME53_EAPP_LAN8740_CPL/library/tcpip/src/iperf.c</itemPath>
                 <itemPath>../src/config/LAN9255_SAME53_EAPP_LAN8740_CPL/library/tcpip/src/ipv4.c</itemPath>
                 <itemPath>../src/config/LAN9255_SAME53_EAPP_LAN8740_CPL/library/tcpip/src/tcpip_announce.c</itemPath>
                 <itemPath>../src/config/LAN9255_SAME53_EAPP_LAN8740_CPL/library/tcpip/src/udp.c</itemPath>
@@ -804,7 +805,7 @@
         <targetDevice>ATSAME53J20A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool></platformTool>
+        <platformTool>pk4hybrid</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.41</languageToolchainVersion>
         <platform>3</platform>
