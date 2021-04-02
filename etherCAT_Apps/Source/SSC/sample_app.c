@@ -349,14 +349,17 @@ UINT16 HW_EepromWrite(UINT32 wordaddr)
   
   UINT16 EEPROMReg = 0U; /* Regvalue 0x502 - 0x5003 */
   uint8_t   checksum = 0;
-  
+  UINT8    readdata[ESC_EEPROM_SIZE];
+   
   if ((wordaddr <= (uint32_t)ESC_EEPROM_SIZE) && (pEEPROM != NULL))
   {
-     UINT16 *pData = (UINT16 *)(void*)pEEPROM;
+      UINT8 *pData = (UINT8 *)pEEPROM;
      
-     //update to buffer - ESC eeprom configuration value from the master
-     HW_EscRead((MEM_ADDR *)(void*)&pData[(wordaddr)], (uint16_t)ESC_EEPROM_DATA_OFFSET, (uint16_t)EEPROM_WRITE_SIZE);
-     
+	  MEMCPY(&readdata[0],pData, ESC_EEPROM_SIZE);
+      //update to buffer - ESC eeprom configuration value from the master
+      HW_EscRead((MEM_ADDR *)&readdata[8], (uint16_t)ESC_EEPROM_DATA_OFFSET, EEPROM_WRITE_SIZE);
+      pData = readdata;
+	  
      if((wordaddr == (uint32_t)4U))
      {
         /*lets program the complete EEPROM new prepare Data for EEPROM */

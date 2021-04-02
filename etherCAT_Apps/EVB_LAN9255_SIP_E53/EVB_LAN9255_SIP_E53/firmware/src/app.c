@@ -72,6 +72,7 @@ static uint8_t gsu8oledflag = 0;
 
 #if _IS_EEPROM_EMULATION_SUPPORT
 #include "eeprom.h"
+extern const volatile unsigned char aEepromData[];
 #endif
 
 #ifdef _IS_EEPROM_EMULATION_SUPPORT
@@ -96,17 +97,27 @@ void APP_FlashEEPROMUpdate(uint8_t *flash_data, uint8_t checksum)
     int        pageCnt=0;
     uint8_t    readdata[APP_ERASE_BLOCK_SIZE];
     
+    //to determine whether the ctrl is in bank A or bank B
+    if ((NVMCTRL_StatusGet() & NVMCTRL_AFIRST_MSK) == 0)
+    {
+        flashStartAddress=0xBE000; //As per linker script - address of aEepromdata 
+    }
+    else
+    {
+        flashStartAddress=0x3E000;
+    }
+    
     while(NVMCTRL_IsBusy()){}
     
-    NVMCTRL_Read( (uint32_t *)readdata, APP_ERASE_BLOCK_SIZE, flashStartAddress);
-    MEMCPY(&readdata[FLASH_EEPROM_START_ADDRESS],flash_data, ESC_EEPROM_SIZE);
-    MEMCPY(&readdata[FLASH_EEPROM_START_ADDRESS+ESC_EEPROM_CONFIG_BYTES],&checksum, 1);
+    NVMCTRL_Read( (uint32_t *)readdata, ESC_EEPROM_SIZE, flashStartAddress);
+    MEMCPY(&readdata[0],flash_data, ESC_EEPROM_SIZE);
+    MEMCPY(&readdata[ESC_EEPROM_CONFIG_BYTES],&checksum, 1);
     flash_data = readdata;
     
     /* Erase the block */
     NVMCTRL_BlockErase((uint32_t)flashStartAddress);
     
-    for (pageCnt=0; pageCnt < APP_PAGES_IN_ERASE_BLOCK; pageCnt++)
+    for (pageCnt=0; pageCnt < APP_PAGES_IN_EEPROM_BLOCK; pageCnt++)
 	{
         /* If write mode is manual, */
         /* Program 512 byte page */
@@ -332,9 +343,17 @@ void APP_Tasks ( void )
             char str[32] = {0};
 #endif
             
-#ifdef _IS_EEPROM_EMULATION_SUPPORT            
-            pEEPROM = aEepromData;
-            
+#ifdef _IS_EEPROM_EMULATION_SUPPORT  
+            //to determine whether the ctrl is in bank A or bank B
+            if((NVMCTRL_StatusGet() & NVMCTRL_AFIRST_MSK) == 0)
+            {
+                pEEPROM = (UINT8 *)aEepromData+APP_NVM_BANKB_START_ADDRESS; 
+            }
+            else
+            {
+                pEEPROM = (UINT8 *)aEepromData; 
+            }
+           
 #endif  
             
             ESF_PDI_Init();
