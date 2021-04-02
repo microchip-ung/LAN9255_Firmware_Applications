@@ -73,6 +73,8 @@ extern "C" {
 #define APP_NVM_BANKB_START_ADDRESS       0x80000
 // Number of pages for BANK B for the device ATSAM E53    
 #define APP_FLASH_PAGES_BANKB           FLASH_PAGE_SIZE/2
+    
+#define NVMCTRL_AFIRST_MSK              NVMCTRL_STATUS_AFIRST_Msk    
 
 // Total size for the BANK B 
 #define APP_MAX_NVM_BANK_SIZE           0x80000
@@ -88,14 +90,6 @@ extern "C" {
 #define WORDS(x)                        ((int)((x) / sizeof(uint32_t)))    
 
 #define APP_PAGES_IN_EEPROM_BLOCK       ESC_EEPROM_SIZE/APP_PAGE_SIZE
-
-// This define should be based on current firmware and mode
-#if DIRECT_MODE    
-#define FLASH_EEPROM_START_ADDRESS      0x0b40
-#else
-#define FLASH_EEPROM_START_ADDRESS      0x0b58
-#endif
-       
 // *****************************************************************************
 /* Application states
 
