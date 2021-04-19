@@ -171,6 +171,7 @@
             <itemPath>../../../../Source/SSC/sample_app.h</itemPath>
             <itemPath>../../../../Source/SSC/sample_appObjects.h</itemPath>
             <itemPath>../../../../Source/SSC/sdoserv.h</itemPath>
+            <itemPath>../../../../Source/SSC/eeprom.h</itemPath>
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>
@@ -186,7 +187,6 @@
           <itemPath>../src/config/default/ATSAME53J20A.ld</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <itemPath>../src/ethercat_foe.ld</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -1014,7 +1014,7 @@
         <property key="warningmessagebreakoptions.warningmessages" value="holdstate"/>
       </Simulator>
       <pk4hybrid>
-        <property key="AutoSelectMemRanges" value="manual"/>
+        <property key="AutoSelectMemRanges" value="auto"/>
         <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
