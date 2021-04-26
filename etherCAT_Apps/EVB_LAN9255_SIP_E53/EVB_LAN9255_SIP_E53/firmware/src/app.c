@@ -72,8 +72,8 @@ static uint8_t gsu8oledflag = 0;
 
 #if _IS_EEPROM_EMULATION_SUPPORT
 #include "eeprom.h"
-const volatile uint32_t aData __attribute__((section(".config_var"))) = 1;
-uint8_t	abData;
+const volatile uint32_t aFOEdata __attribute__((section(".config_var"))) = 1;
+uint8_t	u8readData;
 extern const volatile unsigned char aEepromData[];
 #endif
 
@@ -371,13 +371,14 @@ void APP_Tasks ( void )
             char str[32] = {0};
 #endif
             
-#ifdef _IS_EEPROM_EMULATION_SUPPORT  
-            
+#ifdef _IS_EEPROM_EMULATION_SUPPORT 
+
+			//UNG_J2_SIP-69 - After device reset, ptr(pEEPROM) is pointed to proper EEPROM configurations based on value avilable in the 0x3DFFC (FOE_VAR_ORIGIN)
             while(NVMCTRL_IsBusy()){}
             
-            NVMCTRL_Read( (uint32_t *)&abData, 1, 0x3DFFC);
+            NVMCTRL_Read( (uint32_t *)&u8readData, 1, 0x3DFFC);
             
-            if(abData == 0x0)
+            if(u8readData == 0x0)
             {
                 pEEPROM = (UINT8 *)aEepromData+APP_NVM_BANKB_START_ADDRESS; 
             }
@@ -443,7 +444,8 @@ void APP_Tasks ( void )
 #if defined(ETHERCAT_USE_FOE)                
                 if(1 == APP_FW_GetDownloadStateFinished())
                 {
-                    uint8_t    readdata_Banka[APP_ERASE_BLOCK_SIZE];
+                    //UNG_J2_SIP-69 - 0x3DFFC (FOE_VAR_ORIGIN) value is updated by comparing first byte of eeprom configuration.
+					uint8_t    readdata_Banka[APP_ERASE_BLOCK_SIZE];
                     uint8_t    readdata_Bankb[APP_ERASE_BLOCK_SIZE];
                     uint8_t    writedata = 0x00;
                     uint8_t    *flash_data;
