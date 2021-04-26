@@ -85,6 +85,13 @@ ENTRY(__XC32_RESET_HANDLER_NAME)
 #  define EEPROM_LENGTH 0x2000
 #endif
 
+#ifndef FOE_VAR_ORIGIN
+#  define FOE_VAR_ORIGIN 0x3DFFC
+#endif
+#ifndef FOE_VAR_LENGTH
+#  define FOE_VAR_LENGTH 0x4
+#endif
+
 #ifndef TCM_ORIGIN
 #  define TCM_ORIGIN 0x3000000
 #endif
@@ -108,6 +115,7 @@ MEMORY
   rom (LRX) : ORIGIN = ROM_ORIGIN, LENGTH = ROM_LENGTH
   ram (WX!R) : ORIGIN = RAM_ORIGIN, LENGTH = RAM_LENGTH
   config_eeprom_mem (LRX) : ORIGIN = EEPROM_ORIGIN, LENGTH = EEPROM_LENGTH
+  config_var_mem (LRX) : ORIGIN = FOE_VAR_ORIGIN, LENGTH = FOE_VAR_LENGTH
   tcm (WX) : ORIGIN = TCM_ORIGIN, LENGTH = __XC32_TCM_LENGTH
   config_00804000 : ORIGIN = 0x00804000, LENGTH = 0x4
   config_00804004 : ORIGIN = 0x00804004, LENGTH = 0x4
@@ -154,6 +162,9 @@ SECTIONS
     .config_eeprom : {
 	  KEEP(*(.config_eeprom))
 	} > config_eeprom_mem
+    .config_var : {
+	  KEEP(*(.config_var))
+	} > config_var_mem
     .config_00804004 : {
       KEEP(*(.config_00804004))
     } > config_00804004
