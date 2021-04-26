@@ -243,6 +243,34 @@ void APP_FlashWrite( uint32_t startAddress, uint8_t *flash_data );
 
 /*******************************************************************************
   Function:
+void APP_FOEFlashWrite( UINT32 startAddress, UINT8 *flash_data )
+
+  Summary:
+    MPLAB Harmony NVM write  application function
+
+  Description:
+    This routine is used to write the flash data to the specific BANK address 
+    location. This routine writes 8192 bytes at a time.
+
+  Precondition:
+    The system and application initialization ("SYS_Initialize") should be
+    called before calling this.
+
+  Parameters:
+    None.
+
+  Returns:
+    None.
+
+  Remarks:
+    This routine is called from the slave stack sample application FoE write
+    function.
+ */
+//UNG_J2_SIP-69
+void APP_FOEFlashWrite( uint32_t startAddress, uint8_t *flash_data );
+
+/*******************************************************************************
+  Function:
 void APP_FlashEEPROMUpdate(uint8_t *flash_data, uint8_t checksum)
 
   Summary:

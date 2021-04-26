@@ -72,6 +72,8 @@ static uint8_t gsu8oledflag = 0;
 
 #if _IS_EEPROM_EMULATION_SUPPORT
 #include "eeprom.h"
+const volatile uint32_t aData __attribute__((section(".config_var"))) = 1;
+uint8_t	abData;
 extern const volatile unsigned char aEepromData[];
 #endif
 
@@ -160,7 +162,33 @@ void APP_FlashWrite( uint32_t startAddress,uint8_t *flash_data )
         flash_data = flash_data + APP_PAGE_SIZE;
         flashStartAddress = flashStartAddress + APP_PAGE_SIZE;        
 	}
-  
+    
+}
+
+void APP_FOEFlashWrite( uint32_t startAddress,uint8_t *flash_data )
+{
+    uint32_t   flashStartAddress=0;
+    int         pageCnt=0;
+   
+    flashStartAddress = startAddress;
+    
+    while(NVMCTRL_IsBusy()){}
+
+    /* Erase the block */
+    NVMCTRL_BlockErase((uint32_t)flashStartAddress);
+
+    while(NVMCTRL_IsBusy()){}
+
+    for (pageCnt=0; pageCnt < APP_PAGES_IN_ERASE_BLOCK; pageCnt++)
+	{
+        /* If write mode is manual, */
+        /* Program 512 byte page */
+        NVMCTRL_PageWrite((uint32_t *)flash_data, (uint32_t)flashStartAddress);
+        while(NVMCTRL_IsBusy()){}
+
+        flash_data = flash_data + APP_PAGE_SIZE;
+        flashStartAddress = flashStartAddress + APP_PAGE_SIZE;        
+	}
 }
 
 static void APP_BankSwitch(void)
@@ -344,16 +372,19 @@ void APP_Tasks ( void )
 #endif
             
 #ifdef _IS_EEPROM_EMULATION_SUPPORT  
-            //to determine whether the ctrl is in bank A or bank B
-            if((NVMCTRL_StatusGet() & NVMCTRL_AFIRST_MSK) == 0)
+            
+            while(NVMCTRL_IsBusy()){}
+            
+            NVMCTRL_Read( (uint32_t *)&abData, 1, 0x3DFFC);
+            
+            if(abData == 0x0)
             {
                 pEEPROM = (UINT8 *)aEepromData+APP_NVM_BANKB_START_ADDRESS; 
             }
             else
             {
-                pEEPROM = (UINT8 *)aEepromData; 
+                pEEPROM = (UINT8 *)aEepromData;
             }
-           
 #endif  
             
             ESF_PDI_Init();
@@ -412,6 +443,30 @@ void APP_Tasks ( void )
 #if defined(ETHERCAT_USE_FOE)                
                 if(1 == APP_FW_GetDownloadStateFinished())
                 {
+                    uint8_t    readdata_Banka[APP_ERASE_BLOCK_SIZE];
+                    uint8_t    readdata_Bankb[APP_ERASE_BLOCK_SIZE];
+                    uint8_t    writedata = 0x00;
+                    uint8_t    *flash_data;
+                    uint32_t   flashaddress = 0x3E000;
+
+                    while(NVMCTRL_IsBusy()){}
+
+                    NVMCTRL_Read( (uint32_t *)readdata_Banka, ESC_EEPROM_SIZE, flashaddress);
+
+                    NVMCTRL_Read( (uint32_t *)readdata_Bankb, ESC_EEPROM_SIZE, (flashaddress+APP_NVM_BANKB_START_ADDRESS));
+
+                    if(readdata_Banka[0] == readdata_Bankb[0])
+                    {
+                        NVMCTRL_Read( (uint32_t *)readdata_Bankb, APP_ERASE_BLOCK_SIZE, (flashaddress-NVMCTRL_FLASH_BLOCKSIZE+APP_NVM_BANKB_START_ADDRESS));
+                        if ((NVMCTRL_StatusGet() & NVMCTRL_AFIRST_MSK) == 0)
+                        {
+                            writedata = 1;
+                        }
+                        MEMCPY(&readdata_Bankb[8184],&writedata, 1);
+                    }
+                    
+                    flash_data = readdata_Bankb;
+                    APP_FOEFlashWrite((flashaddress-NVMCTRL_FLASH_BLOCKSIZE+APP_NVM_BANKB_START_ADDRESS),flash_data);
                     APP_BankSwitch();
                     APP_RunApplication();
                 }
