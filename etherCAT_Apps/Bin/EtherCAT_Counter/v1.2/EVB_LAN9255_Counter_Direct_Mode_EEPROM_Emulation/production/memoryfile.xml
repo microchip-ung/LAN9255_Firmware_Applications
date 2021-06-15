@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/LAN9255_SQI_DIRECT_MODE/production/EVB_LAN9255_Counter_FoE.X.production.elf">
+    <memory name="program">
+      <units>bytes</units>
+      <length>1048576</length>
+      <used>60207</used>
+      <free>988369</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>262144</length>
+      <used>11325</used>
+      <free>250819</free>
+    </memory>
+  </executable>
+</project>

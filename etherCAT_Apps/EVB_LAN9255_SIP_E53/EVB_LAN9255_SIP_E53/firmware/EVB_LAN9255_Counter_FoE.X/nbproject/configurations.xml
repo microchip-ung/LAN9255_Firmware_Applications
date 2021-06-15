@@ -184,7 +184,6 @@
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
         <logicalFolder name="f1" displayName="default" projectFiles="true">
-          <itemPath>../src/config/default/ATSAME53J20A.ld</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -313,20 +312,18 @@
     <conf name="LAN9255_SQI_DIRECT_MODE" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>ATSAME53J20A</targetDevice>
+        <targetDevice>LAN9255ZMX020</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>pk4hybrid</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <languageToolchainVersion>3.01</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
+        <pack name="LAN9255_DFP" vendor="Microchip" version="1.1.7"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
-        <pack name="SAME53_DFP" vendor="Microchip" version="3.2.49"/>
       </packs>
-      <ScriptingSettings>
-      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -1098,20 +1095,18 @@
     <conf name="LAN9255_SQI_INDIRECT_MODE" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>ATSAME53J20A</targetDevice>
+        <targetDevice>LAN9255ZMX020</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>pk4hybrid</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <languageToolchainVersion>3.01</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
+        <pack name="LAN9255_DFP" vendor="Microchip" version="1.1.7"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
-        <pack name="SAME53_DFP" vendor="Microchip" version="3.2.49"/>
       </packs>
-      <ScriptingSettings>
-      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -1877,20 +1872,18 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>ATSAME53J20A</targetDevice>
+        <targetDevice>LAN9255ZMX020</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool></platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <languageToolchainVersion>3.01</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
+        <pack name="LAN9255_DFP" vendor="Microchip" version="1.1.7"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
-        <pack name="SAME53_DFP" vendor="Microchip" version="3.2.49"/>
       </packs>
-      <ScriptingSettings>
-      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -2657,20 +2650,18 @@
     <conf name="debug" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>ATSAME53J20A</targetDevice>
+        <targetDevice>LAN9255ZMX020</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>AtmelIceTool</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <languageToolchainVersion>3.01</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
+        <pack name="LAN9255_DFP" vendor="Microchip" version="1.1.7"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
-        <pack name="SAME53_DFP" vendor="Microchip" version="3.2.49"/>
       </packs>
-      <ScriptingSettings>
-      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>

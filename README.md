@@ -20,7 +20,9 @@ These projects have been put through standard SQA and were used for EtherCAT con
 
 #### ***Software***
 -	Microchip MPLAB® X IDE (v5.30 or later)
--	Microchip MPLAB XC32 Compiler
+-	Microchip MPLAB XC32 Compiler (v3.01 or later)
+-	LAN9255 DFP (v1.1.7 or later)
+-	PICkit4_TP (1.9.1151 or later)
 -	TwinCAT EtherCAT Master v3.1 or later. Please visit [Beckhoff](https://www.beckhoff.com/en-us/products/automation/twincat/) to download the software.
 -	EtherCAT Slave Stack Code (SSC) v5.12 or later. Please visit [EtherCAT Technology Group](https://www.ethercat.org/) to obtain this software.  The EtherCAT SSC is available to ETG members free of charge.
 
