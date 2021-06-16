@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Report" type="ReportType">
+		<xs:annotation>
+			<xs:documentation>Root element of test report files.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ReportType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Name of the test report.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="EcSlaveConfig" type="EcSlaveConfigType"/>
+				<xs:element name="EcSlaveConfigModules" type="EcSlaveConfigModulesType"/>
+			</xs:choice>
+			<xs:element name="Test" type="TestType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="Guid" type="GuidType" use="required"/>
+		<xs:attribute name="Date" type="DateTimeType" use="required"/>
+		<xs:attribute name="VendorId" type="xs:unsignedInt" use="required"/>
+		<xs:attribute name="ProductCode" type="xs:unsignedInt" use="required"/>
+		<xs:attribute name="RevisionNo" type="xs:unsignedInt" use="required"/>
+		<xs:attribute name="SlaveName" type="xs:string" use="required"/>
+		<xs:attribute name="SlaveGuid" type="GuidType" use="required"/>
+		<xs:attribute name="WarningMsgCnt" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="InformationMsgCnt" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="ErrorMsgCnt" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="SkippedMsgCnt" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="SuccessMsgCnt" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="VerboseMsgCnt" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="SuppressedMsgCnt" type="xs:nonNegativeInteger" use="required"/>
+	</xs:complexType>
+	<xs:simpleType name="GuidType">
+		<xs:annotation>
+			<xs:documentation>Globally unique ID.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DateTimeType">
+		<xs:annotation>
+			<xs:documentation>Date and time.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:group name="EcSlaveConfigGroup">
+		<xs:sequence>
+			<xs:element name="FSoEConnections" type="FSoEConnectionsType"/>
+			<xs:element name="Mailbox" type="MailboxType" minOccurs="0"/>
+			<xs:element name="Pdos" type="PdosType"/>
+			<xs:element name="SyncManager" type="SyncManagerType"/>
+			<xs:element name="Fmmus" type="FmmusType"/>
+			<xs:element name="Description" type="xs:string"/>
+			<xs:element name="Errors" type="xs:nonNegativeInteger"/>
+			<xs:element name="Warnings" type="xs:nonNegativeInteger"/>
+			<xs:element name="IsOpModeDefault" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="EcSlaveConfigType">
+		<xs:sequence>
+			<xs:group ref="EcSlaveConfigGroup"/>
+		</xs:sequence>
+		<xs:attribute name="PdoDisplayMode" type="xs:string" use="required"/>
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+		<xs:attribute name="CycleTime" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="IsPdoDefault" type="xs:boolean" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="FSoEConnectionsType">
+		<xs:sequence>
+			<xs:element name="EcFsoeConnection" type="EcFsoeConnectionType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EcFsoeConnectionType">
+		<xs:sequence>
+			<xs:element name="ConnType" type="xs:string"/>
+			<xs:element name="SafeAddress" type="SafeAddressType"/>
+			<xs:element name="ConnId" type="ConnIdType"/>
+			<xs:element name="InitFrameDataLength" type="xs:nonNegativeInteger"/>
+			<xs:element name="SafeParameter" type="xs:string"/>
+			<xs:element name="ReadMessageOffset" type="xs:nonNegativeInteger"/>
+			<xs:element name="ReadMessageLength" type="xs:nonNegativeInteger"/>
+			<xs:element name="WriteMessageOffset" type="xs:nonNegativeInteger"/>
+			<xs:element name="WriteMessageLength" type="xs:nonNegativeInteger"/>
+			<xs:element name="EcatWiteCmdIndex" type="xs:nonNegativeInteger"/>
+			<xs:element name="SafeParamappings" type="SafeParamappingsType"/>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="ModuleIdent" type="xs:nonNegativeInteger"/>
+			<xs:element name="SlotNo" type="xs:nonNegativeInteger"/>
+			<xs:element name="SafetyConnNumber" type="xs:integer"/>
+			<xs:element name="SraParameterSupported" type="xs:boolean"/>
+			<xs:element name="ProfileNo" type="xs:nonNegativeInteger"/>
+			<xs:element name="AddInfo" type="xs:nonNegativeInteger"/>
+			<xs:element name="SraCrcIndex" type="xs:nonNegativeInteger"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SafeAddressType">
+		<xs:sequence>
+			<xs:element name="MinValue" type="xs:nonNegativeInteger"/>
+			<xs:element name="MaxValue" type="xs:nonNegativeInteger"/>
+			<xs:element name="DefaultValue" type="xs:nonNegativeInteger"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConnIdType">
+		<xs:sequence>
+			<xs:element name="MinValue" type="xs:nonNegativeInteger"/>
+			<xs:element name="MaxValue" type="xs:nonNegativeInteger"/>
+			<xs:element name="DefaultValue" type="xs:nonNegativeInteger"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SafeParamappingsType">
+		<xs:sequence>
+			<xs:element name="SafetyParaMapping" type="SafetyParaMappingType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SafetyParaMappingType">
+		<xs:sequence>
+			<xs:element name="Entries" type="SafetyParaMapping_EntriesType"/>
+			<xs:element name="Name" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="Index" type="xs:nonNegativeInteger"/>
+		<xs:attribute name="Fixed" type="Boolean"/>
+	</xs:complexType>
+	<xs:complexType name="SafetyParaMapping_EntriesType">
+		<xs:sequence>
+			<xs:element name="SafetyParaEntry" type="SafetyParaEntryType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SafetyParaEntryType">
+		<xs:sequence>
+			<xs:element name="Data" type="HexStringType"/>
+		</xs:sequence>
+		<xs:attribute name="Index" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="SubIndex" type="xs:nonNegativeInteger" use="optional"/>
+		<xs:attribute name="BitLen" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="Name" type="xs:string" use="optional"/>
+		<xs:attribute name="DataType" type="xs:nonNegativeInteger" use="optional"/>
+		<xs:attribute name="Fixed" type="Boolean" use="optional"/>
+		<xs:attribute name="BitOffset" type="xs:nonNegativeInteger" use="optional"/>
+	</xs:complexType>
+	<xs:simpleType name="HexStringType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([0-9A-F][0-9A-F])+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="MailboxType">
+		<xs:sequence>
+			<xs:element name="Coe" type="CoeType"/>
+			<xs:element name="Foe"/>
+			<xs:element name="InitCmds" type="InitCmdsType"/>
+			<xs:element name="SyncManager" type="SyncManagerType"/>
+			<xs:element name="BootSyncManager" type="SyncManagerType"/>
+		</xs:sequence>
+		<xs:attribute name="SmOutSize" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="SmInSize" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="MbxRespTimeout" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="MbxReqTimeout" type="xs:nonNegativeInteger" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="CoeType">
+		<xs:sequence>
+			<xs:element name="SdoService" type="SdoServiceType"/>
+			<xs:element name="SdoInfoService"/>
+			<xs:element name="EmergencyService" type="EmergencyServiceType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SdoServiceType">
+		<xs:sequence>
+			<xs:element name="InitCmds" type="InitCmdsType"/>
+			<xs:element name="PdoConfig" type="xs:boolean"/>
+			<xs:element name="PdoAssign" type="xs:boolean"/>
+			<xs:element name="PdoUpload" type="xs:boolean"/>
+			<xs:element name="DiagHistory" type="xs:boolean"/>
+		</xs:sequence>
+		<xs:attribute name="SegmentedSdo" type="xs:boolean" use="required"/>
+		<xs:attribute name="CompleteAccess" type="xs:boolean" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="InitCmdsType">
+		<xs:sequence>
+			<xs:element name="CoeInitCmd" type="EcCoeInitCmd" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="EcMbxInitCmd" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Dynamically typed via @xsi:type, e.g., EcCoeInitCmd.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EcCoeInitCmd">
+		<xs:sequence>
+			<xs:element name="Transition" type="TransitionType"/>
+			<xs:element name="Data" type="HexStringType"/>
+			<xs:element name="AdaptAutomatically" type="xs:boolean"/>
+			<xs:element name="Comment" minOccurs="0"/>
+			<xs:element name="Index" type="xs:nonNegativeInteger"/>
+			<xs:element name="Subindex" type="xs:nonNegativeInteger"/>
+			<xs:element name="Fixed" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="CompleteAccess" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="DependOnSlotGroup" nillable="true" minOccurs="0"/>
+			<xs:element name="DependOnSlot" nillable="true" minOccurs="0"/>
+			<xs:element name="ParentModuleIdent" nillable="true" minOccurs="0"/>
+			<xs:element name="SlotNo" nillable="true" minOccurs="0"/>
+			<xs:element name="OverwrittenByModule" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+		<!-- Note: This type does not follow the usual XyzType nomenclature. This is required here because Mailbox/Coe/SdoService/InitCmds/EcMbxInitCmd is dynamically typed via @xsi:type and the used type name is EcCoeInitCmd -->
+	</xs:complexType>
+	<xs:simpleType name="TransitionType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OI"/>
+			<xs:enumeration value="IP"/>
+			<xs:enumeration value="PI"/>
+			<xs:enumeration value="OP"/>
+			<xs:enumeration value="PS"/>
+			<xs:enumeration value="SP"/>
+			<xs:enumeration value="SO"/>
+			<xs:enumeration value="OS"/>
+			<xs:enumeration value="SI"/>
+			<xs:enumeration value="IB"/>
+			<xs:enumeration value="BI"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="EmergencyServiceType">
+		<xs:sequence>
+			<xs:element name="Emergencies"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SyncManagerType">
+		<xs:sequence>
+			<xs:element name="EcSyncManager" type="EcSyncManagerType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EcSyncManagerType">
+		<xs:attribute name="Type" type="EcSyncManagerTypeType" use="required"/>
+		<xs:attribute name="Number" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="Size" type="xs:unsignedShort" use="required"/>
+		<xs:attribute name="StartAddress" type="xs:unsignedShort" use="required"/>
+		<xs:attribute name="ControlByte" type="xs:unsignedByte" use="required"/>
+		<xs:attribute name="Enable" type="OneBitType" use="required"/>
+		<xs:attribute name="Ado" type="xs:unsignedShort" use="required"/>
+		<xs:attribute name="Virtual" type="OneBitType" use="required"/>
+	</xs:complexType>
+	<xs:simpleType name="EcSyncManagerTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Inputs"/>
+			<xs:enumeration value="Outputs"/>
+			<xs:enumeration value="MBoxIn"/>
+			<xs:enumeration value="MBoxOut"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OneBitType">
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:maxInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PdosType">
+		<xs:sequence>
+			<xs:element name="EcPdo" type="EcPdoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EcPdoType">
+		<xs:sequence>
+			<xs:element name="Entries" type="EcPdo_EntriesType"/>
+		</xs:sequence>
+		<xs:attribute name="ProcessImageOffset" type="xs:unsignedInt" use="required"/>
+		<xs:attribute name="Offset" type="xs:nonNegativeInteger" use="optional"/>
+		<xs:attribute name="IsFsoeMessage" type="Boolean" use="optional"/>
+		<xs:attribute name="PdoType" type="RxTxType" use="required"/>
+		<xs:attribute name="Index" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="Size" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+		<xs:attribute name="Fixed" type="Boolean" use="required"/>
+		<xs:attribute name="Mandatory" type="Boolean" use="required"/>
+		<xs:attribute name="Sm" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="Su" type="xs:nonNegativeInteger" use="required"/>
+	</xs:complexType>
+	<xs:simpleType name="Boolean">
+		<xs:annotation>
+			<xs:documentation>Like xs:boolean but with capital first letter.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="True"/>
+			<xs:enumeration value="False"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RxTxType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Rx"/>
+			<xs:enumeration value="Tx"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="EcPdo_EntriesType">
+		<xs:sequence>
+			<xs:element name="EcEntry" type="EcEntryType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EcEntryType">
+		<xs:attribute name="Index" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="SubIndex" type="xs:nonNegativeInteger" use="optional"/>
+		<xs:attribute name="BitLen" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="Offset" type="xs:nonNegativeInteger" use="optional"/>
+		<xs:attribute name="Name" type="xs:string" use="optional"/>
+		<xs:attribute name="DataType" type="xs:nonNegativeInteger" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="FmmusType">
+		<xs:sequence>
+			<xs:element name="Fmmu" type="FmmuType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FmmuType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="LgicalStartAddress" type="xs:unsignedInt" use="required"/>
+				<xs:attribute name="Length" type="xs:unsignedShort" use="required"/>
+				<xs:attribute name="LogicalStartBit" type="BitType" use="required"/>
+				<xs:attribute name="LogicalStopBit" type="BitType" use="required"/>
+				<xs:attribute name="PhysicalAddress" type="xs:unsignedShort" use="required"/>
+				<xs:attribute name="PhysicalStartBit" type="BitType" use="required"/>
+				<xs:attribute name="Type" type="ReadWriteType" use="required"/>
+				<xs:attribute name="Activate" type="OneBitType" use="required"/>
+				<xs:attribute name="Ado" type="xs:unsignedShort" use="required"/>
+				<xs:attribute name="Su" type="xs:integer" use="required"/>
+				<xs:attribute name="Sm" type="xs:integer" use="required"/>
+				<xs:attribute name="OpOnly" type="xs:boolean" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="BitType">
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:maxInclusive value="7"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ReadWriteType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Read"/>
+			<xs:enumeration value="Write"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="EcSlaveConfigModulesType">
+		<xs:sequence>
+			<xs:group ref="EcSlaveConfigGroup"/>
+			<xs:element name="DownloadIds" type="xs:boolean"/>
+			<xs:element name="ModularDevice" type="ModularDeviceType"/>
+			<xs:element name="DownloadModuleListTransition" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="ActivatedFSoEConnection" type="xs:string" use="required"/>
+		<xs:attribute name="PdoDisplayMode" type="xs:string" use="required"/>
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+		<xs:attribute name="CycleTime" type="xs:nonNegativeInteger" use="required"/>
+		<xs:attribute name="IsPdoDefault" type="xs:boolean" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ModularDeviceType">
+		<xs:sequence minOccurs="0">
+			<xs:element name="AssignedModules" type="AssignedModulesType"/>
+			<xs:element name="ModuleAddInfoList" type="ModuleAddInfoListType"/>
+			<xs:element name="ModuleProfileNoList" type="ModuleProfileNoListType"/>
+			<xs:element name="ModuleFiles" type="ModuleFilesType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AssignedModulesType">
+		<xs:sequence>
+			<xs:element name="unsignedInt" type="xs:unsignedInt" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ModuleAddInfoListType">
+		<xs:sequence>
+			<xs:element name="int" type="xs:int" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ModuleProfileNoListType">
+		<xs:sequence>
+			<xs:element name="int" type="xs:int" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ModuleFilesType">
+		<xs:sequence>
+			<xs:element name="string" type="xs:string" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TestType">
+		<xs:sequence>
+			<xs:element name="TestGroups" type="TestGroupsType"/>
+			<xs:element name="SkippedCases" type="xs:nonNegativeInteger"/>
+			<xs:element name="ValidCases" type="xs:nonNegativeInteger"/>
+			<xs:element name="InvalidCases" type="xs:nonNegativeInteger"/>
+		</xs:sequence>
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+		<xs:attribute name="Checksum" type="ChecksumType" use="required"/>
+		<xs:attribute name="State" type="StateType" use="required"/>
+		<xs:attribute name="Version" type="TestVersionType" use="required"/>
+		<xs:attribute name="Comment" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:simpleType name="ChecksumType">
+		<xs:annotation>
+			<xs:documentation>Checksum of the test file.
+Example: HSyPbm9f3rngqFBd1TYMkA==</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="StateType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotPerformed"/>
+			<xs:enumeration value="Valid"/>
+			<xs:enumeration value="Invalid"/>
+			<xs:enumeration value="Skipped"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TestVersionType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]+\.[0-9]+\.[0-9]+">
+				<xs:annotation>
+					<xs:documentation>Versioning scheme for EtherCAT test files.</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+			<xs:pattern value="[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+">
+				<xs:annotation>
+					<xs:documentation>Versioning scheme for FSoE test files.</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="TestGroupsType">
+		<xs:sequence>
+			<xs:element name="TestGroup" type="TestGroupType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TestGroupType">
+		<xs:sequence>
+			<xs:element name="TestCases" type="TestCasesType"/>
+		</xs:sequence>
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+		<xs:attribute name="State" type="StateType" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="TestCasesType">
+		<xs:sequence>
+			<xs:element name="Case" type="CaseType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CaseType">
+		<xs:sequence>
+			<xs:element name="Comment" type="xs:string" minOccurs="0"/>
+			<xs:element name="Outputs" type="OutputsType"/>
+		</xs:sequence>
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+		<xs:attribute name="TestId_Version" type="TestIdVersionType" use="required"/>
+		<xs:attribute name="GroupId" type="xs:unsignedShort" use="required"/>
+		<xs:attribute name="CaseId" type="xs:unsignedShort" use="required"/>
+		<xs:attribute name="State" type="CaseStateType" use="required"/>
+		<xs:attribute name="Date" type="xs:dateTime" use="required"/>
+	</xs:complexType>
+	<xs:simpleType name="TestIdVersionType">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>ID and version of test file.
+Example: 1234_1.2.3</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CaseStateType">
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation>Not performed</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Succeeded</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>Failed</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="129">
+				<xs:annotation>
+					<xs:documentation>Skipped</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="OutputsType">
+		<xs:sequence>
+			<xs:element name="Output" type="OutputType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OutputType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="No" type="xs:nonNegativeInteger" use="required"/>
+				<xs:attribute name="Type" type="OutputTypeType" use="required"/>
+				<xs:attribute name="Ms" type="xs:nonNegativeInteger" use="required">
+					<xs:annotation>
+						<xs:documentation>Milliseconds.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="SID" type="xs:string" use="optional">
+					<xs:annotation>
+						<xs:documentation>ID of suppression rule that suppressed this output.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="TraceID" type="xs:unsignedLong" use="optional">
+					<xs:annotation>
+						<xs:documentation>Code path used for suppressing outputs.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="Hash" type="xs:unsignedInt" use="optional"/>
+				<xs:attribute name="Id" type="xs:int" use="optional"/>
+				<xs:attribute name="Args" type="OutputArgsType" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="OutputTypeType">
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation>Warning</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Information</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>Error</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation>Skipped</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation>Verbose</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation>Success</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation>Serious Error</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OutputArgsType">
+		<xs:annotation>
+			<xs:documentation>Arguments (parameters) of an output.
+Four arguments separated by semicolon.
+Each argument starts with an identifier and then contains a string representation of the parameter.
+
+Identifier 0 = Byte.
+Identifier 1 = Boolean.
+Identifier 2 = Int32.
+Identifier 3 = UInt32.
+Identifier 4 = Int16.
+Identifier 5 = UInt16.
+Identifier 6 = Int64.
+Identifier 7 = UInt64.
+Identifier 8 = Real64.
+Identifier 9 = String.
+Identifier A = Real32.
+Identifier Z = parameter not provided.
+
+Example: Z;Z;Z;Z
+Example: 20;Z;Z;Z</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+</xs:schema>

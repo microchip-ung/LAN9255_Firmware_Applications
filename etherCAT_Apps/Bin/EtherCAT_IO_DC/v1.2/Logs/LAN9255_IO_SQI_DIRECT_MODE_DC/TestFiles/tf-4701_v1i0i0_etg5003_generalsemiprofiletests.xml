@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><EtherCATTest Name="TF-4701_ETG.5003_GeneralSemiProfileTests" TestId="18177" Url="http://www.ethercat.org/en/conformance.html" TestVendorId="1" xsi:noNamespaceSchemaLocation="EtherCATTest.xsd" TestVersion="1.0.0" SchemaVersion="1.0.31" RealeaseState="Released" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Comment>Tests that apply to sevarl or all device types defined by ETG.5003 Semi Device Profile series.</Comment>
+	<History>
+		<HistoryEntry Editor="F.E." TestVersion="0.0.0" Date="2019-05-02">Initial Release</HistoryEntry>
+	</History>
+	<TestVariables>
+		<TestVariable>
+			<Name>bDEBUG</Name>
+			<Type>Bool</Type>
+			<!--Development debug Variable (automatic generated variable, will be overwritten when generating new test)-->
+		</TestVariable>
+	</TestVariables>
+	<Variables>
+		<Variable>
+			<Name>byte_smNo</Name>
+			<Type>Byte</Type>
+		</Variable>
+		<Variable>
+			<Name>SemiProfileSupported</Name>
+			<Type>Bool</Type>
+		</Variable>
+	</Variables>
+	<IncludedTestFunctions>
+		<FileName>EcBaseFunctions_V1i0i0.xml</FileName>
+		<FileName>BF-0040_V1i0i1_ProfileFunctions.xml</FileName>
+	</IncludedTestFunctions>
+	<TestFunctions>
+		<TestFunction FunctionId="101" Name="SkipIfProfileNoNot5003InEsi">
+			<?MAX_OUTPUT_ID 0?>
+			<TestStep Name="IsSemiProfileDefined">
+				<CallTestFunction Name="DeviceProfileSupported">
+					<Parameter>"offline"</Parameter>
+					<Parameter>5003</Parameter>
+					<OutParameter>SemiProfileSupported</OutParameter>
+				</CallTestFunction>
+			</TestStep>
+			<TestStep Name="SkipIfNot">
+				<Compare>
+					<Equal>
+						<Value1>SemiProfileSupported</Value1>
+						<Value2>False</Value2>
+						<SkipCase Id="0">Semi profile number 5003 not indicated by ESI file</SkipCase>
+					</Equal>
+				</Compare>
+			</TestStep>
+		</TestFunction>
+	</TestFunctions>
+	<TestGroups>
+		<TestGroup GroupId="1" Name="CDP Tests">
+			<Comment>Check general requirements of the CDP</Comment>
+			<TestCase Name="ESI element Device:Info:IdentificationReg134 = True" CaseId="1">
+				<?MAX_OUTPUT_ID 3?>
+				<Comment>Check if IdentificationReg134 = True in ESI file</Comment>
+				<Description>
+					<Purpose>Check if the DuT supports the "Requesting Explicit Device Identification" mechanism.</Purpose>
+					<PreCondition>- The device profile is 5003
+- ESI file available</PreCondition>
+					<Action>Check if ESI element Device:Info:IdentificationReg134 = True</Action>
+					<PostCondition>Generate Error if not</PostCondition>
+					<References>
+						<Reference Specification="ETG.5003-0001"></Reference>
+						<Reference Specification="ETG.7000-2_Anx5003-0001" Chapter=""></Reference>
+					</References>
+					<Mandatory>true</Mandatory>
+				</Description>
+				<TestStep Name="IsSemiProfileDefined">
+					<CallTestFunction Name="DeviceProfileSupported">
+						<Parameter>"offline"</Parameter>
+						<Parameter>5003</Parameter>
+						<OutParameter>SemiProfileSupported</OutParameter>
+					</CallTestFunction>
+				</TestStep>
+				<TestStep Name="SkipIfNot">
+					<Compare>
+						<Equal>
+							<Value1>SemiProfileSupported</Value1>
+							<Value2>False</Value2>
+							<SkipCase Id="0">Semi profile number 5003 not indicated by ESI file</SkipCase>
+						</Equal>
+					</Compare>
+				</TestStep>
+				<TestStep Name="ErrorIfIdentificationReg134NotTrue">
+					<Compare>
+						<Equal>
+							<Value1>DeviceDescr.Info.IdentificationReg134</Value1>
+							<Value2>null</Value2>
+							<RaiseError Id="1">Error | ESI element DeviceDescr.Info.IdentificationReg134 is not used.</RaiseError>
+						</Equal>
+					</Compare>
+					<Compare>
+						<Equal>
+							<Value1>DeviceDescr.Info.IdentificationReg134</Value1>
+							<Value2>False</Value2>
+							<RaiseError Id="2" Param0="DeviceDescr.Info.IdentificationReg134">Error | ESI element DeviceDescr.Info.IdentificationReg134 is "{0}", expected "True"</RaiseError>
+						</Equal>
+					</Compare>
+					<Compare>
+						<Equal>
+							<Value1>DeviceDescr.Info.IdentificationReg134</Value1>
+							<Value2>True</Value2>
+							<ReturnSuccess Id="3" Param0="DeviceDescr.Info.IdentificationReg134">Success | ESI element DeviceDescr.Info.IdentificationReg134 is "{0}"</ReturnSuccess>
+						</Equal>
+					</Compare>
+				</TestStep>
+			</TestCase>
+			<TestCase Name="ESI element Device:Profile:Dictionary is present" CaseId="2">
+				<?MAX_OUTPUT_ID 2?>
+				<Comment>Check if offline object dictionary supported in ESI file</Comment>
+				<Description>
+					<Purpose>Check if offline object dictionary supported in ESI file</Purpose>
+					<PreCondition>ESI file available</PreCondition>
+					<Action>Check if ESI element Device:Profile:Dictionary available</Action>
+					<PostCondition>Generate Error if not</PostCondition>
+					<References>
+						<Reference Specification="ETG.5003-0001" Chapter=""></Reference>
+						<Reference Specification="ETG.7000-2_Anx5003-0001" Chapter="5.1"></Reference>
+					</References>
+					<Mandatory>true</Mandatory>
+				</Description>
+				<TestStep Name="IsSemiProfileDefined">
+					<CallTestFunction Name="DeviceProfileSupported">
+						<Parameter>"offline"</Parameter>
+						<Parameter>5003</Parameter>
+						<OutParameter>SemiProfileSupported</OutParameter>
+					</CallTestFunction>
+				</TestStep>
+				<TestStep Name="SkipIfNot">
+					<Compare>
+						<Equal>
+							<Value1>SemiProfileSupported</Value1>
+							<Value2>False</Value2>
+							<SkipCase Id="0">Semi profile number 5003 not indicated by ESI file</SkipCase>
+						</Equal>
+					</Compare>
+				</TestStep>
+				<TestStep Name="ErrorIfNoOfflineOd">
+					<Compare>
+						<Equal>
+							<Value1>DeviceDescr.Dictionary</Value1>
+							<Value2>False</Value2>
+							<RaiseError Id="1">Error | ESI element  Device:Profile:Dictionary is not available</RaiseError>
+						</Equal>
+					</Compare>
+					<Compare>
+						<Equal>
+							<Value1>DeviceDescr.Dictionary</Value1>
+							<Value2>True</Value2>
+							<ReturnSuccess Id="2">Success | ESI element  Device:Profile:Dictionary is supported</ReturnSuccess>
+						</Equal>
+					</Compare>
+				</TestStep>
+			</TestCase>
+			<TestCase Name="Element DeviceType:Mailbox:CoE:CompleteAccess =  True" CaseId="3">
+				<?MAX_OUTPUT_ID 4?>
+				<Description>
+					<Purpose>Element DeviceType:Mailbox:CoE:CompleteAccess is 1 / TRUE in ESI</Purpose>
+					<PreCondition>ESI file available</PreCondition>
+					<Action>DeviceType:Mailbox:CoE:CompleteAccess = True</Action>
+					<PostCondition>Generate Error if not</PostCondition>
+					<References>
+						<Reference Specification="ETG.5003-0001" Chapter=""></Reference>
+						<Reference Specification="ETG.7000-2_Anx5003-0001" Chapter="5.2"></Reference>
+					</References>
+					<Mandatory>true</Mandatory>
+				</Description>
+				<TestStep Name="IsSemiProfileDefined">
+					<CallTestFunction Name="DeviceProfileSupported">
+						<Parameter>"offline"</Parameter>
+						<Parameter>5003</Parameter>
+						<OutParameter>SemiProfileSupported</OutParameter>
+					</CallTestFunction>
+				</TestStep>
+				<TestStep Name="SkipIfNot">
+					<Compare>
+						<Equal>
+							<Value1>SemiProfileSupported</Value1>
+							<Value2>False</Value2>
+							<SkipCase Id="0">Semi profile number 5003 not indicated by ESI file</SkipCase>
+						</Equal>
+					</Compare>
+				</TestStep>
+				<TestStep Name="ErrorIfNoCA">
+					<Compare>
+						<Equal>
+							<Value1>DeviceDescr.Mailbox</Value1>
+							<Value2>False</Value2>
+							<RaiseError Id="1">Error | No CoE Complete Access supported (No ESI element Mailbox available)</RaiseError>
+						</Equal>
+					</Compare>
+					<Compare>
+						<Equal>
+							<Value1>DeviceDescr.Mailbox.CoE</Value1>
+							<Value2>False</Value2>
+							<RaiseError Id="2">Error | No CoE Complete Access supported (No ESI element Mailbox:Coe available)</RaiseError>
+						</Equal>
+					</Compare>
+					<Compare>
+						<Equal>
+							<Value1>DeviceDescr.Mailbox.CoE.CompleteAccess</Value1>
+							<Value2>False</Value2>
+							<RaiseError Id="3" Param0="DeviceDescr.Mailbox.CoE.CompleteAccess">Error | No CoE Complete Access supported | ESI element DeviceDescr.Mailbox.CoE.CompleteAccess = {0}</RaiseError>
+						</Equal>
+					</Compare>
+					<Compare>
+						<Equal>
+							<Value1>DeviceDescr.Mailbox.CoE.CompleteAccess</Value1>
+							<Value2>True</Value2>
+							<ReturnSuccess Id="4" Param0="DeviceDescr.Mailbox.CoE.CompleteAccess">Success| CoE Complete Access supported | ESI element DeviceDescr.Mailbox.CoE.CompleteAccess = {0}</ReturnSuccess>
+						</Equal>
+					</Compare>
+				</TestStep>
+			</TestCase>
+			<TestCase Name="Minimum Mailbox Sm Size &gt; 128 byte" CaseId="4">
+				<?MAX_OUTPUT_ID 5?>
+				<Description>
+					<Purpose>The minimum mailbox size shall be at least 128 bytes</Purpose>
+					<PreCondition>ESI file available</PreCondition>
+					<Action>DeviceDescr.SM[i].MinSize &gt;= 128 bytes</Action>
+					<PostCondition>Generate Error if not</PostCondition>
+					<References>
+						<Reference Specification="ETG.5003-0001" Chapter=""></Reference>
+						<Reference Specification="ETG.7000-2_Anx5003-0001" Chapter="5.3"></Reference>
+					</References>
+					<Mandatory>true</Mandatory>
+				</Description>
+				<TestStep Name="IsSemiProfileDefined">
+					<CallTestFunction Name="DeviceProfileSupported">
+						<Parameter>"offline"</Parameter>
+						<Parameter>5003</Parameter>
+						<OutParameter>SemiProfileSupported</OutParameter>
+					</CallTestFunction>
+				</TestStep>
+				<TestStep Name="SkipIfNot">
+					<Compare>
+						<Equal>
+							<Value1>SemiProfileSupported</Value1>
+							<Value2>False</Value2>
+							<SkipCase Id="0">Semi profile number 5003 not indicated by ESI file</SkipCase>
+						</Equal>
+					</Compare>
+				</TestStep>
+				<TestStep Name="ErrorIfMbxSizeSmaller128Byte">
+					<Compare>
+						<Equal>
+							<Value1>DeviceDescr.SM.Count</Value1>
+							<Value2>0</Value2>
+							<RaiseError Id="1">Error | No mailbox SyncManager supported in ESI file</RaiseError>
+						</Equal>
+					</Compare>
+				</TestStep>
+				<TestStep Name="SetSmCounterTo0">
+					<SetVariable Target="byte_smNo">0</SetVariable>
+				</TestStep>
+				<TestStep Name="CHECK_IF_SM0_DEFAULT_SIZE_OK">
+					<Compare>
+						<Lower>
+							<Value1>DeviceDescr.SM[byte_smNo].DefaultSize</Value1>
+							<Value2>128</Value2>
+							<RaiseError Id="2" Param0="DeviceDescr.SM.Count" Param1="DeviceDescr.SM[byte_smNo].DefaultSize">Error | Device:Sm:DefafultSize of Sm{0} is smaller ({1} byte)  than 128 bytes </RaiseError>
+						</Lower>
+					</Compare>
+					<Compare>
+						<GreaterOrEqual>
+							<Value1>DeviceDescr.SM[byte_smNo].DefaultSize</Value1>
+							<Value2>128</Value2>
+							<ReturnSuccess Id="3" Param0="DeviceDescr.SM.Count" Param1="DeviceDescr.SM[byte_smNo].DefaultSize">Success | Device:Sm:DefaultSize of Sm{0} is greater or equal ({1} byte)  than 128 bytes </ReturnSuccess>
+						</GreaterOrEqual>
+					</Compare>
+				</TestStep>
+				<TestStep Name="SetSmCounterTo1">
+					<SetVariable Target="byte_smNo">0</SetVariable>
+				</TestStep>
+				<TestStep Name="CHECK_IF_SM1_DEFAULT_SIZE_OK">
+					<Compare>
+						<Lower>
+							<Value1>DeviceDescr.SM[byte_smNo].DefaultSize</Value1>
+							<Value2>128</Value2>
+							<RaiseError Id="4" Param0="DeviceDescr.SM.Count" Param1="DeviceDescr.SM[byte_smNo].DefaultSize">Error | Device:Sm:DefafultSize of Sm{0} is smaller ({1} byte)  than 128 bytes </RaiseError>
+						</Lower>
+					</Compare>
+					<Compare>
+						<GreaterOrEqual>
+							<Value1>DeviceDescr.SM[byte_smNo].DefaultSize</Value1>
+							<Value2>128</Value2>
+							<ReturnSuccess Id="5" Param0="DeviceDescr.SM.Count" Param1="DeviceDescr.SM[byte_smNo].DefaultSize">Success | Device:Sm:DefaultSize of Sm{0} is greater or equal ({1} byte)  than 128 bytes </ReturnSuccess>
+						</GreaterOrEqual>
+					</Compare>
+				</TestStep>
+			</TestCase>
+		</TestGroup>
+	</TestGroups>
+</EtherCATTest>
