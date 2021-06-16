@@ -17,6 +17,7 @@
                 <sourceRootElem>../../../../SOC_Portable/SAME53</sourceRootElem>
                 <sourceRootElem>../../../../Source/ESC</sourceRootElem>
                 <sourceRootElem>../../../../Source/SSC</sourceRootElem>
+                <sourceRootElem>../../../../../../../lan9255_firmware_applications/etherCAT_Apps/EVB_LAN9255_SIP_E53/EVB_LAN9255_SIP_E53/firmware/src/config/default</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
