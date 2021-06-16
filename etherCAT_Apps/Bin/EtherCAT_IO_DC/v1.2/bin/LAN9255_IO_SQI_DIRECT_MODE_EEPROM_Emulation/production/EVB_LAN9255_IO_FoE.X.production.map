@@ -196,284 +196,284 @@ section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
 .vectors                         0          0x260         608   
 .text                        0x260           0x20          32  App's exec code 
-.config_eeprom               0x280          0x800        2048   
-.text.StartInputHandler      0xa80          0x7e4        2020   
-.text.AL_ControlInd         0x1264          0x790        1936   
-.text.OBJ_Write             0x19f4          0x710        1808   
-.dinit                      0x2104          0x6a0        1696   
-.text.OBJ_Read              0x27a4          0x67c        1660   
-.text.SDOS_SdoInd           0x2e20          0x5e4        1508   
-.text.FOE_ServiceInd        0x3404          0x488        1160   
-.text.SDOS_SdoInfoInd       0x388c          0x434        1076   
-.text.SdoDownloadSegmen     0x3cc0          0x3b4         948   
-.text.CheckSmSettings       0x4074          0x3a0         928   
-.text.EEPROM_CommandHan     0x4414          0x2c4         708   
-.text.AL_ControlRes         0x46d8          0x2bc         700   
-.text.SdoUploadSegmentI     0x4994          0x260         608   
-.text.SendSmFailedEmerg     0x4bf4          0x1e0         480   
-.text.SdoRes                0x4dd4          0x1bc         444   
-.text.ECAT_Main             0x4f90          0x1b4         436   
-.text.CheckSyncTypeValu     0x5144          0x1b4         436   
-.text.FoE_WriteData         0x52f8          0x18c         396   
-.text.OBJ_GetEntryOffse     0x5484          0x178         376   
-.text.APPL_GenerateMapp     0x55fc          0x174         372   
-.text.ECAT_Init             0x5770          0x170         368   
-.text.SetALStatus           0x58e0          0x164         356   
-.text.MBX_CheckAndCopyM     0x5a44          0x164         356   
-.text.COE_ObjInit           0x5ba8          0x160         352   
-.text.Sync0_Isr             0x5d08          0x15c         348   
-.text.MainInit              0x5e64          0x15c         348   
-.text.MBX_StopMailboxHa     0x5fc0          0x154         340   
-.text.APP_FlashEEPROMUp     0x6114          0x154         340   
-.text.PDI_Isr               0x6268          0x14c         332   
-.text.StopInputHandler      0x63b4          0x12c         300   
-.text.MBX_MailboxReadIn     0x64e0          0x124         292   
-.text.OBJ_GetObjectLeng     0x6604          0x124         292   
-.text.DC_CheckWatchdog      0x6728          0x120         288   
-.text.OBJ_GetDesc           0x6848          0x120         288   
-.text.SDOS_SdoRes           0x6968          0x120         288   
-.text.MBX_StartMailboxH     0x6a88          0x114         276   
-.text.MBX_CopyToSendMai     0x6b9c          0x10c         268   
-.rodata.aName0x1C32         0x6ca8          0x100         256   
-.rodata.aName0x1C33         0x6da8          0x100         256   
-.text.MBX_Init              0x6ea8          0x100         256   
-.text.ECAT_CheckTimer       0x6fa8           0xfc         252   
-.text.OBJ_GetObjectList     0x70a4           0xf8         248   
-.text.MBX_MailboxWriteI     0x719c           0xf4         244   
-.text.LAN9253SQI_Read       0x7290           0xec         236   
-.text.MainLoop              0x737c           0xec         236   
-.text.COE_AddObjectToDi     0x7468           0xe8         232   
-.text.COE_Main              0x7550           0xe8         232   
-.text.EIC_Initialize        0x7638           0xe4         228   
-.text.HW_EscWriteIsr        0x771c           0xe4         228   
-.text.HW_EscReadIsr         0x7800           0xe2         226   
-.text.Dummy_Handler         0x78e2            0x2           2   
-.text.MBX_MailboxSendRe     0x78e4           0xdc         220   
-.text.SODS_ClearPending     0x79c0           0xcc         204   
-.text.HW_EscWrite           0x7a8c           0xca         202   
-.text.HW_EscRead            0x7b56           0xc8         200   
-.text.__malloc_lock         0x7c1e            0x2           2   
-.rodata.asEntryDesc0x1C     0x7c20           0xc8         200   
-.text.GetDummyBytesRequ     0x7ce8           0xc6         198   
-.text.__malloc_unlock       0x7dae            0x2           2   
-.text.HW_EepromWrite        0x7db0           0xc4         196   
-.text.EscWrite              0x7e74           0xc2         194   
-.text.EscRead               0x7f36           0xc0         192   
-.text.LAN925x_Init          0x7ff8           0xbc         188   
-.text.MBX_Main              0x80b4           0xb8         184   
-.text.FoE_Read              0x816c           0xb8         184   
-.text.qspi_setup_transf     0x8224           0xb4         180   
-.text._malloc_r             0x82d8           0xb4         180   
-.text.LAN9253SQI_Write      0x838c           0xb0         176   
-.text.PDO_OutputMapping     0x843c           0xb0         176   
-.text.QSPI_MemoryRead       0x84ec           0xac         172   
-.text.QSPI_MemoryWrite      0x8598           0xa8         168   
-.text.COE_SyncTimeStamp     0x8640           0xa8         168   
-.text.EMCY_Init             0x86e8           0xa8         168   
-.text.PORT_Initialize       0x8790           0xa4         164   
-.text.EMCY_SendEmergenc     0x8834           0xa4         164   
-.text.HW_EepromReload       0x88d8           0xa0         160   
-.text.FoE_Write             0x8978           0x9c         156   
-.text.APP_Tasks             0x8a14           0x9c         156   
-.text._free_r               0x8ab0           0x9c         156   
-.text.OBJ_CopyNumberToS     0x8b4c           0x98         152   
-.text.OBJ_GetNoOfObject     0x8be4           0x98         152   
-.text.RoundUpMultipleOf     0x8c7c           0x96         150   
-.text.PDO_InputMapping      0x8d14           0x94         148   
-.text.QSPI_CommandWrite     0x8da8           0x88         136   
-.text.QSPI_RegisterWrit     0x8e30           0x88         136   
-.text.ReBuild_SQI_SetCf     0x8eb8           0x88         136   
-.text.__pic32c_data_ini     0x8f40           0x88         136   
-.text.COE_RemoveDicEntr     0x8fc8           0x80         128   
-.text.HandleCycleTimeMe     0x9048           0x7c         124   
-.text.MBX_MailboxRepeat     0x90c4           0x7c         124   
-.rodata.cAbortCode          0x9140           0x78         120   
-.text.APP_FlashWrite        0x91b8           0x78         120   
-.text.COE_ServiceInd        0x9230           0x74         116   
-.text.StartOutputHandle     0x92a4           0x74         116   
-.text.GetSystemTimeDela     0x9318           0x70         112   
-.text.CalculateCRC8         0x9388           0x6e         110   
-.text.FDPLL0_Initialize     0x93f8           0x6c         108   
-.text.FOE_Data              0x9464           0x6c         108   
-.text.CLOCK_Initialize      0x94d0           0x68         104   
-.text.NVMCTRL_PageWrite     0x9538           0x68         104   
-.text.COE_UpdateSyncErr     0x95a0           0x68         104   
-.text.MailboxServiceInd     0x9608           0x68         104   
-.text.ECAT_CheckWatchdo     0x9670           0x64         100   
-.text.BL_FOE_Applicatio     0x96d4           0x64         100   
-.text.EIC_CallbackRegis     0x9738           0x5c          92   
-.text.Reset_Handler         0x9794           0x5c          92   
-.text.ESC_BYTE_TEST_Reg     0x97f0           0x5c          92   
-.text.Read0x10F8            0x984c           0x5c          92   
-.text.COE_ContinueInd       0x98a8           0x5c          92   
-.text.GetOutOfEmptyEmcy     0x9904           0x5c          92   
-.text.GetOutOfSendEmcyQ     0x9960           0x5c          92   
-.text.FoE_ReadData          0x99bc           0x5c          92   
-.text.GetOutOfMbxQueue      0x9a18           0x58          88   
-.text.OBJ_GetEntryDesc      0x9a70           0x58          88   
-.text.NVIC_Initialize       0x9ac8           0x56          86   
-.text.__NVIC_SetPriorit     0x9b20           0x54          84   
-.text.PutInMbxQueue         0x9b74           0x52          82   
-.text.ESF_PDI_Init          0x9bc8           0x4c          76   
-.text.UpdateEEPROMLoade     0x9c14           0x4c          76   
-.text.DisableSyncManCha     0x9c60           0x4c          76   
-.text.CheckIfEcatError      0x9cac           0x4c          76   
-.text.EnableSyncManChan     0x9cf8           0x4a          74   
-.text.__NVIC_SetPriorit     0x9d44           0x48          72   
-.text.FOE_Read              0x9d8c           0x48          72   
-.text.__libc_init_array     0x9dd4           0x48          72   
-.text.ResetALEventMask      0x9e1c           0x46          70   
-.text.SetALEventMask        0x9e62           0x46          70   
-.text.GCLK0_Initialize      0x9ea8           0x44          68   
-.text.FPU_Enable            0x9eec           0x44          68   
-.text.COE_ObjDictionary     0x9f30           0x44          68   
-.text.Sync1_Isr             0x9f74           0x44          68   
-.text.PutInEmptyEmcyQue     0x9fb8           0x44          68   
-.text.PutInSendEmcyQueu     0x9ffc           0x44          68   
-.text.PORT_PinRead          0xa040           0x44          68   
-.text.APP_FW_startDownl     0xa084           0x44          68   
-.text.AddObjectsToObjDi     0xa0c8           0x42          66   
-.text                       0xa10c           0x40          64  App's exec code 
-.text.SYSTICK_TimerInit     0xa14c           0x40          64   
-.text.ICache_Enable         0xa18c           0x40          64   
-.rodata.aName0x10F1         0xa1cc           0x40          64   
-.text.COE_ClearObjDicti     0xa20c           0x40          64   
-.text.__NVIC_EnableIRQ      0xa24c           0x3c          60   
-.text.QSPI_Initialize       0xa288           0x3c          60   
-.rodata.aName0x1018         0xa2c4           0x3c          60   
-.text.ECAT_Application      0xa300           0x3c          60   
-.text.SQI_SetConfigurat     0xa33c           0x3a          58   
-.text.APP_RunApplicatio     0xa376           0x3a          58   
-.text.PORT_PinSet           0xa3b0           0x38          56   
-.text.PORT_PinClear         0xa3e8           0x38          56   
-.text.PORT_PinOutputEna     0xa420           0x38          56   
-.text.PORT_PinSet           0xa458           0x38          56   
-.text.PORT_PinClear         0xa490           0x38          56   
-.text.FOE_Write             0xa4c8           0x38          56   
-.text.FOE_Ack               0xa500           0x38          56   
-.text.PORT_PinSet           0xa538           0x38          56   
-.text.PORT_PinClear         0xa570           0x38          56   
-.text.OBJ_GetObjectHand     0xa5a8           0x36          54   
-.text.NVMCTRL_BlockEras     0xa5e0           0x34          52   
-.text.qspi_memcpy_32bit     0xa614           0x34          52   
-.text.qspi_memcpy_8bit      0xa648           0x34          52   
-.text.SYS_Initialize        0xa67c           0x34          52   
-.text.APPL_OutputMappin     0xa6b0           0x34          52   
-.text.FOE_ContinueInd       0xa6e4           0x30          48   
-.text.GetSyncMan            0xa714           0x30          48   
-.text.GCLK1_Initialize      0xa744           0x2c          44   
-.text.EIC_EXTINT_0_Inte     0xa770           0x2c          44   
-.text.EIC_EXTINT_1_Inte     0xa79c           0x2c          44   
-.text.EIC_EXTINT_7_Inte     0xa7c8           0x2c          44   
-.text.SysTick_Handler       0xa7f4           0x2c          44   
-.text.SQI_EnableQuadMod     0xa820           0x2c          44   
-.text.SQI_DisableQuadMo     0xa84c           0x2c          44   
-.rodata.aName0x1601         0xa878           0x2c          44   
-.rodata.aName0x1A00         0xa8a4           0x2c          44   
-.text.FOE_Init              0xa8d0           0x2c          44   
-.text.Emulation_Init        0xa8fc           0x2c          44   
-.text.APPL_InputMapping     0xa928           0x2c          44   
-.text._sbrk                 0xa954           0x2c          44   
-.text.OSCCTRL_Initializ     0xa980           0x28          40   
-.text.NVMCTRL_IsBusy        0xa9a8           0x28          40   
-.text.SYSTICK_TimerCall     0xa9d0           0x28          40   
-.text.ESC_IRQ_cb            0xa9f8           0x28          40   
-.text.APP_FW_StateBOOTt     0xaa20           0x28          40   
-.text.HW_GetALEventRegi     0xaa48           0x26          38   
-.text.NVMCTRL_StatusGet     0xaa70           0x24          36   
-.text.SYSTICK_TimerStar     0xaa94           0x24          36   
-.text.TCM_Configure         0xaab8           0x24          36   
-.text.PDI_Init_SYNC_Int     0xaadc           0x24          36   
-.text.COE_Init              0xab00           0x24          36   
-.text.StopOutputHandler     0xab24           0x24          36   
-.text.EMCY_IsQueueEmpty     0xab48           0x24          36   
-.text.FOE_Error             0xab6c           0x24          36   
-.text.APP_BankSwitch        0xab90           0x24          36   
-.text.NVMCTRL_Read          0xabb4           0x22          34   
-.text.EMCY_ContinueInd      0xabd6           0x22          34   
-.rodata.asEntryDesc0x10     0xabf8           0x20          32   
-.text.FOE_Busy              0xac18           0x20          32   
-.rodata.cBitMask            0xac38           0x20          32   
-.text._sbrk_r               0xac58           0x20          32   
-.text.HW_GetALEventRegi     0xac78           0x1e          30   
-.text.NVMCTRL_Initializ     0xac98           0x1c          28   
-.text.NVMCTRL_BankSwap      0xacb4           0x1c          28   
-.text.PORT_GroupSet         0xacd0           0x1c          28   
-.text.PORT_GroupClear       0xacec           0x1c          28   
-.text.PORT_GroupOutputE     0xad08           0x1c          28   
-.text.qspi_end_transfer     0xad24           0x1c          28   
-.text.CRITICAL_SECTION_     0xad40           0x1c          28   
-.text.CRITICAL_SECTION_     0xad5c           0x1c          28   
-.text.ECAT_SysTick_Hand     0xad78           0x1c          28   
-.rodata.aName0x1C12         0xad94           0x1c          28   
-.rodata.aName0x1C13         0xadb0           0x1c          28   
-.text.memcpy                0xadcc           0x1c          28   
-.text.OSC32KCTRL_Initia     0xade8           0x18          24   
-.text.PORT_GroupRead        0xae00           0x18          24   
-.text.PDI_Init_SYSTick_     0xae18           0x18          24   
-.text.PDI_IRQ_Interrupt     0xae30           0x18          24   
-.rodata.aName0x7010         0xae48           0x18          24   
-.text.COE_GetObjectDict     0xae60           0x18          24   
-.text.BackToInitTransit     0xae78           0x18          24   
-.text.OBJ_GetObjDesc        0xae90           0x18          24   
-.text.APP_FW_GetDownloa     0xaea8           0x18          24   
-.text.APP_Initialize        0xaec0           0x18          24   
-.text.BL_Start              0xaed8           0x16          22   
-.text.EMCY_GetEmcyBuffe     0xaeee           0x16          22   
-.text.APPL_AckErrorInd      0xaf04           0x16          22   
-.text.APPL_StartInputHa     0xaf1a           0x16          22   
-.text.ESC_Sync0_cb          0xaf30           0x14          20   
-.text.ESC_Sync1_cb          0xaf44           0x14          20   
-.rodata.aName0x6000         0xaf58           0x14          20   
-.rodata.aName0x1009         0xaf6c           0x14          20   
-.rodata.aName0x100A         0xaf80           0x14          20   
-.rodata.asEntryDesc0x10     0xaf94           0x14          20   
-.rodata.aName0x10F8         0xafa8           0x14          20   
-.rodata.aName0x1C00         0xafbc           0x14          20   
-.rodata.aName0x1001         0xafd0           0x10          16   
-.text.APPL_StartMailbox     0xafe0           0x10          16   
-.text.APPL_StopInputHan     0xaff0           0x10          16   
-.text.APPL_StartOutputH     0xb000           0x10          16   
-.text.APPL_StopOutputHa     0xb010           0x10          16   
-.text.main                  0xb020           0x10          16   
-.text.malloc                0xb030           0x10          16   
-.text.free                  0xb040           0x10          16   
-.text.memset                0xb050           0x10          16   
-.text                       0xb060           0x10          16  App's exec code 
-.text.DFLL_Initialize       0xb070            0xe          14   
-.text.EVSYS_Initialize      0xb07e            0xe          14   
-.text.BL_Stop               0xb08c            0xe          14   
-.text.APPL_StopMailboxH     0xb09a            0xe          14   
-.text.APPL_Application      0xb0a8            0xe          14   
-.text.SYS_Tasks             0xb0b6            0xc          12   
-.text.PDI_Timer_Interru     0xb0c2            0xc          12   
-.text.ESC_Init              0xb0ce            0xc          12   
-.rodata.asEntryDesc0x16     0xb0dc            0xc          12   
-.rodata.asEntryDesc0x1A     0xb0e8            0xc          12   
-.rodata.asEntryDesc0x1C     0xb0f4            0xc          12   
-.rodata.asEntryDesc0x1C     0xb100            0xc          12   
-.rodata.asEntryDesc0x60     0xb10c            0xc          12   
-.rodata.asEntryDesc0x70     0xb118            0xc          12   
-.rodata.aName0x1000         0xb124            0xc          12   
-.rodata.aName0x1008         0xb130            0xc          12   
-.rodata.asEntryDesc0x1C     0xb13c            0xc          12   
-.rodata.sEntryDesc0x100     0xb148            0x8           8   
-.rodata.sEntryDesc0x100     0xb150            0x8           8   
-.rodata.sEntryDesc0x100     0xb158            0x8           8   
-.rodata.sEntryDesc0x100     0xb160            0x8           8   
-.rodata.sEntryDesc0x100     0xb168            0x8           8   
-.rodata.sEntryDesc0x10F     0xb170            0x8           8   
-.rodata.acEmcyCoeHeader     0xb178            0x8           8   
-.text.NonMaskableInt_Ha     0xb180            0x6           6   
-.text.HardFault_Handler     0xb186            0x6           6   
-.text.DebugMonitor_Hand     0xb18c            0x6           6   
-.text.MemoryManagement_     0xb192            0x6           6   
-.text.BusFault_Handler      0xb198            0x6           6   
-.text.UsageFault_Handle     0xb19e            0x6           6   
-.rodata                     0xb1a4            0x4           4  Read-only const 
-      Total ROM used  :      0xb192       45458  4.3% of 0x100000
+.text.StartInputHandler      0x280          0x7e4        2020   
+.text.AL_ControlInd          0xa64          0x790        1936   
+.text.OBJ_Write             0x11f4          0x710        1808   
+.dinit                      0x1904          0x6a0        1696   
+.text.OBJ_Read              0x1fa4          0x67c        1660   
+.text.SDOS_SdoInd           0x2620          0x5e4        1508   
+.text.FOE_ServiceInd        0x2c04          0x488        1160   
+.text.SDOS_SdoInfoInd       0x308c          0x434        1076   
+.text.SdoDownloadSegmen     0x34c0          0x3b4         948   
+.text.CheckSmSettings       0x3874          0x3a0         928   
+.text.EEPROM_CommandHan     0x3c14          0x2c4         708   
+.text.AL_ControlRes         0x3ed8          0x2bc         700   
+.text.SdoUploadSegmentI     0x4194          0x260         608   
+.text.SendSmFailedEmerg     0x43f4          0x1e0         480   
+.text.SdoRes                0x45d4          0x1bc         444   
+.text.ECAT_Main             0x4790          0x1b4         436   
+.text.CheckSyncTypeValu     0x4944          0x1b4         436   
+.text.FoE_WriteData         0x4af8          0x18c         396   
+.text.OBJ_GetEntryOffse     0x4c84          0x178         376   
+.text.APPL_GenerateMapp     0x4dfc          0x174         372   
+.text.ECAT_Init             0x4f70          0x170         368   
+.text.SetALStatus           0x50e0          0x164         356   
+.text.MBX_CheckAndCopyM     0x5244          0x164         356   
+.text.COE_ObjInit           0x53a8          0x160         352   
+.text.Sync0_Isr             0x5508          0x15c         348   
+.text.MainInit              0x5664          0x15c         348   
+.text.MBX_StopMailboxHa     0x57c0          0x154         340   
+.text.APP_FlashEEPROMUp     0x5914          0x154         340   
+.text.PDI_Isr               0x5a68          0x14c         332   
+.text.StopInputHandler      0x5bb4          0x12c         300   
+.text.MBX_MailboxReadIn     0x5ce0          0x124         292   
+.text.OBJ_GetObjectLeng     0x5e04          0x124         292   
+.text.DC_CheckWatchdog      0x5f28          0x120         288   
+.text.OBJ_GetDesc           0x6048          0x120         288   
+.text.SDOS_SdoRes           0x6168          0x120         288   
+.text.MBX_StartMailboxH     0x6288          0x114         276   
+.text.MBX_CopyToSendMai     0x639c          0x10c         268   
+.rodata.aName0x1C32         0x64a8          0x100         256   
+.rodata.aName0x1C33         0x65a8          0x100         256   
+.text.MBX_Init              0x66a8          0x100         256   
+.text.ECAT_CheckTimer       0x67a8           0xfc         252   
+.text.OBJ_GetObjectList     0x68a4           0xf8         248   
+.text.MBX_MailboxWriteI     0x699c           0xf4         244   
+.text.LAN9253SQI_Read       0x6a90           0xec         236   
+.text.MainLoop              0x6b7c           0xec         236   
+.text.COE_AddObjectToDi     0x6c68           0xe8         232   
+.text.COE_Main              0x6d50           0xe8         232   
+.text.EIC_Initialize        0x6e38           0xe4         228   
+.text.HW_EscWriteIsr        0x6f1c           0xe4         228   
+.text.HW_EscReadIsr         0x7000           0xe2         226   
+.text.Dummy_Handler         0x70e2            0x2           2   
+.text.MBX_MailboxSendRe     0x70e4           0xdc         220   
+.text.SODS_ClearPending     0x71c0           0xcc         204   
+.text.HW_EscWrite           0x728c           0xca         202   
+.text.HW_EscRead            0x7356           0xc8         200   
+.text.__malloc_lock         0x741e            0x2           2   
+.rodata.asEntryDesc0x1C     0x7420           0xc8         200   
+.text.GetDummyBytesRequ     0x74e8           0xc6         198   
+.text.__malloc_unlock       0x75ae            0x2           2   
+.text.HW_EepromWrite        0x75b0           0xc4         196   
+.text.EscWrite              0x7674           0xc2         194   
+.text.EscRead               0x7736           0xc0         192   
+.text.LAN925x_Init          0x77f8           0xbc         188   
+.text.MBX_Main              0x78b4           0xb8         184   
+.text.FoE_Read              0x796c           0xb8         184   
+.text.qspi_setup_transf     0x7a24           0xb4         180   
+.text._malloc_r             0x7ad8           0xb4         180   
+.text.LAN9253SQI_Write      0x7b8c           0xb0         176   
+.text.PDO_OutputMapping     0x7c3c           0xb0         176   
+.text.QSPI_MemoryRead       0x7cec           0xac         172   
+.text.QSPI_MemoryWrite      0x7d98           0xa8         168   
+.text.COE_SyncTimeStamp     0x7e40           0xa8         168   
+.text.EMCY_Init             0x7ee8           0xa8         168   
+.text.PORT_Initialize       0x7f90           0xa4         164   
+.text.EMCY_SendEmergenc     0x8034           0xa4         164   
+.text.HW_EepromReload       0x80d8           0xa0         160   
+.text.FoE_Write             0x8178           0x9c         156   
+.text.APP_Tasks             0x8214           0x9c         156   
+.text._free_r               0x82b0           0x9c         156   
+.text.OBJ_CopyNumberToS     0x834c           0x98         152   
+.text.OBJ_GetNoOfObject     0x83e4           0x98         152   
+.text.RoundUpMultipleOf     0x847c           0x96         150   
+.text.PDO_InputMapping      0x8514           0x94         148   
+.text.QSPI_CommandWrite     0x85a8           0x88         136   
+.text.QSPI_RegisterWrit     0x8630           0x88         136   
+.text.ReBuild_SQI_SetCf     0x86b8           0x88         136   
+.text.__pic32c_data_ini     0x8740           0x88         136   
+.text.COE_RemoveDicEntr     0x87c8           0x80         128   
+.text.HandleCycleTimeMe     0x8848           0x7c         124   
+.text.MBX_MailboxRepeat     0x88c4           0x7c         124   
+.rodata.cAbortCode          0x8940           0x78         120   
+.text.APP_FlashWrite        0x89b8           0x78         120   
+.text.COE_ServiceInd        0x8a30           0x74         116   
+.text.StartOutputHandle     0x8aa4           0x74         116   
+.text.GetSystemTimeDela     0x8b18           0x70         112   
+.text.CalculateCRC8         0x8b88           0x6e         110   
+.text.FDPLL0_Initialize     0x8bf8           0x6c         108   
+.text.FOE_Data              0x8c64           0x6c         108   
+.text.CLOCK_Initialize      0x8cd0           0x68         104   
+.text.NVMCTRL_PageWrite     0x8d38           0x68         104   
+.text.COE_UpdateSyncErr     0x8da0           0x68         104   
+.text.MailboxServiceInd     0x8e08           0x68         104   
+.text.ECAT_CheckWatchdo     0x8e70           0x64         100   
+.text.BL_FOE_Applicatio     0x8ed4           0x64         100   
+.text.EIC_CallbackRegis     0x8f38           0x5c          92   
+.text.Reset_Handler         0x8f94           0x5c          92   
+.text.ESC_BYTE_TEST_Reg     0x8ff0           0x5c          92   
+.text.Read0x10F8            0x904c           0x5c          92   
+.text.COE_ContinueInd       0x90a8           0x5c          92   
+.text.GetOutOfEmptyEmcy     0x9104           0x5c          92   
+.text.GetOutOfSendEmcyQ     0x9160           0x5c          92   
+.text.FoE_ReadData          0x91bc           0x5c          92   
+.text.GetOutOfMbxQueue      0x9218           0x58          88   
+.text.OBJ_GetEntryDesc      0x9270           0x58          88   
+.text.NVIC_Initialize       0x92c8           0x56          86   
+.text.__NVIC_SetPriorit     0x9320           0x54          84   
+.text.PutInMbxQueue         0x9374           0x52          82   
+.text.ESF_PDI_Init          0x93c8           0x4c          76   
+.text.UpdateEEPROMLoade     0x9414           0x4c          76   
+.text.DisableSyncManCha     0x9460           0x4c          76   
+.text.CheckIfEcatError      0x94ac           0x4c          76   
+.text.EnableSyncManChan     0x94f8           0x4a          74   
+.text.__NVIC_SetPriorit     0x9544           0x48          72   
+.text.FOE_Read              0x958c           0x48          72   
+.text.__libc_init_array     0x95d4           0x48          72   
+.text.ResetALEventMask      0x961c           0x46          70   
+.text.SetALEventMask        0x9662           0x46          70   
+.text.GCLK0_Initialize      0x96a8           0x44          68   
+.text.FPU_Enable            0x96ec           0x44          68   
+.text.COE_ObjDictionary     0x9730           0x44          68   
+.text.Sync1_Isr             0x9774           0x44          68   
+.text.PutInEmptyEmcyQue     0x97b8           0x44          68   
+.text.PutInSendEmcyQueu     0x97fc           0x44          68   
+.text.PORT_PinRead          0x9840           0x44          68   
+.text.APP_FW_startDownl     0x9884           0x44          68   
+.text.AddObjectsToObjDi     0x98c8           0x42          66   
+.text                       0x990c           0x40          64  App's exec code 
+.text.SYSTICK_TimerInit     0x994c           0x40          64   
+.text.ICache_Enable         0x998c           0x40          64   
+.rodata.aName0x10F1         0x99cc           0x40          64   
+.text.COE_ClearObjDicti     0x9a0c           0x40          64   
+.text.__NVIC_EnableIRQ      0x9a4c           0x3c          60   
+.text.QSPI_Initialize       0x9a88           0x3c          60   
+.rodata.aName0x1018         0x9ac4           0x3c          60   
+.text.ECAT_Application      0x9b00           0x3c          60   
+.text.SQI_SetConfigurat     0x9b3c           0x3a          58   
+.text.APP_RunApplicatio     0x9b76           0x3a          58   
+.text.PORT_PinSet           0x9bb0           0x38          56   
+.text.PORT_PinClear         0x9be8           0x38          56   
+.text.PORT_PinOutputEna     0x9c20           0x38          56   
+.text.PORT_PinSet           0x9c58           0x38          56   
+.text.PORT_PinClear         0x9c90           0x38          56   
+.text.FOE_Write             0x9cc8           0x38          56   
+.text.FOE_Ack               0x9d00           0x38          56   
+.text.PORT_PinSet           0x9d38           0x38          56   
+.text.PORT_PinClear         0x9d70           0x38          56   
+.text.OBJ_GetObjectHand     0x9da8           0x36          54   
+.text.NVMCTRL_BlockEras     0x9de0           0x34          52   
+.text.qspi_memcpy_32bit     0x9e14           0x34          52   
+.text.qspi_memcpy_8bit      0x9e48           0x34          52   
+.text.SYS_Initialize        0x9e7c           0x34          52   
+.text.APPL_OutputMappin     0x9eb0           0x34          52   
+.text.FOE_ContinueInd       0x9ee4           0x30          48   
+.text.GetSyncMan            0x9f14           0x30          48   
+.text.GCLK1_Initialize      0x9f44           0x2c          44   
+.text.EIC_EXTINT_0_Inte     0x9f70           0x2c          44   
+.text.EIC_EXTINT_1_Inte     0x9f9c           0x2c          44   
+.text.EIC_EXTINT_7_Inte     0x9fc8           0x2c          44   
+.text.SysTick_Handler       0x9ff4           0x2c          44   
+.text.SQI_EnableQuadMod     0xa020           0x2c          44   
+.text.SQI_DisableQuadMo     0xa04c           0x2c          44   
+.rodata.aName0x1601         0xa078           0x2c          44   
+.rodata.aName0x1A00         0xa0a4           0x2c          44   
+.text.FOE_Init              0xa0d0           0x2c          44   
+.text.Emulation_Init        0xa0fc           0x2c          44   
+.text.APPL_InputMapping     0xa128           0x2c          44   
+.text._sbrk                 0xa154           0x2c          44   
+.text.OSCCTRL_Initializ     0xa180           0x28          40   
+.text.NVMCTRL_IsBusy        0xa1a8           0x28          40   
+.text.SYSTICK_TimerCall     0xa1d0           0x28          40   
+.text.ESC_IRQ_cb            0xa1f8           0x28          40   
+.text.APP_FW_StateBOOTt     0xa220           0x28          40   
+.text.HW_GetALEventRegi     0xa248           0x26          38   
+.text.NVMCTRL_StatusGet     0xa270           0x24          36   
+.text.SYSTICK_TimerStar     0xa294           0x24          36   
+.text.TCM_Configure         0xa2b8           0x24          36   
+.text.PDI_Init_SYNC_Int     0xa2dc           0x24          36   
+.text.COE_Init              0xa300           0x24          36   
+.text.StopOutputHandler     0xa324           0x24          36   
+.text.EMCY_IsQueueEmpty     0xa348           0x24          36   
+.text.FOE_Error             0xa36c           0x24          36   
+.text.APP_BankSwitch        0xa390           0x24          36   
+.text.NVMCTRL_Read          0xa3b4           0x22          34   
+.text.EMCY_ContinueInd      0xa3d6           0x22          34   
+.rodata.asEntryDesc0x10     0xa3f8           0x20          32   
+.text.FOE_Busy              0xa418           0x20          32   
+.rodata.cBitMask            0xa438           0x20          32   
+.text._sbrk_r               0xa458           0x20          32   
+.text.HW_GetALEventRegi     0xa478           0x1e          30   
+.text.NVMCTRL_Initializ     0xa498           0x1c          28   
+.text.NVMCTRL_BankSwap      0xa4b4           0x1c          28   
+.text.PORT_GroupSet         0xa4d0           0x1c          28   
+.text.PORT_GroupClear       0xa4ec           0x1c          28   
+.text.PORT_GroupOutputE     0xa508           0x1c          28   
+.text.qspi_end_transfer     0xa524           0x1c          28   
+.text.CRITICAL_SECTION_     0xa540           0x1c          28   
+.text.CRITICAL_SECTION_     0xa55c           0x1c          28   
+.text.ECAT_SysTick_Hand     0xa578           0x1c          28   
+.rodata.aName0x1C12         0xa594           0x1c          28   
+.rodata.aName0x1C13         0xa5b0           0x1c          28   
+.text.memcpy                0xa5cc           0x1c          28   
+.text.OSC32KCTRL_Initia     0xa5e8           0x18          24   
+.text.PORT_GroupRead        0xa600           0x18          24   
+.text.PDI_Init_SYSTick_     0xa618           0x18          24   
+.text.PDI_IRQ_Interrupt     0xa630           0x18          24   
+.rodata.aName0x7010         0xa648           0x18          24   
+.text.COE_GetObjectDict     0xa660           0x18          24   
+.text.BackToInitTransit     0xa678           0x18          24   
+.text.OBJ_GetObjDesc        0xa690           0x18          24   
+.text.APP_FW_GetDownloa     0xa6a8           0x18          24   
+.text.APP_Initialize        0xa6c0           0x18          24   
+.text.BL_Start              0xa6d8           0x16          22   
+.text.EMCY_GetEmcyBuffe     0xa6ee           0x16          22   
+.text.APPL_AckErrorInd      0xa704           0x16          22   
+.text.APPL_StartInputHa     0xa71a           0x16          22   
+.text.ESC_Sync0_cb          0xa730           0x14          20   
+.text.ESC_Sync1_cb          0xa744           0x14          20   
+.rodata.aName0x6000         0xa758           0x14          20   
+.rodata.aName0x1009         0xa76c           0x14          20   
+.rodata.aName0x100A         0xa780           0x14          20   
+.rodata.asEntryDesc0x10     0xa794           0x14          20   
+.rodata.aName0x10F8         0xa7a8           0x14          20   
+.rodata.aName0x1C00         0xa7bc           0x14          20   
+.rodata.aName0x1001         0xa7d0           0x10          16   
+.text.APPL_StartMailbox     0xa7e0           0x10          16   
+.text.APPL_StopInputHan     0xa7f0           0x10          16   
+.text.APPL_StartOutputH     0xa800           0x10          16   
+.text.APPL_StopOutputHa     0xa810           0x10          16   
+.text.main                  0xa820           0x10          16   
+.text.malloc                0xa830           0x10          16   
+.text.free                  0xa840           0x10          16   
+.text.memset                0xa850           0x10          16   
+.text                       0xa860           0x10          16  App's exec code 
+.text.DFLL_Initialize       0xa870            0xe          14   
+.text.EVSYS_Initialize      0xa87e            0xe          14   
+.text.BL_Stop               0xa88c            0xe          14   
+.text.APPL_StopMailboxH     0xa89a            0xe          14   
+.text.APPL_Application      0xa8a8            0xe          14   
+.text.SYS_Tasks             0xa8b6            0xc          12   
+.text.PDI_Timer_Interru     0xa8c2            0xc          12   
+.text.ESC_Init              0xa8ce            0xc          12   
+.rodata.asEntryDesc0x16     0xa8dc            0xc          12   
+.rodata.asEntryDesc0x1A     0xa8e8            0xc          12   
+.rodata.asEntryDesc0x1C     0xa8f4            0xc          12   
+.rodata.asEntryDesc0x1C     0xa900            0xc          12   
+.rodata.asEntryDesc0x60     0xa90c            0xc          12   
+.rodata.asEntryDesc0x70     0xa918            0xc          12   
+.rodata.aName0x1000         0xa924            0xc          12   
+.rodata.aName0x1008         0xa930            0xc          12   
+.rodata.asEntryDesc0x1C     0xa93c            0xc          12   
+.rodata.sEntryDesc0x100     0xa948            0x8           8   
+.rodata.sEntryDesc0x100     0xa950            0x8           8   
+.rodata.sEntryDesc0x100     0xa958            0x8           8   
+.rodata.sEntryDesc0x100     0xa960            0x8           8   
+.rodata.sEntryDesc0x100     0xa968            0x8           8   
+.rodata.sEntryDesc0x10F     0xa970            0x8           8   
+.rodata.acEmcyCoeHeader     0xa978            0x8           8   
+.text.NonMaskableInt_Ha     0xa980            0x6           6   
+.text.HardFault_Handler     0xa986            0x6           6   
+.text.DebugMonitor_Hand     0xa98c            0x6           6   
+.text.MemoryManagement_     0xa992            0x6           6   
+.text.BusFault_Handler      0xa998            0x6           6   
+.text.UsageFault_Handle     0xa99e            0x6           6   
+.rodata                     0xa9a4            0x4           4  Read-only const 
+.config_eeprom             0x3e000          0x800        2048   
+      Total ROM used  :      0xb192       45458  4.4% of 0xfe000
         --------------------------------------------------------------------------
-         Total Program Memory used  :      0xb192       45458  4.3% of 0x100000
+         Total Program Memory used  :      0xb192       45458  4.4% of 0xfe000
         --------------------------------------------------------------------------
 
 
@@ -949,8 +949,9 @@ Discarded input sections
 Memory Configuration
 
 Name             Origin             Length             Attributes
-rom              0x00000000         0x00100000         xrl
+rom              0x00000000         0x000fe000         xrl
 ram              0x20000000         0x00040000         xw !r
+config_eeprom_mem 0x0003e000         0x00002000         xrl
 tcm              0x03000000         0x00000000         xw
 config_D0800080  0xd0800080         0x00000004
 config_D0800100  0xd0800100         0x00000004
@@ -1003,20 +1004,17 @@ LOAD build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/main.o
 LOAD build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
 LOAD build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/Developer_Test.o
                 0x00000001                __MPLAB_BUILD = 0x1
-                0x00000200                _min_heap_size = 0x200
-START GROUP
-LOAD c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a
-LOAD c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard\libgcc.a
-LOAD c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libm_nano.a
-LOAD c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a
-END GROUP
-LOAD c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtend.o
-LOAD c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtn.o
-                0x00100000                __rom_end = (ORIGIN (rom) + LENGTH (rom))
+                0x000fe000                __rom_end = (ORIGIN (rom) + LENGTH (rom))
                 0x20040000                __ram_end = (ORIGIN (ram) + LENGTH (ram))
 
 .config_D0800080
  *(.config_D0800080)
+
+.config_eeprom  0x0003e000      0x800
+ *(.config_eeprom)
+ .config_eeprom
+                0x0003e000      0x800 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
+                0x0003e000                aEepromData
 
 .config_D0800100
  *(.config_D0800100)
@@ -1263,6 +1261,15 @@ LOAD c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/th
                 0x200023e0                . = ALIGN (0x4)
                 0x200023e0                _end = .
                 0x2003ffff                _ram_end_ = ((ORIGIN (ram) + LENGTH (ram)) - 0x1)
+                0x00000200                _min_heap_size = 0x200
+START GROUP
+LOAD c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a
+LOAD c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard\libgcc.a
+LOAD c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libm_nano.a
+LOAD c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a
+END GROUP
+LOAD c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtend.o
+LOAD c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtn.o
 OUTPUT(dist/LAN9255_SQI_DIRECT_MODE/production/EVB_LAN9255_IO_FoE.X.production.elf elf32-littlearm)
 LOAD stack
 LOAD data_init
@@ -1943,1715 +1950,1709 @@ LOAD data_init
 .eh_frame%z1    0x00000000        0x0
  .eh_frame      0x00000000        0x0 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.config_eeprom%41
-                0x00000280      0x800
- .config_eeprom
-                0x00000280      0x800 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
-                0x00000280                aEepromData
-
-.text.StartInputHandler%42
-                0x00000a80      0x7e4
+.text.StartInputHandler%41
+                0x00000280      0x7e4
  .text.StartInputHandler
-                0x00000a80      0x7e4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x00000a80                StartInputHandler
+                0x00000280      0x7e4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x00000280                StartInputHandler
 
-.text.AL_ControlInd%43
-                0x00001264      0x790
+.text.AL_ControlInd%42
+                0x00000a64      0x790
  .text.AL_ControlInd
-                0x00001264      0x790 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x00001264                AL_ControlInd
+                0x00000a64      0x790 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x00000a64                AL_ControlInd
 
-.text.OBJ_Write%44
-                0x000019f4      0x710
+.text.OBJ_Write%43
+                0x000011f4      0x710
  .text.OBJ_Write
-                0x000019f4      0x710 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
-                0x000019f4                OBJ_Write
+                0x000011f4      0x710 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
+                0x000011f4                OBJ_Write
 
-.dinit%45       0x00002104      0x6a0
- .dinit         0x00002104      0x6a0 data_init
+.dinit%44       0x00001904      0x6a0
+ .dinit         0x00001904      0x6a0 data_init
 
-.text.OBJ_Read%46
-                0x000027a4      0x67c
+.text.OBJ_Read%45
+                0x00001fa4      0x67c
  .text.OBJ_Read
-                0x000027a4      0x67c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
-                0x000027a4                OBJ_Read
+                0x00001fa4      0x67c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
+                0x00001fa4                OBJ_Read
 
-.text.SDOS_SdoInd%47
-                0x00002e20      0x5e4
+.text.SDOS_SdoInd%46
+                0x00002620      0x5e4
  .text.SDOS_SdoInd
-                0x00002e20      0x5e4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
-                0x00002e20                SDOS_SdoInd
+                0x00002620      0x5e4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
+                0x00002620                SDOS_SdoInd
 
-.text.FOE_ServiceInd%48
-                0x00003404      0x488
+.text.FOE_ServiceInd%47
+                0x00002c04      0x488
  .text.FOE_ServiceInd
-                0x00003404      0x488 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatfoe.o
-                0x00003404                FOE_ServiceInd
+                0x00002c04      0x488 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatfoe.o
+                0x00002c04                FOE_ServiceInd
 
-.text.SDOS_SdoInfoInd%49
-                0x0000388c      0x434
+.text.SDOS_SdoInfoInd%48
+                0x0000308c      0x434
  .text.SDOS_SdoInfoInd
-                0x0000388c      0x434 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
-                0x0000388c                SDOS_SdoInfoInd
+                0x0000308c      0x434 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
+                0x0000308c                SDOS_SdoInfoInd
 
-.text.SdoDownloadSegmentInd%50
-                0x00003cc0      0x3b4
+.text.SdoDownloadSegmentInd%49
+                0x000034c0      0x3b4
  .text.SdoDownloadSegmentInd
-                0x00003cc0      0x3b4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
+                0x000034c0      0x3b4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
 
-.text.CheckSmSettings%51
-                0x00004074      0x3a0
+.text.CheckSmSettings%50
+                0x00003874      0x3a0
  .text.CheckSmSettings
-                0x00004074      0x3a0 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x00004074                CheckSmSettings
+                0x00003874      0x3a0 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x00003874                CheckSmSettings
 
-.text.EEPROM_CommandHandler%52
-                0x00004414      0x2c4
+.text.EEPROM_CommandHandler%51
+                0x00003c14      0x2c4
  .text.EEPROM_CommandHandler
-                0x00004414      0x2c4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
-                0x00004414                EEPROM_CommandHandler
+                0x00003c14      0x2c4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
+                0x00003c14                EEPROM_CommandHandler
 
-.text.AL_ControlRes%53
-                0x000046d8      0x2bc
+.text.AL_ControlRes%52
+                0x00003ed8      0x2bc
  .text.AL_ControlRes
-                0x000046d8      0x2bc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x000046d8                AL_ControlRes
+                0x00003ed8      0x2bc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x00003ed8                AL_ControlRes
 
-.text.SdoUploadSegmentInd%54
-                0x00004994      0x260
+.text.SdoUploadSegmentInd%53
+                0x00004194      0x260
  .text.SdoUploadSegmentInd
-                0x00004994      0x260 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
+                0x00004194      0x260 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
 
-.text.SendSmFailedEmergency%55
-                0x00004bf4      0x1e0
+.text.SendSmFailedEmergency%54
+                0x000043f4      0x1e0
  .text.SendSmFailedEmergency
-                0x00004bf4      0x1e0 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x00004bf4                SendSmFailedEmergency
+                0x000043f4      0x1e0 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x000043f4                SendSmFailedEmergency
 
-.text.SdoRes%56
-                0x00004dd4      0x1bc
- .text.SdoRes   0x00004dd4      0x1bc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
-                0x00004dd4                SdoRes
+.text.SdoRes%55
+                0x000045d4      0x1bc
+ .text.SdoRes   0x000045d4      0x1bc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
+                0x000045d4                SdoRes
 
-.text.ECAT_Main%57
-                0x00004f90      0x1b4
+.text.ECAT_Main%56
+                0x00004790      0x1b4
  .text.ECAT_Main
-                0x00004f90      0x1b4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x00004f90                ECAT_Main
+                0x00004790      0x1b4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x00004790                ECAT_Main
 
-.text.CheckSyncTypeValue%58
-                0x00005144      0x1b4
+.text.CheckSyncTypeValue%57
+                0x00004944      0x1b4
  .text.CheckSyncTypeValue
-                0x00005144      0x1b4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
-                0x00005144                CheckSyncTypeValue
+                0x00004944      0x1b4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
+                0x00004944                CheckSyncTypeValue
 
-.text.FoE_WriteData%59
-                0x000052f8      0x18c
+.text.FoE_WriteData%58
+                0x00004af8      0x18c
  .text.FoE_WriteData
-                0x000052f8      0x18c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x000052f8                FoE_WriteData
+                0x00004af8      0x18c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x00004af8                FoE_WriteData
 
-.text.OBJ_GetEntryOffset%60
-                0x00005484      0x178
+.text.OBJ_GetEntryOffset%59
+                0x00004c84      0x178
  .text.OBJ_GetEntryOffset
-                0x00005484      0x178 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
-                0x00005484                OBJ_GetEntryOffset
+                0x00004c84      0x178 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
+                0x00004c84                OBJ_GetEntryOffset
 
-.text.APPL_GenerateMapping%61
-                0x000055fc      0x174
+.text.APPL_GenerateMapping%60
+                0x00004dfc      0x174
  .text.APPL_GenerateMapping
-                0x000055fc      0x174 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x000055fc                APPL_GenerateMapping
+                0x00004dfc      0x174 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x00004dfc                APPL_GenerateMapping
 
-.text.ECAT_Init%62
-                0x00005770      0x170
+.text.ECAT_Init%61
+                0x00004f70      0x170
  .text.ECAT_Init
-                0x00005770      0x170 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x00005770                ECAT_Init
+                0x00004f70      0x170 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x00004f70                ECAT_Init
 
-.text.SetALStatus%63
-                0x000058e0      0x164
+.text.SetALStatus%62
+                0x000050e0      0x164
  .text.SetALStatus
-                0x000058e0      0x164 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x000058e0                SetALStatus
+                0x000050e0      0x164 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x000050e0                SetALStatus
 
-.text.MBX_CheckAndCopyMailbox%64
-                0x00005a44      0x164
+.text.MBX_CheckAndCopyMailbox%63
+                0x00005244      0x164
  .text.MBX_CheckAndCopyMailbox
-                0x00005a44      0x164 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
-                0x00005a44                MBX_CheckAndCopyMailbox
+                0x00005244      0x164 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
+                0x00005244                MBX_CheckAndCopyMailbox
 
-.text.COE_ObjInit%65
-                0x00005ba8      0x160
+.text.COE_ObjInit%64
+                0x000053a8      0x160
  .text.COE_ObjInit
-                0x00005ba8      0x160 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x00005ba8                COE_ObjInit
+                0x000053a8      0x160 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x000053a8                COE_ObjInit
 
-.text.Sync0_Isr%66
-                0x00005d08      0x15c
+.text.Sync0_Isr%65
+                0x00005508      0x15c
  .text.Sync0_Isr
-                0x00005d08      0x15c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
-                0x00005d08                Sync0_Isr
+                0x00005508      0x15c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
+                0x00005508                Sync0_Isr
 
-.text.MainInit%67
-                0x00005e64      0x15c
+.text.MainInit%66
+                0x00005664      0x15c
  .text.MainInit
-                0x00005e64      0x15c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
-                0x00005e64                MainInit
+                0x00005664      0x15c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
+                0x00005664                MainInit
 
-.text.MBX_StopMailboxHandler%68
-                0x00005fc0      0x154
+.text.MBX_StopMailboxHandler%67
+                0x000057c0      0x154
  .text.MBX_StopMailboxHandler
-                0x00005fc0      0x154 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
-                0x00005fc0                MBX_StopMailboxHandler
+                0x000057c0      0x154 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
+                0x000057c0                MBX_StopMailboxHandler
 
-.text.APP_FlashEEPROMUpdate%69
-                0x00006114      0x154
+.text.APP_FlashEEPROMUpdate%68
+                0x00005914      0x154
  .text.APP_FlashEEPROMUpdate
-                0x00006114      0x154 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
-                0x00006114                APP_FlashEEPROMUpdate
+                0x00005914      0x154 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
+                0x00005914                APP_FlashEEPROMUpdate
 
-.text.PDI_Isr%70
-                0x00006268      0x14c
- .text.PDI_Isr  0x00006268      0x14c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
-                0x00006268                PDI_Isr
+.text.PDI_Isr%69
+                0x00005a68      0x14c
+ .text.PDI_Isr  0x00005a68      0x14c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
+                0x00005a68                PDI_Isr
 
-.text.StopInputHandler%71
-                0x000063b4      0x12c
+.text.StopInputHandler%70
+                0x00005bb4      0x12c
  .text.StopInputHandler
-                0x000063b4      0x12c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x000063b4                StopInputHandler
+                0x00005bb4      0x12c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x00005bb4                StopInputHandler
 
-.text.MBX_MailboxReadInd%72
-                0x000064e0      0x124
+.text.MBX_MailboxReadInd%71
+                0x00005ce0      0x124
  .text.MBX_MailboxReadInd
-                0x000064e0      0x124 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
-                0x000064e0                MBX_MailboxReadInd
+                0x00005ce0      0x124 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
+                0x00005ce0                MBX_MailboxReadInd
 
-.text.OBJ_GetObjectLength%73
-                0x00006604      0x124
+.text.OBJ_GetObjectLength%72
+                0x00005e04      0x124
  .text.OBJ_GetObjectLength
-                0x00006604      0x124 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
-                0x00006604                OBJ_GetObjectLength
+                0x00005e04      0x124 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
+                0x00005e04                OBJ_GetObjectLength
 
-.text.DC_CheckWatchdog%74
-                0x00006728      0x120
+.text.DC_CheckWatchdog%73
+                0x00005f28      0x120
  .text.DC_CheckWatchdog
-                0x00006728      0x120 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x00006728                DC_CheckWatchdog
+                0x00005f28      0x120 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x00005f28                DC_CheckWatchdog
 
-.text.OBJ_GetDesc%75
-                0x00006848      0x120
+.text.OBJ_GetDesc%74
+                0x00006048      0x120
  .text.OBJ_GetDesc
-                0x00006848      0x120 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
-                0x00006848                OBJ_GetDesc
+                0x00006048      0x120 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
+                0x00006048                OBJ_GetDesc
 
-.text.SDOS_SdoRes%76
-                0x00006968      0x120
+.text.SDOS_SdoRes%75
+                0x00006168      0x120
  .text.SDOS_SdoRes
-                0x00006968      0x120 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
-                0x00006968                SDOS_SdoRes
+                0x00006168      0x120 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
+                0x00006168                SDOS_SdoRes
 
-.text.MBX_StartMailboxHandler%77
-                0x00006a88      0x114
+.text.MBX_StartMailboxHandler%76
+                0x00006288      0x114
  .text.MBX_StartMailboxHandler
-                0x00006a88      0x114 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
-                0x00006a88                MBX_StartMailboxHandler
+                0x00006288      0x114 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
+                0x00006288                MBX_StartMailboxHandler
 
-.text.MBX_CopyToSendMailbox%78
-                0x00006b9c      0x10c
+.text.MBX_CopyToSendMailbox%77
+                0x0000639c      0x10c
  .text.MBX_CopyToSendMailbox
-                0x00006b9c      0x10c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
-                0x00006b9c                MBX_CopyToSendMailbox
+                0x0000639c      0x10c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
+                0x0000639c                MBX_CopyToSendMailbox
 
-.rodata.aName0x1C32%79
-                0x00006ca8      0x100
+.rodata.aName0x1C32%78
+                0x000064a8      0x100
  .rodata.aName0x1C32
-                0x00006ca8      0x100 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x00006ca8                aName0x1C32
+                0x000064a8      0x100 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x000064a8                aName0x1C32
 
-.rodata.aName0x1C33%80
-                0x00006da8      0x100
+.rodata.aName0x1C33%79
+                0x000065a8      0x100
  .rodata.aName0x1C33
-                0x00006da8      0x100 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x00006da8                aName0x1C33
+                0x000065a8      0x100 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x000065a8                aName0x1C33
 
-.text.MBX_Init%81
-                0x00006ea8      0x100
+.text.MBX_Init%80
+                0x000066a8      0x100
  .text.MBX_Init
-                0x00006ea8      0x100 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
-                0x00006ea8                MBX_Init
+                0x000066a8      0x100 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
+                0x000066a8                MBX_Init
 
-.text.ECAT_CheckTimer%82
-                0x00006fa8       0xfc
+.text.ECAT_CheckTimer%81
+                0x000067a8       0xfc
  .text.ECAT_CheckTimer
-                0x00006fa8       0xfc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
-                0x00006fa8                ECAT_CheckTimer
+                0x000067a8       0xfc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
+                0x000067a8                ECAT_CheckTimer
 
-.text.OBJ_GetObjectList%83
-                0x000070a4       0xf8
+.text.OBJ_GetObjectList%82
+                0x000068a4       0xf8
  .text.OBJ_GetObjectList
-                0x000070a4       0xf8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
-                0x000070a4                OBJ_GetObjectList
+                0x000068a4       0xf8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
+                0x000068a4                OBJ_GetObjectList
 
-.text.MBX_MailboxWriteInd%84
-                0x0000719c       0xf4
+.text.MBX_MailboxWriteInd%83
+                0x0000699c       0xf4
  .text.MBX_MailboxWriteInd
-                0x0000719c       0xf4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
-                0x0000719c                MBX_MailboxWriteInd
+                0x0000699c       0xf4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
+                0x0000699c                MBX_MailboxWriteInd
 
-.text.LAN9253SQI_Read%85
-                0x00007290       0xec
+.text.LAN9253SQI_Read%84
+                0x00006a90       0xec
  .text.LAN9253SQI_Read
-                0x00007290       0xec build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
-                0x00007290                LAN9253SQI_Read
+                0x00006a90       0xec build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x00006a90                LAN9253SQI_Read
 
-.text.MainLoop%86
-                0x0000737c       0xec
+.text.MainLoop%85
+                0x00006b7c       0xec
  .text.MainLoop
-                0x0000737c       0xec build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
-                0x0000737c                MainLoop
+                0x00006b7c       0xec build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
+                0x00006b7c                MainLoop
 
-.text.COE_AddObjectToDic%87
-                0x00007468       0xe8
+.text.COE_AddObjectToDic%86
+                0x00006c68       0xe8
  .text.COE_AddObjectToDic
-                0x00007468       0xe8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x00007468                COE_AddObjectToDic
+                0x00006c68       0xe8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x00006c68                COE_AddObjectToDic
 
-.text.COE_Main%88
-                0x00007550       0xe8
+.text.COE_Main%87
+                0x00006d50       0xe8
  .text.COE_Main
-                0x00007550       0xe8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x00007550                COE_Main
+                0x00006d50       0xe8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x00006d50                COE_Main
 
-.text.EIC_Initialize%89
-                0x00007638       0xe4
+.text.EIC_Initialize%88
+                0x00006e38       0xe4
  .text.EIC_Initialize
-                0x00007638       0xe4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/60167341/plib_eic.o
-                0x00007638                EIC_Initialize
+                0x00006e38       0xe4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/60167341/plib_eic.o
+                0x00006e38                EIC_Initialize
 
-.text.HW_EscWriteIsr%90
-                0x0000771c       0xe4
+.text.HW_EscWriteIsr%89
+                0x00006f1c       0xe4
  .text.HW_EscWriteIsr
-                0x0000771c       0xe4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
-                0x0000771c                HW_EscWriteIsr
+                0x00006f1c       0xe4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
+                0x00006f1c                HW_EscWriteIsr
 
-.text.HW_EscReadIsr%91
-                0x00007800       0xe2
+.text.HW_EscReadIsr%90
+                0x00007000       0xe2
  .text.HW_EscReadIsr
-                0x00007800       0xe2 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
-                0x00007800                HW_EscReadIsr
+                0x00007000       0xe2 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
+                0x00007000                HW_EscReadIsr
 
-.text.MBX_MailboxSendReq%92
-                0x000078e4       0xdc
+.text.MBX_MailboxSendReq%91
+                0x000070e4       0xdc
  .text.MBX_MailboxSendReq
-                0x000078e4       0xdc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
-                0x000078e4                MBX_MailboxSendReq
+                0x000070e4       0xdc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
+                0x000070e4                MBX_MailboxSendReq
 
-.text.SODS_ClearPendingResponse%93
-                0x000079c0       0xcc
+.text.SODS_ClearPendingResponse%92
+                0x000071c0       0xcc
  .text.SODS_ClearPendingResponse
-                0x000079c0       0xcc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
-                0x000079c0                SODS_ClearPendingResponse
+                0x000071c0       0xcc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
+                0x000071c0                SODS_ClearPendingResponse
 
-.text.HW_EscWrite%94
-                0x00007a8c       0xca
+.text.HW_EscWrite%93
+                0x0000728c       0xca
  .text.HW_EscWrite
-                0x00007a8c       0xca build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
-                0x00007a8c                HW_EscWrite
+                0x0000728c       0xca build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
+                0x0000728c                HW_EscWrite
 
-.text.HW_EscRead%95
-                0x00007b56       0xc8
+.text.HW_EscRead%94
+                0x00007356       0xc8
  .text.HW_EscRead
-                0x00007b56       0xc8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
-                0x00007b56                HW_EscRead
+                0x00007356       0xc8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
+                0x00007356                HW_EscRead
 
-.rodata.asEntryDesc0x1C3x%96
-                0x00007c20       0xc8
+.rodata.asEntryDesc0x1C3x%95
+                0x00007420       0xc8
  .rodata.asEntryDesc0x1C3x
-                0x00007c20       0xc8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x00007c20                asEntryDesc0x1C3x
+                0x00007420       0xc8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x00007420                asEntryDesc0x1C3x
 
-.text.GetDummyBytesRequired%97
-                0x00007ce8       0xc6
+.text.GetDummyBytesRequired%96
+                0x000074e8       0xc6
  .text.GetDummyBytesRequired
-                0x00007ce8       0xc6 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/ESC_Utils.o
-                0x00007ce8                GetDummyBytesRequired
+                0x000074e8       0xc6 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/ESC_Utils.o
+                0x000074e8                GetDummyBytesRequired
 
-.text.HW_EepromWrite%98
-                0x00007db0       0xc4
+.text.HW_EepromWrite%97
+                0x000075b0       0xc4
  .text.HW_EepromWrite
-                0x00007db0       0xc4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x00007db0                HW_EepromWrite
+                0x000075b0       0xc4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x000075b0                HW_EepromWrite
 
-.text.EscWrite%99
-                0x00007e74       0xc2
+.text.EscWrite%98
+                0x00007674       0xc2
  .text.EscWrite
-                0x00007e74       0xc2 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
-                0x00007e74                EscWrite
+                0x00007674       0xc2 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
+                0x00007674                EscWrite
 
-.text.EscRead%100
-                0x00007f36       0xc0
- .text.EscRead  0x00007f36       0xc0 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
-                0x00007f36                EscRead
+.text.EscRead%99
+                0x00007736       0xc0
+ .text.EscRead  0x00007736       0xc0 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
+                0x00007736                EscRead
 
-.text.LAN925x_Init%101
-                0x00007ff8       0xbc
+.text.LAN925x_Init%100
+                0x000077f8       0xbc
  .text.LAN925x_Init
-                0x00007ff8       0xbc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
-                0x00007ff8                LAN925x_Init
+                0x000077f8       0xbc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
+                0x000077f8                LAN925x_Init
 
-.text.MBX_Main%102
-                0x000080b4       0xb8
+.text.MBX_Main%101
+                0x000078b4       0xb8
  .text.MBX_Main
-                0x000080b4       0xb8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
-                0x000080b4                MBX_Main
+                0x000078b4       0xb8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
+                0x000078b4                MBX_Main
 
-.text.FoE_Read%103
-                0x0000816c       0xb8
+.text.FoE_Read%102
+                0x0000796c       0xb8
  .text.FoE_Read
-                0x0000816c       0xb8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x0000816c                FoE_Read
+                0x0000796c       0xb8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x0000796c                FoE_Read
 
-.text.qspi_setup_transfer%104
-                0x00008224       0xb4
+.text.qspi_setup_transfer%103
+                0x00007a24       0xb4
  .text.qspi_setup_transfer
-                0x00008224       0xb4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
+                0x00007a24       0xb4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
 
-.text._malloc_r%105
-                0x000082d8       0xb4
+.text._malloc_r%104
+                0x00007ad8       0xb4
  .text._malloc_r
-                0x000082d8       0xb4 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-mallocr.o)
-                0x000082d8                _malloc_r
+                0x00007ad8       0xb4 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-mallocr.o)
+                0x00007ad8                _malloc_r
 
-.text.LAN9253SQI_Write%106
-                0x0000838c       0xb0
+.text.LAN9253SQI_Write%105
+                0x00007b8c       0xb0
  .text.LAN9253SQI_Write
-                0x0000838c       0xb0 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
-                0x0000838c                LAN9253SQI_Write
+                0x00007b8c       0xb0 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x00007b8c                LAN9253SQI_Write
 
-.text.PDO_OutputMapping%107
-                0x0000843c       0xb0
+.text.PDO_OutputMapping%106
+                0x00007c3c       0xb0
  .text.PDO_OutputMapping
-                0x0000843c       0xb0 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
-                0x0000843c                PDO_OutputMapping
+                0x00007c3c       0xb0 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
+                0x00007c3c                PDO_OutputMapping
 
-.text.QSPI_MemoryRead%108
-                0x000084ec       0xac
+.text.QSPI_MemoryRead%107
+                0x00007cec       0xac
  .text.QSPI_MemoryRead
-                0x000084ec       0xac build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
-                0x000084ec                QSPI_MemoryRead
+                0x00007cec       0xac build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
+                0x00007cec                QSPI_MemoryRead
 
-.text.QSPI_MemoryWrite%109
-                0x00008598       0xa8
+.text.QSPI_MemoryWrite%108
+                0x00007d98       0xa8
  .text.QSPI_MemoryWrite
-                0x00008598       0xa8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
-                0x00008598                QSPI_MemoryWrite
+                0x00007d98       0xa8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
+                0x00007d98                QSPI_MemoryWrite
 
-.text.COE_SyncTimeStamp%110
-                0x00008640       0xa8
+.text.COE_SyncTimeStamp%109
+                0x00007e40       0xa8
  .text.COE_SyncTimeStamp
-                0x00008640       0xa8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x00008640                COE_SyncTimeStamp
+                0x00007e40       0xa8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x00007e40                COE_SyncTimeStamp
 
-.text.EMCY_Init%111
-                0x000086e8       0xa8
+.text.EMCY_Init%110
+                0x00007ee8       0xa8
  .text.EMCY_Init
-                0x000086e8       0xa8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
-                0x000086e8                EMCY_Init
+                0x00007ee8       0xa8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
+                0x00007ee8                EMCY_Init
 
-.text.PORT_Initialize%112
-                0x00008790       0xa4
+.text.PORT_Initialize%111
+                0x00007f90       0xa4
  .text.PORT_Initialize
-                0x00008790       0xa4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865521619/plib_port.o
-                0x00008790                PORT_Initialize
+                0x00007f90       0xa4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865521619/plib_port.o
+                0x00007f90                PORT_Initialize
 
-.text.EMCY_SendEmergency%113
-                0x00008834       0xa4
+.text.EMCY_SendEmergency%112
+                0x00008034       0xa4
  .text.EMCY_SendEmergency
-                0x00008834       0xa4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
-                0x00008834                EMCY_SendEmergency
+                0x00008034       0xa4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
+                0x00008034                EMCY_SendEmergency
 
-.text.HW_EepromReload%114
-                0x000088d8       0xa0
+.text.HW_EepromReload%113
+                0x000080d8       0xa0
  .text.HW_EepromReload
-                0x000088d8       0xa0 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x000088d8                HW_EepromReload
+                0x000080d8       0xa0 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x000080d8                HW_EepromReload
 
-.text.FoE_Write%115
-                0x00008978       0x9c
+.text.FoE_Write%114
+                0x00008178       0x9c
  .text.FoE_Write
-                0x00008978       0x9c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x00008978                FoE_Write
+                0x00008178       0x9c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x00008178                FoE_Write
 
-.text.APP_Tasks%116
-                0x00008a14       0x9c
+.text.APP_Tasks%115
+                0x00008214       0x9c
  .text.APP_Tasks
-                0x00008a14       0x9c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
-                0x00008a14                APP_Tasks
+                0x00008214       0x9c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
+                0x00008214                APP_Tasks
 
-.text._free_r%117
-                0x00008ab0       0x9c
- .text._free_r  0x00008ab0       0x9c c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-freer.o)
-                0x00008ab0                _free_r
+.text._free_r%116
+                0x000082b0       0x9c
+ .text._free_r  0x000082b0       0x9c c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-nano-freer.o)
+                0x000082b0                _free_r
 
-.text.OBJ_CopyNumberToString%118
-                0x00008b4c       0x98
+.text.OBJ_CopyNumberToString%117
+                0x0000834c       0x98
  .text.OBJ_CopyNumberToString
-                0x00008b4c       0x98 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
-                0x00008b4c                OBJ_CopyNumberToString
+                0x0000834c       0x98 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
+                0x0000834c                OBJ_CopyNumberToString
 
-.text.OBJ_GetNoOfObjects%119
-                0x00008be4       0x98
+.text.OBJ_GetNoOfObjects%118
+                0x000083e4       0x98
  .text.OBJ_GetNoOfObjects
-                0x00008be4       0x98 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
-                0x00008be4                OBJ_GetNoOfObjects
+                0x000083e4       0x98 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
+                0x000083e4                OBJ_GetNoOfObjects
 
-.text.RoundUpMultipleOf%120
-                0x00008c7c       0x96
+.text.RoundUpMultipleOf%119
+                0x0000847c       0x96
  .text.RoundUpMultipleOf
-                0x00008c7c       0x96 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/ESC_Utils.o
+                0x0000847c       0x96 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/ESC_Utils.o
 
-.text.PDO_InputMapping%121
-                0x00008d14       0x94
+.text.PDO_InputMapping%120
+                0x00008514       0x94
  .text.PDO_InputMapping
-                0x00008d14       0x94 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
-                0x00008d14                PDO_InputMapping
+                0x00008514       0x94 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
+                0x00008514                PDO_InputMapping
 
-.text.QSPI_CommandWrite%122
-                0x00008da8       0x88
+.text.QSPI_CommandWrite%121
+                0x000085a8       0x88
  .text.QSPI_CommandWrite
-                0x00008da8       0x88 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
-                0x00008da8                QSPI_CommandWrite
+                0x000085a8       0x88 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
+                0x000085a8                QSPI_CommandWrite
 
-.text.QSPI_RegisterWrite%123
-                0x00008e30       0x88
+.text.QSPI_RegisterWrite%122
+                0x00008630       0x88
  .text.QSPI_RegisterWrite
-                0x00008e30       0x88 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
-                0x00008e30                QSPI_RegisterWrite
+                0x00008630       0x88 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
+                0x00008630                QSPI_RegisterWrite
 
-.text.ReBuild_SQI_SetCfg_data%124
-                0x00008eb8       0x88
+.text.ReBuild_SQI_SetCfg_data%123
+                0x000086b8       0x88
  .text.ReBuild_SQI_SetCfg_data
-                0x00008eb8       0x88 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
-                0x00008eb8                ReBuild_SQI_SetCfg_data
+                0x000086b8       0x88 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x000086b8                ReBuild_SQI_SetCfg_data
 
-.text.__pic32c_data_initialization%125
-                0x00008f40       0x88
+.text.__pic32c_data_initialization%124
+                0x00008740       0x88
  .text.__pic32c_data_initialization
-                0x00008f40       0x88 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
-                0x00008f40                __pic32c_data_initialization
+                0x00008740       0x88 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(data_init.o)
+                0x00008740                __pic32c_data_initialization
 
-.text.COE_RemoveDicEntry%126
-                0x00008fc8       0x80
+.text.COE_RemoveDicEntry%125
+                0x000087c8       0x80
  .text.COE_RemoveDicEntry
-                0x00008fc8       0x80 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x00008fc8                COE_RemoveDicEntry
+                0x000087c8       0x80 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x000087c8                COE_RemoveDicEntry
 
-.text.HandleCycleTimeMeasurement%127
-                0x00009048       0x7c
+.text.HandleCycleTimeMeasurement%126
+                0x00008848       0x7c
  .text.HandleCycleTimeMeasurement
-                0x00009048       0x7c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
-                0x00009048                HandleCycleTimeMeasurement
+                0x00008848       0x7c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
+                0x00008848                HandleCycleTimeMeasurement
 
-.text.MBX_MailboxRepeatReq%128
-                0x000090c4       0x7c
+.text.MBX_MailboxRepeatReq%127
+                0x000088c4       0x7c
  .text.MBX_MailboxRepeatReq
-                0x000090c4       0x7c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
-                0x000090c4                MBX_MailboxRepeatReq
+                0x000088c4       0x7c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
+                0x000088c4                MBX_MailboxRepeatReq
 
-.rodata.cAbortCode%129
-                0x00009140       0x78
+.rodata.cAbortCode%128
+                0x00008940       0x78
  .rodata.cAbortCode
-                0x00009140       0x78 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
-                0x00009140                cAbortCode
+                0x00008940       0x78 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sdoserv.o
+                0x00008940                cAbortCode
 
-.text.APP_FlashWrite%130
-                0x000091b8       0x78
+.text.APP_FlashWrite%129
+                0x000089b8       0x78
  .text.APP_FlashWrite
-                0x000091b8       0x78 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
-                0x000091b8                APP_FlashWrite
+                0x000089b8       0x78 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
+                0x000089b8                APP_FlashWrite
 
-.text.COE_ServiceInd%131
-                0x00009230       0x74
+.text.COE_ServiceInd%130
+                0x00008a30       0x74
  .text.COE_ServiceInd
-                0x00009230       0x74 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatcoe.o
-                0x00009230                COE_ServiceInd
+                0x00008a30       0x74 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatcoe.o
+                0x00008a30                COE_ServiceInd
 
-.text.StartOutputHandler%132
-                0x000092a4       0x74
+.text.StartOutputHandler%131
+                0x00008aa4       0x74
  .text.StartOutputHandler
-                0x000092a4       0x74 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x000092a4                StartOutputHandler
+                0x00008aa4       0x74 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x00008aa4                StartOutputHandler
 
-.text.GetSystemTimeDelay%133
-                0x00009318       0x70
+.text.GetSystemTimeDelay%132
+                0x00008b18       0x70
  .text.GetSystemTimeDelay
-                0x00009318       0x70 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
-                0x00009318                GetSystemTimeDelay
+                0x00008b18       0x70 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
+                0x00008b18                GetSystemTimeDelay
 
-.text.CalculateCRC8%134
-                0x00009388       0x6e
+.text.CalculateCRC8%133
+                0x00008b88       0x6e
  .text.CalculateCRC8
-                0x00009388       0x6e build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
-                0x00009388                CalculateCRC8
+                0x00008b88       0x6e build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
+                0x00008b88                CalculateCRC8
 
-.text.FDPLL0_Initialize%135
-                0x000093f8       0x6c
+.text.FDPLL0_Initialize%134
+                0x00008bf8       0x6c
  .text.FDPLL0_Initialize
-                0x000093f8       0x6c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1984496892/plib_clock.o
+                0x00008bf8       0x6c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1984496892/plib_clock.o
 
-.text.FOE_Data%136
-                0x00009464       0x6c
+.text.FOE_Data%135
+                0x00008c64       0x6c
  .text.FOE_Data
-                0x00009464       0x6c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/foeappl.o
-                0x00009464                FOE_Data
+                0x00008c64       0x6c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/foeappl.o
+                0x00008c64                FOE_Data
 
-.text.CLOCK_Initialize%137
-                0x000094d0       0x68
+.text.CLOCK_Initialize%136
+                0x00008cd0       0x68
  .text.CLOCK_Initialize
-                0x000094d0       0x68 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1984496892/plib_clock.o
-                0x000094d0                CLOCK_Initialize
+                0x00008cd0       0x68 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1984496892/plib_clock.o
+                0x00008cd0                CLOCK_Initialize
 
-.text.NVMCTRL_PageWrite%138
-                0x00009538       0x68
+.text.NVMCTRL_PageWrite%137
+                0x00008d38       0x68
  .text.NVMCTRL_PageWrite
-                0x00009538       0x68 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1593096446/plib_nvmctrl.o
-                0x00009538                NVMCTRL_PageWrite
+                0x00008d38       0x68 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1593096446/plib_nvmctrl.o
+                0x00008d38                NVMCTRL_PageWrite
 
-.text.COE_UpdateSyncErrorStatus%139
-                0x000095a0       0x68
+.text.COE_UpdateSyncErrorStatus%138
+                0x00008da0       0x68
  .text.COE_UpdateSyncErrorStatus
-                0x000095a0       0x68 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x000095a0                COE_UpdateSyncErrorStatus
+                0x00008da0       0x68 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x00008da0                COE_UpdateSyncErrorStatus
 
-.text.MailboxServiceInd%140
-                0x00009608       0x68
+.text.MailboxServiceInd%139
+                0x00008e08       0x68
  .text.MailboxServiceInd
-                0x00009608       0x68 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
-                0x00009608                MailboxServiceInd
+                0x00008e08       0x68 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
+                0x00008e08                MailboxServiceInd
 
-.text.ECAT_CheckWatchdog%141
-                0x00009670       0x64
+.text.ECAT_CheckWatchdog%140
+                0x00008e70       0x64
  .text.ECAT_CheckWatchdog
-                0x00009670       0x64 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x00009670                ECAT_CheckWatchdog
+                0x00008e70       0x64 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x00008e70                ECAT_CheckWatchdog
 
-.text.BL_FOE_Application%142
-                0x000096d4       0x64
+.text.BL_FOE_Application%141
+                0x00008ed4       0x64
  .text.BL_FOE_Application
-                0x000096d4       0x64 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x000096d4                BL_FOE_Application
+                0x00008ed4       0x64 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x00008ed4                BL_FOE_Application
 
-.text.EIC_CallbackRegister%143
-                0x00009738       0x5c
+.text.EIC_CallbackRegister%142
+                0x00008f38       0x5c
  .text.EIC_CallbackRegister
-                0x00009738       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/60167341/plib_eic.o
-                0x00009738                EIC_CallbackRegister
+                0x00008f38       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/60167341/plib_eic.o
+                0x00008f38                EIC_CallbackRegister
 
-.text.Reset_Handler%144
-                0x00009794       0x5c
+.text.Reset_Handler%143
+                0x00008f94       0x5c
  .text.Reset_Handler
-                0x00009794       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/startup_xc32.o
-                0x00009794                Reset_Handler
+                0x00008f94       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/startup_xc32.o
+                0x00008f94                Reset_Handler
 
-.text.ESC_BYTE_TEST_Register_Read%145
-                0x000097f0       0x5c
+.text.ESC_BYTE_TEST_Register_Read%144
+                0x00008ff0       0x5c
  .text.ESC_BYTE_TEST_Register_Read
-                0x000097f0       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
-                0x000097f0                ESC_BYTE_TEST_Register_Read
+                0x00008ff0       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x00008ff0                ESC_BYTE_TEST_Register_Read
 
-.text.Read0x10F8%146
-                0x0000984c       0x5c
+.text.Read0x10F8%145
+                0x0000904c       0x5c
  .text.Read0x10F8
-                0x0000984c       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000984c                Read0x10F8
+                0x0000904c       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000904c                Read0x10F8
 
-.text.COE_ContinueInd%147
-                0x000098a8       0x5c
+.text.COE_ContinueInd%146
+                0x000090a8       0x5c
  .text.COE_ContinueInd
-                0x000098a8       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatcoe.o
-                0x000098a8                COE_ContinueInd
+                0x000090a8       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatcoe.o
+                0x000090a8                COE_ContinueInd
 
-.text.GetOutOfEmptyEmcyQueue%148
-                0x00009904       0x5c
+.text.GetOutOfEmptyEmcyQueue%147
+                0x00009104       0x5c
  .text.GetOutOfEmptyEmcyQueue
-                0x00009904       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
-                0x00009904                GetOutOfEmptyEmcyQueue
+                0x00009104       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
+                0x00009104                GetOutOfEmptyEmcyQueue
 
-.text.GetOutOfSendEmcyQueue%149
-                0x00009960       0x5c
+.text.GetOutOfSendEmcyQueue%148
+                0x00009160       0x5c
  .text.GetOutOfSendEmcyQueue
-                0x00009960       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
-                0x00009960                GetOutOfSendEmcyQueue
+                0x00009160       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
+                0x00009160                GetOutOfSendEmcyQueue
 
-.text.FoE_ReadData%150
-                0x000099bc       0x5c
+.text.FoE_ReadData%149
+                0x000091bc       0x5c
  .text.FoE_ReadData
-                0x000099bc       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x000099bc                FoE_ReadData
+                0x000091bc       0x5c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x000091bc                FoE_ReadData
 
-.text.GetOutOfMbxQueue%151
-                0x00009a18       0x58
+.text.GetOutOfMbxQueue%150
+                0x00009218       0x58
  .text.GetOutOfMbxQueue
-                0x00009a18       0x58 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
-                0x00009a18                GetOutOfMbxQueue
+                0x00009218       0x58 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
+                0x00009218                GetOutOfMbxQueue
 
-.text.OBJ_GetEntryDesc%152
-                0x00009a70       0x58
+.text.OBJ_GetEntryDesc%151
+                0x00009270       0x58
  .text.OBJ_GetEntryDesc
-                0x00009a70       0x58 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
-                0x00009a70                OBJ_GetEntryDesc
+                0x00009270       0x58 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
+                0x00009270                OBJ_GetEntryDesc
 
-.text.NVIC_Initialize%153
-                0x00009ac8       0x56
+.text.NVIC_Initialize%152
+                0x000092c8       0x56
  .text.NVIC_Initialize
-                0x00009ac8       0x56 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865468468/plib_nvic.o
-                0x00009ac8                NVIC_Initialize
+                0x000092c8       0x56 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865468468/plib_nvic.o
+                0x000092c8                NVIC_Initialize
 
-.text.__NVIC_SetPriority%154
-                0x00009b20       0x54
+.text.__NVIC_SetPriority%153
+                0x00009320       0x54
  .text.__NVIC_SetPriority
-                0x00009b20       0x54 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865468468/plib_nvic.o
+                0x00009320       0x54 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865468468/plib_nvic.o
 
-.text.PutInMbxQueue%155
-                0x00009b74       0x52
+.text.PutInMbxQueue%154
+                0x00009374       0x52
  .text.PutInMbxQueue
-                0x00009b74       0x52 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
-                0x00009b74                PutInMbxQueue
+                0x00009374       0x52 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/mailbox.o
+                0x00009374                PutInMbxQueue
 
-.text.ESF_PDI_Init%156
-                0x00009bc8       0x4c
+.text.ESF_PDI_Init%155
+                0x000093c8       0x4c
  .text.ESF_PDI_Init
-                0x00009bc8       0x4c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
-                0x00009bc8                ESF_PDI_Init
+                0x000093c8       0x4c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x000093c8                ESF_PDI_Init
 
-.text.UpdateEEPROMLoadedState%157
-                0x00009c14       0x4c
+.text.UpdateEEPROMLoadedState%156
+                0x00009414       0x4c
  .text.UpdateEEPROMLoadedState
-                0x00009c14       0x4c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x00009c14                UpdateEEPROMLoadedState
+                0x00009414       0x4c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x00009414                UpdateEEPROMLoadedState
 
-.text.DisableSyncManChannel%158
-                0x00009c60       0x4c
+.text.DisableSyncManChannel%157
+                0x00009460       0x4c
  .text.DisableSyncManChannel
-                0x00009c60       0x4c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x00009c60                DisableSyncManChannel
+                0x00009460       0x4c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x00009460                DisableSyncManChannel
 
-.text.CheckIfEcatError%159
-                0x00009cac       0x4c
+.text.CheckIfEcatError%158
+                0x000094ac       0x4c
  .text.CheckIfEcatError
-                0x00009cac       0x4c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x00009cac                CheckIfEcatError
+                0x000094ac       0x4c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x000094ac                CheckIfEcatError
 
-.text.EnableSyncManChannel%160
-                0x00009cf8       0x4a
+.text.EnableSyncManChannel%159
+                0x000094f8       0x4a
  .text.EnableSyncManChannel
-                0x00009cf8       0x4a build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x00009cf8                EnableSyncManChannel
+                0x000094f8       0x4a build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x000094f8                EnableSyncManChannel
 
-.text.__NVIC_SetPriorityGrouping%161
-                0x00009d44       0x48
+.text.__NVIC_SetPriorityGrouping%160
+                0x00009544       0x48
  .text.__NVIC_SetPriorityGrouping
-                0x00009d44       0x48 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865468468/plib_nvic.o
+                0x00009544       0x48 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865468468/plib_nvic.o
 
-.text.FOE_Read%162
-                0x00009d8c       0x48
+.text.FOE_Read%161
+                0x0000958c       0x48
  .text.FOE_Read
-                0x00009d8c       0x48 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/foeappl.o
-                0x00009d8c                FOE_Read
+                0x0000958c       0x48 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/foeappl.o
+                0x0000958c                FOE_Read
 
-.text.__libc_init_array%163
-                0x00009dd4       0x48
+.text.__libc_init_array%162
+                0x000095d4       0x48
  .text.__libc_init_array
-                0x00009dd4       0x48 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
-                0x00009dd4                __libc_init_array
+                0x000095d4       0x48 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-init.o)
+                0x000095d4                __libc_init_array
 
-.text.ResetALEventMask%164
-                0x00009e1c       0x46
+.text.ResetALEventMask%163
+                0x0000961c       0x46
  .text.ResetALEventMask
-                0x00009e1c       0x46 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x00009e1c                ResetALEventMask
+                0x0000961c       0x46 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x0000961c                ResetALEventMask
 
-.text.SetALEventMask%165
-                0x00009e62       0x46
+.text.SetALEventMask%164
+                0x00009662       0x46
  .text.SetALEventMask
-                0x00009e62       0x46 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x00009e62                SetALEventMask
+                0x00009662       0x46 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x00009662                SetALEventMask
 
-.text.GCLK0_Initialize%166
-                0x00009ea8       0x44
+.text.GCLK0_Initialize%165
+                0x000096a8       0x44
  .text.GCLK0_Initialize
-                0x00009ea8       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1984496892/plib_clock.o
+                0x000096a8       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1984496892/plib_clock.o
 
-.text.FPU_Enable%167
-                0x00009eec       0x44
+.text.FPU_Enable%166
+                0x000096ec       0x44
  .text.FPU_Enable
-                0x00009eec       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/startup_xc32.o
+                0x000096ec       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/startup_xc32.o
 
-.text.COE_ObjDictionaryInit%168
-                0x00009f30       0x44
+.text.COE_ObjDictionaryInit%167
+                0x00009730       0x44
  .text.COE_ObjDictionaryInit
-                0x00009f30       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x00009f30                COE_ObjDictionaryInit
+                0x00009730       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x00009730                COE_ObjDictionaryInit
 
-.text.Sync1_Isr%169
-                0x00009f74       0x44
+.text.Sync1_Isr%168
+                0x00009774       0x44
  .text.Sync1_Isr
-                0x00009f74       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
-                0x00009f74                Sync1_Isr
+                0x00009774       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
+                0x00009774                Sync1_Isr
 
-.text.PutInEmptyEmcyQueue%170
-                0x00009fb8       0x44
+.text.PutInEmptyEmcyQueue%169
+                0x000097b8       0x44
  .text.PutInEmptyEmcyQueue
-                0x00009fb8       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
-                0x00009fb8                PutInEmptyEmcyQueue
+                0x000097b8       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
+                0x000097b8                PutInEmptyEmcyQueue
 
-.text.PutInSendEmcyQueue%171
-                0x00009ffc       0x44
+.text.PutInSendEmcyQueue%170
+                0x000097fc       0x44
  .text.PutInSendEmcyQueue
-                0x00009ffc       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
-                0x00009ffc                PutInSendEmcyQueue
+                0x000097fc       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
+                0x000097fc                PutInSendEmcyQueue
 
-.text.PORT_PinRead%172
-                0x0000a040       0x44
+.text.PORT_PinRead%171
+                0x00009840       0x44
  .text.PORT_PinRead
-                0x0000a040       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x00009840       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
 
-.text.APP_FW_startDownload%173
-                0x0000a084       0x44
+.text.APP_FW_startDownload%172
+                0x00009884       0x44
  .text.APP_FW_startDownload
-                0x0000a084       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x0000a084                APP_FW_startDownload
+                0x00009884       0x44 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x00009884                APP_FW_startDownload
 
-.text.AddObjectsToObjDictionary%174
-                0x0000a0c8       0x42
+.text.AddObjectsToObjDictionary%173
+                0x000098c8       0x42
  .text.AddObjectsToObjDictionary
-                0x0000a0c8       0x42 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000a0c8                AddObjectsToObjDictionary
+                0x000098c8       0x42 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x000098c8                AddObjectsToObjDictionary
 
-.text%175       0x0000a10c       0x40
- .text          0x0000a10c       0x40 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.text%174       0x0000990c       0x40
+ .text          0x0000990c       0x40 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.text.SYSTICK_TimerInitialize%176
-                0x0000a14c       0x40
+.text.SYSTICK_TimerInitialize%175
+                0x0000994c       0x40
  .text.SYSTICK_TimerInitialize
-                0x0000a14c       0x40 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1827571544/plib_systick.o
-                0x0000a14c                SYSTICK_TimerInitialize
+                0x0000994c       0x40 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1827571544/plib_systick.o
+                0x0000994c                SYSTICK_TimerInitialize
 
-.text.ICache_Enable%177
-                0x0000a18c       0x40
+.text.ICache_Enable%176
+                0x0000998c       0x40
  .text.ICache_Enable
-                0x0000a18c       0x40 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/startup_xc32.o
+                0x0000998c       0x40 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/startup_xc32.o
 
-.rodata.aName0x10F1%178
-                0x0000a1cc       0x40
+.rodata.aName0x10F1%177
+                0x000099cc       0x40
  .rodata.aName0x10F1
-                0x0000a1cc       0x40 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000a1cc                aName0x10F1
+                0x000099cc       0x40 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x000099cc                aName0x10F1
 
-.text.COE_ClearObjDictionary%179
-                0x0000a20c       0x40
+.text.COE_ClearObjDictionary%178
+                0x00009a0c       0x40
  .text.COE_ClearObjDictionary
-                0x0000a20c       0x40 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000a20c                COE_ClearObjDictionary
+                0x00009a0c       0x40 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x00009a0c                COE_ClearObjDictionary
 
-.text.__NVIC_EnableIRQ%180
-                0x0000a24c       0x3c
+.text.__NVIC_EnableIRQ%179
+                0x00009a4c       0x3c
  .text.__NVIC_EnableIRQ
-                0x0000a24c       0x3c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865468468/plib_nvic.o
+                0x00009a4c       0x3c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865468468/plib_nvic.o
 
-.text.QSPI_Initialize%181
-                0x0000a288       0x3c
+.text.QSPI_Initialize%180
+                0x00009a88       0x3c
  .text.QSPI_Initialize
-                0x0000a288       0x3c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
-                0x0000a288                QSPI_Initialize
+                0x00009a88       0x3c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
+                0x00009a88                QSPI_Initialize
 
-.rodata.aName0x1018%182
-                0x0000a2c4       0x3c
+.rodata.aName0x1018%181
+                0x00009ac4       0x3c
  .rodata.aName0x1018
-                0x0000a2c4       0x3c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000a2c4                aName0x1018
+                0x00009ac4       0x3c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x00009ac4                aName0x1018
 
-.text.ECAT_Application%183
-                0x0000a300       0x3c
+.text.ECAT_Application%182
+                0x00009b00       0x3c
  .text.ECAT_Application
-                0x0000a300       0x3c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
-                0x0000a300                ECAT_Application
+                0x00009b00       0x3c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatappl.o
+                0x00009b00                ECAT_Application
 
-.text.SQI_SetConfiguration%184
-                0x0000a33c       0x3a
+.text.SQI_SetConfiguration%183
+                0x00009b3c       0x3a
  .text.SQI_SetConfiguration
-                0x0000a33c       0x3a build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
-                0x0000a33c                SQI_SetConfiguration
+                0x00009b3c       0x3a build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x00009b3c                SQI_SetConfiguration
 
-.text.APP_RunApplication%185
-                0x0000a376       0x3a
+.text.APP_RunApplication%184
+                0x00009b76       0x3a
  .text.APP_RunApplication
-                0x0000a376       0x3a build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
+                0x00009b76       0x3a build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
 
-.text.PORT_PinSet%186
-                0x0000a3b0       0x38
+.text.PORT_PinSet%185
+                0x00009bb0       0x38
  .text.PORT_PinSet
-                0x0000a3b0       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x00009bb0       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
 
-.text.PORT_PinClear%187
-                0x0000a3e8       0x38
+.text.PORT_PinClear%186
+                0x00009be8       0x38
  .text.PORT_PinClear
-                0x0000a3e8       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x00009be8       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
 
-.text.PORT_PinOutputEnable%188
-                0x0000a420       0x38
+.text.PORT_PinOutputEnable%187
+                0x00009c20       0x38
  .text.PORT_PinOutputEnable
-                0x0000a420       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x00009c20       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
 
-.text.PORT_PinSet%189
-                0x0000a458       0x38
+.text.PORT_PinSet%188
+                0x00009c58       0x38
  .text.PORT_PinSet
-                0x0000a458       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
+                0x00009c58       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
 
-.text.PORT_PinClear%190
-                0x0000a490       0x38
+.text.PORT_PinClear%189
+                0x00009c90       0x38
  .text.PORT_PinClear
-                0x0000a490       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
+                0x00009c90       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
 
-.text.FOE_Write%191
-                0x0000a4c8       0x38
+.text.FOE_Write%190
+                0x00009cc8       0x38
  .text.FOE_Write
-                0x0000a4c8       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/foeappl.o
-                0x0000a4c8                FOE_Write
+                0x00009cc8       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/foeappl.o
+                0x00009cc8                FOE_Write
 
-.text.FOE_Ack%192
-                0x0000a500       0x38
- .text.FOE_Ack  0x0000a500       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/foeappl.o
-                0x0000a500                FOE_Ack
+.text.FOE_Ack%191
+                0x00009d00       0x38
+ .text.FOE_Ack  0x00009d00       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/foeappl.o
+                0x00009d00                FOE_Ack
 
-.text.PORT_PinSet%193
-                0x0000a538       0x38
+.text.PORT_PinSet%192
+                0x00009d38       0x38
  .text.PORT_PinSet
-                0x0000a538       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x00009d38       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
 
-.text.PORT_PinClear%194
-                0x0000a570       0x38
+.text.PORT_PinClear%193
+                0x00009d70       0x38
  .text.PORT_PinClear
-                0x0000a570       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x00009d70       0x38 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
 
-.text.OBJ_GetObjectHandle%195
-                0x0000a5a8       0x36
+.text.OBJ_GetObjectHandle%194
+                0x00009da8       0x36
  .text.OBJ_GetObjectHandle
-                0x0000a5a8       0x36 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
-                0x0000a5a8                OBJ_GetObjectHandle
+                0x00009da8       0x36 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
+                0x00009da8                OBJ_GetObjectHandle
 
-.text.NVMCTRL_BlockErase%196
-                0x0000a5e0       0x34
+.text.NVMCTRL_BlockErase%195
+                0x00009de0       0x34
  .text.NVMCTRL_BlockErase
-                0x0000a5e0       0x34 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1593096446/plib_nvmctrl.o
-                0x0000a5e0                NVMCTRL_BlockErase
+                0x00009de0       0x34 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1593096446/plib_nvmctrl.o
+                0x00009de0                NVMCTRL_BlockErase
 
-.text.qspi_memcpy_32bit%197
-                0x0000a614       0x34
+.text.qspi_memcpy_32bit%196
+                0x00009e14       0x34
  .text.qspi_memcpy_32bit
-                0x0000a614       0x34 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
+                0x00009e14       0x34 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
 
-.text.qspi_memcpy_8bit%198
-                0x0000a648       0x34
+.text.qspi_memcpy_8bit%197
+                0x00009e48       0x34
  .text.qspi_memcpy_8bit
-                0x0000a648       0x34 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
+                0x00009e48       0x34 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
 
-.text.SYS_Initialize%199
-                0x0000a67c       0x34
+.text.SYS_Initialize%198
+                0x00009e7c       0x34
  .text.SYS_Initialize
-                0x0000a67c       0x34 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/initialization.o
-                0x0000a67c                SYS_Initialize
+                0x00009e7c       0x34 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/initialization.o
+                0x00009e7c                SYS_Initialize
 
-.text.APPL_OutputMapping%200
-                0x0000a6b0       0x34
+.text.APPL_OutputMapping%199
+                0x00009eb0       0x34
  .text.APPL_OutputMapping
-                0x0000a6b0       0x34 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x0000a6b0                APPL_OutputMapping
+                0x00009eb0       0x34 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x00009eb0                APPL_OutputMapping
 
-.text.FOE_ContinueInd%201
-                0x0000a6e4       0x30
+.text.FOE_ContinueInd%200
+                0x00009ee4       0x30
  .text.FOE_ContinueInd
-                0x0000a6e4       0x30 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatfoe.o
-                0x0000a6e4                FOE_ContinueInd
+                0x00009ee4       0x30 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatfoe.o
+                0x00009ee4                FOE_ContinueInd
 
-.text.GetSyncMan%202
-                0x0000a714       0x30
+.text.GetSyncMan%201
+                0x00009f14       0x30
  .text.GetSyncMan
-                0x0000a714       0x30 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x0000a714                GetSyncMan
+                0x00009f14       0x30 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x00009f14                GetSyncMan
 
-.text.GCLK1_Initialize%203
-                0x0000a744       0x2c
+.text.GCLK1_Initialize%202
+                0x00009f44       0x2c
  .text.GCLK1_Initialize
-                0x0000a744       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1984496892/plib_clock.o
+                0x00009f44       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1984496892/plib_clock.o
 
-.text.EIC_EXTINT_0_InterruptHandler%204
-                0x0000a770       0x2c
+.text.EIC_EXTINT_0_InterruptHandler%203
+                0x00009f70       0x2c
  .text.EIC_EXTINT_0_InterruptHandler
-                0x0000a770       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/60167341/plib_eic.o
-                0x0000a770                EIC_EXTINT_0_InterruptHandler
+                0x00009f70       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/60167341/plib_eic.o
+                0x00009f70                EIC_EXTINT_0_InterruptHandler
 
-.text.EIC_EXTINT_1_InterruptHandler%205
-                0x0000a79c       0x2c
+.text.EIC_EXTINT_1_InterruptHandler%204
+                0x00009f9c       0x2c
  .text.EIC_EXTINT_1_InterruptHandler
-                0x0000a79c       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/60167341/plib_eic.o
-                0x0000a79c                EIC_EXTINT_1_InterruptHandler
+                0x00009f9c       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/60167341/plib_eic.o
+                0x00009f9c                EIC_EXTINT_1_InterruptHandler
 
-.text.EIC_EXTINT_7_InterruptHandler%206
-                0x0000a7c8       0x2c
+.text.EIC_EXTINT_7_InterruptHandler%205
+                0x00009fc8       0x2c
  .text.EIC_EXTINT_7_InterruptHandler
-                0x0000a7c8       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/60167341/plib_eic.o
-                0x0000a7c8                EIC_EXTINT_7_InterruptHandler
+                0x00009fc8       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/60167341/plib_eic.o
+                0x00009fc8                EIC_EXTINT_7_InterruptHandler
 
-.text.SysTick_Handler%207
-                0x0000a7f4       0x2c
+.text.SysTick_Handler%206
+                0x00009ff4       0x2c
  .text.SysTick_Handler
-                0x0000a7f4       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1827571544/plib_systick.o
-                0x0000a7f4                SysTick_Handler
+                0x00009ff4       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1827571544/plib_systick.o
+                0x00009ff4                SysTick_Handler
 
-.text.SQI_EnableQuadMode%208
-                0x0000a820       0x2c
+.text.SQI_EnableQuadMode%207
+                0x0000a020       0x2c
  .text.SQI_EnableQuadMode
-                0x0000a820       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
-                0x0000a820                SQI_EnableQuadMode
+                0x0000a020       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x0000a020                SQI_EnableQuadMode
 
-.text.SQI_DisableQuadMode%209
-                0x0000a84c       0x2c
+.text.SQI_DisableQuadMode%208
+                0x0000a04c       0x2c
  .text.SQI_DisableQuadMode
-                0x0000a84c       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
-                0x0000a84c                SQI_DisableQuadMode
+                0x0000a04c       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x0000a04c                SQI_DisableQuadMode
 
-.rodata.aName0x1601%210
-                0x0000a878       0x2c
+.rodata.aName0x1601%209
+                0x0000a078       0x2c
  .rodata.aName0x1601
-                0x0000a878       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000a878                aName0x1601
+                0x0000a078       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a078                aName0x1601
 
-.rodata.aName0x1A00%211
-                0x0000a8a4       0x2c
+.rodata.aName0x1A00%210
+                0x0000a0a4       0x2c
  .rodata.aName0x1A00
-                0x0000a8a4       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000a8a4                aName0x1A00
+                0x0000a0a4       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a0a4                aName0x1A00
 
-.text.FOE_Init%212
-                0x0000a8d0       0x2c
+.text.FOE_Init%211
+                0x0000a0d0       0x2c
  .text.FOE_Init
-                0x0000a8d0       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatfoe.o
-                0x0000a8d0                FOE_Init
+                0x0000a0d0       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatfoe.o
+                0x0000a0d0                FOE_Init
 
-.text.Emulation_Init%213
-                0x0000a8fc       0x2c
+.text.Emulation_Init%212
+                0x0000a0fc       0x2c
  .text.Emulation_Init
-                0x0000a8fc       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x0000a8fc                Emulation_Init
+                0x0000a0fc       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x0000a0fc                Emulation_Init
 
-.text.APPL_InputMapping%214
-                0x0000a928       0x2c
+.text.APPL_InputMapping%213
+                0x0000a128       0x2c
  .text.APPL_InputMapping
-                0x0000a928       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x0000a928                APPL_InputMapping
+                0x0000a128       0x2c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x0000a128                APPL_InputMapping
 
-.text._sbrk%215
-                0x0000a954       0x2c
- .text._sbrk    0x0000a954       0x2c c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(sbrk.o)
-                0x0000a954                _sbrk
+.text._sbrk%214
+                0x0000a154       0x2c
+ .text._sbrk    0x0000a154       0x2c c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libpic32c.a(sbrk.o)
+                0x0000a154                _sbrk
 
-.text.OSCCTRL_Initialize%216
-                0x0000a980       0x28
+.text.OSCCTRL_Initialize%215
+                0x0000a180       0x28
  .text.OSCCTRL_Initialize
-                0x0000a980       0x28 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1984496892/plib_clock.o
+                0x0000a180       0x28 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1984496892/plib_clock.o
 
-.text.NVMCTRL_IsBusy%217
-                0x0000a9a8       0x28
+.text.NVMCTRL_IsBusy%216
+                0x0000a1a8       0x28
  .text.NVMCTRL_IsBusy
-                0x0000a9a8       0x28 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1593096446/plib_nvmctrl.o
-                0x0000a9a8                NVMCTRL_IsBusy
+                0x0000a1a8       0x28 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1593096446/plib_nvmctrl.o
+                0x0000a1a8                NVMCTRL_IsBusy
 
-.text.SYSTICK_TimerCallbackSet%218
-                0x0000a9d0       0x28
+.text.SYSTICK_TimerCallbackSet%217
+                0x0000a1d0       0x28
  .text.SYSTICK_TimerCallbackSet
-                0x0000a9d0       0x28 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1827571544/plib_systick.o
-                0x0000a9d0                SYSTICK_TimerCallbackSet
+                0x0000a1d0       0x28 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1827571544/plib_systick.o
+                0x0000a1d0                SYSTICK_TimerCallbackSet
 
-.text.ESC_IRQ_cb%219
-                0x0000a9f8       0x28
+.text.ESC_IRQ_cb%218
+                0x0000a1f8       0x28
  .text.ESC_IRQ_cb
-                0x0000a9f8       0x28 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
-                0x0000a9f8                ESC_IRQ_cb
+                0x0000a1f8       0x28 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x0000a1f8                ESC_IRQ_cb
 
-.text.APP_FW_StateBOOTtoINIT%220
-                0x0000aa20       0x28
+.text.APP_FW_StateBOOTtoINIT%219
+                0x0000a220       0x28
  .text.APP_FW_StateBOOTtoINIT
-                0x0000aa20       0x28 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x0000aa20                APP_FW_StateBOOTtoINIT
+                0x0000a220       0x28 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x0000a220                APP_FW_StateBOOTtoINIT
 
-.text.HW_GetALEventRegister%221
-                0x0000aa48       0x26
+.text.HW_GetALEventRegister%220
+                0x0000a248       0x26
  .text.HW_GetALEventRegister
-                0x0000aa48       0x26 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
-                0x0000aa48                HW_GetALEventRegister
+                0x0000a248       0x26 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
+                0x0000a248                HW_GetALEventRegister
 
-.text.NVMCTRL_StatusGet%222
-                0x0000aa70       0x24
+.text.NVMCTRL_StatusGet%221
+                0x0000a270       0x24
  .text.NVMCTRL_StatusGet
-                0x0000aa70       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1593096446/plib_nvmctrl.o
-                0x0000aa70                NVMCTRL_StatusGet
+                0x0000a270       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1593096446/plib_nvmctrl.o
+                0x0000a270                NVMCTRL_StatusGet
 
-.text.SYSTICK_TimerStart%223
-                0x0000aa94       0x24
+.text.SYSTICK_TimerStart%222
+                0x0000a294       0x24
  .text.SYSTICK_TimerStart
-                0x0000aa94       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1827571544/plib_systick.o
-                0x0000aa94                SYSTICK_TimerStart
+                0x0000a294       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1827571544/plib_systick.o
+                0x0000a294                SYSTICK_TimerStart
 
-.text.TCM_Configure%224
-                0x0000aab8       0x24
+.text.TCM_Configure%223
+                0x0000a2b8       0x24
  .text.TCM_Configure
-                0x0000aab8       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/startup_xc32.o
+                0x0000a2b8       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/startup_xc32.o
 
-.text.PDI_Init_SYNC_Interrupts%225
-                0x0000aadc       0x24
+.text.PDI_Init_SYNC_Interrupts%224
+                0x0000a2dc       0x24
  .text.PDI_Init_SYNC_Interrupts
-                0x0000aadc       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/ESC_Utils.o
-                0x0000aadc                PDI_Init_SYNC_Interrupts
+                0x0000a2dc       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/ESC_Utils.o
+                0x0000a2dc                PDI_Init_SYNC_Interrupts
 
-.text.COE_Init%226
-                0x0000ab00       0x24
+.text.COE_Init%225
+                0x0000a300       0x24
  .text.COE_Init
-                0x0000ab00       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatcoe.o
-                0x0000ab00                COE_Init
+                0x0000a300       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatcoe.o
+                0x0000a300                COE_Init
 
-.text.StopOutputHandler%227
-                0x0000ab24       0x24
+.text.StopOutputHandler%226
+                0x0000a324       0x24
  .text.StopOutputHandler
-                0x0000ab24       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x0000ab24                StopOutputHandler
+                0x0000a324       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x0000a324                StopOutputHandler
 
-.text.EMCY_IsQueueEmpty%228
-                0x0000ab48       0x24
+.text.EMCY_IsQueueEmpty%227
+                0x0000a348       0x24
  .text.EMCY_IsQueueEmpty
-                0x0000ab48       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
-                0x0000ab48                EMCY_IsQueueEmpty
+                0x0000a348       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
+                0x0000a348                EMCY_IsQueueEmpty
 
-.text.FOE_Error%229
-                0x0000ab6c       0x24
+.text.FOE_Error%228
+                0x0000a36c       0x24
  .text.FOE_Error
-                0x0000ab6c       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/foeappl.o
-                0x0000ab6c                FOE_Error
+                0x0000a36c       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/foeappl.o
+                0x0000a36c                FOE_Error
 
-.text.APP_BankSwitch%230
-                0x0000ab90       0x24
+.text.APP_BankSwitch%229
+                0x0000a390       0x24
  .text.APP_BankSwitch
-                0x0000ab90       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
+                0x0000a390       0x24 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
 
-.text.NVMCTRL_Read%231
-                0x0000abb4       0x22
+.text.NVMCTRL_Read%230
+                0x0000a3b4       0x22
  .text.NVMCTRL_Read
-                0x0000abb4       0x22 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1593096446/plib_nvmctrl.o
-                0x0000abb4                NVMCTRL_Read
+                0x0000a3b4       0x22 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1593096446/plib_nvmctrl.o
+                0x0000a3b4                NVMCTRL_Read
 
-.text.EMCY_ContinueInd%232
-                0x0000abd6       0x22
+.text.EMCY_ContinueInd%231
+                0x0000a3d6       0x22
  .text.EMCY_ContinueInd
-                0x0000abd6       0x22 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
-                0x0000abd6                EMCY_ContinueInd
+                0x0000a3d6       0x22 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
+                0x0000a3d6                EMCY_ContinueInd
 
-.rodata.asEntryDesc0x1018%233
-                0x0000abf8       0x20
+.rodata.asEntryDesc0x1018%232
+                0x0000a3f8       0x20
  .rodata.asEntryDesc0x1018
-                0x0000abf8       0x20 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000abf8                asEntryDesc0x1018
+                0x0000a3f8       0x20 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a3f8                asEntryDesc0x1018
 
-.text.FOE_Busy%234
-                0x0000ac18       0x20
+.text.FOE_Busy%233
+                0x0000a418       0x20
  .text.FOE_Busy
-                0x0000ac18       0x20 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/foeappl.o
-                0x0000ac18                FOE_Busy
+                0x0000a418       0x20 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/foeappl.o
+                0x0000a418                FOE_Busy
 
-.rodata.cBitMask%235
-                0x0000ac38       0x20
+.rodata.cBitMask%234
+                0x0000a438       0x20
  .rodata.cBitMask
-                0x0000ac38       0x20 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
-                0x0000ac38                cBitMask
+                0x0000a438       0x20 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
+                0x0000a438                cBitMask
 
-.text._sbrk_r%236
-                0x0000ac58       0x20
- .text._sbrk_r  0x0000ac58       0x20 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-sbrkr.o)
-                0x0000ac58                _sbrk_r
+.text._sbrk_r%235
+                0x0000a458       0x20
+ .text._sbrk_r  0x0000a458       0x20 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-sbrkr.o)
+                0x0000a458                _sbrk_r
 
-.text.HW_GetALEventRegister_Isr%237
-                0x0000ac78       0x1e
+.text.HW_GetALEventRegister_Isr%236
+                0x0000a478       0x1e
  .text.HW_GetALEventRegister_Isr
-                0x0000ac78       0x1e build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
-                0x0000ac78                HW_GetALEventRegister_Isr
+                0x0000a478       0x1e build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/LAN925x.o
+                0x0000a478                HW_GetALEventRegister_Isr
 
-.text.NVMCTRL_Initialize%238
-                0x0000ac98       0x1c
+.text.NVMCTRL_Initialize%237
+                0x0000a498       0x1c
  .text.NVMCTRL_Initialize
-                0x0000ac98       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1593096446/plib_nvmctrl.o
-                0x0000ac98                NVMCTRL_Initialize
+                0x0000a498       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1593096446/plib_nvmctrl.o
+                0x0000a498                NVMCTRL_Initialize
 
-.text.NVMCTRL_BankSwap%239
-                0x0000acb4       0x1c
+.text.NVMCTRL_BankSwap%238
+                0x0000a4b4       0x1c
  .text.NVMCTRL_BankSwap
-                0x0000acb4       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1593096446/plib_nvmctrl.o
-                0x0000acb4                NVMCTRL_BankSwap
+                0x0000a4b4       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1593096446/plib_nvmctrl.o
+                0x0000a4b4                NVMCTRL_BankSwap
 
-.text.PORT_GroupSet%240
-                0x0000acd0       0x1c
+.text.PORT_GroupSet%239
+                0x0000a4d0       0x1c
  .text.PORT_GroupSet
-                0x0000acd0       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865521619/plib_port.o
-                0x0000acd0                PORT_GroupSet
+                0x0000a4d0       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865521619/plib_port.o
+                0x0000a4d0                PORT_GroupSet
 
-.text.PORT_GroupClear%241
-                0x0000acec       0x1c
+.text.PORT_GroupClear%240
+                0x0000a4ec       0x1c
  .text.PORT_GroupClear
-                0x0000acec       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865521619/plib_port.o
-                0x0000acec                PORT_GroupClear
+                0x0000a4ec       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865521619/plib_port.o
+                0x0000a4ec                PORT_GroupClear
 
-.text.PORT_GroupOutputEnable%242
-                0x0000ad08       0x1c
+.text.PORT_GroupOutputEnable%241
+                0x0000a508       0x1c
  .text.PORT_GroupOutputEnable
-                0x0000ad08       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865521619/plib_port.o
-                0x0000ad08                PORT_GroupOutputEnable
+                0x0000a508       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865521619/plib_port.o
+                0x0000a508                PORT_GroupOutputEnable
 
-.text.qspi_end_transfer%243
-                0x0000ad24       0x1c
+.text.qspi_end_transfer%242
+                0x0000a524       0x1c
  .text.qspi_end_transfer
-                0x0000ad24       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
+                0x0000a524       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865555181/plib_qspi.o
 
-.text.CRITICAL_SECTION_ENTER%244
-                0x0000ad40       0x1c
+.text.CRITICAL_SECTION_ENTER%243
+                0x0000a540       0x1c
  .text.CRITICAL_SECTION_ENTER
-                0x0000ad40       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
-                0x0000ad40                CRITICAL_SECTION_ENTER
+                0x0000a540       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x0000a540                CRITICAL_SECTION_ENTER
 
-.text.CRITICAL_SECTION_LEAVE%245
-                0x0000ad5c       0x1c
+.text.CRITICAL_SECTION_LEAVE%244
+                0x0000a55c       0x1c
  .text.CRITICAL_SECTION_LEAVE
-                0x0000ad5c       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
-                0x0000ad5c                CRITICAL_SECTION_LEAVE
+                0x0000a55c       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x0000a55c                CRITICAL_SECTION_LEAVE
 
-.text.ECAT_SysTick_Handler%246
-                0x0000ad78       0x1c
+.text.ECAT_SysTick_Handler%245
+                0x0000a578       0x1c
  .text.ECAT_SysTick_Handler
-                0x0000ad78       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
-                0x0000ad78                ECAT_SysTick_Handler
+                0x0000a578       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x0000a578                ECAT_SysTick_Handler
 
-.rodata.aName0x1C12%247
-                0x0000ad94       0x1c
+.rodata.aName0x1C12%246
+                0x0000a594       0x1c
  .rodata.aName0x1C12
-                0x0000ad94       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000ad94                aName0x1C12
+                0x0000a594       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a594                aName0x1C12
 
-.rodata.aName0x1C13%248
-                0x0000adb0       0x1c
+.rodata.aName0x1C13%247
+                0x0000a5b0       0x1c
  .rodata.aName0x1C13
-                0x0000adb0       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000adb0                aName0x1C13
+                0x0000a5b0       0x1c build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a5b0                aName0x1C13
 
-.text.memcpy%249
-                0x0000adcc       0x1c
- .text.memcpy   0x0000adcc       0x1c c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
-                0x0000adcc                memcpy
+.text.memcpy%248
+                0x0000a5cc       0x1c
+ .text.memcpy   0x0000a5cc       0x1c c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memcpy-stub.o)
+                0x0000a5cc                memcpy
 
-.text.OSC32KCTRL_Initialize%250
-                0x0000ade8       0x18
+.text.OSC32KCTRL_Initialize%249
+                0x0000a5e8       0x18
  .text.OSC32KCTRL_Initialize
-                0x0000ade8       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1984496892/plib_clock.o
+                0x0000a5e8       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1984496892/plib_clock.o
 
-.text.PORT_GroupRead%251
-                0x0000ae00       0x18
+.text.PORT_GroupRead%250
+                0x0000a600       0x18
  .text.PORT_GroupRead
-                0x0000ae00       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865521619/plib_port.o
-                0x0000ae00                PORT_GroupRead
+                0x0000a600       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1865521619/plib_port.o
+                0x0000a600                PORT_GroupRead
 
-.text.PDI_Init_SYSTick_Interrupt%252
-                0x0000ae18       0x18
+.text.PDI_Init_SYSTick_Interrupt%251
+                0x0000a618       0x18
  .text.PDI_Init_SYSTick_Interrupt
-                0x0000ae18       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x0000a618       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
 
-.text.PDI_IRQ_Interrupt%253
-                0x0000ae30       0x18
+.text.PDI_IRQ_Interrupt%252
+                0x0000a630       0x18
  .text.PDI_IRQ_Interrupt
-                0x0000ae30       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/ESC_Utils.o
-                0x0000ae30                PDI_IRQ_Interrupt
+                0x0000a630       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/ESC_Utils.o
+                0x0000a630                PDI_IRQ_Interrupt
 
-.rodata.aName0x7010%254
-                0x0000ae48       0x18
+.rodata.aName0x7010%253
+                0x0000a648       0x18
  .rodata.aName0x7010
-                0x0000ae48       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000ae48                aName0x7010
+                0x0000a648       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a648                aName0x7010
 
-.text.COE_GetObjectDictionary%255
-                0x0000ae60       0x18
+.text.COE_GetObjectDictionary%254
+                0x0000a660       0x18
  .text.COE_GetObjectDictionary
-                0x0000ae60       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000ae60                COE_GetObjectDictionary
+                0x0000a660       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a660                COE_GetObjectDictionary
 
-.text.BackToInitTransition%256
-                0x0000ae78       0x18
+.text.BackToInitTransition%255
+                0x0000a678       0x18
  .text.BackToInitTransition
-                0x0000ae78       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
-                0x0000ae78                BackToInitTransition
+                0x0000a678       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/ecatslv.o
+                0x0000a678                BackToInitTransition
 
-.text.OBJ_GetObjDesc%257
-                0x0000ae90       0x18
+.text.OBJ_GetObjDesc%256
+                0x0000a690       0x18
  .text.OBJ_GetObjDesc
-                0x0000ae90       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
-                0x0000ae90                OBJ_GetObjDesc
+                0x0000a690       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/objdef.o
+                0x0000a690                OBJ_GetObjDesc
 
-.text.APP_FW_GetDownloadStateFinished%258
-                0x0000aea8       0x18
+.text.APP_FW_GetDownloadStateFinished%257
+                0x0000a6a8       0x18
  .text.APP_FW_GetDownloadStateFinished
-                0x0000aea8       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x0000aea8                APP_FW_GetDownloadStateFinished
+                0x0000a6a8       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x0000a6a8                APP_FW_GetDownloadStateFinished
 
-.text.APP_Initialize%259
-                0x0000aec0       0x18
+.text.APP_Initialize%258
+                0x0000a6c0       0x18
  .text.APP_Initialize
-                0x0000aec0       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
-                0x0000aec0                APP_Initialize
+                0x0000a6c0       0x18 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/app.o
+                0x0000a6c0                APP_Initialize
 
-.text.BL_Start%260
-                0x0000aed8       0x16
+.text.BL_Start%259
+                0x0000a6d8       0x16
  .text.BL_Start
-                0x0000aed8       0x16 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/bootmode.o
-                0x0000aed8                BL_Start
+                0x0000a6d8       0x16 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/bootmode.o
+                0x0000a6d8                BL_Start
 
-.text.EMCY_GetEmcyBuffer%261
-                0x0000aeee       0x16
+.text.EMCY_GetEmcyBuffer%260
+                0x0000a6ee       0x16
  .text.EMCY_GetEmcyBuffer
-                0x0000aeee       0x16 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
-                0x0000aeee                EMCY_GetEmcyBuffer
+                0x0000a6ee       0x16 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
+                0x0000a6ee                EMCY_GetEmcyBuffer
 
-.text.APPL_AckErrorInd%262
-                0x0000af04       0x16
+.text.APPL_AckErrorInd%261
+                0x0000a704       0x16
  .text.APPL_AckErrorInd
-                0x0000af04       0x16 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x0000af04                APPL_AckErrorInd
+                0x0000a704       0x16 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x0000a704                APPL_AckErrorInd
 
-.text.APPL_StartInputHandler%263
-                0x0000af1a       0x16
+.text.APPL_StartInputHandler%262
+                0x0000a71a       0x16
  .text.APPL_StartInputHandler
-                0x0000af1a       0x16 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x0000af1a                APPL_StartInputHandler
+                0x0000a71a       0x16 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x0000a71a                APPL_StartInputHandler
 
-.text.ESC_Sync0_cb%264
-                0x0000af30       0x14
+.text.ESC_Sync0_cb%263
+                0x0000a730       0x14
  .text.ESC_Sync0_cb
-                0x0000af30       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
-                0x0000af30                ESC_Sync0_cb
+                0x0000a730       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x0000a730                ESC_Sync0_cb
 
-.text.ESC_Sync1_cb%265
-                0x0000af44       0x14
+.text.ESC_Sync1_cb%264
+                0x0000a744       0x14
  .text.ESC_Sync1_cb
-                0x0000af44       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
-                0x0000af44                ESC_Sync1_cb
+                0x0000a744       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x0000a744                ESC_Sync1_cb
 
-.rodata.aName0x6000%266
-                0x0000af58       0x14
+.rodata.aName0x6000%265
+                0x0000a758       0x14
  .rodata.aName0x6000
-                0x0000af58       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000af58                aName0x6000
+                0x0000a758       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a758                aName0x6000
 
-.rodata.aName0x1009%267
-                0x0000af6c       0x14
+.rodata.aName0x1009%266
+                0x0000a76c       0x14
  .rodata.aName0x1009
-                0x0000af6c       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000af6c                aName0x1009
+                0x0000a76c       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a76c                aName0x1009
 
-.rodata.aName0x100A%268
-                0x0000af80       0x14
+.rodata.aName0x100A%267
+                0x0000a780       0x14
  .rodata.aName0x100A
-                0x0000af80       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000af80                aName0x100A
+                0x0000a780       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a780                aName0x100A
 
-.rodata.asEntryDesc0x10F1%269
-                0x0000af94       0x14
+.rodata.asEntryDesc0x10F1%268
+                0x0000a794       0x14
  .rodata.asEntryDesc0x10F1
-                0x0000af94       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000af94                asEntryDesc0x10F1
+                0x0000a794       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a794                asEntryDesc0x10F1
 
-.rodata.aName0x10F8%270
-                0x0000afa8       0x14
+.rodata.aName0x10F8%269
+                0x0000a7a8       0x14
  .rodata.aName0x10F8
-                0x0000afa8       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000afa8                aName0x10F8
+                0x0000a7a8       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a7a8                aName0x10F8
 
-.rodata.aName0x1C00%271
-                0x0000afbc       0x14
+.rodata.aName0x1C00%270
+                0x0000a7bc       0x14
  .rodata.aName0x1C00
-                0x0000afbc       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000afbc                aName0x1C00
+                0x0000a7bc       0x14 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a7bc                aName0x1C00
 
-.rodata.aName0x1001%272
-                0x0000afd0       0x10
+.rodata.aName0x1001%271
+                0x0000a7d0       0x10
  .rodata.aName0x1001
-                0x0000afd0       0x10 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000afd0                aName0x1001
+                0x0000a7d0       0x10 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a7d0                aName0x1001
 
-.text.APPL_StartMailboxHandler%273
-                0x0000afe0       0x10
+.text.APPL_StartMailboxHandler%272
+                0x0000a7e0       0x10
  .text.APPL_StartMailboxHandler
-                0x0000afe0       0x10 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x0000afe0                APPL_StartMailboxHandler
+                0x0000a7e0       0x10 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x0000a7e0                APPL_StartMailboxHandler
 
-.text.APPL_StopInputHandler%274
-                0x0000aff0       0x10
+.text.APPL_StopInputHandler%273
+                0x0000a7f0       0x10
  .text.APPL_StopInputHandler
-                0x0000aff0       0x10 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x0000aff0                APPL_StopInputHandler
+                0x0000a7f0       0x10 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x0000a7f0                APPL_StopInputHandler
 
-.text.APPL_StartOutputHandler%275
-                0x0000b000       0x10
+.text.APPL_StartOutputHandler%274
+                0x0000a800       0x10
  .text.APPL_StartOutputHandler
-                0x0000b000       0x10 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x0000b000                APPL_StartOutputHandler
+                0x0000a800       0x10 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x0000a800                APPL_StartOutputHandler
 
-.text.APPL_StopOutputHandler%276
-                0x0000b010       0x10
+.text.APPL_StopOutputHandler%275
+                0x0000a810       0x10
  .text.APPL_StopOutputHandler
-                0x0000b010       0x10 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x0000b010                APPL_StopOutputHandler
+                0x0000a810       0x10 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x0000a810                APPL_StopOutputHandler
 
-.text.main%277  0x0000b020       0x10
- .text.main     0x0000b020       0x10 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/main.o
-                0x0000b020                main
+.text.main%276  0x0000a820       0x10
+ .text.main     0x0000a820       0x10 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1360937237/main.o
+                0x0000a820                main
 
-.text.malloc%278
-                0x0000b030       0x10
- .text.malloc   0x0000b030       0x10 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-malloc.o)
-                0x0000b030                malloc
+.text.malloc%277
+                0x0000a830       0x10
+ .text.malloc   0x0000a830       0x10 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-malloc.o)
+                0x0000a830                malloc
 
-.text.free%279  0x0000b040       0x10
- .text.free     0x0000b040       0x10 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-malloc.o)
-                0x0000b040                free
+.text.free%278  0x0000a840       0x10
+ .text.free     0x0000a840       0x10 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-malloc.o)
+                0x0000a840                free
 
-.text.memset%280
-                0x0000b050       0x10
- .text.memset   0x0000b050       0x10 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
-                0x0000b050                memset
+.text.memset%279
+                0x0000a850       0x10
+ .text.memset   0x0000a850       0x10 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-memset.o)
+                0x0000a850                memset
 
-.text%281       0x0000b060       0x10
- .text          0x0000b060       0x10 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
-                0x0000b060                strlen
+.text%280       0x0000a860       0x10
+ .text          0x0000a860       0x10 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-strlen.o)
+                0x0000a860                strlen
 
-.text.DFLL_Initialize%282
-                0x0000b070        0xe
+.text.DFLL_Initialize%281
+                0x0000a870        0xe
  .text.DFLL_Initialize
-                0x0000b070        0xe build/LAN9255_SQI_DIRECT_MODE/production/_ext/1984496892/plib_clock.o
+                0x0000a870        0xe build/LAN9255_SQI_DIRECT_MODE/production/_ext/1984496892/plib_clock.o
 
-.text.EVSYS_Initialize%283
-                0x0000b07e        0xe
+.text.EVSYS_Initialize%282
+                0x0000a87e        0xe
  .text.EVSYS_Initialize
-                0x0000b07e        0xe build/LAN9255_SQI_DIRECT_MODE/production/_ext/1986646378/plib_evsys.o
-                0x0000b07e                EVSYS_Initialize
+                0x0000a87e        0xe build/LAN9255_SQI_DIRECT_MODE/production/_ext/1986646378/plib_evsys.o
+                0x0000a87e                EVSYS_Initialize
 
-.text.BL_Stop%284
-                0x0000b08c        0xe
- .text.BL_Stop  0x0000b08c        0xe build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/bootmode.o
-                0x0000b08c                BL_Stop
+.text.BL_Stop%283
+                0x0000a88c        0xe
+ .text.BL_Stop  0x0000a88c        0xe build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/bootmode.o
+                0x0000a88c                BL_Stop
 
-.text.APPL_StopMailboxHandler%285
-                0x0000b09a        0xe
+.text.APPL_StopMailboxHandler%284
+                0x0000a89a        0xe
  .text.APPL_StopMailboxHandler
-                0x0000b09a        0xe build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x0000b09a                APPL_StopMailboxHandler
+                0x0000a89a        0xe build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x0000a89a                APPL_StopMailboxHandler
 
-.text.APPL_Application%286
-                0x0000b0a8        0xe
+.text.APPL_Application%285
+                0x0000a8a8        0xe
  .text.APPL_Application
-                0x0000b0a8        0xe build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
-                0x0000b0a8                APPL_Application
+                0x0000a8a8        0xe build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+                0x0000a8a8                APPL_Application
 
-.text.SYS_Tasks%287
-                0x0000b0b6        0xc
+.text.SYS_Tasks%286
+                0x0000a8b6        0xc
  .text.SYS_Tasks
-                0x0000b0b6        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/tasks.o
-                0x0000b0b6                SYS_Tasks
+                0x0000a8b6        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/tasks.o
+                0x0000a8b6                SYS_Tasks
 
-.text.PDI_Timer_Interrupt%288
-                0x0000b0c2        0xc
+.text.PDI_Timer_Interrupt%287
+                0x0000a8c2        0xc
  .text.PDI_Timer_Interrupt
-                0x0000b0c2        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
-                0x0000b0c2                PDI_Timer_Interrupt
+                0x0000a8c2        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/1671622016/Drivers.o
+                0x0000a8c2                PDI_Timer_Interrupt
 
-.text.ESC_Init%289
-                0x0000b0ce        0xc
+.text.ESC_Init%288
+                0x0000a8ce        0xc
  .text.ESC_Init
-                0x0000b0ce        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/ESC_Utils.o
-                0x0000b0ce                ESC_Init
+                0x0000a8ce        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108147519/ESC_Utils.o
+                0x0000a8ce                ESC_Init
 
-.rodata.asEntryDesc0x1601%290
-                0x0000b0dc        0xc
+.rodata.asEntryDesc0x1601%289
+                0x0000a8dc        0xc
  .rodata.asEntryDesc0x1601
-                0x0000b0dc        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000b0dc                asEntryDesc0x1601
+                0x0000a8dc        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a8dc                asEntryDesc0x1601
 
-.rodata.asEntryDesc0x1A00%291
-                0x0000b0e8        0xc
+.rodata.asEntryDesc0x1A00%290
+                0x0000a8e8        0xc
  .rodata.asEntryDesc0x1A00
-                0x0000b0e8        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000b0e8                asEntryDesc0x1A00
+                0x0000a8e8        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a8e8                asEntryDesc0x1A00
 
-.rodata.asEntryDesc0x1C12%292
-                0x0000b0f4        0xc
+.rodata.asEntryDesc0x1C12%291
+                0x0000a8f4        0xc
  .rodata.asEntryDesc0x1C12
-                0x0000b0f4        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000b0f4                asEntryDesc0x1C12
+                0x0000a8f4        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a8f4                asEntryDesc0x1C12
 
-.rodata.asEntryDesc0x1C13%293
-                0x0000b100        0xc
+.rodata.asEntryDesc0x1C13%292
+                0x0000a900        0xc
  .rodata.asEntryDesc0x1C13
-                0x0000b100        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000b100                asEntryDesc0x1C13
+                0x0000a900        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a900                asEntryDesc0x1C13
 
-.rodata.asEntryDesc0x6000%294
-                0x0000b10c        0xc
+.rodata.asEntryDesc0x6000%293
+                0x0000a90c        0xc
  .rodata.asEntryDesc0x6000
-                0x0000b10c        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000b10c                asEntryDesc0x6000
+                0x0000a90c        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a90c                asEntryDesc0x6000
 
-.rodata.asEntryDesc0x7010%295
-                0x0000b118        0xc
+.rodata.asEntryDesc0x7010%294
+                0x0000a918        0xc
  .rodata.asEntryDesc0x7010
-                0x0000b118        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000b118                asEntryDesc0x7010
+                0x0000a918        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a918                asEntryDesc0x7010
 
-.rodata.aName0x1000%296
-                0x0000b124        0xc
+.rodata.aName0x1000%295
+                0x0000a924        0xc
  .rodata.aName0x1000
-                0x0000b124        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000b124                aName0x1000
+                0x0000a924        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a924                aName0x1000
 
-.rodata.aName0x1008%297
-                0x0000b130        0xc
+.rodata.aName0x1008%296
+                0x0000a930        0xc
  .rodata.aName0x1008
-                0x0000b130        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000b130                aName0x1008
+                0x0000a930        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a930                aName0x1008
 
-.rodata.asEntryDesc0x1C00%298
-                0x0000b13c        0xc
+.rodata.asEntryDesc0x1C00%297
+                0x0000a93c        0xc
  .rodata.asEntryDesc0x1C00
-                0x0000b13c        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000b13c                asEntryDesc0x1C00
+                0x0000a93c        0xc build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a93c                asEntryDesc0x1C00
 
-.rodata.sEntryDesc0x1000%299
-                0x0000b148        0x8
+.rodata.sEntryDesc0x1000%298
+                0x0000a948        0x8
  .rodata.sEntryDesc0x1000
-                0x0000b148        0x8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000b148                sEntryDesc0x1000
+                0x0000a948        0x8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a948                sEntryDesc0x1000
 
-.rodata.sEntryDesc0x1001%300
-                0x0000b150        0x8
+.rodata.sEntryDesc0x1001%299
+                0x0000a950        0x8
  .rodata.sEntryDesc0x1001
-                0x0000b150        0x8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000b150                sEntryDesc0x1001
+                0x0000a950        0x8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a950                sEntryDesc0x1001
 
-.rodata.sEntryDesc0x1008%301
-                0x0000b158        0x8
+.rodata.sEntryDesc0x1008%300
+                0x0000a958        0x8
  .rodata.sEntryDesc0x1008
-                0x0000b158        0x8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000b158                sEntryDesc0x1008
+                0x0000a958        0x8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a958                sEntryDesc0x1008
 
-.rodata.sEntryDesc0x1009%302
-                0x0000b160        0x8
+.rodata.sEntryDesc0x1009%301
+                0x0000a960        0x8
  .rodata.sEntryDesc0x1009
-                0x0000b160        0x8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000b160                sEntryDesc0x1009
+                0x0000a960        0x8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a960                sEntryDesc0x1009
 
-.rodata.sEntryDesc0x100A%303
-                0x0000b168        0x8
+.rodata.sEntryDesc0x100A%302
+                0x0000a968        0x8
  .rodata.sEntryDesc0x100A
-                0x0000b168        0x8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000b168                sEntryDesc0x100A
+                0x0000a968        0x8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a968                sEntryDesc0x100A
 
-.rodata.sEntryDesc0x10F8%304
-                0x0000b170        0x8
+.rodata.sEntryDesc0x10F8%303
+                0x0000a970        0x8
  .rodata.sEntryDesc0x10F8
-                0x0000b170        0x8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
-                0x0000b170                sEntryDesc0x10F8
+                0x0000a970        0x8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/coeappl.o
+                0x0000a970                sEntryDesc0x10F8
 
-.rodata.acEmcyCoeHeader%305
-                0x0000b178        0x8
+.rodata.acEmcyCoeHeader%304
+                0x0000a978        0x8
  .rodata.acEmcyCoeHeader
-                0x0000b178        0x8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
-                0x0000b178                acEmcyCoeHeader
+                0x0000a978        0x8 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/emcy.o
+                0x0000a978                acEmcyCoeHeader
 
-.text.NonMaskableInt_Handler%306
-                0x0000b180        0x6
+.text.NonMaskableInt_Handler%305
+                0x0000a980        0x6
  .text.NonMaskableInt_Handler
-                0x0000b180        0x6 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/exceptions.o
-                0x0000b180                NonMaskableInt_Handler
+                0x0000a980        0x6 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/exceptions.o
+                0x0000a980                NonMaskableInt_Handler
 
-.text.HardFault_Handler%307
-                0x0000b186        0x6
+.text.HardFault_Handler%306
+                0x0000a986        0x6
  .text.HardFault_Handler
-                0x0000b186        0x6 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/exceptions.o
-                0x0000b186                HardFault_Handler
+                0x0000a986        0x6 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/exceptions.o
+                0x0000a986                HardFault_Handler
 
-.text.DebugMonitor_Handler%308
-                0x0000b18c        0x6
+.text.DebugMonitor_Handler%307
+                0x0000a98c        0x6
  .text.DebugMonitor_Handler
-                0x0000b18c        0x6 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/exceptions.o
-                0x0000b18c                DebugMonitor_Handler
+                0x0000a98c        0x6 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/exceptions.o
+                0x0000a98c                DebugMonitor_Handler
 
-.text.MemoryManagement_Handler%309
-                0x0000b192        0x6
+.text.MemoryManagement_Handler%308
+                0x0000a992        0x6
  .text.MemoryManagement_Handler
-                0x0000b192        0x6 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/exceptions.o
-                0x0000b192                MemoryManagement_Handler
+                0x0000a992        0x6 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/exceptions.o
+                0x0000a992                MemoryManagement_Handler
 
-.text.BusFault_Handler%310
-                0x0000b198        0x6
+.text.BusFault_Handler%309
+                0x0000a998        0x6
  .text.BusFault_Handler
-                0x0000b198        0x6 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/exceptions.o
-                0x0000b198                BusFault_Handler
+                0x0000a998        0x6 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/exceptions.o
+                0x0000a998                BusFault_Handler
 
-.text.UsageFault_Handler%311
-                0x0000b19e        0x6
+.text.UsageFault_Handler%310
+                0x0000a99e        0x6
  .text.UsageFault_Handler
-                0x0000b19e        0x6 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/exceptions.o
-                0x0000b19e                UsageFault_Handler
+                0x0000a99e        0x6 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/exceptions.o
+                0x0000a99e                UsageFault_Handler
 
-.rodata%312     0x0000b1a4        0x4
- .rodata        0x0000b1a4        0x4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
+.rodata%311     0x0000a9a4        0x4
+ .rodata        0x0000a9a4        0x4 build/LAN9255_SQI_DIRECT_MODE/production/_ext/108134065/sample_app.o
 
-.text.Dummy_Handler%313
-                0x000078e2        0x2
+.text.Dummy_Handler%312
+                0x000070e2        0x2
  .text.Dummy_Handler
-                0x000078e2        0x2 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/interrupts.o
-                0x000078e2                EIC_EXTINT_9_Handler
-                0x000078e2                TCC0_MC5_Handler
-                0x000078e2                SVCall_Handler
-                0x000078e2                SERCOM0_2_Handler
-                0x000078e2                USB_SOF_HSOF_Handler
-                0x000078e2                TCC4_OTHER_Handler
-                0x000078e2                TCC2_MC2_Handler
-                0x000078e2                EVSYS_0_Handler
-                0x000078e2                TRNG_Handler
-                0x000078e2                TC2_Handler
-                0x000078e2                USB_TRCPT0_Handler
-                0x000078e2                DAC_OTHER_Handler
-                0x000078e2                AC_Handler
-                0x000078e2                DAC_EMPTY_0_Handler
-                0x000078e2                DMAC_OTHER_Handler
-                0x000078e2                EIC_EXTINT_5_Handler
-                0x000078e2                SERCOM3_1_Handler
-                0x000078e2                SERCOM4_OTHER_Handler
-                0x000078e2                SERCOM3_2_Handler
-                0x000078e2                EIC_EXTINT_6_Handler
-                0x000078e2                PendSV_Handler
-                0x000078e2                TCC4_MC0_Handler
-                0x000078e2                EVSYS_3_Handler
-                0x000078e2                QSPI_Handler
-                0x000078e2                TCC2_MC0_Handler
-                0x000078e2                PDEC_OTHER_Handler
-                0x000078e2                TCC3_MC0_Handler
-                0x000078e2                PDEC_MC1_Handler
-                0x000078e2                TCC2_MC1_Handler
-                0x000078e2                OSCCTRL_XOSC1_Handler
-                0x000078e2                PDEC_MC0_Handler
-                0x000078e2                EIC_EXTINT_4_Handler
-                0x000078e2                SERCOM0_OTHER_Handler
-                0x000078e2                EVSYS_OTHER_Handler
-                0x000078e2                SERCOM0_0_Handler
-                0x000078e2                RTC_Handler
-                0x000078e2                SERCOM4_0_Handler
-                0x000078e2                TCC1_MC0_Handler
-                0x000078e2                SERCOM1_OTHER_Handler
-                0x000078e2                TCC2_OTHER_Handler
-                0x000078e2                EIC_EXTINT_11_Handler
-                0x000078e2                SUPC_BODDET_Handler
-                0x000078e2                EIC_EXTINT_14_Handler
-                0x000078e2                OSC32KCTRL_Handler
-                0x000078e2                EVSYS_1_Handler
-                0x000078e2                TCC4_MC1_Handler
-                0x000078e2                DMAC_0_Handler
-                0x000078e2                SUPC_OTHER_Handler
-                0x000078e2                WDT_Handler
-                0x000078e2                EIC_EXTINT_15_Handler
-                0x000078e2                TCC3_MC1_Handler
-                0x000078e2                SERCOM5_0_Handler
-                0x000078e2                TC4_Handler
-                0x000078e2                TC1_Handler
-                0x000078e2                TCC1_MC1_Handler
-                0x000078e2                TCC1_OTHER_Handler
-                0x000078e2                PAC_Handler
-                0x000078e2                SERCOM4_1_Handler
-                0x000078e2                TC3_Handler
-                0x000078e2                Dummy_Handler
-                0x000078e2                DAC_RESRDY_0_Handler
-                0x000078e2                SERCOM5_1_Handler
-                0x000078e2                DMAC_2_Handler
-                0x000078e2                TCC0_MC4_Handler
-                0x000078e2                USB_TRCPT1_Handler
-                0x000078e2                SERCOM0_1_Handler
-                0x000078e2                TCC0_MC3_Handler
-                0x000078e2                EIC_EXTINT_12_Handler
-                0x000078e2                OSCCTRL_DPLL0_Handler
-                0x000078e2                SERCOM5_OTHER_Handler
-                0x000078e2                PM_Handler
-                0x000078e2                OSCCTRL_DFLL_Handler
-                0x000078e2                DAC_RESRDY_1_Handler
-                0x000078e2                DMAC_1_Handler
-                0x000078e2                USB_OTHER_Handler
-                0x000078e2                TCC0_OTHER_Handler
-                0x000078e2                EIC_EXTINT_10_Handler
-                0x000078e2                TCC1_MC3_Handler
-                0x000078e2                OSCCTRL_XOSC0_Handler
-                0x000078e2                TCC0_MC0_Handler
-                0x000078e2                EIC_EXTINT_2_Handler
-                0x000078e2                SDHC0_Handler
-                0x000078e2                SERCOM1_1_Handler
-                0x000078e2                I2S_Handler
-                0x000078e2                PCC_Handler
-                0x000078e2                TCC3_OTHER_Handler
-                0x000078e2                EIC_EXTINT_13_Handler
-                0x000078e2                SERCOM1_0_Handler
-                0x000078e2                PUKCC_Handler
-                0x000078e2                SERCOM2_1_Handler
-                0x000078e2                SERCOM1_2_Handler
-                0x000078e2                SERCOM3_0_Handler
-                0x000078e2                SERCOM4_2_Handler
-                0x000078e2                TCC1_MC2_Handler
-                0x000078e2                ADC1_RESRDY_Handler
-                0x000078e2                NVMCTRL_1_Handler
-                0x000078e2                SERCOM5_2_Handler
-                0x000078e2                SERCOM2_2_Handler
-                0x000078e2                DAC_EMPTY_1_Handler
-                0x000078e2                ADC1_OTHER_Handler
-                0x000078e2                OSCCTRL_DPLL1_Handler
-                0x000078e2                EIC_EXTINT_3_Handler
-                0x000078e2                SERCOM3_OTHER_Handler
-                0x000078e2                EIC_EXTINT_8_Handler
-                0x000078e2                NVMCTRL_0_Handler
-                0x000078e2                ADC0_RESRDY_Handler
-                0x000078e2                ADC0_OTHER_Handler
-                0x000078e2                MCLK_Handler
-                0x000078e2                EVSYS_2_Handler
-                0x000078e2                SERCOM2_OTHER_Handler
-                0x000078e2                FREQM_Handler
-                0x000078e2                TC0_Handler
-                0x000078e2                TCC0_MC1_Handler
-                0x000078e2                DMAC_3_Handler
-                0x000078e2                RAMECC_Handler
-                0x000078e2                TC5_Handler
-                0x000078e2                SERCOM2_0_Handler
-                0x000078e2                AES_Handler
-                0x000078e2                ICM_Handler
-                0x000078e2                TCC0_MC2_Handler
+                0x000070e2        0x2 build/LAN9255_SQI_DIRECT_MODE/production/_ext/1171490990/interrupts.o
+                0x000070e2                EIC_EXTINT_9_Handler
+                0x000070e2                TCC0_MC5_Handler
+                0x000070e2                SVCall_Handler
+                0x000070e2                SERCOM0_2_Handler
+                0x000070e2                USB_SOF_HSOF_Handler
+                0x000070e2                TCC4_OTHER_Handler
+                0x000070e2                TCC2_MC2_Handler
+                0x000070e2                EVSYS_0_Handler
+                0x000070e2                TRNG_Handler
+                0x000070e2                TC2_Handler
+                0x000070e2                USB_TRCPT0_Handler
+                0x000070e2                DAC_OTHER_Handler
+                0x000070e2                AC_Handler
+                0x000070e2                DAC_EMPTY_0_Handler
+                0x000070e2                DMAC_OTHER_Handler
+                0x000070e2                EIC_EXTINT_5_Handler
+                0x000070e2                SERCOM3_1_Handler
+                0x000070e2                SERCOM4_OTHER_Handler
+                0x000070e2                SERCOM3_2_Handler
+                0x000070e2                EIC_EXTINT_6_Handler
+                0x000070e2                PendSV_Handler
+                0x000070e2                TCC4_MC0_Handler
+                0x000070e2                EVSYS_3_Handler
+                0x000070e2                QSPI_Handler
+                0x000070e2                TCC2_MC0_Handler
+                0x000070e2                PDEC_OTHER_Handler
+                0x000070e2                TCC3_MC0_Handler
+                0x000070e2                PDEC_MC1_Handler
+                0x000070e2                TCC2_MC1_Handler
+                0x000070e2                OSCCTRL_XOSC1_Handler
+                0x000070e2                PDEC_MC0_Handler
+                0x000070e2                EIC_EXTINT_4_Handler
+                0x000070e2                SERCOM0_OTHER_Handler
+                0x000070e2                EVSYS_OTHER_Handler
+                0x000070e2                SERCOM0_0_Handler
+                0x000070e2                RTC_Handler
+                0x000070e2                SERCOM4_0_Handler
+                0x000070e2                TCC1_MC0_Handler
+                0x000070e2                SERCOM1_OTHER_Handler
+                0x000070e2                TCC2_OTHER_Handler
+                0x000070e2                EIC_EXTINT_11_Handler
+                0x000070e2                SUPC_BODDET_Handler
+                0x000070e2                EIC_EXTINT_14_Handler
+                0x000070e2                OSC32KCTRL_Handler
+                0x000070e2                EVSYS_1_Handler
+                0x000070e2                TCC4_MC1_Handler
+                0x000070e2                DMAC_0_Handler
+                0x000070e2                SUPC_OTHER_Handler
+                0x000070e2                WDT_Handler
+                0x000070e2                EIC_EXTINT_15_Handler
+                0x000070e2                TCC3_MC1_Handler
+                0x000070e2                SERCOM5_0_Handler
+                0x000070e2                TC4_Handler
+                0x000070e2                TC1_Handler
+                0x000070e2                TCC1_MC1_Handler
+                0x000070e2                TCC1_OTHER_Handler
+                0x000070e2                PAC_Handler
+                0x000070e2                SERCOM4_1_Handler
+                0x000070e2                TC3_Handler
+                0x000070e2                Dummy_Handler
+                0x000070e2                DAC_RESRDY_0_Handler
+                0x000070e2                SERCOM5_1_Handler
+                0x000070e2                DMAC_2_Handler
+                0x000070e2                TCC0_MC4_Handler
+                0x000070e2                USB_TRCPT1_Handler
+                0x000070e2                SERCOM0_1_Handler
+                0x000070e2                TCC0_MC3_Handler
+                0x000070e2                EIC_EXTINT_12_Handler
+                0x000070e2                OSCCTRL_DPLL0_Handler
+                0x000070e2                SERCOM5_OTHER_Handler
+                0x000070e2                PM_Handler
+                0x000070e2                OSCCTRL_DFLL_Handler
+                0x000070e2                DAC_RESRDY_1_Handler
+                0x000070e2                DMAC_1_Handler
+                0x000070e2                USB_OTHER_Handler
+                0x000070e2                TCC0_OTHER_Handler
+                0x000070e2                EIC_EXTINT_10_Handler
+                0x000070e2                TCC1_MC3_Handler
+                0x000070e2                OSCCTRL_XOSC0_Handler
+                0x000070e2                TCC0_MC0_Handler
+                0x000070e2                EIC_EXTINT_2_Handler
+                0x000070e2                SDHC0_Handler
+                0x000070e2                SERCOM1_1_Handler
+                0x000070e2                I2S_Handler
+                0x000070e2                PCC_Handler
+                0x000070e2                TCC3_OTHER_Handler
+                0x000070e2                EIC_EXTINT_13_Handler
+                0x000070e2                SERCOM1_0_Handler
+                0x000070e2                PUKCC_Handler
+                0x000070e2                SERCOM2_1_Handler
+                0x000070e2                SERCOM1_2_Handler
+                0x000070e2                SERCOM3_0_Handler
+                0x000070e2                SERCOM4_2_Handler
+                0x000070e2                TCC1_MC2_Handler
+                0x000070e2                ADC1_RESRDY_Handler
+                0x000070e2                NVMCTRL_1_Handler
+                0x000070e2                SERCOM5_2_Handler
+                0x000070e2                SERCOM2_2_Handler
+                0x000070e2                DAC_EMPTY_1_Handler
+                0x000070e2                ADC1_OTHER_Handler
+                0x000070e2                OSCCTRL_DPLL1_Handler
+                0x000070e2                EIC_EXTINT_3_Handler
+                0x000070e2                SERCOM3_OTHER_Handler
+                0x000070e2                EIC_EXTINT_8_Handler
+                0x000070e2                NVMCTRL_0_Handler
+                0x000070e2                ADC0_RESRDY_Handler
+                0x000070e2                ADC0_OTHER_Handler
+                0x000070e2                MCLK_Handler
+                0x000070e2                EVSYS_2_Handler
+                0x000070e2                SERCOM2_OTHER_Handler
+                0x000070e2                FREQM_Handler
+                0x000070e2                TC0_Handler
+                0x000070e2                TCC0_MC1_Handler
+                0x000070e2                DMAC_3_Handler
+                0x000070e2                RAMECC_Handler
+                0x000070e2                TC5_Handler
+                0x000070e2                SERCOM2_0_Handler
+                0x000070e2                AES_Handler
+                0x000070e2                ICM_Handler
+                0x000070e2                TCC0_MC2_Handler
 
-.text.__malloc_lock%314
-                0x00007c1e        0x2
+.text.__malloc_lock%313
+                0x0000741e        0x2
  .text.__malloc_lock
-                0x00007c1e        0x2 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-mlock.o)
-                0x00007c1e                __malloc_lock
+                0x0000741e        0x2 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-mlock.o)
+                0x0000741e                __malloc_lock
 
-.text.__malloc_unlock%315
-                0x00007dae        0x2
+.text.__malloc_unlock%314
+                0x000075ae        0x2
  .text.__malloc_unlock
-                0x00007dae        0x2 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-mlock.o)
-                0x00007dae                __malloc_unlock
+                0x000075ae        0x2 c:/program files/microchip/xc32/v3.01/bin/bin/../../lib/gcc/pic32c/8.3.1/../../../../pic32c/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-mlock.o)
+                0x000075ae                __malloc_unlock
