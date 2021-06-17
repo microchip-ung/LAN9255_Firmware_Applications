@@ -75,6 +75,7 @@ UINT32  gFOETestFrameSize=1;
 #define MAX_FILE_SIZE	APP_MAX_NVM_BANK_SIZE   //SAME53 Bank A/B Size
 #define MAX_BLOCK_SIZE  APP_ERASE_BLOCK_SIZE    //SAME53 Block Size
 
+#ifdef ETHERCAT_COUNTER_APP
 typedef struct
 {
     BOOL enableUart; /* Subindex1 - enable uart */
@@ -89,6 +90,8 @@ static UART_CONFIGDATA uart_config ={1, 0, 0, 9600}; //these values are given in
 void APPL_UpdateUARTConfig(void);
 
 int uart_rd_status = 1;
+
+#endif
 
 /*------------------------------------------------------------------------------
 ------
