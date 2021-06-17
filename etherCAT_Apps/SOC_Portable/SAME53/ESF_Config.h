@@ -65,7 +65,9 @@
 
 #endif
 
+#ifdef ETHERCAT_COUNTER_APP
 #define _OLED_APP_EN
+#endif
 
 #if (ESF_PDI == SPI)
 

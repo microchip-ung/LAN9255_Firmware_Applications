@@ -57,9 +57,10 @@ THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 #include "configuration.h"
 #include "app.h"
 
-
+#ifdef ETHERCAT_COUNTER_APP
 UINT32  gTriggerCounterValMeasure=0;
 UINT32  gFOETestFrameSize=1;
+#endif
 
 #if defined(ETHERCAT_USE_FOE)
 #define FOE_FILEDOWNLOAD_PASSWORD ETHERCAT_FOE_FILE_DOWNLOAD_PASSWORD
@@ -649,6 +650,8 @@ UINT16 APPL_GenerateMapping(UINT16 *pInputSize,UINT16 *pOutputSize)
 *////////////////////////////////////////////////////////////////////////////////////////
 void APPL_InputMapping(UINT16* pData)
 {
+#ifdef ETHERCAT_COUNTER_APP
+	
 	UINT32 *pTemp = (UINT32*)pData;
     UINT16 j = 0;
 
@@ -665,6 +668,14 @@ void APPL_InputMapping(UINT16* pData)
             break;
         }
     }
+#else
+	
+	/*Get value of the GPIO - PB03*/
+    Inputs0x6000.GPIO_INPUT = PORT_PinRead(PORT_PIN_PB03);
+	
+	/*Update the GPIO value to master*/
+	MEMCPY(pData,& Inputs0x6000.GPIO_INPUT,SIZEOF( Inputs0x6000.GPIO_INPUT));
+#endif
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -676,6 +687,7 @@ void APPL_InputMapping(UINT16* pData)
 *////////////////////////////////////////////////////////////////////////////////////////
 void APPL_OutputMapping(UINT16* pData)
 {
+#ifdef ETHERCAT_COUNTER_APP
     UINT16 j = 0;
     UINT32 *pTemp = (UINT32*)pData;
 
@@ -693,6 +705,21 @@ void APPL_OutputMapping(UINT16* pData)
             break;
         }
     }
+#else
+	//Get the GPIO value from master
+    MEMCPY(&Outputs0x7010.GPIO_OUTPUT,pData,SIZEOF(Outputs0x7010.GPIO_OUTPUT));
+    
+    if(Outputs0x7010.GPIO_OUTPUT)
+    {
+        /*GPIO Set - PB02*/
+        MCHP_ESF_GPIO_SET(PORT_PIN_PB02);
+    }
+    else
+    {
+        /*GPIO Clear - PB02*/
+        MCHP_ESF_GPIO_CLEAR(PORT_PIN_PB02);
+    }
+#endif
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -702,7 +729,8 @@ void APPL_OutputMapping(UINT16* pData)
 *////////////////////////////////////////////////////////////////////////////////////////
 void APPL_Application(void)
 {
-    UINT8 tmp = 0;
+#ifdef ETHERCAT_COUNTER_APP    
+	UINT8 tmp = 0;
 	if(Outputs0x7010.Trigger)
 	{
         gTriggerCounterValMeasure += Outputs0x7010.Trigger;
@@ -739,8 +767,10 @@ void APPL_Application(void)
             SERCOM0_USART_Write((uint8_t *) &(Outputs0x7010.Uart_write_buffer), 1);
         }
     }
+#endif	
  }
 
+#ifdef ETHERCAT_COUNTER_APP
 void APPL_UpdateUARTConfig(void)
 {
     BOOL isModified = false;
@@ -823,6 +853,7 @@ void APPL_UpdateUARTConfig(void)
         SERCOM0_USART_Read((uint8_t *)&Inputs0x6000.Uart_read_buffer, 1);
     }     
 }
+#endif
 #if EXPLICIT_DEVICE_ID
 /////////////////////////////////////////////////////////////////////////////////////////
 /**

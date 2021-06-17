@@ -55,8 +55,13 @@
  * 
  * Can be modified with appropriate pins for specific use 
  */
+#ifdef ETHERCAT_COUNTER_APP
 #define GPIO_T_PDI                                  PORT_PIN_PA20
 #define GPIO_T_MCU                                  PORT_PIN_PA21
+#else
+#define GPIO_T_PDI                                  PORT_PIN_PA22
+#define GPIO_T_MCU                                  PORT_PIN_PA23
+#endif
 
 #if (ESF_PDI == SPI)
 #define QSPI_Sync_Wait()    {\
